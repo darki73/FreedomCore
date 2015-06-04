@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+.game-index #content .content-top { background: url(/Templates/FreedomCore/images/game/landing/bg-warlords.jpg) 0 0 no-repeat; }
+.zh-cn .game-index #content .content-top { background: url(/Templates/FreedomCore/images/game/landing/bg-warlords-cn.jpg) 0 0 no-repeat; }
+.zh-tw .game-index #content .content-top { background: url(/Templates/FreedomCore/images/game/landing/bg-warlords-tw.jpg) 0 0 no-repeat; }
+
+.announcement-site { float: right; font: 14px Palatino Linotype, sans-serif; height: 30px; position: relative; right: 18px; text-align: center; top: 125px; width: 200px; }
+.announcement-site-link { font: 14px Palatino Linotype, sans-serif; }
+.announcement-site-link .arrow { background: url(/Templates/FreedomCore/images/icons/more-arrows-wide.gif) 0 0px no-repeat; margin-left: 7px; width: 10px; height: 12px; display: inline-block; }
+.announcement-site-link:hover .arrow { background-position: 0 -89px; }
+span.arrow { position: relative; top: 2px;}
+
+.wiki.directory .title { padding: 29px 25px 30px; margin-left: 5px; width: 50%;}
+.wiki.directory .desc { color: #c88840; width: 90%; height:96px; }
+
+.index { padding: 0 25px 25px 25px; }
+.index .panel { position:relative; box-sizing:border-box; }
+.index .panel:before { content:""; position:absolute; top:0; right:0; width:100%; height:100%; background-repeat:no-repeat; background-position:top right; z-index:-1; }
+
+.panel.players  { height:281px; padding-right:300px; }
+.panel.gameplay { height:361px; padding-right:300px; }
+.panel.players:before  { background-image:url(/Templates/FreedomCore/images/game/landing/panel-players.jpg); }
+.panel.gameplay:before { background-image:url(/Templates/FreedomCore/images/game/landing/panel-gameplay.jpg); }
+
+h2.header { color: #EFE3D2; font: normal 23px/23px "palatino linotype", sans-serif; margin-bottom:15px; }
+.search-text { color:#B79855; font: italic 19px/40px "palatino linotype", sans-serif; margin-right:10px; }
+.search-field { width:300px; position:relative; top:-1px; margin-right:6px; padding-bottom:5px; }
+
+.circle-link { font-size:15px; display:inline-block; width:300px; margin-left:-10px; margin-top:10px; }
+.circle-icon { display:inline-block; vertical-align:middle; width:80px; height:80px; position:relative; }
+.circle-icon:before { content:""; display:block; width:49px; height:49px; position:absolute; top:13px; left:15px; background:#110C00 url(/Templates/FreedomCore/images/game/landing/circle-icons.jpg) no-repeat; background-size:100%; border-radius:24px; }
+.circle-icon:after  { content:""; display:block; width:67px; height:67px; position:absolute; top:6px; left:6px; background:url(/Templates/FreedomCore/images/game/landing/circle-icon-frame.png) no-repeat; }
+.circle-icon.race:before       { background-position: 0 0; }
+.circle-icon.class:before      { background-position: 0 -49px; }
+.circle-icon.profession:before { background-position: 0 -98px; }
+.circle-icon.talents:before    { background-position: 0 -147px; }
+.circle-icon.dungeons:before   { background-position: 0 -196px; }
+.circle-icon.pvp:before        { background-position: 0 -245px; }
+.circle-icon.factions:before   { background-position: 0 -294px; }
+.circle-icon.garrisons:before  { background-position: 0 -343px; }
+.circle-icon.events:before     { background-position: 0 -392px; }
+.circle-icon.pets:before       { background-position: 0 -441px; }
+.circle-icon.lore:before       { background-position: 0 -490px; }
+.circle-icon.story:before      { background-position: 0 -539px; }
+.circle-icon.characters:before { background-position: 0 -588px; }
+
+.main-buttons:after { content:''; display:table; clear:both; }
+.main-button { float:left; width:192px; height:73px; padding:30px 0 0 110px; margin-left:19px; background:url(/Templates/FreedomCore/images/game/landing/main-buttons.jpg) 0 0 no-repeat; }
+.main-button h3 { font: normal 20px "palatino linotype", sans-serif; color:#1a0f08; }
+.main-button .subtext { font: normal 12px "palatino linotype", sans-serif; color:#9f4529; text-transform:uppercase; }
+.main-button .subtext::before { content:""; display:inline-block; width:9px; height:9px; margin-right:10px; background:url("data:image/gif;base64,R0lGODlhCQAJAKIAALa2trOzs8LCwjwmDGtDEgAAAAAAAAAAACH5BAAAAAAALAAAAAAJAAkAAAMXKLRM2mww0CQLEWJi1+ZTBUXCYJ6DkAAAOw==") no-repeat left center; }
+.main-button:first-child { margin-left:0; }
+.main-button.new { background-position: left top; }
+.main-button.returning { background-position: left center; }
+.main-button.latest { background-position: left bottom; }
+.main-button.new:hover { background-position: right top; }
+.main-button.returning:hover { background-position: right center; }
+.main-button.latest:hover { background-position: right bottom; }
+
+body.pt-pt .main-button h3 { font-size:19px; }
+body.it-it .main-button h3,
+body.de-de .main-button h3,
+body.pt-br .main-button h3,
+body.es-es .main-button h3 { font-size:18px; }
+body.es-mx .main-button h3 { font-size:17px; }
+body.ru-ru .main-button h3,
+body.fr-fr .main-button h3 { font-size:16px; }
+body.ko-kr .main-button h3 { font-size:14px; }

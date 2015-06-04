@@ -1,0 +1,62 @@
+<?php
+
+global $FCCore;
+// Auth Database Settings
+$FCCore['AuthDB']['host']				=	'localhost';
+$FCCore['AuthDB']['database']			=	'auth';
+$FCCore['AuthDB']['username']			=	'';
+$FCCore['AuthDB']['password']			=	'';
+$FCCore['AuthDB']['encoding']			=	'UTF8';
+// Characters Database Settings
+$FCCore['CharDB']['host']				=	'localhost';
+$FCCore['CharDB']['database']			=	'characters';
+$FCCore['CharDB']['username']			=	'';
+$FCCore['CharDB']['password']			=	'';
+$FCCore['CharDB']['encoding']			=	'UTF8';
+// World Database Settings
+$FCCore['WorldDB']['host']				=	'localhost';
+$FCCore['WorldDB']['database']			=	'world';
+$FCCore['WorldDB']['username']			=	'';
+$FCCore['WorldDB']['password']			=	'';
+$FCCore['WorldDB']['encoding']			=	'UTF8';
+// Database Settings
+$FCCore['Database']['host']				=	'localhost';
+$FCCore['Database']['database']			=	'freedomcore';
+$FCCore['Database']['username']			=	'';
+$FCCore['Database']['password']			=	'';
+$FCCore['Database']['encoding']			=	'UTF8';
+$FCCore['Database']['encoding']			=	'UTF8';
+// System Configuration
+//$FCCore['TimeZone']					=	'Asia/Singapore'; // Singapore
+$FCCore['TimeZone']						=	'Europe/Moscow'; //Moscow
+// Smarty Configuration
+$FCCore['SmartyCaching']				=	false;
+$FCCore['SmartyDebug']					=	false;
+// FreedomCore Configuration
+$FCCore['Caching']						=	false;
+$FCCore['debug']						=	true;
+$FCCore['email']						=	"no-reply@freedomcore.eu";	// Admin Email
+$FCCore['registration']					=	false;
+// Template Engine Configuration
+$FCCore['ApplicationName']				=	"FreedomCore";
+$FCCore['ApplicationDescription']		=	"FreedomCore Test Engine";
+$FCCore['ApplicationKeywords']			=	"FreedomHead";
+$FCCore['Template']						=	"FreedomCore";
+$FCCore['ExpansionTemplate']			=	"WoD"; // MoP - Mists of Pandaria, WoD - Warlords of Draenor, Cata - Cataclysm
+
+// Social Media Links
+$FCCore['Social']['Facebook']			=	"FreedomHead";
+$FCCore['Social']['Twitter']			=	"FreedomHead";
+$FCCore['Social']['Vkontakte']			=	"FreedomHead";
+$FCCore['Social']['Skype']				=	"FreedomHead";
+$FCCore['Social']['Youtube']			=	"FreedomHead";
+
+// Google Analytics
+$FCCore['GoogleAnalytics']['Account']	=	"";
+$FCCore['GoogleAnalytics']['Domain']	=	"";	
+
+// Facebook Settings
+$FCCore['Facebook']['admins']			=	"";
+$FCCore['Facebook']['pageid']			=	"";
+
+?>

@@ -1,0 +1,960 @@
+body,html {
+	background-color:transparent;
+	height:100%
+}
+
+body {
+	min-width:320px
+}
+
+body #info-wrapper {
+	width:40%;
+	min-width:200px;
+	max-width:500px;
+	vertical-align:top;
+	padding:0 7px;
+	float:left
+}
+
+body #login-wrapper {
+	width:500px;
+	margin:0 auto 115px
+}
+
+body #login-wrapper.info-active {
+	width:50%;
+	min-width:230px;
+	max-width:500px;
+	padding:0 7px;
+	float:right
+}
+
+body #login-wrapper.info-active #password-form {
+	width:100%
+}
+
+body.wtcg #login-wrapper {
+	margin:0 auto
+}
+
+body #password-form {
+	width:360px;
+	margin-left:auto;
+	margin-right:auto
+}
+
+body #password-form button#submit {
+	margin-bottom:10px
+}
+
+body .legal-wrapper {
+	width:720px
+}
+
+body .legal-wrapper ol {
+	margin-left:20px
+}
+
+body.challenge-template #password-form {
+	width:500px
+}
+
+body.bnet {
+	background-image:url(/Templates/FreedomCore/images/login/background/login-background-1920.jpg);
+	background-color:#0f2439
+}
+
+body.bnet .persistWrapper {
+	margin-top:10px
+}
+
+body.armory {
+	background-image:url(/Templates/FreedomCore/images/login/background/armory-background-768.jpg);
+	background-color:#1e0606
+}
+
+body.armory .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory.png)
+}
+
+body.armory :lang(de) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-de.png)
+}
+
+body.armory :lang(es) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-es.png)
+}
+
+body.armory :lang(fr) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-fr.png)
+}
+
+body.armory :lang(it) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-it.png)
+}
+
+body.armory :lang(ko) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-ko.png)
+}
+
+body.armory :lang(pt) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-pt.png)
+}
+
+body.armory :lang(ru) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-ru.png)
+}
+
+body.armory :lang(zh-CN) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-zh-cn.png)
+}
+
+body.armory :lang(zh-TW) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-zh-tw.png)
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (-o-min-device-pixel-ratio:32),only screen and (min--moz-device-pixel-ratio:1.5),only screen and (min-device-pixel-ratio:1.5) {
+body.armory .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-2x.png)
+}
+
+body.armory :lang(de) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-de-2x.png)
+}
+
+body.armory :lang(es) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-es-2x.png)
+}
+
+body.armory :lang(fr) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-fr-2x.png)
+}
+
+body.armory :lang(it) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-it-2x.png)
+}
+
+body.armory :lang(ko) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-ko-2x.png)
+}
+
+body.armory :lang(pt) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-pt-2x.png)
+}
+
+body.armory :lang(ru) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-ru-2x.png)
+}
+
+body.armory :lang(zh-CN) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-zh-cn-2x.png);
+	background-size:239px 146px
+}
+
+body.armory :lang(zh-TW) .logo {
+	background-image:url(/Templates/FreedomCore/images/login/logo/armory/armory-zh-tw-2x.png)
+}
+}
+
+body.armory em {
+	color:#1baae9
+}
+
+body.armory .icon-48-refresh {
+	background-image:url(https://eu.battle.net/login/static/images/toolkit/themes/bnet/icons/sprite-48-orange.png)
+}
+
+body.wow.WotLK{
+	background-image:url(/Templates/FreedomCore/images/login/background/WotLK/background-1920.jpg);
+	background-color:#0f2a49
+}
+
+body.wow.Cata{
+	background-image:url(/Templates/FreedomCore/images/login/background/Cata/background-1920.jpg);
+	background-color:#230f04
+}
+
+body.wow.MoP{
+	background-image:url(/Templates/FreedomCore/images/login/background/MoP/background-1920.jpg);
+	background-color:#230f04
+}
+
+body.wow.WoD{
+	background-image:url(/Templates/FreedomCore/images/login/background/WoD/background-1920.jpg);
+	background-color:#230f04
+}
+
+body.wow em {
+	color:#1baae9
+}
+
+body.wow .icon-48-refresh {
+	background-image:url(https://eu.battle.net/login/static/images/toolkit/themes/bnet/icons/sprite-48-orange.png)
+}
+
+body.shop {
+	background-image:url(/Templates/FreedomCore/images/login/background/bnet-background-1920.jpg);
+	background-color:#0f2a49
+}
+
+body.heroes {
+	background-image:url(/Templates/FreedomCore/images/login/background/heroes-background-1920.jpg);
+	background-color:#18162c
+}
+
+@media (max-width:1280px) {
+body.bnet {
+	background-image:url(/Templates/FreedomCore/images/login/background/login-background-1280.jpg)
+}
+
+body.wow.WotLK{
+	background-image:url(/Templates/FreedomCore/images/login/background/WotLK/background-1280.jpg);
+	background-color:#0f2a49
+}
+
+body.wow.Cata{
+	background-image:url(/Templates/FreedomCore/images/login/background/Cata/background-1280.jpg);
+	background-color:#230f04
+}
+
+body.wow.MoP{
+	background-image:url(/Templates/FreedomCore/images/login/background/MoP/background-1280.jpg);
+	background-color:#230f04
+}
+
+body.wow.WoD{
+	background-image:url(/Templates/FreedomCore/images/login/background/WoD/background-1280.jpg);
+	background-color:#230f04
+}
+
+body.shop {
+	background-image:url(/Templates/FreedomCore/images/login/background/bnet-background-1280.jpg)
+}
+
+body.heroes {
+	background-image:url(/Templates/FreedomCore/images/login/background/heroes-background-1280.jpg)
+}
+}
+
+@media (max-width:1024px) {
+body.bnet {
+	background-image:url(/Templates/FreedomCore/images/login/background/login-background-1024.jpg)
+}
+
+body.wow.WotLK{
+	background-image:url(/Templates/FreedomCore/images/login/background/WotLK/background-1024.jpg);
+	background-color:#0f2a49
+}
+
+body.wow.Cata{
+	background-image:url(/Templates/FreedomCore/images/login/background/Cata/background-1024.jpg);
+	background-color:#230f04
+}
+
+body.wow.MoP{
+	background-image:url(/Templates/FreedomCore/images/login/background/MoP/background-1024.jpg);
+	background-color:#230f04
+}
+
+body.wow.WoD{
+	background-image:url(/Templates/FreedomCore/images/login/background/WoD/background-1024.jpg);
+	background-color:#230f04
+}
+
+body.shop {
+	background-image:url(/Templates/FreedomCore/images/login/background/bnet-background-1024.jpg)
+}
+
+body.heroes {
+	background-image:url(/Templates/FreedomCore/images/login/background/heroes-background-1024.jpg)
+}
+}
+
+@media (max-width:768px) {
+body.bnet {
+	background-image:url(/Templates/FreedomCore/images/login/background/login-background-768.jpg)
+}
+
+body.armory {
+	background-image:url(/Templates/FreedomCore/images/login/background/wow-background-768.jpg)
+}
+
+body.shop {
+	background-image:url(/Templates/FreedomCore/images/login/background/bnet-background-768.jpg)
+}
+
+body.wow.WotLK{
+	background-image:url(/Templates/FreedomCore/images/login/background/WotLK/background-768.jpg);
+	background-color:#0f2a49
+}
+
+body.wow.Cata{
+	background-image:url(/Templates/FreedomCore/images/login/background/Cata/background-768.jpg);
+	background-color:#230f04
+}
+
+body.wow.MoP{
+	background-image:url(/Templates/FreedomCore/images/login/background/MoP/background-768.jpg);
+	background-color:#230f04
+}
+
+body.wow.WoD{
+	background-image:url(/Templates/FreedomCore/images/login/background/WoD/background-768.jpg);
+	background-color:#230f04
+}
+
+.legal-wrapper {
+	width:95%!important
+}
+
+.legal-wrapper .main-container {
+	overflow-y:visible!important;
+	height:100%!important
+}
+
+.legal-wrapper ol {
+	margin:5px 0 0 20px
+}
+
+.legal-wrapper ol li {
+	margin-bottom:10px;
+	line-height:15px
+}
+
+.legal-wrapper ol:first-child {
+	margin-left:10px
+}
+
+.legal-wrapper .legal-document h1 {
+	font-size:25px;
+	line-height:28px
+}
+
+.legal-wrapper .legal-document h3 {
+	margin-bottom:15px
+}
+
+.legal-wrapper .legal-document p {
+	line-height:15px
+}
+
+.legal-wrapper .btn-response {
+	display:block;
+	width:100%;
+	float:none
+}
+
+.lower-footer #copyright span {
+	display:block
+}
+}
+
+@media (max-width:480px) {
+body.bnet {
+	background-image:url(/Templates/FreedomCore/images/login/background/login-background-480.jpg)
+}
+
+body.armory {
+	background-image:url(/Templates/FreedomCore/images/login/background/armory-background-480.jpg)
+}
+
+body.armory .logo {
+	margin-bottom:0
+}
+
+body.wow.WotLK{
+	background-image:url(/Templates/FreedomCore/images/login/background/WotLK/background-480.jpg);
+	background-color:#0f2a49
+}
+
+body.wow.Cata{
+	background-image:url(/Templates/FreedomCore/images/login/background/Cata/background-480.jpg);
+	background-color:#230f04
+}
+
+body.wow.MoP{
+	background-image:url(/Templates/FreedomCore/images/login/background/MoP/background-480.jpg);
+	background-color:#230f04
+}
+
+body.wow.WoD{
+	background-image:url(/Templates/FreedomCore/images/login/background/WoD/background-480.jpg);
+	background-color:#230f04
+}
+
+body.shop {
+	background-image:url(/Templates/FreedomCore/images/login/background/bnet-background-480.jpg)
+}
+
+body.heroes {
+	background-image:url(/Templates/FreedomCore/images/login/background/heroes-background-480.jpg)
+}
+
+body {
+	min-width:320px
+}
+
+body .logo {
+	margin-top:5px
+}
+
+body h1 {
+	font-size:25px;
+	margin-bottom:15px;
+	line-height:28px
+}
+
+body h3 {
+	font-size:14px
+}
+
+body h5 {
+	margin-bottom:5px
+}
+
+body #info-wrapper,body #login-wrapper,body #password-form,body .legal-wrapper {
+	width:290px!important
+}
+
+body #login-wrapper.info-active {
+	float:none
+}
+
+body .legal-wrapper ol li {
+	margin-bottom:5px;
+	line-height:15px
+}
+
+body .legal-wrapper ol ol,body .legal-wrapper ol ol:first-child {
+	margin-left:0
+}
+
+body #info-wrapper {
+	float:none;
+	margin-left:auto;
+	margin-right:auto
+}
+
+body .btn-response {
+	display:block;
+	width:100%;
+	float:none;
+	margin:0
+}
+
+body .captcha .captcha-image {
+	height:45px;
+	padding:0
+}
+
+body .captcha .captcha-image img {
+	height:45px
+}
+
+body .captcha .icon-48-refresh {
+	right:5px;
+	top:9px;
+	width:24px;
+	height:24px;
+	background-size:240px 721px;
+	background-position:-144px -96px
+}
+
+body .visible-phone {
+	display:inherit!important
+}
+
+body .control-group.separated {
+	margin-top:1em
+}
+
+body #persistAuthenticator-label {
+	margin:10px 0 20px!important
+}
+
+body.phone-lock-template .separated {
+	margin-bottom:0
+}
+
+body.phone-lock-template .number-container {
+	padding:17px
+}
+
+body.phone-lock-template em {
+	display:block;
+	margin-top:10px
+}
+
+body.challenge-template #password-form {
+	width:290px
+}
+
+.lower-footer #copyright {
+	font-size:11px!important
+}
+
+p {
+	line-height:20px
+}
+}
+
+.grid-container {
+	padding:10px
+}
+
+.grid-container.wrapper {
+	position:relative;
+	min-height:100%
+}
+
+.mobile {
+	-webkit-tap-highlight-color:transparent
+}
+
+.logo {
+	margin-top:35px;
+	margin-bottom:10px
+}
+
+.icon-center {
+	display:block;
+	margin:0 auto
+}
+
+.alert {
+	margin-bottom:15px
+}
+
+label.control-label {
+	display:none
+}
+
+a.btn,button.btn,input,label.checkbox {
+	margin-bottom:15px
+}
+
+a.btn i[class^=icon-],button.btn i[class^=icon-],input i[class^=icon-],label.checkbox i[class^=icon-] {
+	margin-left:0
+}
+
+.text-center {
+	text-align:center
+}
+
+#help-links {
+	list-style-type:none;
+	margin-left:0;
+	text-align:center
+}
+
+#help-links li {
+	padding-left:0;
+	margin-bottom:15px
+}
+
+.btn-large,.btn-response {
+	padding:9px 10px
+}
+
+.btn-response {
+	display:block;
+	float:left;
+	width:240px;
+	margin-right:20px
+}
+
+a.btn-response {
+	margin-right:0
+}
+
+#resend-challenge {
+	margin:0;
+	padding:6px 0;
+	min-width:100px
+}
+
+#resend-challenge.loading:before {
+	margin-left:0
+}
+
+#resend-challenge .icon {
+	margin-right:0
+}
+
+#sending {
+	display:none;
+	text-align:center;
+	margin-top:20px
+}
+
+#sending i {
+	vertical-align:middle
+}
+
+#resend-alert {
+	display:none;
+	margin-top:10px
+}
+
+#challenge-input {
+	display:none
+}
+
+#resend-challenge,#resend-challenge:active,#resend-challenge:focus,#resend-challenge:hover {
+	background:none!important;
+	border:none!important;
+	box-shadow:none!important
+}
+
+.phone-lock-template .separated {
+	margin-bottom:1em
+}
+
+.number-container {
+	border-top:1px solid rgba(255,255,255,.15);
+	background-color:rgba(0,0,0,.3);
+	padding:20px
+}
+
+.number-container h3 {
+	margin:0!important
+}
+
+.number-container.bottom {
+	border-bottom:1px solid rgba(255,255,255,.15)
+}
+
+em {
+	font-style:normal;
+	color:#75e900
+}
+
+.embedded {
+	background-clip:padding-box;
+	background:radial-gradient(closest-side at 50% 100px,#283243,#1d222c) center -100px/contain no-repeat #1d222c;
+	background-origin:padding-box;
+	border-color:#000;
+	box-shadow:0 5px 10px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.07) inset;
+	outline:0;
+	overflow:visible;
+	width:340px;
+	min-width:400px;
+	margin:0 auto
+}
+
+.embedded .logo {
+	margin-top:25px
+}
+
+.embedded #login-wrapper,.embedded #password-form {
+	width:340px!important;
+	margin:auto
+}
+
+.embedded .grid-container {
+	padding:0
+}
+
+.embedded .close {
+	margin:15px 15px 0 0
+}
+
+h1 {
+	font-size:35px;
+	margin-bottom:30px
+}
+
+h2 {
+	margin-bottom:5px
+}
+
+h3 {
+	font-size:20px
+}
+
+h5 {
+	font-size:15px
+}
+
+p {
+	margin-bottom:10px
+}
+
+.control-group {
+	margin-bottom:5px
+}
+
+.control-group.separated {
+	margin-top:2em
+}
+
+.error-template .error-heading {
+	margin-top:40px
+}
+
+.js-enabled .select-box {
+	margin-top:0
+}
+
+#challenge-list {
+	position:relative
+}
+
+#challenge-list select.css-input+.icon-chevron-down {
+	position:absolute;
+	right:8px;
+	top:10px
+}
+
+.footer {
+	margin-top:75px
+}
+
+.footer .lower-footer-wrapper {
+	position:absolute;
+	bottom:35px;
+	width:96%
+}
+
+.footer #legal-kr {
+	display:none
+}
+
+.footer.footer-cn {
+	margin-top:100px
+}
+
+.lower-footer #copyright {
+	padding:0;
+	font-size:13px;
+	color:#505359;
+	text-align:center
+}
+
+.lower-footer #copyright span {
+	margin:0 10px 0 0
+}
+
+.lower-footer #copyright a {
+	margin:0 10px 0 0;
+	color:rgba(255,255,255,.7);
+	white-space:nowrap
+}
+
+.lower-footer #copyright a:focus,.lower-footer #copyright a:hover {
+	color:#fff
+}
+
+body.zh-cn #login-wrapper {
+	margin-bottom:170px
+}
+
+.captcha {
+	position:relative;
+	margin-bottom:5px
+}
+
+.captcha #captcha-anchor {
+	cursor:pointer;
+	display:block
+}
+
+.captcha .icon-48-refresh {
+	position:absolute;
+	right:10px;
+	top:19px;
+	background-size:480px 1440px
+}
+
+.captcha .captcha-image {
+	background-color:#FFF;
+	border-radius:3px;
+	padding:10px 0;
+	margin:10px auto 0;
+	height:70px
+}
+
+.captcha .captcha-image img {
+	display:block;
+	margin:0 auto
+}
+
+a.btn .spinner-battlenet,button .spinner-battlenet {
+	display:none
+}
+
+a.btn.disabled-loading .spinner-battlenet,button.disabled-loading .spinner-battlenet {
+	display:inline-block
+}
+
+.input-alike,.input-checkbox.checked:active {
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+	-moz-user-select:-moz-none;
+	-webkit-user-select:none;
+	-ms-user-select:none;
+	user-select:none
+}
+
+.mobile .input-alike {
+	-webkit-transform:translate3d(0,0,0)
+}
+
+.input-alike {
+	border:1px solid rgba(9,140,200,.7);
+	border-radius:2px;
+	box-shadow:inset 0 1px 2px rgba(0,0,0,.025)
+}
+
+.wtcg .input-alike {
+	border-color:rgba(107,56,0,.7)
+}
+
+.main-container {
+	-webkit-overflow-scrolling:touch;
+	word-wrap:break-word
+}
+
+.legal-wrapper {
+	margin-left:auto;
+	margin-right:auto
+}
+
+.legal-wrapper .main-container {
+	background-color:rgba(0,0,0,.15);
+	border:1px solid rgba(255,255,255,.15);
+	box-shadow:0 0 transparent;
+	border-radius:2px
+}
+
+#legal-form {
+	padding-bottom:25px
+}
+
+.legal-document {
+	font-size:13px;
+	padding:0 5px;
+	margin-bottom:10px
+}
+
+.legal-document h1 {
+	font-size:30px;
+	font-weight:400;
+	line-height:30px
+}
+
+.legal-document h2 {
+	padding-top:0;
+	font-size:24px;
+	line-height:24px
+}
+
+.legal-document h3 {
+	padding-top:0;
+	font-size:16px;
+	line-height:16px
+}
+
+.legal-document h5 {
+	padding-top:0
+}
+
+.legal-document ol {
+	list-style:none
+}
+
+.legal-document li {
+	padding-left:0
+}
+
+.legal-document-kr {
+	overflow-y:scroll
+}
+
+.legal-document>ol {
+	list-style-type:decimal
+}
+
+.legal-document>ol>li>ol {
+	list-style-type:upper-alpha;
+	margin-top:10px
+}
+
+.legal-document>ol>li>ol>li>ol {
+	list-style-type:lower-roman
+}
+
+.legal-document>ol>li>ol>li>ol>li>ol {
+	list-style-type:decimal
+}
+
+.legal-document>ol>li>ol>li>ol>li>ol>li>ol {
+	list-style-type:lower-alpha
+}
+
+.legal-document>ol>li>ol>li>ol>li>ol>li>ol>li ol {
+	list-style-type:decimal
+}
+
+.legal-summary-bar {
+	border-width:1px 1px 0;
+	padding:20px 20px 10px 10px
+}
+
+.legal-summary-bar-bottom {
+	border-width:1px;
+	padding:20px 20px 10px 10px
+}
+
+.form-content ol {
+	text-align:left;
+	margin:0;
+	line-height:16px;
+	word-spacing:1px
+}
+
+.form-content ol li {
+	letter-spacing:normal;
+	margin:15px 0 0 1px;
+	font-size:12px;
+	line-height:18px
+}
+
+.form-content ol li span {
+	margin-left:-4px
+}
+
+.agreements a.clean {
+	font-size:12px
+}
+
+.agreements a.clean i {
+	margin-left:6px
+}
+
+.form-footer {
+	margin-top:20px
+}
+
+.authenticator-template .authenticator-image {
+	text-align:center
+}
+
+.authenticator-template .row-fluid label.matrix-label {
+	margin-bottom:0;
+	min-height:1px
+}
+
+.authenticator-template #persistAuthenticator-label {
+	margin:20px 0 40px
+}
+
+.authenticator-template #help-links {
+	margin-top:15px;
+	text-align:left
+}
+
+.authenticator-template #auth-code-imported {
+	padding:20px 45px 20px 59px
+}

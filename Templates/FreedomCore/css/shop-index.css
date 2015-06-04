@@ -1,0 +1,834 @@
+
+.services-home #content .content-top {
+	background: url(/Templates/FreedomCore/images/shop/bg-wod-services-top.jpg) 0 0 no-repeat;
+}
+
+.ui-tooltip ul li {
+	color: #959492 !important; /* !important is sign that refactoring is needed */
+}
+.ui-button span span {
+	font-weight: bold;
+}
+.tooltip-content-div {
+	display: none;
+}
+.wod-no-banner {
+	height: 10px;
+}
+
+.main-banners {
+	height: 348px;
+}
+.main-banners .expansion {
+	float: left;
+	margin-left: 340px;
+	margin-top: 15px;
+	/*text-align: center;*/
+	width: 310px;
+}
+.main-banners .expansion span,
+.main-banners .expansion p {
+	display: block;
+}
+.fr-fr .main-banners .expansion .desc {
+	padding-right: 35px;
+}
+.ru-ru .main-banners .expansion .desc {
+	padding-right: 15px;
+}
+.de-de .main-banners .expansion .desc span,
+.fr-fr .main-banners .expansion .desc span,
+.it-it .main-banners .expansion .desc span,
+.ru-ru .main-banners .expansion .desc span {
+	display: inline;
+}
+.main-banners .expansion .title {
+	color: #b39265;
+	font-size: 12px;
+	letter-spacing: 2px;
+	margin-bottom: 3px;
+	text-transform: uppercase;
+}
+.main-banners .expansion .headline {
+	color: #efe3d2;
+	font-family: Palatino Linotype, Sans-serif;
+	font-size: 30px;
+	line-height: 40px;
+	margin-bottom: 20px;
+}
+.main-banners .expansion .headline .trademark {
+	display: inline;
+	font-size: 12px;
+	vertical-align: super;
+}
+.main-banners .expansion .headline sup {
+	font-size: 10px;
+}
+
+.ko-kr .main-banners .expansion a.kr-buy {
+	width: 200px;
+	top: 53px;
+	left: -131px;
+	position: relative;
+	font-family: Dotum;
+}
+
+.main-banners .expansion a.buynow {
+	background-color: #792605;
+	background-image: linear-gradient(bottom, rgb(60,13,7) 20%, rgb(102,34,3) 75%);
+	background-image: -o-linear-gradient(bottom, rgb(60,13,7) 20%, rgb(102,34,3) 75%);
+	background-image: -moz-linear-gradient(bottom, rgb(60,13,7) 20%, rgb(102,34,3) 75%);
+	background-image: -webkit-linear-gradient(bottom, rgb(60,13,7) 20%, rgb(102,34,3) 75%);
+	background-image: -ms-linear-gradient(bottom, rgb(60,13,7) 20%, rgb(102,34,3) 75%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.2, rgb(60,13,7)), color-stop(0.75, rgb(102,34,3)));
+	border: 1px solid #5b1607;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: #100803 1px 2px 5px;
+	-moz-box-shadow: #100803 1px 2px 5px;
+	box-shadow: #100803 1px 2px 5px;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-top:10px;
+	min-width: 184px;
+	padding: 8px 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.main-banners .expansion .desc {
+	color: #efe3d2;
+	font-family: "Palatino Linotype", serif;
+	font-size: 19px;
+}
+.main-banners .expansion .desc > span {
+	color: #ffb100;
+}
+.main-banners .expansion .subtext {
+	color: #927246;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+.main-banners .starter-edition {
+	float: left;
+	padding-top: 42px;
+	text-align: center;
+	width: 344px;
+}
+.main-banners .starter-edition span {
+	display: block;
+	font-weight: bold;
+	width: 310px;
+}
+.main-banners .starter-edition .title {
+	color: #000000;
+	font-family: Palatino Linotype, Sans-serif;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+.main-banners .starter-edition .headline {
+	color: #003972;
+	font-family: Palatino Linotype, Sans-serif;
+	font-size: 24px;
+	line-height: 25px;
+}
+.main-banners .starter-edition a.playnow {
+	background-color: #0d3f66;
+	background-image: linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -o-linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -moz-linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -webkit-linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -ms-linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, rgb(23,101,156)), color-stop(0.9, rgb(7,43,75)) );
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: #100803 1px 2px 5px;
+	-moz-box-shadow: #100803 1px 2px 5px;
+	box-shadow: #100803 1px 2px 5px;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 22px;
+	margin-top: 145px;
+	min-width: 184px;
+	padding: 8px 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.main-banners .starter-edition a.playnow:hover {
+	background-color: #0f4773;
+	background-image: linear-gradient(top, rgb(24,106,164) 0%, rgb(8,53,93) 90%);
+	background-image: -o-linear-gradient(top, rgb(24,106,164) 0%, rgb(8,53,93) 90%);
+	background-image: -moz-linear-gradient(top, rgb(24,106,164) 0%, rgb(8,53,93) 90%);
+	background-image: -webkit-linear-gradient(top, rgb(24,106,164) 0%, rgb(8,53,93) 90%);
+	background-image: -ms-linear-gradient(top, rgb(24,106,164) 0%, rgb(8,53,93) 90%);
+	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, rgb(24,106,164)), color-stop(0.9, rgb(8,53,93)) );
+}
+
+.wiki.directory .panel {
+	margin: 0 28px 30px;
+	padding: 14px 21px 35px 21px;
+}
+.wiki.directory .panel.pet-mount {
+	padding-bottom: 0;
+}
+.wiki.directory .panel .header {
+	margin-bottom: 30px;
+	margin-top: 8px;
+	position: relative;
+	font: normal 23px/23px "palatino linotype", sans-serif;
+	letter-spacing: .1px;
+	z-index: 9003;
+}
+.wiki.directory .panel .header a {
+	background: url(/Templates/FreedomCore/images/icons/more-arrows-wide.gif) 100% 7px no-repeat;
+	color: #f5ebd1;
+	display: inline-block;
+	padding-right: 19px;	
+}
+.wiki.directory .panel .header a:hover {
+	background-position: 100% -82px;
+}
+
+/* For View All Link at the top of Panels */
+.wiki.directory .panel .header a.panelLink {
+	background: url(/Templates/FreedomCore/images/icons/more-arrows-wide.gif) 100% 6px no-repeat;
+	color: #ffb100;
+	display: inline-block;
+	float: right;
+	font-size: 14px;
+	margin-bottom: 10px;
+	position: relative;
+	text-transform: none;
+	font: normal 14px/23px "Arial", sans-serif;
+	font-weight: bold;
+	letter-spacing: .1px;
+	z-index: 9003;
+}
+
+.wiki.directory .panel .header a.panelLink:hover {
+	background-position: 100% -83px;
+}
+
+.services-column ul {
+	width: 97%;
+}
+
+.wiki.directory .free-paid-services {
+	min-height: 260px;
+	position:relative;
+}
+.wiki.directory .free-paid-services .services-column {
+	background: url(/Templates/FreedomCore/images/shop/services-border.gif) 100% 0 repeat-y;
+	float: left;
+	min-height: 235px;
+}
+.wiki.directory .free-paid-services #free-services {
+	width: 270px;
+}
+.wiki.directory .free-paid-services #paid-services {
+	margin-left: 28px;
+	width: 262px;
+}
+.wiki.directory .free-paid-services .services-column ul li {
+	padding: 1px 0;
+}
+.wiki.directory .free-paid-services .services-column ul a {
+	background: url(/Templates/FreedomCore/images/shop/services-sprite.gif) no-repeat;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 27px;
+	width: 100%;
+}
+.wiki.directory .free-paid-services .services-column ul a:hover {
+	background-color: #3f1806;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.wiki.directory .free-paid-services .services-column ul a span {
+	margin-left: 32px;
+}
+.wiki.directory .free-paid-services .services-column .free-services-raf {
+	background-position: 0 -731px;
+}
+.wiki.directory .free-paid-services .services-column .free-services-sor {
+	background-position: 0 -832px;
+}
+.wiki.directory .free-paid-services .services-column .free-services-item-restoration {
+	background-position: 0 -1326px;
+}
+.wiki.directory .free-paid-services .services-column .free-services-mobile-armory {
+	background-position: 0 -1219px;
+}
+.wiki.directory .free-paid-services .services-column .free-services-security {
+	background-position: 0 5px;
+}
+.wiki.directory .free-paid-services .services-column .free-services-rewards-visa {
+	background-position: 0 -882px;
+}
+.wiki.directory .free-paid-services .services-column .paid-services-ptr {
+	background-position: 0 -679px;
+}
+.wiki.directory .free-paid-services .services-column .paid-services-character-transfer {
+	background-position: 0 -679px;
+}
+.wiki.directory .free-paid-services .services-column .paid-services-faction-change {
+	background-position: 0 -530px;
+}
+.wiki.directory .free-paid-services .services-column .paid-services-race-change {
+	background-position: 0 -478px;
+}
+.wiki.directory .free-paid-services .services-column .paid-services-character-customization {
+	background-position: 0 -579px;
+}
+.wiki.directory .free-paid-services .services-column .paid-services-name-change {
+	background-position: 0 -427px;
+}
+.wiki.directory .free-paid-services .services-column .paid-services-character-boost {
+	background-position: 0 -1554px;
+}
+.wiki.directory .free-paid-services .ad-raf {
+	background: url(/Templates/FreedomCore/images/shop/bg-services-category.png) 0 0 no-repeat;
+	display: block;
+	height: 248px;
+	position: absolute;
+	right: -5px;
+	text-align: center;
+	top: -20px;
+	width: 383px;
+}
+.wiki.directory .free-paid-services .ad-raf span {
+	color: #efe3d2;
+	display: inline-block;
+	font-family: Palatino Linotype, Sans-serif;
+	font-size: 24px;
+	line-height: 26px;
+	margin-top: 193px;
+}
+.wiki.directory .free-paid-services .ad-raf:hover {
+	background-position: 0 -250px;
+}
+.wiki.directory .free-paid-services .ad-raf:hover span {
+	color: #ffffff;
+}
+
+.game-subscriptions .subscription-col {
+	background-image: url(/Templates/FreedomCore/images/shop/subscriptions.jpg);
+	background-repeat: no-repeat;
+	float: left;
+	margin-right: 12px;
+	min-height: 380px;
+	text-align: center;
+	width: 442px;
+}
+.game-subscriptions .subscription-col .game-title {
+	color: #b39265;
+	display: block;
+	font-size: 14px;
+	margin:0 auto;
+	padding: 193px 0 18px 0;
+	width: 290px;
+}
+.game-subscriptions .subscription-col .game-title .tooltip {
+	border-bottom: 1px dotted #8c6407;
+	cursor: help;
+}
+.game-subscriptions .subscription-col .ui-button span span {
+	font-size: 14px;
+	min-width: 189px;
+}
+.game-subscriptions .tryfree, .game-subscriptions .deluxeEdition {
+	background: url(/Templates/FreedomCore/images/shop/services-sprite.gif) 0 0 no-repeat;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 13px 0 0 25px;
+	text-align: left;
+}
+.game-subscriptions .tryfree:hover, .game-subscriptions .deluxeEdition:hover {
+	background-color: #3f1806;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.game-subscriptions .tryfree {
+	background-position: 7px -1409px;
+	margin:13px auto;
+	padding-left: 31px;
+	white-space:nowrap;
+	width:80px;
+}
+
+.game-subscriptions .deluxeEdition {
+	background-position: 7px -1459px;
+	margin:13px auto;
+	padding-left: 40px;
+	white-space:nowrap;
+	width: 163px;
+}
+
+.game-subscriptions .subNow {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+}
+.game-subscriptions .subNow:hover {
+	background-color: #3f1806;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.game-subscriptions .subNow {
+	margin:3px auto;
+	white-space:nowrap;
+	width: 240px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+}
+
+.subNowIcon {	
+	background: url(/Templates/FreedomCore/images/shop/services-sprite.gif) 0 0 no-repeat;
+	background-position: 4px -1409px;
+	height: 26px;
+	width: 26px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.game-subscriptions .deluxeEdition {
+	background-position: 7px -1459px;
+	margin:13px auto;
+	padding-left: 40px;
+	white-space:nowrap;
+	width: 163px;
+}
+.game-subscriptions .subscription-1 {
+	background-position: 0 0;
+}
+.game-subscriptions .subscription-2 {
+	background-position: -291px 0;
+}
+.game-subscriptions .subscription-3 {
+	background-position: -442px 0;
+	margin-right: 0;
+}
+.game-subscriptions .subscription-1:hover {
+	background-position: -884px 0px;
+}
+.game-subscriptions .subscription-2:hover {
+	background-position: -291px 100%;
+}
+.game-subscriptions .subscription-3:hover {
+	background-position: -1326px 0px;
+}
+.game-subscriptions .subscription-desc {
+	font-size: 14px;
+}
+.game-subscriptions .subscription-1 .game-title .tooltip {
+	background: url(/Templates/FreedomCore/images/shop/services-sprite.gif) 100% -1521px no-repeat;
+	padding-right: 21px;
+}
+
+.product-item {
+	display: inline-block;
+	float: left;
+	font-size: 13px;
+	position: relative;
+	text-align: center;
+	width: 149px;
+}
+.product-item .thumb {
+	background: url(/Templates/FreedomCore/images/shop/physical-products-sprite.png) 0 0 no-repeat;
+	display: inline-block;
+	height: 175px;
+	width: 150px;
+	z-index: 9001;
+}
+.product-item .name {
+	color: #bd8100;
+	display: block;
+	margin-top: -28px;
+	text-align: center;
+}
+.product-item:hover .name {
+	color: #ffffff;
+}
+.pet-mount .product-item .thumb {
+	background: url(/Templates/FreedomCore/images/shop/pets-mounts-sprite.png) 0 0 no-repeat;
+}
+
+.pet-mount {
+	padding: 14px 21px 0;
+	position: relative;
+}
+.pet-mount .header {
+	z-index: 90009;
+}
+.pet-mount .nav-button {
+	background: url(/Templates/FreedomCore/images/icons/arrows-buttontype.gif) 0 0 no-repeat;
+	display: block;
+	height: 67px;
+	position: absolute;
+	top: 102px;
+	width: 38px;
+	z-index: 90009;
+}
+.pet-mount .nav-button.nav-prev {
+	display: none;
+	left: 0;
+}
+.pet-mount .nav-button.nav-prev:hover {
+	background-position: 0 -67px;
+}
+.pet-mount .nav-button.nav-next {
+	background-position: -48px 0;
+	display: none;
+	right: 0;
+}
+.pet-mount .nav-button.nav-next:hover {
+	background-position: -48px -67px;
+}
+
+.pet-mount .product-block {
+	height: 219px;
+	left: 20px;
+	overflow: hidden;
+	position: relative;
+	top: -35px;
+	width: 870px;
+}
+.pet-mount .companion-container {
+	display: block;
+	left: 0;
+	position: absolute;
+	-webkit-transition: left 0.5s ease;
+	-moz-transition: left 0.5s ease;
+	-ms-transition: left 0.5s ease;
+	-o-transition: left 0.5s ease;
+	transition: left 0.5s ease;
+	width: 2600px;
+}
+.pet-mount .product-item {
+	width: 173px;
+}
+.pet-mount,
+.blizzard-store {
+	background: #27160c url(/Templates/FreedomCore/images/shop/products-box-bg.jpg) 0 0 no-repeat !important;
+}
+.pet-mount .product-item .thumb {
+	height: 203px;
+	width: 175px;
+}
+.pet-mount .celestial-steed .thumb {
+	background-position: 0 0;
+}
+.pet-mount .celestial-steed:hover .thumb {
+	background-position: 0 -203px;
+}
+.pet-mount .heart-of-the-aspects .thumb {
+	background-position: -172px 0;
+}
+.pet-mount .heart-of-the-aspects:hover .thumb {
+	background-position: -172px -203px;
+}
+.pet-mount .winged-guardian .thumb {
+	background-position: -356px 0;
+}
+.pet-mount .winged-guardian:hover .thumb {
+	background-position: -356px -203px;
+}
+.pet-mount .pandaren-monk .thumb {
+	background-position: -525px 0;
+}
+.pet-mount .pandaren-monk:hover .thumb {
+	background-position: -525px -203px;
+}
+.pet-mount .lil-ragnaros .thumb {
+	background-position: -719px 0;
+	width: 155px;
+}
+.pet-mount .lil-ragnaros:hover .thumb {
+	background-position: -719px -203px;
+}
+.pet-mount .lil-kt .thumb {
+	background-position: -864px 0;
+}
+.pet-mount .lil-kt:hover .thumb {
+	background-position: -864px -203px;
+}
+.pet-mount .cenarion-hatchling .thumb {
+	background-position: -1037px 0;
+}
+.pet-mount .cenarion-hatchling:hover .thumb {
+	background-position: -1037px -203px;
+}
+.pet-mount .moonkin-hatchling-alliance .thumb {
+	background-position: -1383px 0;
+}
+.pet-mount .moonkin-hatchling-alliance:hover .thumb {
+	background-position: -1383px -203px;
+}
+.pet-mount .guardian-cub .thumb {
+	background-position: -1729px 0;
+}
+.pet-mount .guardian-cub:hover .thumb {
+	background-position: -1729px -203px;
+}
+.pet-mount .lil-xt .thumb {
+	background-position: -1211px 0;
+}
+.pet-mount .lil-xt:hover .thumb {
+	background-position: -1211px -203px;
+}
+.pet-mount .soul-of-the-aspects .thumb {
+	background-position: -1556px 0;
+}
+.pet-mount .soul-of-the-aspects:hover .thumb {
+	background-position: -1556px -203px;
+}
+.pet-mount .cinder-kitten .thumb {
+	background-position: -2075px 0;
+}
+.pet-mount .cinder-kitten:hover .thumb {
+	background-position: -2075px -203px;
+}
+.pet-mount .swift-windsteed .thumb {
+	background-position: -1902px 0;
+}
+.pet-mount .swift-windsteed:hover .thumb {
+	background-position: -1902px -203px;
+}
+.pet-mount .armored-bloodwing .thumb {
+	background-position: -2249px 0;
+	width: 210px;
+}
+.pet-mount .armored-bloodwing:hover .thumb {
+	background-position: -2249px -203px;
+}
+.pet-mount .blossoming-ancient .thumb {
+	background-position: -2444px 0;
+}
+.pet-mount .blossoming-ancient:hover .thumb {
+	background-position: -2444px -203px;
+}
+.pet-mount .hood-of-hungering-darkness .thumb {
+	background-position: -2594px 0;
+}
+.pet-mount .hood-of-hungering-darkness:hover .thumb {
+	background-position: -2594px -203px;
+}
+.pet-mount .crown-of-eternal-winter .thumb {
+	background-position: -2767px 0;
+}
+.pet-mount .crown-of-eternal-winter:hover .thumb {
+	background-position: -2767px -203px;
+}
+.pet-mount .jewel-of-the-firelord .thumb {
+	background-position: -2940px 0;
+}
+.pet-mount .jewel-of-the-firelord:hover .thumb {
+	background-position: -2940px -203px;
+}
+
+.blizzard-store .product-1 .thumb {
+	background-position: 0 0;
+}
+.blizzard-store .product-2 .thumb {
+	background-position: -150px 0;
+}
+.blizzard-store .product-3 .thumb {
+	background-position: -300px 0;
+}
+.blizzard-store .product-4 .thumb {
+	background-position: -450px 0;
+}
+.blizzard-store .product-5 .thumb {
+	background-position: -600px 0;
+}
+.blizzard-store .product-6 .thumb {
+	background-position: -750px 0;
+}
+.blizzard-store .product-1:hover .thumb {
+	background-position: 0 -175px;
+}
+.blizzard-store .product-2:hover .thumb {
+	background-position: -150px -175px;
+}
+.blizzard-store .product-3:hover .thumb {
+	background-position: -300px -175px;
+}
+.blizzard-store .product-4:hover .thumb {
+	background-position: -450px -175px;
+}
+.blizzard-store .product-5:hover .thumb {
+	background-position: -600px -175px;
+}
+.blizzard-store .product-6:hover .thumb {
+	background-position: -750px -175px;
+}
+
+
+/* Localization - regional designs */
+.ko-kr .services-home #content .content-top {
+	background: url(/Templates/FreedomCore/images/shop/bg-services-top-kr.jpg) 0 0 no-repeat;
+}
+.ko-kr .main-banners .expansion {
+	margin-left: 351px;
+	margin-top: 194px;
+	width: 269px;
+	font-family: Dotum;
+}
+.ko-kr .main-banners .expansion .button4 {
+	font-family: Dotum;
+}
+.ko-kr .main-banners .starter-edition a.playnow {
+	margin-top: 212px;
+	font-family: Dotum;
+}
+.ko-kr .main-banners .ui-button span{
+	font-family: Dotum;
+}
+.ko-kr .wiki.directory .free-paid-services .ad-raf span {
+	font-family: DaumRegular,Dotum;
+	font-size: 18px;
+	line-height: 24px;
+}
+.ko-kr .wiki.directory .panel .header {
+	font-size: 16px;
+}
+.ko-kr .services-column ul li a span {
+	font-size: 12px;
+}
+.ko-kr .pet-mount .companion-container {
+	width: 2600px;
+}
+
+.zh-tw .services-home #content .content-top {
+	background: url(/Templates/FreedomCore/images/shop/bg-services-top-tw.jpg) 0 0 no-repeat;
+}
+.zh-tw .main-banners .expansion {
+	margin-left: 391px;
+	margin-top: 41px;
+	width: 255px;
+}
+.zh-tw .main-banners .starter-edition a.playnow {
+	background-color: #0d3f66;
+	background-image: linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -o-linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -moz-linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -webkit-linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -ms-linear-gradient(top, rgb(23,101,156) 0%, rgb(7,43,75) 90%);
+	background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, rgb(23,101,156)), color-stop(0.9, rgb(7,43,75)) );
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: #100803 1px 2px 5px;
+	-moz-box-shadow: #100803 1px 2px 5px;
+	box-shadow: #100803 1px 2px 5px;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	margin-right: 35px;
+	margin-top: 145px;
+	min-width: 184px;
+	padding: 8px 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.zh-tw .main-banners .expansion .headline {
+	margin-bottom: 25px;
+	margin-left: -76px;
+	width: 308px;
+	text-align: center;
+}
+.zh-tw .main-banners .expansion .ui-button {
+	margin-bottom: 10px;
+}
+.zh-tw .main-banners .expansion .ui-button span span {
+	min-width: 120px;
+}
+.zh-tw .main-banners .starter-edition .headline {
+	font-family: SimSun, Sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 45px;
+}
+.zh-tw .game-subscriptions .subscription-info {
+	background: url(/Templates/FreedomCore/images/shop/subscriptions-tw.jpg) center 0 no-repeat;
+	height: 350px;
+	text-align: center;
+	width: 889px;
+}
+.zh-tw .game-subscriptions .subscription-info .ui-button {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 300px;
+}
+.zh-tw .game-subscriptions .subscription-info .ui-button span span {
+	min-width: 200px;
+}
+.zh-tw .pet-mount .companion-container {
+	width: 1500px;
+}
+
+.zh-cn .services-home #content .content-top {
+	background: url(/Templates/FreedomCore/images/shop/bg-services-top-cn.jpg) 0 0 no-repeat;
+}
+.zh-cn .main-banners .expansion {
+	margin-left: 78px;
+	margin-top: 15px;
+	width: 542px;
+}
+.zh-cn .main-banners .expansion .headline {
+	margin-bottom: 11px;
+}
+.zh-cn .main-banners .expansion .desc {
+	line-height: 19px;
+}
+.zh-cn .main-banners .expansion .desc ul {
+	margin-top: 32px;
+}
+.zh-cn .main-banners .expansion .desc li {
+	margin: 8px;
+}
+.zh-cn .main-banners .expansion .desc a {
+	text-decoration: underline;
+}
+.zh-cn .main-banners .starter-edition .headline {
+	margin-bottom: 33px;
+	margin-top: 13px;
+}
+.zh-cn .game-subscriptions .subscription-info {
+	background: url(/Templates/FreedomCore/images/shop/subscriptions-cn.jpg) 0 0 no-repeat;
+	height: 362px;
+	margin-top: 21px;
+	width: 892px;
+}
+.zh-cn .game-subscriptions .subscription-info .ui-button {
+	margin-left: 565px;
+	margin-top: 306px;
+}
+.zh-cn .game-subscriptions .subscription-info .ui-button span span {
+	min-width: 229px;
+}
+.zh-cn .game-subscriptions .subscription-desc {
+	font-size: 12px;
+	line-height: 22px;
+	margin-left: 30px;
+	width: 830px;
+}
+.zh-cn .pet-mount .companion-container {
+	width: 1469px;
+}
+.zh-cn .pet-mount .nav-next {
+	display: none;
+}

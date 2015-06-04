@@ -1,0 +1,66 @@
+
+/* structure */
+.search .search-left { float: left; width: 230px; }
+.search .search-left .forum { margin: 20px; }
+.search .search-right { float: right; width: 762px; }
+.search .search-header { margin: 20px; }
+.search .search-header .header-2 { font-size: 32px; line-height: 100%; margin: 3px 0; }
+.search .search-form input { vertical-align: middle; background: #fff; border: 0; padding: 5px; font-size: 18px; width: 400px; border-radius: 5px; }
+
+/* helpers */
+.search .helpers { margin: 30px 20px 20px 20px; }
+.search .helpers p { margin: 0 0 10px 0; }
+.search .helpers .subheader-2 span { color: #fff; }
+.search .helpers .sort-active { color: #fff; font-weight: bold; }
+
+/* no results */
+.search .no-results { margin: 20px; }
+.search .no-results .header-3 { margin-top: 20px; }
+.search .no-results ul { list-style: square; margin: 10px 0 0 20px; }
+.search .no-results li { margin: 5px 0; }
+
+/* results */
+.search .results { padding: 20px 0; }
+.search .results:first-child { padding-top: 0; border: 0; }
+.search .results .view-all { text-align: right; margin-top: 10px; }
+.search .results-grid .header-3 { margin-bottom: 15px; }
+.search .results-grid .grid { float: left; width: 30%; padding-right: 3%; }
+.search .results-grid .grid .thumbnail,
+.search .results-grid .grid .article-thumbnail { float: left; margin-right: 10px; }
+.search .results-grid .grid .thumbnail img { vertical-align: top; display: inline-block; }
+.search .results-grid .grid .article-thumbnail span { vertical-align: top; background-position: center center; background-size: cover; display: inline-block; }
+
+.search .result { margin-top: 20px; }
+.search .result.has-thumbnail { padding-left: 55px; min-height: 32px; position: relative; }
+.search .result.is-article { padding-left: 75px; min-height: 60px; }
+.search .result .thumbnail,
+.search .result .article-thumbnail { position: absolute; top: 5px; left: 0; }
+.search .result .article-thumbnail span { vertical-align: top; background-position: center center; background-size: cover; display: inline-block; }
+.search .result .subheader-3 .small { font-size: 12px; }
+.search .result .subheader-3 .status { color: #fff; }
+.search .result .meta,
+.search .result .content { width: 640px; overflow: hidden; }
+.search .result.blizzard .content,
+.search .result.blizzard .author { color: #039ede; }
+.search .result.blizzard .author:hover { color: #fff; }
+
+/* views */
+.search .summary { margin: 20px; }
+.search .view-list { margin: 20px; }
+.search .summary .suggested-results .icon { float: left; margin-right: 8px; }
+.search .summary .suggested-results .result a { font-size: 15px; font-weight: bold; }
+.search .summary .suggested-results .result p { margin-top: 0; }
+.search .summary .suggested-results .result .has-icon { padding-left: 46px; }
+
+/* styles */
+.search .header-3 a,
+.search .subheader-3 a { text-decoration: underline; }
+.search .header-3 a:hover,
+.search .subheader-3 a:hover { text-decoration: none; }
+.search .table td:first-child a { display: block; }
+.search .table .highlight,
+.search .highlight { padding: 2px; border-radius: 2px; }
+
+/* ie */
+.ie67 .search .results { zoom: 1; }
+.ie6 .search .result .thumbnail { left: -75px; }
