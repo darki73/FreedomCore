@@ -13,8 +13,28 @@
                         <span class="breadcrumb-text" itemprop="name">{#Menu_Game#}</span>
                     </a>
                 </li>
-
-                {if $Requests.subclass == 1 && $Requests.class == 1}
+                {if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}
+                    <li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+                        <a href="/item" rel="np" class="breadcrumb-arrow" itemprop="url">
+                            <span class="breadcrumb-text" itemprop="name">{#Item_Category#}</span>
+                        </a>
+                    </li>
+                    <li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+                        <a href="/item/?classId={$PageData.name.class}" rel="np" class="breadcrumb-arrow" itemprop="url">
+                            <span class="breadcrumb-text" itemprop="name">{$PageData.name.translation}</span>
+                        </a>
+                    </li>
+                    <li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+                        <a href="/item/?classId={$PageData.name.class}&subClassId={$PageData.subname.subclass}" rel="np" class="breadcrumb-arrow" itemprop="url">
+                            <span class="breadcrumb-text" itemprop="name">{$PageData.subname.translation}</span>
+                        </a>
+                    </li>
+                    <li class="last children" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+                        <a href="/item/?classId={$PageData.name.class}&subClassId={$PageData.subname.subclass}&invType={$PageData.inventorytype.id}" rel="np" itemprop="url">
+                            <span class="breadcrumb-text" itemprop="name">{$PageData.inventorytype.translation}</span>
+                        </a>
+                    </li>
+                {elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}
                     <li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
                         <a href="/item" rel="np" class="breadcrumb-arrow" itemprop="url">
                             <span class="breadcrumb-text" itemprop="name">{#Item_Category#}</span>
@@ -30,7 +50,7 @@
                             <span class="breadcrumb-text" itemprop="name">{$PageData.subname.translation}</span>
                         </a>
                     </li>
-                {elseif $Requests.class == 1 && $Requests.subclass == 0}
+                {elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}
                     <li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
                         <a href="/item" rel="np" class="breadcrumb-arrow" itemprop="url">
                             <span class="breadcrumb-text" itemprop="name">{#Item_Category#}</span>
@@ -41,7 +61,7 @@
                             <span class="breadcrumb-text" itemprop="name">{$PageData.name.translation}</span>
                         </a>
                     </li>
-                {elseif $Requests.class == 0 && $Requests.subclass == 0}
+                {elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}
                     <li class="last children" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
                         <a href="/item/" rel="np" itemprop="url">
                             <span class="breadcrumb-text" itemprop="name">{#Item_Category#}</span>
@@ -73,7 +93,7 @@
                                                 {else}
                                             <li>
                                         {/if}
-                                        <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$i}{/if}" data-pagenum="{$i}">
+                                        <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$i}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$i}{/if}" data-pagenum="{$i}">
                                             <span>{$i}</span>
                                         </a>
                                         </li>
@@ -85,14 +105,14 @@
                                                         {else}
                                                     <li>
                                                 {/if}
-                                                <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$i}{/if}" data-pagenum="{$i}">
+                                                <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$i}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$i}{/if}" data-pagenum="{$i}">
                                                     <span>{$i}</span>
                                                 </a>
                                                 </li>
                                             {elseif $i == 8}
                                                 <li class="expander"><span>…</span></li>
                                                 <li>
-                                                    <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$CountPages}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$CountPages}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$CountPages}{/if}" data-pagenum="{$CountPages}">
+                                                    <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$CountPages}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$CountPages}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$CountPages}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$CountPages}{/if}" data-pagenum="{$CountPages}">
                                                         <span>{$CountPages}</span>
                                                     </a>
                                                 </li>
@@ -100,7 +120,7 @@
                                         {elseif $SelectedPage >= 6}
                                             {if $i == 1}
                                                 <li>
-                                                    <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page=1{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page=1{elseif $Requests.class == 0 && $Requests.subclass == 0}?page=1{/if}" data-pagenum="1">
+                                                    <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page=1{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page=1{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page=1{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page=1{/if}" data-pagenum="1">
                                                         <span>1</span>
                                                     </a>
                                                 </li>
@@ -111,7 +131,7 @@
                                                         {else}
                                                     <li>
                                                 {/if}
-                                                <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$i}{/if}" data-pagenum="{$i}">
+                                                <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$i}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$i}{/if}" data-pagenum="{$i}">
                                                     <span>{$i}</span>
                                                 </a>
                                                 </li>
@@ -119,7 +139,7 @@
                                                 {if $i == $CountPages}
                                                     <li class="expander"><span>…</span></li>
                                                     <li>
-                                                        <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$CountPages}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$CountPages}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$CountPages}{/if}" data-pagenum="{$CountPages}">
+                                                        <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$CountPages}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$CountPages}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$CountPages}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$CountPages}{/if}" data-pagenum="{$CountPages}">
                                                             <span>{$CountPages}</span>
                                                         </a>
                                                     </li>
@@ -194,7 +214,8 @@
                             <ul class="ui-pagination">
                                 {$CountPages = ($ResultsFound/50)}
                                 {if $CountPages > $CountPages|string_format:"%d"}
-                                    {$CountPages = $CountPages + 1}
+                                    {$OriginalPages = $CountPages}
+                                    {$CountPages = $CountPages|string_format:"%d" + 1}
                                 {/if}
                                 {for $i = 1; $i <= $CountPages; $i++}
                                     {if $CountPages < 10}
@@ -203,7 +224,7 @@
                                                 {else}
                                             <li>
                                         {/if}
-                                        <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$i}{/if}" data-pagenum="{$i}">
+                                        <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$i}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$i}{/if}" data-pagenum="{$i}">
                                             <span>{$i}</span>
                                         </a>
                                         </li>
@@ -215,14 +236,14 @@
                                                         {else}
                                                     <li>
                                                 {/if}
-                                                <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$i}{/if}" data-pagenum="{$i}">
+                                                <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$i}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$i}{/if}" data-pagenum="{$i}">
                                                     <span>{$i}</span>
                                                 </a>
                                                 </li>
                                             {elseif $i == 8}
                                                 <li class="expander"><span>…</span></li>
                                                 <li>
-                                                    <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$CountPages}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$CountPages}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$CountPages}{/if}" data-pagenum="{$CountPages}">
+                                                    <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$CountPages}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$CountPages}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$CountPages}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$CountPages}{/if}" data-pagenum="{$CountPages}">
                                                         <span>{$CountPages}</span>
                                                     </a>
                                                 </li>
@@ -230,7 +251,7 @@
                                         {elseif $SelectedPage >= 6}
                                             {if $i == 1}
                                                 <li>
-                                                    <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page=1{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page=1{elseif $Requests.class == 0 && $Requests.subclass == 0}?page=1{/if}" data-pagenum="1">
+                                                    <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page=1{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page=1{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page=1{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page=1{/if}" data-pagenum="1">
                                                         <span>1</span>
                                                     </a>
                                                 </li>
@@ -241,7 +262,7 @@
                                                         {else}
                                                     <li>
                                                 {/if}
-                                                <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$i}{/if}" data-pagenum="{$i}">
+                                                <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$i}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$i}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$i}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$i}{/if}" data-pagenum="{$i}">
                                                     <span>{$i}</span>
                                                 </a>
                                                 </li>
@@ -249,7 +270,7 @@
                                                 {if $i == $CountPages}
                                                     <li class="expander"><span>…</span></li>
                                                     <li>
-                                                        <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$CountPages}{elseif $Requests.class == 1 && $Requests.subclass == 0}?classId={$PageData.name.class}&amp;page={$CountPages}{elseif $Requests.class == 0 && $Requests.subclass == 0}?page={$CountPages}{/if}" data-pagenum="{$CountPages}">
+                                                        <a href="/item/{if $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 1}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;invType={$PageData.inventorytype.id}&amp;page={$CountPages}{elseif $Requests.subclass == 1 && $Requests.class == 1 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;subClassId={$PageData.subname.subclass}&amp;page={$CountPages}{elseif $Requests.class == 1 && $Requests.subclass == 0 && $Requests.invtype == 0}?classId={$PageData.name.class}&amp;page={$CountPages}{elseif $Requests.class == 0 && $Requests.subclass == 0 && $Requests.invtype == 0}?page={$CountPages}{/if}" data-pagenum="{$CountPages}">
                                                             <span>{$CountPages}</span>
                                                         </a>
                                                     </li>
@@ -263,10 +284,10 @@
                         </div>
                         {if $SelectedPage == 1}
                             {#Results#} <strong class="results-start">1</strong>–<strong class="results-end">50</strong> {#Of#} <strong class="results-total">{$ResultsFound}</strong>
-                        {elseif $SelectedPage < $CountPages}
+                        {elseif $SelectedPage < $OriginalPages}
                             {#Results#} <strong class="results-start">{$SelectedPage*50-50}</strong>–<strong class="results-end">{$SelectedPage*50}</strong> {#Of#} <strong class="results-total">{$ResultsFound}</strong>
                         {else}
-
+                            {#Results#} <strong class="results-start">{$ResultsFound - ($ResultsFound - (($SelectedPage-1)*50))}</strong>–<strong class="results-end">{$ResultsFound}</strong> {#Of#} <strong class="results-total">{$ResultsFound}</strong>
                         {/if}
                         <span class="clear"><!-- --></span>
                     </div>

@@ -303,6 +303,56 @@ Class Items
         return array('count' => Items::SelectCount('item_template', array('class' => $CategoryID, 'subclass' => $SubCategoryID)), 'items' => $Result);
     }
 
+    public static function GetAllItemsInSubCategoryByInventoryType($CategoryID, $SubCategoryID, $InventoryType, $Offset)
+    {
+        global $FCCore;
+        $Result = array();
+        $Statement = Items::$WConnection->prepare('
+            SELECT
+                it.*,
+                LOWER(fi.iconname) as icon
+            FROM
+                item_template it
+            LEFT JOIN '.$FCCore['Database']['database']	.'.freedomcore_icons fi ON
+                it.displayid = fi.id
+            WHERE
+                    it.class = :class
+                AND
+                    it.subclass = :subclass
+                AND
+                    it.InventoryType = :invtype
+            ORDER BY it.ItemLevel DESC
+            LIMIT 50 OFFSET '.$Offset.'
+        ');
+        $Statement->bindParam(':class', $CategoryID);
+        $Statement->bindParam(':subclass', $SubCategoryID);
+        $Statement->bindParam(':invtype', $InventoryType);
+        $Statement->execute();
+        $Result['item_list'] = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        if(!empty($Result['item_list']))
+        {
+            for($i = 0; $i < 1; $i++)
+            {
+                $Result['category_data'] = array(
+                    'name' => Items::ItemClass($Result['item_list'][$i]['class']),
+                    'subname' => Items::ItemSubClass($Result['item_list'][$i]['class'], $Result['item_list'][$i]['subclass']),
+                    'inventorytype' => array('id' => $InventoryType, 'translation' => Items::InventoryTypeTranslation($InventoryType))
+                );
+            }
+        }
+        $Index = 0;
+        if(!empty($Result['item_list']))
+        {
+            foreach($Result['item_list'] as $Item)
+            {
+                $Result['item_list'][$Index]['subclass'] = Items::ItemSubClass($Item['class'], $Item['subclass']);
+                $Result['item_list'][$Index]['class'] = Items::ItemClass($Item['class']);
+                $Index++;
+            }
+        }
+        return array('count' => Items::SelectCount('item_template', array('class' => $CategoryID, 'subclass' => $SubCategoryID, 'InventoryType' => $InventoryType)), 'items' => $Result);
+    }
+
     private static function SelectCount($Table, $Data = array())
     {
         $SQL = 'SELECT count(*) as count FROM '.$Table;

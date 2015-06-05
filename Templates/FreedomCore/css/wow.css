@@ -3738,7 +3738,7 @@ li.item-spec-group {
 
 /* model - draggable */
 .model-viewer .can-drag {
-	cursor:url(/wow/static/images/cursors/grab.cur),e-resize
+	cursor:url(/Templates/FreedomCore/images/cursors/grab.cur),e-resize
 }
 
 .model-viewer .can-drag .zoom {
@@ -3746,7 +3746,7 @@ li.item-spec-group {
 }
 
 .model-viewer .dragging {
-	cursor:url(/wow/static/images/cursors/grabbing.cur),e-resize!important
+	cursor:url(/Templates/FreedomCore/images/cursors/grabbing.cur),e-resize!important
 }
 
 .model-viewer .can-drag:hover,.model-viewer .dragging {

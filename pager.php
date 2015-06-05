@@ -166,22 +166,44 @@ switch($_REQUEST['category'])
             {
                 if(isset($_REQUEST['subClassId']))
                 {
-                    $Items = Items::GetAllItemsInSubCategory($_REQUEST['classId'], $_REQUEST['subClassId'], 50);
-                    if(isset($_REQUEST['page']))
-                        $SelectedPage = $_REQUEST['page'];
+                    if(isset($_REQUEST['invType']))
+                    {
+                        $Items = Items::GetAllItemsInSubCategoryByInventoryType($_REQUEST['classId'], $_REQUEST['subClassId'], $_REQUEST['invType'], 50);
+                        if(isset($_REQUEST['page']))
+                            $SelectedPage = $_REQUEST['page'];
+                        else
+                            $SelectedPage = 1;
+                        $Smarty->assign('SelectedPage', $SelectedPage);
+                        $Smarty->assign('Requests', array('class' => 1, 'subclass' => 1, 'invtype' => 1));
+                        if($SelectedPage == 1)
+                            $Items = Items::GetAllItemsInSubCategoryByInventoryType($_REQUEST['classId'], $_REQUEST['subClassId'], $_REQUEST['invType'], 0);
+                        else
+                            $Items = Items::GetAllItemsInSubCategoryByInventoryType($_REQUEST['classId'], $_REQUEST['subClassId'], $_REQUEST['invType'], ($SelectedPage*50-50));
+                        $Smarty->assign('Items', $Items['items']['item_list']);
+                        $Smarty->assign('PageData', $Items['items']['category_data']);
+                        $Smarty->assign('ResultsFound', $Items['count']);
+                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'item-index', 'pagetitle' => $Smarty->GetConfigVars('Item_Category').' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
+                        $Smarty->display('pages/items_index');
+                    }
                     else
-                        $SelectedPage = 1;
-                    $Smarty->assign('SelectedPage', $SelectedPage);
-                    $Smarty->assign('Requests', array('class' => 1, 'subclass' => 1));
-                    if($SelectedPage == 1)
-                        $Items = Items::GetAllItemsInSubCategory($_REQUEST['classId'], $_REQUEST['subClassId'], 0);
-                    else
-                        $Items = Items::GetAllItemsInSubCategory($_REQUEST['classId'], $_REQUEST['subClassId'], ($SelectedPage*50-50));
-                    $Smarty->assign('Items', $Items['items']['item_list']);
-                    $Smarty->assign('PageData', $Items['items']['category_data']);
-                    $Smarty->assign('ResultsFound', $Items['count']);
-                    $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'item-index', 'pagetitle' => $Smarty->GetConfigVars('Item_Category').' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
-                    $Smarty->display('pages/items_index');
+                    {
+                        $Items = Items::GetAllItemsInSubCategory($_REQUEST['classId'], $_REQUEST['subClassId'], 50);
+                        if(isset($_REQUEST['page']))
+                            $SelectedPage = $_REQUEST['page'];
+                        else
+                            $SelectedPage = 1;
+                        $Smarty->assign('SelectedPage', $SelectedPage);
+                        $Smarty->assign('Requests', array('class' => 1, 'subclass' => 1, 'invtype' => 0));
+                        if($SelectedPage == 1)
+                            $Items = Items::GetAllItemsInSubCategory($_REQUEST['classId'], $_REQUEST['subClassId'], 0);
+                        else
+                            $Items = Items::GetAllItemsInSubCategory($_REQUEST['classId'], $_REQUEST['subClassId'], ($SelectedPage*50-50));
+                        $Smarty->assign('Items', $Items['items']['item_list']);
+                        $Smarty->assign('PageData', $Items['items']['category_data']);
+                        $Smarty->assign('ResultsFound', $Items['count']);
+                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'item-index', 'pagetitle' => $Smarty->GetConfigVars('Item_Category').' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
+                        $Smarty->display('pages/items_index');
+                    }
                 }
                 else
                 {
@@ -190,7 +212,7 @@ switch($_REQUEST['category'])
                     else
                         $SelectedPage = 1;
                     $Smarty->assign('SelectedPage', $SelectedPage);
-                    $Smarty->assign('Requests', array('class' => 1, 'subclass' => 0));
+                    $Smarty->assign('Requests', array('class' => 1, 'subclass' => 0, 'invtype' => 0));
                     if($SelectedPage == 1)
                         $Items = Items::GetAllItemsInCategory($_REQUEST['classId'], 0);
                     else
@@ -209,7 +231,7 @@ switch($_REQUEST['category'])
                 else
                     $SelectedPage = 1;
                 $Smarty->assign('SelectedPage', $SelectedPage);
-                $Smarty->assign('Requests', array('class' => 1, 'subclass' => 0));
+                $Smarty->assign('Requests', array('class' => 0, 'subclass' => 0, 'invtype' => 0));
                 if($SelectedPage == 1)
                     $Items = Items::GetAllItems(0);
                 else
