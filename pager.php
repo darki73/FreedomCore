@@ -434,6 +434,26 @@ switch($_REQUEST['category'])
         }
     break;
 
+    case 'quest':
+        if(String::IsNull($_REQUEST['subcategory']))
+        {
+            $ErrorDescription = ErrorHandler::ListenForError(404);
+            $Smarty->assign('Error', $ErrorDescription);
+            $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
+            $Smarty->display('pages/error_page');
+        }
+        else
+        {
+            if (!String::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
+            {
+                $Smarty->assign('Quest', Items::QuestInfo($_REQUEST['subcategory']));
+                $Smarty->display('blocks/quest_tooltip');
+            }
+            else
+                header('Location: /');
+        }
+    break;
+
     case 'guild':
         if(String::IsNull($_REQUEST['subcategory']))
         {

@@ -70,7 +70,7 @@
                             </div>
                         {/if}
                     {/if}
-                    {if $Item.RequiredDisenchantSkill != 0}
+                    {if $Item.RequiredDisenchantSkill != 0 && $Item.RequiredDisenchantSkill != -1}
                         <div class="snippet">
                             <h3>{#Item_Info_Interesting_Fact#}</h3>
                             <ul class="fact-list">
@@ -119,6 +119,16 @@
 										<span><span>
 												{#Item_Reward_Quest#}
                                                 (<em>{count($ItemRelation.rewardFromQuests)}</em>)
+										</span></span>
+                                    </a>
+                                </li>
+                            {/if}
+                            {if isset($ItemRelation.disenchantItems)}
+                                <li>
+                                    <a href="#disenchantItems" data-key="disenchantItems" id="tab-disenchantItems" class="tab-active">
+										<span><span>
+												{#Item_Can_Be_Disenchanted_Into#}:
+												(<em>{count($ItemRelation.disenchantItems)}</em>)
 										</span></span>
                                     </a>
                                 </li>

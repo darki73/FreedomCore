@@ -79,7 +79,7 @@
                         {/if}
                     {/for}
                     {if $Item.socketBonus != 0}
-                        <li class="color-d4">{#Item_On_Socket_Match#}  [SOCKET_BONUS_PLACEHOLDER]</li>
+                        <li class="color-d4">{#Item_On_Socket_Match#}  {if $Item.socketBonusDescription != ''}{$Item.socketBonusDescription}{else}{$Item.socketBonus}{/if}</li>
                     {/if}
                 </ul>
             </li>
@@ -104,6 +104,34 @@
                     </li>
                 {/if}
             {/for}
+        {/if}
+        {if !empty($Item.itemsetinfo)}
+            {if $Item.itemsetinfo.itemsinset > 0}
+                <li>
+                    <ul class="item-specs">
+                        <li class="color-tooltip-yellow">{$Item.itemsetinfo.name_loc0} (0/{$Item.itemsetinfo.itemsinset})</li>
+                        {for $i = 1; $i <= 10; $i++}
+                            {$ItemName = 'item'|cat:$i}
+                            {if $Item.itemsetinfo.$ItemName != 0}
+                                <li class="indent">
+                                    <a class="color-d4 tip" href="/item/{$Item.itemsetinfo.$ItemName.entry}" data-item="{$Item.itemsetinfo.$ItemName.entry}">
+                                        {$Item.itemsetinfo.$ItemName.name}
+                                    </a>
+                                </li>
+                            {/if}
+                        {/for}
+                        <li class="indent-top"> </li>
+                        {for $i = 0; $i <= 7; $i++}
+                            {$SetBonus = 'setbonus'|cat:$i}
+                            {if isset($Item.itemsetinfo.$SetBonus)}
+                                <li class="color-d4">
+                                    {$Item.itemsetinfo.$SetBonus}
+                                </li>
+                            {/if}
+                        {/for}
+                    </ul>
+                </li>
+            {/if}
         {/if}
         {if $Item.class.class != 15 && $Item.subclass.subclass != 5}
             {if $Item.description != ''}
