@@ -23,6 +23,7 @@ RewriteRule ^(item)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?categor
 RewriteRule ^(render)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(spell)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(quest)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
+RewriteRule ^(data)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 
 
 <IfModule mod_headers.c>

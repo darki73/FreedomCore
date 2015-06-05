@@ -83,3 +83,4 @@ crashlytics-build.properties
 /Templates/FreedomCore/images/icons/small/*.*
 /Templates/FreedomCore/images/icons/tiny/*.*
 !/Templates/FreedomCore/images/icons/tiny/trade_*.gif
+/Uploads/Core/Items/Cache/ModelViewer/*.jpg

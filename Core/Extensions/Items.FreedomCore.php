@@ -280,19 +280,25 @@ Class Items
         $Statement->bindParam(':subclass', $SubCategoryID);
         $Statement->execute();
         $Result['item_list'] = $Statement->fetchAll(PDO::FETCH_ASSOC);
-        for($i = 0; $i < 1; $i++)
+        if(!empty($Result['item_list']))
         {
-            $Result['category_data'] = array(
-                'name' => Items::ItemClass($Result['item_list'][$i]['class']),
-                'subname' => Items::ItemSubClass($Result['item_list'][$i]['class'], $Result['item_list'][$i]['subclass'])
-            );
+            for($i = 0; $i < 1; $i++)
+            {
+                $Result['category_data'] = array(
+                    'name' => Items::ItemClass($Result['item_list'][$i]['class']),
+                    'subname' => Items::ItemSubClass($Result['item_list'][$i]['class'], $Result['item_list'][$i]['subclass'])
+                );
+            }
         }
         $Index = 0;
-        foreach($Result['item_list'] as $Item)
+        if(!empty($Result['item_list']))
         {
-            $Result['item_list'][$Index]['subclass'] = Items::ItemSubClass($Item['class'], $Item['subclass']);
-            $Result['item_list'][$Index]['class'] = Items::ItemClass($Item['class']);
-            $Index++;
+            foreach($Result['item_list'] as $Item)
+            {
+                $Result['item_list'][$Index]['subclass'] = Items::ItemSubClass($Item['class'], $Item['subclass']);
+                $Result['item_list'][$Index]['class'] = Items::ItemClass($Item['class']);
+                $Index++;
+            }
         }
         return array('count' => Items::SelectCount('item_template', array('class' => $CategoryID, 'subclass' => $SubCategoryID)), 'items' => $Result);
     }
@@ -668,7 +674,7 @@ Class Items
         return $Classes[$ClassID];
     }
 
-    public static function ItemSubClass($ClassID, $SubClassID)
+    public static function ItemSubClass($ClassID, $SubClassID, $Menu = false)
     {
         $SubClassesByClasses = array(
             '0' => array(
@@ -691,7 +697,9 @@ Class Items
                 '5' => array('subclass' => '5', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Gem_Bag')),
                 '6' => array('subclass' => '6', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Mining_Bag')),
                 '7' => array('subclass' => '7', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Leatherworking_Bag')),
-                '8' => array('subclass' => '8', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Inscription_Bag'))
+                '8' => array('subclass' => '8', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Inscription_Bag')),
+                '9' => array('subclass' => '9', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_FishingBag')),
+                '10' => array('subclass' => '10', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_FoodBag'))
             ),
             '2' => array(
                 '0' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Axe_1H')),
@@ -782,7 +790,8 @@ Class Items
                 '7' => array('subclass' => '7', 'translation' => Items::$TM->GetConfigVars('Character_Professions_First_aid')),
                 '8' => array('subclass' => '8', 'translation' => Items::$TM->GetConfigVars('Character_Professions_Enchanting')),
                 '9' => array('subclass' => '9', 'translation' => Items::$TM->GetConfigVars('Character_Professions_Fishing')),
-                '10' => array('subclass' => '10', 'translation' => Items::$TM->GetConfigVars('Character_Professions_Jewelcrafting'))
+                '10' => array('subclass' => '10', 'translation' => Items::$TM->GetConfigVars('Character_Professions_Jewelcrafting')),
+                '11' => array('subclass' => '11', 'translation' => Items::$TM->GetConfigVars('Character_Professions_Inscription'))
             ),
             '10' => array(
                 '0' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Money'))
@@ -826,8 +835,15 @@ Class Items
             )
         );
 
-        $SubClass = $SubClassesByClasses[$ClassID];
-        return $SubClass[$SubClassID];
+        if($Menu == false)
+        {
+            $SubClass = $SubClassesByClasses[$ClassID];
+            return $SubClass[$SubClassID];
+        }
+        else
+        {
+            return $SubClassesByClasses[$ClassID];
+        }
     }
 }
 

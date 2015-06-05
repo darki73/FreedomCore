@@ -740,7 +740,7 @@ Class Characters
             return false;
     }
 
-    private static function GetRaceByID($RaceID)
+    public static function GetRaceByID($RaceID)
     {
         $Races = array(
             '1' => array('translation' => Characters::$TM->GetConfigVars('Race_Human'),  'name' => 'human'),
@@ -773,7 +773,7 @@ Class Characters
         return $Races[$RaceID];
     }
 
-    private static function GetClassByID($ClassID)
+    public static function GetClassByID($ClassID, $Menu = false)
     {
         $Classes = array(
             '1' => array('translation' => Characters::$TM->GetConfigVars('Class_Warrior'), 'name' => 'warrior'),
@@ -788,7 +788,10 @@ Class Characters
             '10' => array('translation' => Characters::$TM->GetConfigVars('Class_Monk'), 'name' => 'monk'),
             '11' => array('translation' => Characters::$TM->GetConfigVars('Class_Druid'), 'name' => 'druid'),
         );
-        return $Classes[$ClassID];
+        if(!$Menu)
+            return $Classes[$ClassID];
+        else
+            return $Classes;
     }
 
     public static function GetSpecByTalents($CharacterGUID)

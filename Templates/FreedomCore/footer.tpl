@@ -115,6 +115,7 @@
         var jsonSearchHandlerUrl = '//{$smarty.server.HTTP_HOST}';
         //]]>
     </script>
+    <script type="text/javascript" src="/Templates/{$Template}/js/menu.js"></script>
     {if $Page.type == 'blog' || $Page.type == 'community' || $Page.type == 'search' || $Page.bodycss == 'item-index'}
         <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
     {/if}
@@ -127,6 +128,14 @@
         <script type="text/javascript" src="/Templates/{$Template}/js/utility/lightbox.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/utility/model-rotator.js"></script>
     {/if}
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function() {
+            Menu.initialize('/data/menu.json');
+        });
+        //]]>
+    </script>
+
     {if $Page.bodycss == 'realm-status'}
         <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/realm-status.js"></script>

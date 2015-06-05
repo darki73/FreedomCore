@@ -93,6 +93,21 @@ switch($_REQUEST['category'])
 		}
 	break;
 
+    case 'data':
+        if(String::IsNull($_REQUEST['subcategory']))
+            header('Location: /');
+        else
+        {
+            switch($_REQUEST['subcategory'])
+            {
+                case 'menu.json':
+                    Manager::LoadExtension('Menu', array($Database, $Smarty));
+                    echo Menu::GenerateMenu();
+                break;
+            }
+        }
+    break;
+
     case 'admin':
         if(String::IsNull($_REQUEST['subcategory']))
             header('Location: /');
