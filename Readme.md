@@ -16,6 +16,13 @@ Either specify all those who participated in the development, or just say nothin
  - PHP 5.6.9 (PHP 7.0)
  - MySQL 5.7 Community Edition
 
+#Supported Cores
+>These Cores are supported so far
+ - TrinityCore 3.3.5a (Full Support, Tested)
+ - TrinityCore 4.3.4 (Full Support, Not tested)
+ - Skyfire 5.4.8 (Probably supported, if database structure is the same as TrinityCore)
+ - TrinityCore 6.x (Not supported, there is no table called **item_template** - so cant really get items info)
+
 ### Installation
 ```sh
 $ git clone https://github.com/darki73/FreedomCore.git .
