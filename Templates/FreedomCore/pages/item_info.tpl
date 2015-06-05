@@ -70,6 +70,17 @@
                             </div>
                         {/if}
                     {/if}
+                    {if $Item.RequiredDisenchantSkill != 0}
+                        <div class="snippet">
+                            <h3>{#Item_Info_Interesting_Fact#}</h3>
+                            <ul class="fact-list">
+                                <li>
+                                    <span class="term">{#Item_Disenchanting#}:</span>
+                                    {#Item_Required#} <a href="/game/profession/enchanting">{#Character_Professions_Enchanting#}</a> ({$Item.RequiredDisenchantSkill})
+                                </li>
+                            </ul>
+                        </div>
+                    {/if}
                     <div class="snippet">
                         <h3>{#Game_LearnMore#}</h3>
 

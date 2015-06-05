@@ -92,12 +92,12 @@
                 {if isset($Item.$SpellTranslation)}
                     <li class="color-q2 item-spec-group">
                         {if !isset($ItemInfoPage)}
-                            {$Item.$SpellTranslation} {$Item.$SpellData.tooltip_loc0}
+                            {$Item.$SpellTranslation} {$Item.$SpellData.Description}
                         {else}
-                            {if $Item.$SpellData.tooltip_loc0 != ''}
-                                <span class="tip" data-spell="{$Item.$SpellData.spellID}" data-spell-item="{$Item.entry}">
+                            {if $Item.$SpellData.Description != ''}
+                                <span class="tip" data-spell="{$Item.$SpellData.SpellID}" data-spell-item="{$Item.entry}">
                                     {$Item.$SpellTranslation}
-                                    {$Item.$SpellData.tooltip_loc0}
+                                    {$Item.$SpellData.Description}
                                 </span>
                             {/if}
                         {/if}

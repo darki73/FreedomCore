@@ -520,7 +520,10 @@ Item_SubClass_Mount = Верховые Животные
 Item_Attack_Speed = Скорость
 Item_Damage = Урон
 Item_DPS = ед. урона в секунду
+Item_Spell_DS = сек
 Item_Heroic = Героический
+Item_Info_Interesting_Fact = Это интересно!
+Item_Disenchanting = Распыление
 
 Item_Stat_ITEM_MOD_MANA = к мане
 Item_Stat_ITEM_MOD_HEALTH = к здоровью

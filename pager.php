@@ -414,6 +414,26 @@ switch($_REQUEST['category'])
         }
     break;
 
+    case 'spell':
+        if(String::IsNull($_REQUEST['subcategory']))
+        {
+            $ErrorDescription = ErrorHandler::ListenForError(404);
+            $Smarty->assign('Error', $ErrorDescription);
+            $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
+            $Smarty->display('pages/error_page');
+        }
+        else
+        {
+            if (!String::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
+            {
+                $Smarty->assign('Spell', Spells::SpellInfo($_REQUEST['subcategory']));
+                $Smarty->display('blocks/spell_tooltip');
+            }
+            else
+                header('Location: /');
+        }
+    break;
+
     case 'guild':
         if(String::IsNull($_REQUEST['subcategory']))
         {

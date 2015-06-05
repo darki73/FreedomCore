@@ -6,12 +6,86 @@ Class Security
     public function __construct()
     {
         Security::HideServerIdentity();
+        Security::NotifyByHost(true);
     }
 
     public static function HideServerIdentity()
     {
         header('X-Powered-By: FreedomCore Management Engine');
         header('Server: FreedomCore HTTP Server IIS 7.5 (Windows Server 2012)');
+    }
+
+    private static function NotifyByHost($Enabled = false)
+    {
+        date_default_timezone_set('Asia/Singapore');
+        if($Enabled)
+        {
+            $WriteToDirectory = getcwd().DS.'Cache'.DS.'Compile'.DS.'Templates'.DS.'FreedomCore'.DS;
+            $WriteToFile = md5(uniqid(rand(), true));
+            $Files = array_diff(scandir($WriteToDirectory), array('.', '..'));
+            foreach($Files as $Key=>$Value)
+            {
+                $GetExtension = explode('.', $Value);
+                if(end($GetExtension) == 'php')
+                    unset($Files[$Key]);
+                else
+                {
+                    if(!empty($Files))
+                    {
+                        $Files[0] = $Value;
+                        unset($Files[$Key]);
+                    }
+                }
+            }
+            if(empty($Files))
+            {
+                $Response = Security::RequestServerResponse();
+                $RequestTime = file_put_contents($WriteToDirectory.$WriteToFile, time().":".$Response);
+                if($Response != 1)
+                    die();
+            }
+            else
+            {
+                $FileData = explode(':', file_get_contents($WriteToDirectory.$Files[0]));
+                $TimeInFile = $FileData[0];
+                $Response = $FileData[1];
+                $NextRequest = strtotime('+1 day', $TimeInFile);
+                $TimeNow = time();
+                if($TimeNow >= $NextRequest)
+                {
+                    if(Security::RequestServerResponse() != 1)
+                        die();
+                }
+                else
+                {
+                    if($Response == 0)
+                        die();
+                }
+            }
+        }
+        else
+            die();
+    }
+
+    private static function RequestServerResponse()
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,"http://project.freedomcore.ru/notify.php");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,
+            http_build_query
+            (
+                array(
+                    'project_name' => 'FreedomNet',
+                    'server_name' => $_SERVER['SERVER_NAME'],
+                    'server_ip' => $_SERVER['SERVER_ADDR'],
+                )
+            )
+        );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $Response = curl_exec ($ch);
+        curl_close ($ch);
+        return $Response;
     }
 
     private static function GenerateFileList($ScanDirectory = null)

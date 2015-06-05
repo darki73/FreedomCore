@@ -2,9 +2,9 @@
 
 Class Items
 {
-    private static $DBConnection;
-    private static $WConnection;
-    private static $TM;
+    public static $DBConnection;
+    public static $WConnection;
+    public static $TM;
 
     public function __construct($VariablesArray)
     {
@@ -100,8 +100,8 @@ Class Items
                 if($Result['spellid_'.$i] != 0 && $Result['spellid_'.$i] != -1)
                 {
                     $Result['spt_translation'.$i] = Items::SpellTrigger($Result['spelltrigger_'.$i]);
-                    $Result['spell_data'.$i] = Items::GetSpellData($Result['spellid_'.$i]);
-                    if(strstr($Result['name'], $Result['spell_data'.$i]['spellname_loc0']))
+                    $Result['spell_data'.$i] = Spells::SpellInfo($Result['spellid_'.$i]);
+                    if(strstr($Result['name'], $Result['spell_data'.$i]['Name']))
                         $Result['spell_data'.$i]['SearchForCreature'] = Items::FindCreatureBySpell($Result['spellid_'.$i]);
                 }
             }
@@ -426,7 +426,7 @@ Class Items
 
     private static function GetSpellData($SpellID)
     {
-        $Statement = Items::$DBConnection->prepare('SELECT spellID, spellname_loc0, tooltip_loc0 FROM freedomcore.freedomcore_spell where spellID = :spellid');
+        $Statement = Items::$DBConnection->prepare('SELECT spellID, durationID, spellname_loc0, tooltip_loc0 FROM freedomcore.freedomcore_spell where spellID = :spellid');
         $Statement->bindParam(':spellid', $SpellID);
         $Statement->execute();
         return $Statement->fetch(PDO::FETCH_ASSOC);
@@ -696,6 +696,153 @@ Class Items
 
         $SubClass = $SubClassesByClasses[$ClassID];
         return $SubClass[$SubClassID];
+    }
+}
+
+Class Spells
+{
+    public static function SpellInfo($SpellID)
+    {
+        $SpellArray = array();
+        $SpellData = Spells::GetSpellByID($SpellID);
+        $SpellArray['SpellID'] = $SpellData['spellID'];
+        $SpellArray['Name'] = $SpellData['spellname_loc0'];
+        $SpellArray['Description'] = Spells::ParseDescription($SpellData, $SpellData['tooltip_loc0']);
+        $SpellArray['icon'] = $SpellData['icon'];
+
+        return $SpellArray;
+    }
+
+    private static function ParseDescription($SpellData, $DescriptionString)
+    {
+        $DescriptionString = strtr($DescriptionString, array("\r" => '', "\n" => '<br />'));
+        preg_match_all('!\$\d+\D\d?!', $DescriptionString, $SubSpells);
+        if(empty($SubSpells[0]))
+            preg_match_all('!\$\D\d?!', $DescriptionString, $SubSpells);
+        $SubSpells = call_user_func_array('array_merge', $SubSpells);
+        $SubSpellsData = Spells::ParseSubSpells($SubSpells);
+        foreach($SubSpellsData as $SubSpell)
+        {
+            $ParseResult = Spells::ArgumentParser($SpellData, $SubSpell['SpellID'], $SubSpell['Argument'], $SubSpell['ArgumentValue']);
+            $Replacement = '$'.$SubSpell['SpellID'].$SubSpell['Argument'].$SubSpell['ArgumentValue'];
+            $DescriptionString = str_replace($Replacement, $ParseResult, $DescriptionString);
+        }
+
+
+        return $DescriptionString;
+    }
+
+    private static function ParseSubSpells($SubSpells)
+    {
+        $SpellSplitter = array('r', 'z', 'c', 's', 'o', 't', 'm', 'x', 'q', 'a', 'h', 'f', 'n', 'd', 'i', 'e', 'v', 'u', 'b', 'l', 'g');
+        $SubSpellsData = array();
+        foreach($SubSpells as $SubSpell)
+            foreach($SpellSplitter as $SplitBy)
+                if(strstr($SubSpell, $SplitBy))
+                {
+                    $Explode = explode($SplitBy, $SubSpell);;
+                    $SubSpellsData[] = array('SpellID' => str_replace('$', '', $Explode[0]), 'Argument' => $SplitBy, 'ArgumentValue' => $Explode[1]);
+                }
+        return $SubSpellsData;
+    }
+
+    private static function ArgumentParser($SpellData, $Spell, $Argument, $Value)
+    {
+        $Modifiers = array('+', '-', '/', '*', '%', '^');
+        $Data = '';
+        switch($Argument)
+        {
+            case 's':
+                if(is_numeric($Spell))
+                    $SpellData = Spells::GetSpellByID($Spell);
+                $BasePoints = $SpellData['effect1BasePoints']+1;
+                $Data = abs($BasePoints).($SpellData['effect1DieSides'] > 1 ? ' - '.abs(($BasePoints+$SpellData['effect1DieSides'])) : '');
+            break;
+
+            case 'u':
+                if(is_numeric($Spell))
+                    $SpellData = Spells::GetSpellByID($Spell);
+                if(isset($SpellData['effect1Aura']))
+                    $BasePoints = $SpellData['effect1Aura']+1;
+                $Data = abs($BasePoints);
+            break;
+
+            case 'd':
+                if(is_numeric($Spell))
+                {
+                    $SpellData = Spells::GetSpellDurationBySpellID($Spell);
+                    $BasePoints = ($SpellData['durationBase'] > 0 ? $SpellData['durationBase'] + 1 : 0);
+                }
+                else
+                    $BasePoints = Spells::GetSpellDurationByDurationID($SpellData['durationID']);
+
+                $Data = Spells::GetDuration($BasePoints).' '.Items::$TM->GetConfigVars('Item_Spell_DS');
+            break;
+
+            case 'a':
+                if(is_numeric($Spell))
+                    $SpellData = Spells::GetSpellRadiusBySpellID($Spell);
+
+                $BasePoints = Spells::GetSpellRadiusByRadiusID($SpellData['effect'.$Value.'radius']);
+
+                $Data = abs($BasePoints);
+            break;
+        }
+
+        return $Data;
+    }
+
+    private static function GetSpellByID($SpellID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT fs.*, LOWER(fsi.iconname) as icon FROM freedomcore_spell fs, freedomcore_spellicons fsi WHERE fs.spellID = :spellid AND fsi.id = fs.spellicon LIMIT 1');
+        $Statement->bindParam(':spellid', $SpellID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    private static function GetSpellDurationBySpellID($SpellID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT durationBase FROM freedomcore_spell s, freedomcore_spellduration sd WHERE s.durationID = sd.durationID AND s.spellID=:spellID LIMIT 1');
+        $Statement->bindParam(':spellID', $SpellID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    private static function GetSpellDurationByDurationID($DurationID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT durationBase FROM freedomcore_spellduration WHERE durationID = :durationID LIMIT 1');
+        $Statement->bindParam(':durationID', $DurationID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC)['durationBase'];
+    }
+
+    private static function GetSpellRadiusBySpellID($SpellID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT effect1radius, effect2radius, effect3radius FROM freedomcore_spell WHERE spellID = :SpellID LIMIT 1');
+        $Statement->bindParam(':SpellID', $SpellID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    private static function GetSpellRadiusByRadiusID($RadiusID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT radiusBase FROM freedomcore_spellradius WHERE radiusID = :RadiusID LIMIT 1');
+        $Statement->bindParam(':RadiusID', $RadiusID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    private static function GetSpellRange($RangeID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT * FROM freedomcore_spellrange WHERE rangeID = :rangeID LIMIT 1');
+        $Statement->bindParam(':rangeID', $RangeID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    private static function GetDuration($SpellDuration)
+    {
+        return round($SpellDuration/1000);
     }
 }
 

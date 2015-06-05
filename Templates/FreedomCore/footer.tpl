@@ -119,6 +119,7 @@
         <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
     {/if}
     {if $Page.bodycss|strstr:"item-" && $Page.bodycss != 'item-index'}
+        <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/wiki/wiki.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/wiki/item.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>
