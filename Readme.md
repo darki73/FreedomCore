@@ -1,7 +1,7 @@
 # FreedomCore (aka Freedom.Net)
 
 FreedomCore is a replica of Battle.net website created by Blizzard.  
-My desire is full compliance between FreedomCore abd Battle.net.  
+My desire is full compliance between FreedomCore and Battle.net.  
   
 Because it is most likely to happen that the development of the project will be only on me, please do not expect for the instant correction of errors and bugs, as well as new features. Of course, I'll be correcting them and so on, but please understand me, I need time.
 #Now a bit of boring stuff

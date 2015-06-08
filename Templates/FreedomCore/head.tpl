@@ -50,6 +50,10 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/search-common.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/search.css" />
     {/if}
+    {if $Page.type == "profession"}
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/wiki.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/profession.css" />
+    {/if}
     {if $Page.type == 'community' && $Page.bodycss == 'profile_page'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/profile.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/zone.css" />

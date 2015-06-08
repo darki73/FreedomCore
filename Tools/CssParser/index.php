@@ -1,7 +1,7 @@
 <?php
 set_time_limit(300);
 define("DS", DIRECTORY_SEPARATOR);
-$FileName = 'guild.css';
+$FileName = 'profession.css';
 $Lines = file($FileName);
 $RootFolder = str_replace("\Tools\CssParser", "", str_replace("/Tools/CssParser", "", getcwd()));
 $TemplatesFolder = $RootFolder.DS."Templates".DS."FreedomCore";

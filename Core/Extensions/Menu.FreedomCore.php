@@ -713,6 +713,11 @@ Class Menu
                             "label" => Menu::$TM->GetConfigVars('Game_Classes'),
                             "url" => "/game/class/",
                             "children" => Menu::GetClasses()
+                        ),
+                        array(
+                            "label" => Menu::$TM->GetConfigVars('Profile_Character_Professions'),
+                            "url" => "/game/profession/",
+                            "children" => Menu::GetProfessions()
                         )
                     )
                 )
@@ -811,5 +816,21 @@ Class Menu
         $HordeRaces = array_merge($HordeRaces, Menu::RaceBySide(1));
         $AllianceRaces = array_merge($AllianceRaces, Menu::RaceBySide(0));
         return array_merge($AllianceRaces, $HordeRaces);
+    }
+
+    private static function GetProfessions()
+    {
+        $Professions = array();
+        $Statement = Menu::$DBConnection->prepare('SELECT * FROM professions');
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach($Result as $Profession)
+        {
+            $Professions[] = array(
+                "label" => Menu::$TM->GetConfigVars($Profession['profession_translation']),
+                "url" => "/game/profession/".$Profession['profession_name']
+            );
+        }
+        return $Professions;
     }
 }

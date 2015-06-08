@@ -692,6 +692,14 @@ switch($_REQUEST['category'])
 						$Smarty->display('pages/game_classes');
 					break;
 
+                    case 'profession':
+                        Manager::LoadExtension('Professions', $ClassConstructor);
+                        $Smarty->translate('Professions');
+                        $Smarty->assign('Professions', Professions::GetProfessionsList());
+                        $Smarty->assign('Page', Page::Info('profession', array('bodycss' => 'profession-index', 'pagetitle' => $Smarty->GetConfigVars('Profile_Character_Professions').' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
+                        $Smarty->display('pages/game_professions');
+                    break;
+
 					case 'patch-notes':
 						Manager::LoadExtension("Patches", $ClassConstructor);
 						$Smarty->assign('MenuData', Patches::GetMenu());
@@ -727,6 +735,19 @@ switch($_REQUEST['category'])
 					$Smarty->assign('Page', Page::Info('game', array('bodycss' => 'class-'.$_REQUEST['lastcategory'].'', 'pagetitle' => $Class['class_full_name'].' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
 					$Smarty->display('pages/game_class');
 				}
+                elseif($_REQUEST['subcategory'] == 'profession')
+                {
+                    Manager::LoadExtension('Professions', $ClassConstructor);
+                    $Professions = Professions::GetProfessionsList();
+                    $ExistingProfessions = String::UnsetAllBut('profession_name', $Professions, 2);
+                    if(!in_array($_REQUEST['lastcategory'], $ExistingProfessions))
+                        header('Location: /game/profession');
+                    $Profession = Professions::GetProfession($_REQUEST['lastcategory']);
+                    $Smarty->assign('Profession', $Profession);
+                    $Smarty->assign('Navigation', Professions::GetNavigation($Profession['id']));
+                    $Smarty->assign('Page', Page::Info('profession', array('bodycss' => 'profession-page profession-'.$_REQUEST['lastcategory'].'', 'pagetitle' => $Profession['profession_translation'].' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
+                    $Smarty->display('pages/game_profession');
+                }
 			}
 		}
 	break;

@@ -116,8 +116,15 @@
         //]]>
     </script>
     <script type="text/javascript" src="/Templates/{$Template}/js/menu.js"></script>
-    {if $Page.type == 'blog' || $Page.type == 'community' || $Page.type == 'search' || $Page.bodycss == 'item-index'}
+    {if $Page.type == 'blog' || $Page.type == 'community' || $Page.type == 'search' || $Page.bodycss == 'item-index' || $Page.type == 'profession'}
         <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
+    {/if}
+    {if $Page.bodycss|strstr:"profession-" && $Page.type == 'profession'}
+        <script type="text/javascript" src="/Templates/{$Template}/js/wiki/wiki.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/character/profession.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/comments.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/utility/lightbox.js"></script>
     {/if}
     {if $Page.bodycss|strstr:"item-" && $Page.bodycss != 'item-index'}
         <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
