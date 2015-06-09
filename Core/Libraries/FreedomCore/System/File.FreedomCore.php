@@ -44,7 +44,102 @@ Class File
 		return $Path;
 	}
 
-	public static function Untar($File)
+    public static function DirectoryContent($Directory, $UserLanguage)
+    {
+        $ReadDirectory = $Directory.str_replace('.language', '', $UserLanguage);
+        $Iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($ReadDirectory));
+        $FilesArray = array();
+        while($Iterator->valid())
+        {
+            if (!$Iterator->isDot())
+            {
+                $FilesArray[] = array(
+                    'FileLink' => $Iterator->key(),
+                    'FileName' => $Iterator->getSubPathName(),
+                    'SmallFileName' => strtolower(str_replace('.language', '', $Iterator->getSubPathName())),
+                    'LinesCount' => File::CountLines($Iterator->key())
+                );
+            }
+            $Iterator->next();
+        }
+        return $FilesArray;
+    }
+
+    public static function ReadFileToArray($FileName, $ExplodeBy)
+    {
+        $File = file($FileName, FILE_IGNORE_NEW_LINES);
+        $FileData = array();
+        foreach($File as $Line)
+        {
+            $FileData[] = explode($ExplodeBy, $Line);
+        }
+        return $FileData;
+    }
+
+    public static function ArrayChunk($Array, $Offet)
+    {
+        return array_chunk($Array, $Offet);
+    }
+
+    public static function RemapArray($Array, $KeyOne, $KeyTwo)
+    {
+        $NewArray = array();
+        foreach($Array as $Item)
+        {
+            if(isset($Item[$KeyTwo]))
+                $NewArray[$Item[$KeyOne]] = $Item[$KeyTwo];
+        }
+        return $NewArray;
+    }
+
+    private static function CountLines($File)
+    {
+        $LineCount = 0;
+        $Handle = fopen($File, "r");
+        while(!feof($Handle)){
+            $Line = fgets($Handle, 4096);
+            $LineCount = $LineCount + substr_count($Line, PHP_EOL);
+        }
+        fclose($Handle);
+        return $LineCount;
+    }
+
+    public static function GetSubDirectories($Directory)
+    {
+        $DirectoryList = array();
+        foreach(glob($Directory.'*', GLOB_ONLYDIR) as $dir) {
+            $DirectoryName = str_replace($Directory, '', $dir);
+            $FileIterator = new FilesystemIterator($dir, FilesystemIterator::SKIP_DOTS);
+            $DirectoryList[] = array(
+                'LanguageName' => $DirectoryName,
+                'LanguageLink' => strtolower($DirectoryName),
+                'FilesInside' => iterator_count($FileIterator)
+            );
+        }
+        return $DirectoryList;
+    }
+
+    public static function DirectorySize($Directory)
+    {
+        $Iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($Directory));
+        $TotalSize = 0;
+        foreach($Iterator as $File) {
+            $TotalSize += $File->getSize();
+        }
+        return File::FormatBytes($TotalSize);
+    }
+
+    private static function FormatBytes($bytes, $precision = 2) {
+        $units = array('B', 'KB', 'MB', 'GB', 'TB');
+
+        $bytes = max($bytes, 0);
+        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow = min($pow, count($units) - 1);
+        $bytes /= pow(1024, $pow);
+        return round($bytes, $precision) . ' ' . $units[$pow];
+    }
+
+    public static function Untar($File)
 	{
 		$Path = File::FileDir($File);
 		$TarGzFile = new PharData($File);

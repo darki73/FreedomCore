@@ -45,6 +45,14 @@
                                     <span>{#Administrator_Antivirus#}</span>
                                 </a>
                             </li>
+                            <li>
+                                <hr>
+                            </li>
+                            <li>
+                                <a href="/admin/localization/" class="paid-services-character-transfer">
+                                    <span>{#Administrator_Localization#}</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div id="paid-services" class="services-column">

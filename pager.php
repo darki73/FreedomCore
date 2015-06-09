@@ -131,6 +131,104 @@ switch($_REQUEST['category'])
                         $Smarty->display('admin/security');
                     break;
 
+                    case 'localization':
+                        //print_r(File::DirectoryContent(getcwd().DS.'Core'.DS.'Languages'.DS, Utilities::GetLanguage()));
+                        if(String::IsNull($_REQUEST['lastcategory']))
+                        {
+                            $InstalledLanguages = File::GetSubDirectories(getcwd().DS.'Core'.DS.'Languages'.DS);
+                            $Smarty->assign('InstalledLanguages', $InstalledLanguages);
+                            $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Localization').' - ')));
+                            $Smarty->display('admin/localization');
+                        }
+                        else
+                        {
+                            if(String::IsNull($_REQUEST['datatype']))
+                            {
+                                $Language = array(
+                                    'LanguageName' => ucfirst($_REQUEST['lastcategory']),
+                                    'LanguageSubFolder' => ucfirst($_REQUEST['lastcategory']),
+                                    'LanguageLink' => $_REQUEST['lastcategory'],
+                                    'SubFolderFiles' => File::DirectoryContent(getcwd().DS.'Core'.DS.'Languages'.DS, ucfirst($_REQUEST['lastcategory']))
+                                );
+                                $Smarty->assign('LanguageData', $Language);
+                                $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => ucfirst($_REQUEST['lastcategory']).' - '.$Smarty->GetConfigVars('Administrator_Localization').' - ')));
+                                $Smarty->display('admin/localization_options');
+                                //echo "Total Size: ".File::DirectorySize(getcwd().DS.'Core'.DS.'Languages'.DS);
+                            }
+                            else
+                            {
+                                if(strstr($_REQUEST['datatype'], 'edit_'))
+                                {
+                                    $FileName = str_replace('edit_', '', $_REQUEST['datatype']);
+                                    if($FileName == $_REQUEST['lastcategory'])
+                                    {
+                                        if(isset($_REQUEST['page']))
+                                            $CurrentPage = $_REQUEST['page'];
+                                        else
+                                            $CurrentPage = 0;
+                                        $Language = array(
+                                            'LanguageName' => ucfirst($_REQUEST['lastcategory']),
+                                            'LanguageSubFolder' => ucfirst($_REQUEST['lastcategory']),
+                                            'LanguageLink' => $_REQUEST['lastcategory'],
+                                            'FileLink' => $_REQUEST['datatype'],
+                                            'FileName' => ucfirst(str_replace('edit_', '', $_REQUEST['datatype']))
+                                        );
+                                        $Link = getcwd().DS.'Core'.DS.'Languages'.DS.DS.ucfirst($FileName).'.language';
+                                        $FileData = File::ReadFileToArray($Link, '=');
+                                        $Smarty->assign('Lines', File::ArrayChunk($FileData, 10));
+                                        $Smarty->assign('Pages', round(count($FileData)/10));
+                                        $Smarty->assign('CurrentPage', $CurrentPage);
+                                        $Smarty->assign('LanguageData', $Language);
+                                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => ucfirst($_REQUEST['datatype']).'.language - '.ucfirst($_REQUEST['lastcategory']).' - '.$Smarty->GetConfigVars('Administrator_Localization').' - ')));
+                                        $Smarty->display('admin/localization_edit');
+                                    }
+                                    else
+                                    {
+                                        if(isset($_REQUEST['page']))
+                                            $CurrentPage = $_REQUEST['page'];
+                                        else
+                                            $CurrentPage = 0;
+                                        $Language = array(
+                                            'LanguageName' => ucfirst($_REQUEST['lastcategory']),
+                                            'LanguageSubFolder' => ucfirst($_REQUEST['lastcategory']),
+                                            'LanguageLink' => $_REQUEST['lastcategory'],
+                                            'FileLink' => $_REQUEST['datatype'],
+                                            'FileName' => ucfirst(str_replace('edit_', '', $_REQUEST['datatype']))
+                                        );
+                                        $Link = getcwd().DS.'Core'.DS.'Languages'.DS.ucfirst($_REQUEST['lastcategory']).DS.ucfirst($FileName).'.language';
+                                        $FileData = File::ReadFileToArray($Link, '=');
+                                        $Smarty->assign('Lines', File::ArrayChunk($FileData, 10));
+                                        $Smarty->assign('Pages', round(count($FileData)/10));
+                                        $Smarty->assign('CurrentPage', $CurrentPage);
+                                        $Smarty->assign('LanguageData', $Language);
+                                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => ucfirst($_REQUEST['datatype']).'.language - '.ucfirst($_REQUEST['lastcategory']).' - '.$Smarty->GetConfigVars('Administrator_Localization').' - ')));
+                                        $Smarty->display('admin/localization_edit');
+                                    }
+                                }
+                                elseif(strstr($_REQUEST['datatype'], 'update_'))
+                                {
+                                    echo "<pre>";
+                                    $Language = array(
+                                        'LanguageName' => ucfirst($_REQUEST['lastcategory']),
+                                        'LanguageSubFolder' => ucfirst($_REQUEST['lastcategory']),
+                                        'LanguageLink' => $_REQUEST['lastcategory'],
+                                        'FileLink' => $_REQUEST['datatype'],
+                                        'FileName' => ucfirst(str_replace('update_', '', $_REQUEST['datatype']))
+                                    );
+                                    $FileName = str_replace('update_', '', $_REQUEST['datatype']);
+                                    $Link = getcwd().DS.'Core'.DS.'Languages'.DS.ucfirst($_REQUEST['lastcategory']).DS.ucfirst($FileName).'.language';
+                                    $FileData = File::ReadFileToArray($Link, '=');
+                                    $RemapArray = File::RemapArray($FileData, 0, 1);
+                                    $ReceivedData = json_decode($_REQUEST['data']);
+                                    
+                                    //print_r($RemapArray);
+                                    //print_r($FileData);
+                                    print_r(json_decode($_REQUEST['data']));
+                                }
+                            }
+                        }
+                    break;
+
                     case 'renewsecuritylist':
                        Security::WriteToFile(true);
                        echo "1";

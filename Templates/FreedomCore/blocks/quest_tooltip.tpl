@@ -30,7 +30,7 @@
                 <span class="icon-copper">{$Quest.MoneyReward.copper}</span>
             {/if}
         </li>
-        <li class="indent-small">{#Item_Quest_Exp_Reward#}: HAHA 800 VALUES in CODE!! FUCK NO!</li>
+        <li class="indent-small">{#Item_Quest_Exp_Reward#}: HAHA 800 VALUES in CODE!! FUCK NO! ($Quest.</li>
         {if $Quest.RewardFactionValueIdOverride1 != 0}
             <li class="indent-small">+{#Item_Quest_Add_Rep#} «{$Quest.factionname}»: {$Quest.RewardFactionValueIdOverride1/100}</li>
         {/if}

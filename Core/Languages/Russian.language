@@ -239,6 +239,10 @@ Administrator_Antivirus_TF = Всего
 Administrator_Antivirus_NT = Не тронуты
 Administrator_Antivirus_Renew_Tooltip = Произвести обновление списка файлов<br />Делайте это только если уверены что файлы были добавлены вами
 Administrator_Antivirus_Integrity_Tooltip = Данная строка показывает субъективную оценку защищенности системы
+Administrator_Localization = Управление Языками
+Administrator_Localization_Installed = Установленные Языки
+Administrator_Localization_Edit = Редактирование Языка
+Administrator_Localization_MainFile = Основной файл языка
 
 Race_Human = Человек
 Race_Orc = Орк

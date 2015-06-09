@@ -44,14 +44,20 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Core\Extensions\Account.FreedomCore.php',
-                        'hash' => '9d4cd10d7f941fbc2ccbe84f804e5571b715ab95',
-                        'changed' => '1432648442'
+                        'hash' => '1fceb61bf152bac2d88009eef707680bbf475296',
+                        'changed' => '1432805771'
+                    ),
+                
+                    array(
+                        'file' => '\Core\Extensions\Achievements.FreedomCore.php',
+                        'hash' => '2754661dbdcab7b0c5c01505449595fc8440b357',
+                        'changed' => '1432674667'
                     ),
                 
                     array(
                         'file' => '\Core\Extensions\Characters.FreedomCore.php',
-                        'hash' => '5d40dbef8b25eeae10d8c9b8447fde6d1008c525',
-                        'changed' => '1432650944'
+                        'hash' => 'ac0b76d645f913f43561069913507279646b7506',
+                        'changed' => '1433509006'
                     ),
                 
                     array(
@@ -61,15 +67,45 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Core\Extensions\Guild.FreedomCore.php',
+                        'hash' => '94065beea67cfafe44ed073c8be859a03828b586',
+                        'changed' => '1433125693'
+                    ),
+                
+                    array(
+                        'file' => '\Core\Extensions\Items.FreedomCore.php',
+                        'hash' => 'e0103e2cdb57418b6ae40147aa0b3b732aff1b8e',
+                        'changed' => '1433513701'
+                    ),
+                
+                    array(
+                        'file' => '\Core\Extensions\Menu.FreedomCore.php',
+                        'hash' => '436fb0181f2ee2731c3ce883fdfa9bbdbe2fccf8',
+                        'changed' => '1433753471'
+                    ),
+                
+                    array(
+                        'file' => '\Core\Extensions\ModelViewer.FreedomCore.php',
+                        'hash' => '11c0ef8fd28d01229c5d6854d09c66bc8da02293',
+                        'changed' => '1433223041'
+                    ),
+                
+                    array(
                         'file' => '\Core\Extensions\News.FreedomCore.php',
-                        'hash' => 'df1ca46790db31c76f236cb9eaba58b595192ad3',
-                        'changed' => '1432099396'
+                        'hash' => 'a92392be971c66e26754bffc024f2c6c1d110aa5',
+                        'changed' => '1433410383'
                     ),
                 
                     array(
                         'file' => '\Core\Extensions\Patches.FreedomCore.php',
                         'hash' => 'b49cb6f0225a1afab0d079f80d8b3a84a4ab84a3',
                         'changed' => '1431261938'
+                    ),
+                
+                    array(
+                        'file' => '\Core\Extensions\Professions.FreedomCore.php',
+                        'hash' => 'c3714774619048b2e9d07f123bb1929f6009c8e1',
+                        'changed' => '1433755528'
                     ),
                 
                     array(
@@ -86,14 +122,20 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Core\Extensions\Search.FreedomCore.php',
-                        'hash' => 'a1406d30d68b95473020cb5d6e3b668278bc0063',
-                        'changed' => '1432643450'
+                        'hash' => 'ed621932840be5d2e42e0c987248d74db33fe169',
+                        'changed' => '1433406497'
                     ),
                 
                     array(
                         'file' => '\Core\Languages\Russian\Classes.language',
                         'hash' => 'b1e69f397b206433383d29a6c75829eb2f85b2c4',
                         'changed' => '1431259730'
+                    ),
+                
+                    array(
+                        'file' => '\Core\Languages\Russian\Professions.language',
+                        'hash' => 'd94e478d1c814553e507db030623aedcdb75b867',
+                        'changed' => '1433755411'
                     ),
                 
                     array(
@@ -104,8 +146,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Core\Languages\Russian.language',
-                        'hash' => '77e1df49bc0c5ef52a687b16c0895b516ef4695e',
-                        'changed' => '1432642405'
+                        'hash' => '5714018b334b8254dc927d2d962e8256028bb732',
+                        'changed' => '1433507729'
                     ),
                 
                     array(
@@ -122,8 +164,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Core\Libraries\FreedomCore\System\File.FreedomCore.php',
-                        'hash' => '15e58cc553ab2c735c59d41e2ef7cc9b849089cd',
-                        'changed' => '1425261306'
+                        'hash' => 'c67e8f260e7a0f18b712f78ec319344fbfbf70f5',
+                        'changed' => '1433390709'
                     ),
                 
                     array(
@@ -140,8 +182,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Core\Libraries\FreedomCore\System\Security.FreedomCore.php',
-                        'hash' => '4bd6e424a4a56accfe682db1230d7057acb53ea6',
-                        'changed' => '1432652076'
+                        'hash' => '25d375cd4c5a1925958b56b3e90f5b6895507cad',
+                        'changed' => '1433419032'
                     ),
                 
                     array(
@@ -152,8 +194,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Core\Libraries\FreedomCore\System\String.FreedomCore.php',
-                        'hash' => '0f4793af7c1d079a6d282b332e2c7733f7851b9e',
-                        'changed' => '1432201634'
+                        'hash' => '8bd56ca1e00847f252e14fa286e0d92d1d61fb60',
+                        'changed' => '1432822677'
                     ),
                 
                     array(
@@ -896,8 +938,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Core\Core.php',
-                        'hash' => '096be4e4847f1980a324a52671ac417c153221f3',
-                        'changed' => '1432648354'
+                        'hash' => '46d9235f70eda43835224ef4538ba9736e87bf0f',
+                        'changed' => '1432817699'
                     ),
                 
                     array(
@@ -913,6 +955,24 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\blocks\achievement_tooltip.tpl',
+                        'hash' => 'bdd085e18d0b8b6b1b7614c1b6f73ef57085e2f6',
+                        'changed' => '1432673626'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\blocks\achievements_category.tpl',
+                        'hash' => 'ced543b63ea023838ae30a1b71dfe0d272e7eef0',
+                        'changed' => '1433096078'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\blocks\character_sidebar.tpl',
+                        'hash' => '43837e1064ecbee4bf4a45c29f0042a8c9fb71d0',
+                        'changed' => '1433220117'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\blocks\character_tooltip.tpl',
                         'hash' => 'badcf795a35e55c72fd112ea33a3c9541a5d94d0',
                         'changed' => '1432646272'
@@ -925,33 +985,69 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\blocks\item_tooltip.tpl',
+                        'hash' => '4eb4ded5f37f4a3e99163d8ea41296a4faeef610',
+                        'changed' => '1433492198'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\blocks\profession_fishing.tpl',
+                        'hash' => '959427360d181d3ef78879168ed58ece7f00c161',
+                        'changed' => '1432734697'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\blocks\profession_loot_list.tpl',
+                        'hash' => '130d6e73de26817ad9a2fd0eafc04f5743ebe3e3',
+                        'changed' => '1433131965'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\blocks\profile_inventory_bottom.tpl',
-                        'hash' => '527c64e0ee32f1ba294325bf522fdd145731baec',
-                        'changed' => '1432560384'
+                        'hash' => '3b68badce5b47d3904f6422d86b2753cb41e1fa4',
+                        'changed' => '1433099479'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\blocks\profile_inventory_left.tpl',
-                        'hash' => '2789f419fdf4747c78f170503a80cd80f71d892a',
-                        'changed' => '1432650909'
+                        'hash' => '78c12f40cde9380467d326130b27f1b588406b68',
+                        'changed' => '1433097750'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\blocks\profile_inventory_right.tpl',
-                        'hash' => '5a2d806e7d220f06a9549e59946af8d1a8822f8f',
-                        'changed' => '1432559941'
+                        'hash' => '6968d49c0f2c95fd1dabb09f2b953a9b96910d9f',
+                        'changed' => '1433098295'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\blocks\profile_raid_content.tpl',
+                        'hash' => 'bdcf4e6ef8bd90110151c979cd0ebbe9b51ddf8f',
+                        'changed' => '1433142596'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\blocks\profile_sub_content.tpl',
+                        'hash' => '5620d46083403ccffc5141e00cfa6d7bc74dc9be',
+                        'changed' => '1433222011'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\blocks\profile_summary_left.tpl',
-                        'hash' => '1a6652c76f2f2ee16bb1cf045736c660ec839741',
-                        'changed' => '1432651309'
+                        'hash' => '068584e3a333771815e5f62ff784094a911f6da2',
+                        'changed' => '1433139696'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\blocks\profile_summary_right.tpl',
-                        'hash' => 'da39a3ee5e6b4b0d3255bfef95601890afd80709',
-                        'changed' => '1432560553'
+                        'hash' => 'f5d92f856fe005cb7ba2e4bcdf5b511e7d187d54',
+                        'changed' => '1433130804'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\blocks\quest_tooltip.tpl',
+                        'hash' => '71d4b36edb2dd728dcccc2d8f2c1f38f026125b2',
+                        'changed' => '1433758544'
                     ),
                 
                     array(
@@ -961,21 +1057,33 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\blocks\search_items.tpl',
+                        'hash' => '90f8bdbeff18d93bd67b0c9b8bc319d9a5ee3e63',
+                        'changed' => '1433407393'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\blocks\search_no_category.tpl',
-                        'hash' => '9aa734d8eec887fa4f7aca813ee2094b649241d5',
-                        'changed' => '1432646220'
+                        'hash' => '07ee097e0dc860469c3dcada8fe571586dc90056',
+                        'changed' => '1433406472'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\blocks\search_wowcharacter.tpl',
-                        'hash' => 'da39a3ee5e6b4b0d3255bfef95601890afd80709',
-                        'changed' => '1432635684'
+                        'hash' => 'c1eded7a83c417869769b6e98ed45984d1238d4a',
+                        'changed' => '1432828067'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\blocks\search_wowguild.tpl',
                         'hash' => 'da39a3ee5e6b4b0d3255bfef95601890afd80709',
                         'changed' => '1432635677'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\blocks\spell_tooltip.tpl',
+                        'hash' => '5b2a5c5013cdc657e17ffe8b7884cf416d0f7c62',
+                        'changed' => '1433481063'
                     ),
                 
                     array(
@@ -992,14 +1100,32 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Templates\FreedomCore\blog\comments_load.tpl',
-                        'hash' => '09fa6c21c40a2243d9aadd16059752ec4882c6cd',
-                        'changed' => '1432117023'
+                        'hash' => 'f31176693dd80190a0a25624be04bbf7c3096753',
+                        'changed' => '1433396435'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\css\build\cms.min.css',
                         'hash' => '7d38d8cd0dbdb6b07265a812430a98678a04ca55',
                         'changed' => '1431175519'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\css\character\achievement.css',
+                        'hash' => '8932e1cc0e761ed30e50cb7fac5b2585242c37b8',
+                        'changed' => '1432660023'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\css\character\profession.css',
+                        'hash' => 'bccc4ec4c087001e93188c8e9d60a0e80a29e3b1',
+                        'changed' => '1432731110'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\css\character\reputation.css',
+                        'hash' => 'dc0d7e5e10924945619854775155d583685a2680',
+                        'changed' => '1432713480'
                     ),
                 
                     array(
@@ -1045,6 +1171,18 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\css\guild\guild.css',
+                        'hash' => '7dc4107235af0ed1ef9ccead3db9a7c1d64975f9',
+                        'changed' => '1433125524'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\css\guild\summary.css',
+                        'hash' => '8274024026b105d6797034ee02fbd75578fae727',
+                        'changed' => '1433125466'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\css\locale\ru.css',
                         'hash' => '495e1d3e8dd21cbfb5414235dbefbc4d484e117e',
                         'changed' => '1431175742'
@@ -1063,6 +1201,18 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\css\wiki\item.css',
+                        'hash' => '3806a5bde408d0f26a5fa6ac2200e8577e1a4f0d',
+                        'changed' => '1433382289'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\css\wiki\profession.css',
+                        'hash' => '1481f1f4111840b699d6ed1fadcf3f9a3ba850d2',
+                        'changed' => '1433750476'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\css\wiki\wiki.css',
                         'hash' => 'a8f110c37721a9915ff533a06368e5f5234211eb',
                         'changed' => '1431179733'
@@ -1078,6 +1228,12 @@ $SecurityList = array(
                         'file' => '\Templates\FreedomCore\css\cms.css',
                         'hash' => 'e347960142e4a81d10019ae87d3fc9ef986c3147',
                         'changed' => '1431174207'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\css\comments.css',
+                        'hash' => '6866835333c60546725437fb50c7fec016a40f4a',
+                        'changed' => '1433382366'
                     ),
                 
                     array(
@@ -1148,8 +1304,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Templates\FreedomCore\css\wow.css',
-                        'hash' => '2262a665de3a6ce7464e27c8246af54c8ff7a409',
-                        'changed' => '1432548557'
+                        'hash' => 'fbcade0264ba2a830c274f8c22812a58e51df3f7',
+                        'changed' => '1433512868'
                     ),
                 
                     array(
@@ -1177,15 +1333,57 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\fragments\comments.tpl',
+                        'hash' => 'f35ad79f6d24bd4a1196efbcfedf5d21927a14b8',
+                        'changed' => '1433394103'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\fragments\disenchantItems.tpl',
+                        'hash' => '5d4d48d4be653b1429ddae619344d019a093f1ed',
+                        'changed' => '1433494557'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\fragments\rewardFromQuests.tpl',
+                        'hash' => '4391b66c671451df1ce84f22ecc7723d7ce63c65',
+                        'changed' => '1433387683'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\fragments\vendors.tpl',
+                        'hash' => '2859e1e1f74d1181b63f28fa6e110cef04143c67',
+                        'changed' => '1433393438'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\js\character\achievement.js',
+                        'hash' => '0c71a3c70b5d29f057b6982aaba8392a4f3e127a',
+                        'changed' => '1432660580'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\js\character\guild-tabard.js',
                         'hash' => '8a1a59e480c83efa6b1522a5957e287491779dd1',
                         'changed' => '1432641174'
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\js\character\profession.js',
+                        'hash' => 'a9b73aef05209776bf95fb99e714a24818a1575f',
+                        'changed' => '1432733905'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\js\character\profile.js',
                         'hash' => 'a21dc327716e0bbdfc5487f925e64d232767b852',
-                        'changed' => '1432558158'
+                        'changed' => '1432661968'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\js\character\reputation.js',
+                        'hash' => 'b55f73ee6f07c3f6babe7cd3a7257818132c4494',
+                        'changed' => '1432722393'
                     ),
                 
                     array(
@@ -1219,15 +1417,51 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\js\utility\lightbox.js',
+                        'hash' => '1515b0939a9c82cd3c3c2883be8b5bd9583a2dcc',
+                        'changed' => '1433383732'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\js\utility\model-rotator.js',
+                        'hash' => '7f8014be6187c59867970bcc751694fbd79b6635',
+                        'changed' => '1433383753'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\js\wiki\item.js',
+                        'hash' => '6656543f701d181ad14594703adaf2c976c6abbf',
+                        'changed' => '1433383660'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\js\wiki\profession.js',
+                        'hash' => '9a8083fcec0b951435e5d4abac7c0777c1eaaa76',
+                        'changed' => '1432733843'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\js\wiki\wiki.js',
+                        'hash' => '4dd98c15aeb15de111858356833b2d00626f5a5b',
+                        'changed' => '1433383644'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\js\cms.min.js',
-                        'hash' => '014924d00692459be8ca0b9956c1e3f8a8da0ab1',
-                        'changed' => '1432099839'
+                        'hash' => '9838d041ffb4ba96333977aaddf4a2d5cd92af1c',
+                        'changed' => '1433396012'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\js\comments.js',
+                        'hash' => 'bc222d6c39a897bfbe64dd4970d8100f1efab320',
+                        'changed' => '1433383698'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\js\common-game-site.js',
                         'hash' => 'ec643ef0a4886362f87165465c6f89e44c0b96a2',
-                        'changed' => '1432645750'
+                        'changed' => '1432816678'
                     ),
                 
                     array(
@@ -1249,9 +1483,21 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\js\freedomcore.js',
+                        'hash' => '8179ad19b1e5d42fef40819f18f9d439f19eea6a',
+                        'changed' => '1433220256'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\js\freedomcore_admin.js',
                         'hash' => '6dc834c9e71d2b57e5e73b2f060a1b0039000dc6',
                         'changed' => '1432207299'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\js\menu.js',
+                        'hash' => 'e97d99a17e02af53436b13f1d0e27966239991a3',
+                        'changed' => '1433510813'
                     ),
                 
                     array(
@@ -1291,21 +1537,45 @@ $SecurityList = array(
                     ),
                 
                     array(
-                        'file' => '\Templates\FreedomCore\pages\character_main_page.tpl',
-                        'hash' => '6853384456503912bfa6a90cfb993b39a39f73f8',
-                        'changed' => '1432571312'
+                        'file' => '\Templates\FreedomCore\pages\character_achievements.tpl',
+                        'hash' => '1dc5bba479e1a9337e5b3ecd916fc80735d5a450',
+                        'changed' => '1432738370'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\pages\character_main_page_advanced.tpl',
+                        'hash' => '7f16bc5c54544152db41159cf818b57b03c3d7b4',
+                        'changed' => '1433219845'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\pages\character_no_professions.tpl',
+                        'hash' => 'be5bb49f89f1ebc03336da022c9896234065f32b',
+                        'changed' => '1432813357'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\pages\character_professions.tpl',
+                        'hash' => 'f7c3477399ef3440d67ab1f5a77ea8baa06819d3',
+                        'changed' => '1432734975'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\pages\character_profile_content.tpl',
-                        'hash' => 'ad579faf85cc7b82b7b355fdcbf1642e962beabd',
-                        'changed' => '1432651003'
+                        'hash' => 'e9fb8c3ef8b745231a6141e63c0e244335b53b4b',
+                        'changed' => '1433219687'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\pages\character_profile_sidebar.tpl',
-                        'hash' => '3a34b0be319ca9a105a8974ec4a11eadec2d9826',
-                        'changed' => '1432650930'
+                        'hash' => '05c950a00b53e8b3cb084b978045307df7dfe204',
+                        'changed' => '1432735569'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\pages\character_reputation.tpl',
+                        'hash' => 'abf548101df353b5aaaf1ee3db4c109eac6f727f',
+                        'changed' => '1432735712'
                     ),
                 
                     array(
@@ -1363,6 +1633,18 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\pages\game_profession.tpl',
+                        'hash' => 'fac307a932790b85e197a7f25d6cfeecc1f82250',
+                        'changed' => '1433755620'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\pages\game_professions.tpl',
+                        'hash' => '7d655116d0ab93517aaedb84e67c8fdd19120647',
+                        'changed' => '1433754928'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\pages\game_race.tpl',
                         'hash' => '98323a4691f4d6e9b94ea51b6c38ca6b5bb40a33',
                         'changed' => '1431243120'
@@ -1393,9 +1675,75 @@ $SecurityList = array(
                     ),
                 
                     array(
+                        'file' => '\Templates\FreedomCore\pages\guild_main_page.tpl',
+                        'hash' => 'af90f6d2e98f5b9a11319d4adedf9c1db2eab779',
+                        'changed' => '1433126822'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\pages\item_info.tpl',
+                        'hash' => 'c50711904c36ea791027a13effd406b11b924055',
+                        'changed' => '1433493714'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\pages\items_index.tpl',
+                        'hash' => '770cc2e8320b7f045427b641e7632637d1893172',
+                        'changed' => '1433514173'
+                    ),
+                
+                    array(
                         'file' => '\Templates\FreedomCore\pages\search_results.tpl',
-                        'hash' => 'aa82b1ecaed159dcaa2567dc9a339ea342f2e39e',
-                        'changed' => '1432646244'
+                        'hash' => '3738c37a79e4f34b4e030ff7ebdcaaf307ddaccd',
+                        'changed' => '1433406607'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\parts\Character_Raid_Heroic.tpl',
+                        'hash' => '6f8972e38b07ce336443038d7ba198d967a81006',
+                        'changed' => '1433142473'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\parts\Character_Raid_LFR.tpl',
+                        'hash' => 'bcccabd9c2568e719c1b94eff968d05a1a91e718',
+                        'changed' => '1433142412'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\parts\Character_Raid_Mythic.tpl',
+                        'hash' => '4bd87fe47db0f0cf0cec98071143e3f02dbfc5bf',
+                        'changed' => '1433142483'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\parts\Character_Raid_Normal.tpl',
+                        'hash' => '53eba04b8ca2209c13a39333beb8ef0aada8341b',
+                        'changed' => '1433142460'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\parts\Character_Raid_Progression.tpl',
+                        'hash' => '4acd51df5e128fb97509fb54d9a9e6f92c3e0002',
+                        'changed' => '1433142667'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\parts\Character_Raid_Raids.tpl',
+                        'hash' => 'b3342b75411d8f254cc2a72ca7eb9535fa47cd03',
+                        'changed' => '1433142422'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\parts\Character_Summary_Stats.tpl',
+                        'hash' => '8bd7a1edde240d8b39d4b69aa92a212a4b38e725',
+                        'changed' => '1433139672'
+                    ),
+                
+                    array(
+                        'file' => '\Templates\FreedomCore\parts\Msg_ru.tpl',
+                        'hash' => 'a64bbd990c3eb4e60ad34e03fc4cb212e24efac8',
+                        'changed' => '1433139643'
                     ),
                 
                     array(
@@ -1418,8 +1766,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Templates\FreedomCore\blog.tpl',
-                        'hash' => 'ca33645f85b24118ae65132eb4647df9dbda8112',
-                        'changed' => '1432116962'
+                        'hash' => '65b196107862bb1ee34eed1f3887da0625af15a1',
+                        'changed' => '1433394348'
                     ),
                 
                     array(
@@ -1430,8 +1778,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Templates\FreedomCore\footer.tpl',
-                        'hash' => 'df5a0c5914834407a33867f052bd274f16ea3c63',
-                        'changed' => '1432641212'
+                        'hash' => '46af14ec1aa5f763ff0cee802e14d5a7ee29c800',
+                        'changed' => '1433753039'
                     ),
                 
                     array(
@@ -1454,14 +1802,14 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\Templates\FreedomCore\head.tpl',
-                        'hash' => '8c2671e14f08730f95fc3f9f9832c75759190e88',
-                        'changed' => '1432628709'
+                        'hash' => '2860ba65f714c0eb74c2adccd5b5e42cc91b233e',
+                        'changed' => '1433750713'
                     ),
                 
                     array(
                         'file' => '\Templates\FreedomCore\header.tpl',
-                        'hash' => '3950dc29576b548b47e20debb0bccea207dd2100',
-                        'changed' => '1432566492'
+                        'hash' => '9ab4e3991476dc878bbb1cdc9cb95e9fed6b3320',
+                        'changed' => '1432655160'
                     ),
                 
                     array(
@@ -1484,8 +1832,20 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\.htaccess',
-                        'hash' => 'd0ba73791f5d6b2be6a1842765c8d46d515935c1',
-                        'changed' => '1432642579'
+                        'hash' => 'd71a212046026736bb6be046a593bcb7bc61702e',
+                        'changed' => '1433509267'
+                    ),
+                
+                    array(
+                        'file' => '\Readme.md',
+                        'hash' => 'dab7304c9de1c74974dc8d12e43008decf8a11c1',
+                        'changed' => '1433749828'
+                    ),
+                
+                    array(
+                        'file' => '\Thanks.md',
+                        'hash' => '341c878d10360375ad7666760abb6ec1af7cfa0c',
+                        'changed' => '1433591264'
                     ),
                 
                     array(
@@ -1502,8 +1862,8 @@ $SecurityList = array(
                 
                     array(
                         'file' => '\pager.php',
-                        'hash' => '062b64912155827b3b99355066e7a33fee7bb6ec',
-                        'changed' => '1432649565'
+                        'hash' => '33350c516bc31f27cfaf4d19ae0332cdf3dba11e',
+                        'changed' => '1433752960'
                     )
                 );
 ?>
