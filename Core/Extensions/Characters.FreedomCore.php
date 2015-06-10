@@ -2,10 +2,10 @@
 
 Class Characters
 {
-    private static $DBConnection;
-    private static $CharConnection;
-    private static $WConnection;
-    private static $TM;
+    public static $DBConnection;
+    public static $CharConnection;
+    public static $WConnection;
+    public static $TM;
 
     private static $CharacterLevel;
     private static $CharacterClass;
@@ -826,6 +826,247 @@ Class Characters
         $Statement->execute();
         $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
         return $Result;
+    }
+}
+
+Class Raids
+{
+
+    public static function GetRaids($CharacterGUID, $Expansion, $Heroic)
+    {
+        $Raids = Raids::DataByExpansion($Expansion);
+        $SingleBoss = array();
+        $MultiBoss = array();
+        foreach($Raids['bosses'] as $Key=>$Value)
+        {
+            if(is_array($Raids['bosses'][$Key]))
+                $MultiBoss[$Key] = Raids::GetNormalRaidsManyBosses($CharacterGUID, $Expansion, $Key, $Raids['bosses'][$Key], $Raids['criteria'][$Key], $Heroic);
+            else
+                $SingleBoss[$Key] = Raids::GetNormalRaidsOneBoss($CharacterGUID, $Expansion, $Key, $Raids['bosses'][$Key], $Raids['criteria'][$Key], $Heroic);
+
+        }
+        $CombinedArray = array_merge($SingleBoss, $MultiBoss);
+        $FinalArray = array();
+        foreach($Raids['bosses'] as $Key=>$Value)
+        {
+            foreach($CombinedArray as $Instance)
+            {
+                if($Key == $Instance['data']['instance'])
+                    $FinalArray[$Key] = $Instance;
+            }
+        }
+        return $FinalArray;
+    }
+
+    public static function GetNormalRaidsOneBoss($CharacterGUID, $Expansion, $Instance, $Bosses, $Criteria, $Heroic)
+    {
+        if(is_array($Criteria))
+        {
+            $ParametersIDs = ':id_'.implode(',:id_', array_keys($Criteria));
+            $IDsAndValues = array_combine(explode(",", $ParametersIDs), $Criteria);
+            $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+        }
+        else
+        {
+            $ParametersIDs = $Criteria;
+            $IDsAndValues = array();;
+            $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+        }
+        $HTML = "";
+        $RaidData = array();
+
+        $CharactersSQL = "SELECT * FROM character_achievement_progress WHERE guid = :guid AND criteria IN (".$ParametersIDs.")";
+        $CharactersData = Characters::$CharConnection->prepare($CharactersSQL);
+        $CharactersData->execute($IDsAndValues);
+        $Result = $CharactersData->fetchAll(PDO::FETCH_ASSOC);
+        $CountResults = count($Result);
+        $BossKills = 0;
+
+        if(empty($Result))
+        {
+            $HTML .= Raids::CreateSimpleHTML($Instance, 'incomplete').PHP_EOL;
+            $RaidData = Raids::CreateOneBossRaid($CharacterGUID, $Instance, $Expansion, $Bosses, 0);
+        }
+        else
+        {
+            foreach($Result as $InstanceData)
+                $BossKills = $BossKills + $InstanceData['counter'];
+            $HTML .= Raids::CreateSimpleHTML($Instance, 'completed').PHP_EOL;
+            $RaidData = Raids::CreateOneBossRaid($CharacterGUID, $Instance, $Expansion, $Bosses, $BossKills);
+        }
+        return array('data' => $RaidData, 'html' => $HTML);
+    }
+
+    private static function CreateOneBossRaid($CharacterGUID, $Instance, $Expansion, $NpcID, $Counter)
+    {
+        $DummyRaid = array(
+            "guid" => $CharacterGUID,
+            "counter" => $Counter,
+            "expansion" => $Expansion,
+            "instance" => $Instance,
+            'npcs' => array(Raids::GetNPCInfo($NpcID))
+        );
+        return $DummyRaid;
+    }
+
+    public static function GetNormalRaidsManyBosses($CharacterGUID, $Expansion, $Instance, $Bosses, $Criteria, $Heroic)
+    {
+        global $FCCore;
+        $ParametersIDs = ':id_'.implode(',:id_', array_keys($Criteria));
+        $IDsAndValues = array_combine(explode(",", $ParametersIDs), $Criteria);
+        $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+        $HTML = "";
+        $RaidData = array();
+        $CharactersSQL = "SELECT cap.*, fa.value1 as bossid FROM character_achievement_progress cap LEFT JOIN ".$FCCore['Database']['database'].".freedomcore_achievementcriteria fa ON cap.criteria = fa.id WHERE guid = :guid AND criteria IN (".$ParametersIDs.")";
+        $CharactersData = Characters::$CharConnection->prepare($CharactersSQL);
+        $CharactersData->execute($IDsAndValues);
+        $Result = $CharactersData->fetchAll(PDO::FETCH_ASSOC);
+        $BossKills = 0;
+        if(empty($Result))
+        {
+            $AchievementsPerBoss = count($Criteria)/count($Bosses);
+            $BossID = 0;
+            $CriteriaID = 0;
+            $ArrayIndex = 0;
+            $RaidData['guid'] = $CharacterGUID;
+            $RaidData['expansion'] = $Expansion;
+            $RaidData['instance'] = $Instance;
+            foreach($Bosses as $Boss)
+            {
+                $BossCriteria = array_slice($Criteria, 0, 2);
+                if(is_numeric($Boss))
+                    if(strlen((string)$Boss) == 6)
+                        $RaidData['npcs'][$ArrayIndex] = Raids::GetObjectInfo($Boss);
+                    else
+                        $RaidData['npcs'][$ArrayIndex] = Raids::GetNPCInfo($Boss);
+                else
+                    $RaidData['npcs'][$ArrayIndex] = array('name' => $Boss);
+                $RaidData['npcs'][$ArrayIndex]['counter'] = 0;
+                unset($Criteria[0]);
+                unset($Criteria[1]);
+                $Criteria = array_values($Criteria);
+                $CriteriaID++;
+                $ArrayIndex++;
+            }
+            $HTML .= Raids::CreateSimpleHTML($Instance, 'incomplete').PHP_EOL;
+        }
+        else
+        {
+            $BossesInInstance = count($Bosses);
+            $DataForBosses = count($Result);
+            $RaidData['guid'] = $CharacterGUID;
+            $RaidData['expansion'] = $Expansion;
+            $RaidData['instance'] = $Instance;
+            $BossID = 0;
+            foreach($Bosses as $Boss)
+            {
+                $BossKills = 0;
+                foreach($Result as $Data)
+                {
+                    if($Boss == $Data['bossid'])
+                    {
+                        $BossCriteriaPortion = array_slice($Criteria, $BossID*2, 2);
+                        if(in_array($Data['criteria'], $BossCriteriaPortion))
+                        {
+                            $BossKills = $BossKills + $Data['counter'];
+                            if(is_numeric($Boss))
+                                if(strlen((string)$Boss) == 6)
+                                    $RaidData['npcs'][$BossID] = Raids::GetObjectInfo($Boss);
+                                else
+                                    $RaidData['npcs'][$BossID] = Raids::GetNPCInfo($Boss);
+                            else
+                                $RaidData['npcs'][$BossID] = array('name' => $Boss);
+                            $RaidData['npcs'][$BossID]['counter'] = $BossKills;
+                        }
+                    }
+                    else
+                    {
+                        if(is_numeric($Boss))
+                            if(strlen((string)$Boss) == 6)
+                                $RaidData['npcs'][$BossID] = Raids::GetObjectInfo($Boss);
+                            else
+                                $RaidData['npcs'][$BossID] = Raids::GetNPCInfo($Boss);
+                        else
+                            $RaidData['npcs'][$BossID] = array('name' => $Boss);
+                        $RaidData['npcs'][$BossID]['counter'] = 0;
+                    }
+                }
+                $BossID++;
+            }
+            if($BossesInInstance == $DataForBosses)
+                $HTML .= Raids::CreateSimpleHTML($Instance, 'completed').PHP_EOL;
+            else
+                $HTML .= Raids::CreateSimpleHTML($Instance, 'in-progress').PHP_EOL;
+        }
+        return array('data' => $RaidData, 'html' => $HTML);
+    }
+
+    private static function CreateMultiBossRaid($CharacterGUID, $Instance, $Expansion, $NpcID, $Counter)
+    {
+
+    }
+
+    private static function GetNPCInfo($NpcID)
+    {
+        $Statement = Characters::$WConnection->prepare('SELECT entry, name, minlevel-3 as instance_level FROM creature_template WHERE entry = :entry');
+        $Statement->bindParam(':entry', $NpcID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    private static function GetObjectInfo($ObjectID)
+    {
+        $Statement = Characters::$WConnection->prepare('SELECT entry, name FROM gameobject_template WHERE entry = :entry');
+        $Statement->bindParam(':entry', $ObjectID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    private static function CreateSimpleHTML($RaidName, $RaidStatus)
+    {
+        $String = '<td data-raid="'.$RaidName.'" class="status status-'.$RaidStatus.'"><div></div></td>'.PHP_EOL;
+        $String .= '<td></td>'.PHP_EOL;
+        return $String;
+    }
+
+    private static function DataByExpansion($ExpansionID)
+    {
+        $Data = array(
+            '0' => array(
+                'bosses' => array('mc' => 11502, 'bwl' => 11583, 'aq10' => 15339, 'aq40' => 15727),
+                'criteria' => array('mc' => 595, 'bwl' => 594, 'aq10' => 598, 'aq40' => 596)
+            ),
+            '1' => array(
+                'bosses' => array('kar' => 15690, 'mag' => 17257, 'gru' => 19044, 'ssc' => 21212, 'tk' => 19622, 'mh' => 17968, 'bt' => 22917, 'sp' => 25315),
+                'criteria' => array('kar' => 599, 'mag' => 602, 'gru' => 601, 'ssc' => 603, 'tk' => 605, 'mh' => 604, 'bt' => 606, 'sp' => 607)
+            ),
+            '2' => array(
+                'bosses' => array(
+                    'voa' => array(31125, 33993, 35013, 38433),
+                    'nax' => array(15956, 15953, 15952, 15954, 15936, 16011, 16061, 16060, 16062, 16028, 15931, 15932, 15928, 15989, 15990),
+                    'os' => 28860,
+                    'eoe' => 28859,
+                    'uld' => array(33113, 33118, 33186, 33293, Characters::$TM->GetConfigVars('Raids_Ulduar_The_Assembly_Of_Iron'), 32930, 33515, 32845, 32865, 32906, 33350, 33271, 33288, 32871),
+                    'ony' => 10184,
+                    'toc' => array(34797, 34780, 195631, 34496, 34564),
+                    'icc' => array(36612, 36855, 201873, 37813, 36626, 36627, 36678, 37970, 37955, 36789, 36853, 36597),
+                    'rs' => 39863
+                ),
+                'criteria' => array(
+                    'voa' => array(6395, 6396, 9952, 10542, 11902, 11903, 13107, 13108),
+                    'nax' => array(5100, 5111, 5101, 5126, 5102, 5132, 5104, 5133, 5112, 5128, 5113, 5131, 5120, 5130, 5108, 5125, 5129, 7806, 5103, 5110, 5114, 5127, 5117, 5124, 5119, 5134, 5122, 5135, 5123, 5136),
+                    'os' => array(5138, 5139),
+                    'eoe' => array(5137, 5140),
+                    'uld' => array(9938, 9954, 9940, 9956, 9939, 9955, 9941, 9957, 10580, 10581, 9943, 9959, 9950, 9966, 10560, 10560, 10558, 10558, 10559, 10559, 9947, 9963, 9948, 9964, 9951, 9967, 10565, 10566),
+                    'ony' => 3271,
+                    'toc' => array(12228, 12230, 12232, 12234, 12236, 12238, 12240, 12242, 12244, 12246),
+                    'icc' => array(13089, 13092, 13093, 13105, 13094, 13111, 13095, 13112, 13096, 13115, 13097, 13118, 13110, 13127, 13098, 13121, 13101, 13130, 13099, 13124, 13102, 13133, 13103, 13136),
+                    'rs' => array(13466, 13465)
+                )
+            )
+        );
+
+        return $Data[$ExpansionID];
     }
 }
 

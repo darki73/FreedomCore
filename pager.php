@@ -220,7 +220,7 @@ switch($_REQUEST['category'])
                                     $FileData = File::ReadFileToArray($Link, '=');
                                     $RemapArray = File::RemapArray($FileData, 0, 1);
                                     $ReceivedData = json_decode($_REQUEST['data']);
-                                    
+
                                     //print_r($RemapArray);
                                     //print_r($FileData);
                                     print_r(json_decode($_REQUEST['data']));
@@ -522,14 +522,28 @@ switch($_REQUEST['category'])
                             header('Location: '.$RedirectTo);
                         break;
 
+                        case 'test':
+                            $ClassicRaids = Raids::GetRaids($CharacterData['guid'], 2);
+                            echo "<pre>";
+                            echo "<strong>Classic Raids:</strong><br />";
+                            print_r($ClassicRaids);
+                            echo "<br />";
+                        break;
 
                         case 'advanced':
+                            $Smarty->translate('Raids');
+                            $Raids = array(
+                                'Classic' => Raids::GetRaids($CharacterData['guid'], 0, false),
+                                'TBC' => Raids::GetRaids($CharacterData['guid'], 1, false),
+                                'WotLK' => Raids::GetRaids($CharacterData['guid'], 2, true)
+                            );
                             $Professions = Characters::GetCharacterProfessions($CharacterData['guid']);
                             $Smarty->assign('PageType', $_REQUEST['lastcategory']);
                             $Smarty->assign('Specializations', Characters::GetSpecByTalents($CharacterData['guid']));
                             $Smarty->assign('Inventory', Characters::GetGearForCharacter($CharacterData['guid']));
                             $Smarty->assign('ArenaRating', Characters::GetPVPRaiting($CharacterData['guid']));
                             $Smarty->assign('Professions', $Professions);
+                            $Smarty->assign('Raids', $Raids);
                             $Smarty->assign('Page', Page::Info('community', array('bodycss' => 'profile_page', 'pagetitle' => $_REQUEST['subcategory'].' - ')));
                             $Smarty->display('pages/character_main_page_advanced');
                         break;
@@ -1046,6 +1060,57 @@ switch($_REQUEST['category'])
             $Smarty->display('pages/error_page');
         }
         break;
+
+    case 'zone':
+        echo '
+
+
+<div class="wiki-tooltip">
+	<span class="icon-frame frame-36 zone-thumbnail thumb-firelands"></span>
+
+	<h3>
+		<span class="float-right color-q0">
+				Уровень 85
+
+						<span class="icon-heroic-skull"></span>
+	</span>
+		Огненные Просторы
+	</h3>
+
+
+
+
+	<span class="expansion-name color-ex3">
+			<a href="/wow/ru/game/patch-notes/4-0" class="color-ex3">
+				Появилось в Cataclysm
+			</a>
+	</span>
+
+
+
+		<div class="color-tooltip-yellow">
+			Огненные Просторы – пылающее царство, куда титаны изгнали Рагнароса и его верных слуг.
+		</div>
+
+	<ul class="item-specs">
+			<li>
+				<span class="color-tooltip-yellow">Тип:</span>
+				Рейд
+
+					(героич.)
+					<span class="icon-heroic-skull"></span>
+		</li>
+
+
+			<li>
+				<span class="color-tooltip-yellow">Место:</span>
+					Гора Хиджал
+			</li>
+
+	</ul>
+</div>
+        ';
+    break;
 
     default:
         header('Location: /');

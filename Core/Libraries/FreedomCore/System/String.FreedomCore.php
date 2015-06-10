@@ -40,6 +40,13 @@ Class String
 			return false;
 	}
 
+    public static function UnshiftAssoc(&$Array, $Key, $Value)
+    {
+        $Array = array_reverse($Array, true);
+        $Array[$Key] = $Value;
+        return array_reverse($Array, true);
+    }
+
     public static function MoneyToCoins($money)
     {
         $coins = array();
