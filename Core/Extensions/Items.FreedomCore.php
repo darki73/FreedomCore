@@ -600,6 +600,14 @@ Class Items
         $Statement->bindParam(':questid', $QuestID);
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        for($i = 1; $i <= 4; $i++)
+        {
+            if($Result['RewardItemId'.$i] != 0)
+            {
+                $Result['RewardItemId'.$i] = Items::GetItemInfo($Result['RewardItemId'.$i]);
+            }
+        }
+        $Result['XPReward'] = Items::QuestXP($Result['Level'], $Result['RewardXPId']);
         $Result['MoneyReward'] = String::MoneyToCoins($Result['RewardOrRequiredMoney']);
         return $Result;
     }
@@ -724,6 +732,27 @@ Class Items
         return $Classes[$ClassID];
     }
 
+    public static function QuestXP($QuestLevel, $ExpID)
+    {
+        $File = file(getcwd().DS.'Templates'.DS.'FreedomCore'.DS.'dbc'.DS.'QuestXP.csv');
+        $LevelArray = array();
+        $Level = 1;
+        foreach($File as $Line)
+        {
+            $DataPerLevel = array();
+            $Explode = explode(',', $Line);
+            for($i = 0; $i < 2; $i++)
+                unset($Explode[$i]);
+            $Explode = array_values($Explode);
+            for($i = 0; $i < 8; $i++)
+                $DataPerLevel[$i+1] = $Explode[$i];
+            $LevelArray[$Level] = $DataPerLevel;
+            unset($DataPerLevel);
+            $Level++;
+        }
+        return $LevelArray[$QuestLevel][$ExpID];
+    }
+
     public static function ItemSubClass($ClassID, $SubClassID, $Menu = false)
     {
         $SubClassesByClasses = array(
@@ -748,8 +777,8 @@ Class Items
                 '6' => array('subclass' => '6', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Mining_Bag')),
                 '7' => array('subclass' => '7', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Leatherworking_Bag')),
                 '8' => array('subclass' => '8', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Inscription_Bag')),
-                '9' => array('subclass' => '9', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_FishingBag')),
-                '10' => array('subclass' => '10', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_FoodBag'))
+//                '9' => array('subclass' => '9', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_FishingBag')),
+//                '10' => array('subclass' => '10', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_FoodBag'))
             ),
             '2' => array(
                 '0' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Axe_1H')),
@@ -914,7 +943,7 @@ Class Spells
     private static function ParseDescription($SpellData, $DescriptionString)
     {
         $DescriptionString = strtr($DescriptionString, array("\r" => '', "\n" => '<br />'));
-        $Modifiers = array('+', '-', '/', '*', '%', '^');
+        $Modifiers = array('+', '-', '/', '*', '^');
         $SubSpells = array();
         $ModifierWasFound = false;
         foreach($Modifiers as $Modifier)
@@ -927,7 +956,7 @@ Class Spells
                 $SecondExplode = explode(';', $Explode[1]);
                 $Duration = $SecondExplode[0];
                 $ExplodedWith = ';';
-                $SubSpells[] = array(str_replace('.', '', $SecondExplode[1]));
+                $SubSpells[] = @array(str_replace('.', '', $SecondExplode[1]));
                 $ModifierWasFound = true;
             }
         }
@@ -935,6 +964,7 @@ Class Spells
             preg_match_all('!\$\d+\D\d?!', $DescriptionString, $SubSpells);
                 if(empty($SubSpells[0]))
                     preg_match_all('!\$\D\d?!', $DescriptionString, $SubSpells);
+
 
         $SubSpells = call_user_func_array('array_merge', $SubSpells);
         $SubSpellsData = Spells::ParseSubSpells($SubSpells);

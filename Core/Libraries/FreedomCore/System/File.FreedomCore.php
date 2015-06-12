@@ -12,8 +12,14 @@ Class File
             $SaveFile = fopen($SaveTo, 'w');
             fwrite($SaveFile, $Response);
             fclose($SaveFile);
+            curl_close($Handle);
+            return true;
         }
-        curl_close($Handle);
+        else
+        {
+            curl_close($Handle);
+            return false;
+        }
 	}
 
 	public static function Unzip($File)
@@ -33,7 +39,11 @@ Class File
         if (file_exists($File))
             return true;
         else
+        {
+            if(!file_exists(substr($File, 0, strrpos($File, DS))))
+                mkdir(substr($File, 0, strrpos($File, DS)), 0777, true);
             return false;
+        }
     }
 
 	private static function FileDir($File)

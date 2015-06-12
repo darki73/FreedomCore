@@ -90,7 +90,7 @@
 						</a>
 					</li>
 					<li class="menu-game" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-						<a itemprop="url" href="/game/" {if $Page.type == "game"} class="menu-active" {/if}>
+						<a itemprop="url" href="/game/" {if $Page.type == "game" || $Page.type == 'zone'} class="menu-active" {/if}>
 							<span itemprop="name">{#Menu_Game#}</span>
 						</a>
 					</li>

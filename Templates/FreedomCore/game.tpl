@@ -61,7 +61,7 @@
 						<div class="panel gameplay">
 							<h2 class="header ">{#Game_Gameplay#}</h2>
 
-							<a class="circle-link" href="/game/zone/">
+							<a class="circle-link" href="/zone/">
 								<i class="circle-icon dungeons"></i>{#Game_Dungeons#}
 							</a>
 							<a class="circle-link" href="/game/pvp/">

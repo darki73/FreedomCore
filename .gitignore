@@ -84,3 +84,6 @@ crashlytics-build.properties
 /Templates/FreedomCore/images/icons/tiny/*.*
 !/Templates/FreedomCore/images/icons/tiny/trade_*.gif
 /Uploads/Core/Items/Cache/ModelViewer/*.jpg
+/Uploads/Core/NPC/Cache/*.jpg
+/Templates/FreedomCore/images/dungeon-maps/*
+/Templates/FreedomCore/images/wiki/zone/*

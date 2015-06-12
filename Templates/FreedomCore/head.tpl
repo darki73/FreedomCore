@@ -19,6 +19,10 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/comments.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/cms.css" />
     {/if}
+    {if $Page.type == 'zone'}
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/wiki.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/zone.css" />
+    {/if}
     {if $Page.bodycss == 'realm-status'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/realmstatus.css" />
     {/if}

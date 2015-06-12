@@ -30,6 +30,47 @@ Class Utilities extends FreedomCore
 		}
 	}
 
+    public static function BlizzardLanguageFormat($LanguageCode)
+    {
+        $ChosenLang = "";
+        switch($LanguageCode)
+        {
+            case 'ru':
+                $ChosenLang = "ru-ru";
+                break;
+
+            case 'en':
+                $ChosenLang = "en-us";
+                break;
+
+            case 'es':
+                $ChosenLang = "en-us";
+                break;
+
+            case 'it':
+                $ChosenLang = "it-it";
+                break;
+
+            case 'pt':
+                $ChosenLang = "pt-br";
+                break;
+
+            case 'kr':
+                $ChosenLang = "ko-kr";
+                break;
+
+            case 'de':
+                $ChosenLang = "de-de";
+                break;
+
+            case 'fr':
+                $ChosenLang = "fr-fr";
+                break;
+
+        }
+        return $ChosenLang;
+    }
+
     private static function LoopLanguages($LanguageCode)
     {
         $Language = "";

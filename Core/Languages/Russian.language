@@ -661,3 +661,38 @@ Item_InventoryType_Quiver = Колчан
 Item_InventoryType_Weapon = Оружие
 Item_InventoryType_Relic = Реликвия
 Item_InventoryType_Shield = Щит
+
+## Zones Localization
+Zones_InstancesRaidsCMs = Подземелья, Рейды, Сценарии
+Zones_Instances = Подземелья
+Zones_Raids = Рейды
+Zones_Players = Игроки
+Zones_Level = Уровень
+Zones_Place = Место
+Zones_Map = Карта
+Zones_AvailableInHeroic = Предлагается героический режим
+Zones_Heroic = героич.
+Zones_Heroic_Cata = Героический режим появился в Cataclysm.
+Zones_Heroic_MoP = Героический режим появился в Mists of Pandaria.
+Zones_InstancesRaidsCMs_Desc = От самых потаенных уголков до известнейших земель — мир Warcraft полон тайн, опасностей и особенно поводов для драки. Города кишат вооруженными наемниками и жадными политиками, темные пещеры хранят древние и жуткие тайны, на полях боя сходятся в бою внуки тех, кто некогда развязал войну. Немногие отважатся отправиться в столь далекие и опасные места. Еще меньше смельчаков вернутся. Но вы — один из них.
+Expansion_Classic = Classic
+Expansion_TBC = The Burning Crusade
+Expansion_WotLK = Wrath of the Lich King
+Expansion_Cata = Cataclysm
+Expansion_MoP = Mists of Pandaria
+Expansion_WoD = Warlords of Draenor
+Expansion_Required = Требуется дополнение
+
+## NPC Localization
+NPC_Health = Здоровье
+NPC_Elite = Элита
+NPC_Type_Beast = Животное
+NPC_Type_Dragonkin = Дракон
+NPC_Type_Demon = Демон
+NPC_Type_Elemental = Элементаль
+NPC_Type_Giant = Гигант
+NPC_Type_Undead = Нежить
+NPC_Type_Humanoid = Гуманоид
+NPC_Type_Critter = Critter
+NPC_Type_Mechanical = Механический
+NPC_Boss = Босс

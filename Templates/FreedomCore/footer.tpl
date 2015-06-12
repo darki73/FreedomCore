@@ -142,7 +142,11 @@
         });
         //]]>
     </script>
-
+    {if $Page.type == 'zone'}
+        <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/wiki/wiki.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/wiki/zone.js"></script>
+    {/if}
     {if $Page.bodycss == 'realm-status'}
         <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/realm-status.js"></script>

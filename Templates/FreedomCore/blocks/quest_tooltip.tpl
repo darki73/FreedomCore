@@ -8,14 +8,19 @@
     </div>
     <ul class="wiki-list">
         <li class="color-tooltip-yellow">{#Item_Rewards#}:</li>
-        <li>
-            <span class="item-link color-q5">
-            <span class="icon-frame frame-14 ">
-            <img src="http://media.blizzard.com/wow/icons/18/inv_axe_113.jpg" alt="" width="14" height="14"/>
-            </span>
-            Темная Скорбь
-            </span>
-        </li>
+        {for $i = 1; $i <= 4; $i++}
+            {assign 'RewardItemID' 'RewardItemId'|cat:$i}
+            {if $Quest.$RewardItemID != 0}
+                <li>
+                    <span class="item-link color-q{$Quest.$RewardItemID.Quality}">
+                    <span class="icon-frame frame-14 ">
+                    <img src="/Templates/{$Template}/images/icons/small/{$Quest.$RewardItemID.icon}.jpg" alt="" width="14" height="14"/>
+                    </span>
+                    {$Quest.$RewardItemID.name}
+                    </span>
+                </li>
+            {/if}
+        {/for}
     </ul>
     <ul class="wiki-list">
         <li class="color-tooltip-yellow">{#Item_Quest_Payment#}:</li>
@@ -30,7 +35,7 @@
                 <span class="icon-copper">{$Quest.MoneyReward.copper}</span>
             {/if}
         </li>
-        <li class="indent-small">{#Item_Quest_Exp_Reward#}: HAHA 800 VALUES in CODE!! FUCK NO! ($Quest.</li>
+        <li class="indent-small">{#Item_Quest_Exp_Reward#}: +{$Quest.XPReward}</li>
         {if $Quest.RewardFactionValueIdOverride1 != 0}
             <li class="indent-small">+{#Item_Quest_Add_Rep#} «{$Quest.factionname}»: {$Quest.RewardFactionValueIdOverride1/100}</li>
         {/if}

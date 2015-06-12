@@ -522,14 +522,6 @@ switch($_REQUEST['category'])
                             header('Location: '.$RedirectTo);
                         break;
 
-                        case 'test':
-                            $ClassicRaids = Raids::GetRaids($CharacterData['guid'], 2);
-                            echo "<pre>";
-                            echo "<strong>Classic Raids:</strong><br />";
-                            print_r($ClassicRaids);
-                            echo "<br />";
-                        break;
-
                         case 'advanced':
                             $Smarty->translate('Raids');
                             $Raids = array(
@@ -1062,54 +1054,62 @@ switch($_REQUEST['category'])
         break;
 
     case 'zone':
-        echo '
+        Manager::LoadExtension('Zones', $ClassConstructor);
+        $Smarty->translate('Raids');
+        if(String::IsNull($_REQUEST['subcategory']))
+        {
+            $Smarty->assign('Instances', Zones::GetZonesForLandingPage());
+            $Smarty->assign('Page', Page::Info('zone', array('bodycss' => 'zone-index expansion-0', 'pagetitle' => $Smarty->GetConfigVars('Zones_InstancesRaidsCMs').' - ')));
+            $Smarty->display('pages/zones');
+        }
+        else
+        {
+            if(is_numeric($_REQUEST['subcategory']))
+            {
+                if($_REQUEST['lastcategory'] == 'tooltip')
+                {
+                    $ZoneInfo = Zones::GetZoneInfoByID($_REQUEST['subcategory']);
+                    $Smarty->assign('Zone', $ZoneInfo);
+                    $Smarty->display('blocks/zone_tooltip');
+                }
+                else
+                    header('Location: /');
+            }
+            else
+            {
+                $ChosenLang = Utilities::BlizzardLanguageFormat(Utilities::GetLanguage(true));
+                $ZoneInfo = Zones::GetZoneInfoByName($_REQUEST['subcategory']);
+                Zones::DownloadScreenshots($ZoneInfo, $ChosenLang);
+                Zones::DownloadMap($ZoneInfo, $ChosenLang);
 
+                $Smarty->assign('LanguageStyle', $ChosenLang);
+                $Smarty->assign('ZoneInfo', $ZoneInfo);
+                $Smarty->assign('Page', Page::Info('zone', array('bodycss' => 'zone-'.$ZoneInfo['link_name'], 'pagetitle' => $ZoneInfo['name'].' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
+                $Smarty->display('pages/zone_info');
+            }
+        }
+    break;
 
-<div class="wiki-tooltip">
-	<span class="icon-frame frame-36 zone-thumbnail thumb-firelands"></span>
-
-	<h3>
-		<span class="float-right color-q0">
-				Уровень 85
-
-						<span class="icon-heroic-skull"></span>
-	</span>
-		Огненные Просторы
-	</h3>
-
-
-
-
-	<span class="expansion-name color-ex3">
-			<a href="/wow/ru/game/patch-notes/4-0" class="color-ex3">
-				Появилось в Cataclysm
-			</a>
-	</span>
-
-
-
-		<div class="color-tooltip-yellow">
-			Огненные Просторы – пылающее царство, куда титаны изгнали Рагнароса и его верных слуг.
-		</div>
-
-	<ul class="item-specs">
-			<li>
-				<span class="color-tooltip-yellow">Тип:</span>
-				Рейд
-
-					(героич.)
-					<span class="icon-heroic-skull"></span>
-		</li>
-
-
-			<li>
-				<span class="color-tooltip-yellow">Место:</span>
-					Гора Хиджал
-			</li>
-
-	</ul>
-</div>
-        ';
+    case 'npc':
+        if(String::IsNull($_REQUEST['subcategory']))
+        {
+            $ErrorDescription = ErrorHandler::ListenForError(404);
+            $Smarty->assign('Error', $ErrorDescription);
+            $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
+            $Smarty->display('pages/error_page');
+        }
+        else
+        {
+            if($_REQUEST['lastcategory'] == 'tooltip')
+            {
+                Manager::LoadExtension('Zones', $ClassConstructor);
+                $NPCInfo = Zones::GetNPCInfo($_REQUEST['subcategory']);
+                $Smarty->assign('NPC', $NPCInfo);
+                $Smarty->display('blocks/npc_tooltip');
+            }
+            else
+                header('Location: /');
+        }
     break;
 
     default:
