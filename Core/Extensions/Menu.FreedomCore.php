@@ -718,7 +718,17 @@ Class Menu
                             "label" => Menu::$TM->GetConfigVars('Profile_Character_Professions'),
                             "url" => "/game/profession/",
                             "children" => Menu::GetProfessions()
-                        )
+                        ),
+                        array(
+                            "label" => Menu::$TM->GetConfigVars('Game_Game_Process'),
+                            "parentClass" => "divider",
+                            "url" => ""
+                        ),
+                        array(
+                            "label" => Menu::$TM->GetConfigVars('Zones_InstancesRaidsCMs'),
+                            "url" => "/zone/",
+                            "children" => Menu::GetInstances()
+                        ),
                     )
                 )
             )
@@ -755,6 +765,163 @@ Class Menu
             }
         }
         return $Categories;
+    }
+
+    private static function GetInstances()
+    {
+        $Instances = Menu::PrepareInstanceData();
+        return $Instances;
+    }
+
+    private static function PrepareInstanceData()
+    {
+        $GetAllInstances = Menu::GetAllInstancesData();
+        // Instances
+        $ClassicDungeons = Menu::InstancesByExpansion(0);
+        $TBCDungeons = Menu::InstancesByExpansion(1);
+        $WotLKDungeons = Menu::InstancesByExpansion(2);
+        // Raids
+        $ClassicRaids = Menu::InstancesByExpansion(0);
+        $TBCRaids = Menu::InstancesByExpansion(1);
+        $WotLKRaids = Menu::InstancesByExpansion(2);
+
+        foreach($GetAllInstances as $Instance)
+        {
+            switch($Instance['expansion_required'])
+            {
+                case '0':
+                    if(!strstr($Instance['name'], 'Raids_Raid_'))
+                    {
+                        $ClassicDungeons['children'][] = array(
+                            "label" => $Instance['translated_name'],
+                            "url" => "/zone/".$Instance['link_name'],
+                        );
+                    }
+                    else
+                    {
+                        $ClassicRaids['children'][] = array(
+                            "label" => $Instance['translated_name'],
+                            "url" => "/zone/".$Instance['link_name'],
+                        );
+                    }
+                    break;
+                case '1':
+                    if(!strstr($Instance['name'], 'Raids_Raid_'))
+                    {
+                        $TBCDungeons['children'][] = array(
+                            "label" => $Instance['translated_name'],
+                            "url" => "/zone/".$Instance['link_name'],
+                        );
+                    }
+                    else
+                    {
+                        $TBCRaids['children'][] = array(
+                            "label" => $Instance['translated_name'],
+                            "url" => "/zone/".$Instance['link_name'],
+                        );
+                    }
+                    break;
+                case '2':
+                    if(!strstr($Instance['name'], 'Raids_Raid_'))
+                    {
+                        $WotLKDungeons['children'][] = array(
+                            "label" => $Instance['translated_name'],
+                            "url" => "/zone/".$Instance['link_name'],
+                        );
+                    }
+                    else
+                    {
+                        $WotLKRaids['children'][] = array(
+                            "label" => $Instance['translated_name'],
+                            "url" => "/zone/".$Instance['link_name'],
+                        );
+                    }
+                    break;
+            }
+
+        }
+        $Dungeons = array(
+            "label" => Menu::$TM->GetConfigVars('Zones_Instances'),
+            "parentClass" => "divider",
+            "url" => ""
+        );
+        $Raids = array(
+            "label" => Menu::$TM->GetConfigVars('Zones_Raids'),
+            "parentClass" => "divider",
+            "url" => ""
+        );
+
+        $Instances = array($Dungeons, $ClassicDungeons, $TBCDungeons, $WotLKDungeons, $Raids, $ClassicRaids, $TBCRaids, $WotLKRaids);
+
+        return $Instances;
+    }
+
+    private static function GetAllInstancesData()
+    {
+        $Statement = Menu::$DBConnection->prepare('SELECT * FROM raidsandinstances');
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $ArrayIndex = 0;
+        foreach ($Result as $Instance)
+        {
+            $Result[$ArrayIndex]['translated_name'] = Menu::$TM->GetConfigVars($Instance['name']);
+            $Result[$ArrayIndex]['instance_type'] = Menu::ZoneTypeByID($Instance['instance_type']);
+            if($Result[$ArrayIndex]['group_name'] != 0)
+                $Result[$ArrayIndex]['group_name'] = Menu::$TM->GetConfigVars($Instance['group_name']);
+            $ArrayIndex++;
+        }
+        return $Result;
+    }
+
+    private static function ZoneTypeByID($TypeID)
+    {
+        Menu::$TM->translate('Raids');
+        $Types = array(
+            1 => array('type' => '1', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_Five_Man')),
+            2 => array('type' => '2', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_Five_Man_Heroic')),
+            3 => array('type' => '3', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_Ten_Man')),
+            4 => array('type' => '4', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_Ten_Man_Heroic')),
+            5 => array('type' => '5', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_TwentyFive_Man')),
+            6 => array('type' => '6', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_TwentyFive_Man_Heroic')),
+            7 => array('type' => '7', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_LRF')),
+            8 => array('type' => '8', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_Flex')),
+            9 => array('type' => '9', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_Mythic')),
+            10 => array('type' => '10', 'translation' => Menu::$TM->GetConfigVars('Raids_Instance_Type_Forty_Man'))
+        );
+        return $Types[$TypeID];
+    }
+
+    private static function InstancesByExpansion($Expansion)
+    {
+        $Label = "";
+        switch($Expansion)
+        {
+            case '0':
+                $Label = Menu::$TM->GetConfigVars('Expansion_Classic');
+                break;
+            case '1':
+                $Label = Menu::$TM->GetConfigVars('Expansion_TBC');
+                break;
+            case '2':
+                $Label = Menu::$TM->GetConfigVars('Expansion_WotLK');
+                break;
+            case '3':
+                $Label = Menu::$TM->GetConfigVars('Expansion_Cata');
+                break;
+            case '4':
+                $Label = Menu::$TM->GetConfigVars('Expansion_MoP');
+                break;
+            case '5':
+                $Label = Menu::$TM->GetConfigVars('Expansion_WoD');
+                break;
+        }
+
+        $BuildArray = array(
+            "label" => $Label,
+            "url" => "/zone/#expansion=".$Expansion,
+            "children" => array()
+        );
+        return $BuildArray;
     }
 
     private static function RaceBySide($SideID)

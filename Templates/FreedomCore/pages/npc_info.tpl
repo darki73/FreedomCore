@@ -133,7 +133,7 @@
                         <h2>
                             {$BossInfo.name}
                         </h2>
-
+                        <span class="boss-title">{$BossInfo.subname}</span>
                     </div>
                 </div>
                 <span class="clear"></span>

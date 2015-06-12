@@ -69,6 +69,7 @@ Game_Patch_Zulaman = Боги Зул’Амана
 Game_Patch_BlackTemple = Черный Храм
 Game_Patch_BurningCrusade = Burning Crusade
 Game_Patch_Necropolis = Тень Некрополя
+Game_Game_Process = Игровой процесс
 
 
 
@@ -574,7 +575,7 @@ Item_Stat_ITEM_MOD_DEFENSE_SKILL_RATING = к рейтингу защиты
 Item_Stat_ITEM_MOD_DODGE_RATING = к уклонению
 Item_Stat_ITEM_MOD_PARRY_RATING = к парированию
 Item_Stat_ITEM_MOD_BLOCK_RATING = к бонусу блока
-Item_Stat_ITEM_MOD_HIT_MELEE_RATING = к меткости
+Item_Stat_ITEM_MOD_HIT_MELEE_RATING = к рейтингу меткости
 Item_Stat_ITEM_MOD_HIT_RANGED_RATING = к меткости
 Item_Stat_ITEM_MOD_HIT_SPELL_RATING = к меткости
 Item_Stat_ITEM_MOD_CRIT_MELEE_RATING = к критическому удару
@@ -696,3 +697,4 @@ NPC_Type_Humanoid = Гуманоид
 NPC_Type_Critter = Critter
 NPC_Type_Mechanical = Механический
 NPC_Boss = Босс
+NPC_Type_ChaosBorn = Порождение Хаоса

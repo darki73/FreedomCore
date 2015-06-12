@@ -88,3 +88,4 @@ crashlytics-build.properties
 /Uploads/Core/NPC/ModelViewer/*.jpg
 /Templates/FreedomCore/images/dungeon-maps/*
 /Templates/FreedomCore/images/wiki/zone/*
+/Cache/securitychecklist.php

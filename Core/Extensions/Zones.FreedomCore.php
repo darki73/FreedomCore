@@ -270,7 +270,8 @@ Class Zones
             6 => array('id' => '6', 'translation' => Zones::$TM->GetConfigVars('NPC_Type_Undead')),
             7 => array('id' => '7', 'translation' => Zones::$TM->GetConfigVars('NPC_Type_Humanoid')),
             8 => array('id' => '8', 'translation' => Zones::$TM->GetConfigVars('NPC_Type_Critter')),
-            9 => array('id' => '9', 'translation' => Zones::$TM->GetConfigVars('NPC_Type_Mechanical'))
+            9 => array('id' => '9', 'translation' => Zones::$TM->GetConfigVars('NPC_Type_Mechanical')),
+            10 => array('id' => '10', 'translation' => Zones::$TM->GetConfigVars('NPC_Type_ChaosBorn'))
         );
         return $Types[$TypeID];
     }
