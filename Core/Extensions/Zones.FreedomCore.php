@@ -141,6 +141,7 @@ Class Zones
                 ct.minlevel,
                 ct.maxlevel,
                 ct.rank,
+                ct.lootid,
                 ct.HealthModifier * cls.basehp0 as health,
                 ct.type,
                 ct.ScriptName
@@ -157,12 +158,104 @@ Class Zones
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         $Result['type'] = Zones::NPCType($Result['type']);
+        $Result['health'] = String::NiceNumbers($Result['health']);
         for($i = 1; $i <= 3; $i++)
         {
             if($Result['difficulty_entry_'.$i] != 0)
                 $Result['difficulty_entry_'.$i] = Zones::GetNPCInfo($Result['difficulty_entry_'.$i]);
         }
 
+        return $Result;
+    }
+
+    public static function GetBossAchievements($BossID)
+    {
+        $Statement = Zones::$DBConnection->prepare('
+            SELECT
+                fac.refAchievement as Achievement,
+                fa.name_loc0 as Name,
+                fa.description_loc0 as Description,
+                fa.points as Points,
+                fact.name_loc0 as Category,
+                fsi.iconname as Icon
+            FROM
+                freedomcore_achievementcriteria fac
+            LEFT JOIN freedomcore_achievement fa ON
+                fac.refAchievement = fa.id
+            LEFT JOIN freedomcore_achievementcategory fact ON
+                fa.category = fact.id
+            LEFT JOIN freedomcore_spellicons fsi ON
+                fa.icon = fsi.id
+            WHERE
+                fa.category NOT IN (125, 14807, 14823, 15062)
+	          AND
+                fac.value1 = :bossid;
+        ');
+        $Statement->bindParam(':bossid', $BossID);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        return $Result;
+    }
+
+    public static function GetBossLoot($LootID)
+    {
+        $Statement = Zones::$WConnection->prepare('SELECT * FROM creature_loot_template WHERE Entry = :lootid');
+        $Statement->bindParam(':lootid', $LootID);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $ArrayIndex = 0;
+        $GetDataForItems = array();
+        foreach($Result as $ItemDrop)
+        {
+            if($ItemDrop['Reference'] != 0)
+                unset($Result[$ArrayIndex]);
+            else
+            {
+                $GetDataForItems[] = $ItemDrop['Item'];
+            }
+            $ArrayIndex++;
+        }
+        $Result = array_values($Result);
+        $ItemArray = implode(', ', $GetDataForItems);
+        return Zones::GetItemArrayData($ItemArray);
+    }
+
+    private static function GetItemArrayData($ItemArray)
+    {
+        global $FCCore;
+        $SQL = 'SELECT
+                it.entry,
+                it.class,
+                it.subclass,
+                it.name,
+                it.displayid,
+                it.Quality,
+                it.BuyPrice,
+                it.SellPrice,
+                it.bonding,
+                it.RequiredLevel,
+                it.InventoryType,
+                LOWER(fi.iconname) as icon
+            FROM
+                item_template it
+            LEFT JOIN '.$FCCore['Database']['database']	.'.freedomcore_icons fi ON
+                it.displayid = fi.id
+            WHERE
+                entry IN ('.$ItemArray.')';
+        $Statement = Zones::$WConnection->prepare($SQL);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $ArrayIndex = 0;
+        foreach($Result as $Item)
+        {
+            $Result[$ArrayIndex]['subclass'] = Items::ItemSubClass($Item['class'], $Item['subclass']);
+            $Result[$ArrayIndex]['class'] = Items::ItemClass($Item['class']);
+            $Result[$ArrayIndex]['BuyPrice'] = String::MoneyToCoins($Item['BuyPrice']);
+            $Result[$ArrayIndex]['SellPrice'] = String::MoneyToCoins($Item['SellPrice']);
+            $Result[$ArrayIndex]['bond_translation'] = Items::BondTranslation($Item['bonding']);
+            $Result[$ArrayIndex]['it_translation'] = Items::InventoryTypeTranslation($Item['InventoryType']);
+            $ArrayIndex++;
+        }
         return $Result;
     }
 

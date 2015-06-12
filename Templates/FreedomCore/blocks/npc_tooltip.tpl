@@ -43,12 +43,12 @@
         <li>
             <span class="color-tooltip-yellow">{#NPC_Health#}:</span>
             {if $CreatureMaxHP != 0}
-                {($NPC.health/1000)|string_format:"%.1f"}K–{($CreatureMaxHP/1000)|string_format:"%.1f"}K
+                {$NPC.health}–{$CreatureMaxHP}
             {else}
-                {($NPC.health/1000)|string_format:"%.1f"}K
+                {$NPC.health}
             {/if}
             {if $NPC.difficulty_entry_1 != 0 || $NPC.difficulty_entry_2 != 0 || $NPC.difficulty_entry_3 != 0}
-                (<span class="color-tooltip-green">{($CreatureMaxHP/1000)|string_format:"%.1f"}K</span> {#Zones_Heroic#})
+                (<span class="color-tooltip-green">{$CreatureMaxHP}</span> {#Zones_Heroic#})
             {/if}
         </li>
         <li>

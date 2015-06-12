@@ -22,6 +22,9 @@
     {if $Page.type == 'zone'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/wiki.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/zone.css" />
+        {if $Page.bodycss|strstr:'boss-'}
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/boss.css" />
+        {/if}
     {/if}
     {if $Page.bodycss == 'realm-status'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/realmstatus.css" />

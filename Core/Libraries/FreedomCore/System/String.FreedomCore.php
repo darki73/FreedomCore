@@ -47,6 +47,15 @@ Class String
         return array_reverse($Array, true);
     }
 
+    public static function NiceNumbers($n) {
+        $n = (0+str_replace(",","",$n));
+        if(!is_numeric($n)) return false;
+        if($n>1000000) return round(($n/1000000),1).' M';
+        else if($n>1000) return round(($n/1000),1).' K';
+
+        return number_format($n);
+    }
+
     public static function MoneyToCoins($money)
     {
         $coins = array();

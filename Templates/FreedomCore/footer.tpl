@@ -145,7 +145,15 @@
     {if $Page.type == 'zone'}
         <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/wiki/wiki.js"></script>
-        <script type="text/javascript" src="/Templates/{$Template}/js/wiki/zone.js"></script>
+        {if $Page.bodycss|strstr:'boss-'}
+            <script type="text/javascript" src="/Templates/{$Template}/js/wiki/npc.js"></script>
+            <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>
+            <script type="text/javascript" src="/Templates/{$Template}/js/comments.js"></script>
+            <script type="text/javascript" src="/Templates/{$Template}/js/utility/lightbox.js"></script>
+            <script type="text/javascript" src="/Templates/{$Template}/js/utility/model-rotator.js"></script>
+        {else}
+            <script type="text/javascript" src="/Templates/{$Template}/js/wiki/zone.js"></script>
+        {/if}
     {/if}
     {if $Page.bodycss == 'realm-status'}
         <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>

@@ -1077,15 +1077,87 @@ switch($_REQUEST['category'])
             }
             else
             {
-                $ChosenLang = Utilities::BlizzardLanguageFormat(Utilities::GetLanguage(true));
                 $ZoneInfo = Zones::GetZoneInfoByName($_REQUEST['subcategory']);
-                Zones::DownloadScreenshots($ZoneInfo, $ChosenLang);
-                Zones::DownloadMap($ZoneInfo, $ChosenLang);
+                if(String::IsNull($_REQUEST['lastcategory']))
+                {
+                    $ChosenLang = Utilities::BlizzardLanguageFormat(Utilities::GetLanguage(true));
+                    Zones::DownloadScreenshots($ZoneInfo, $ChosenLang);
+                    Zones::DownloadMap($ZoneInfo, $ChosenLang);
 
-                $Smarty->assign('LanguageStyle', $ChosenLang);
-                $Smarty->assign('ZoneInfo', $ZoneInfo);
-                $Smarty->assign('Page', Page::Info('zone', array('bodycss' => 'zone-'.$ZoneInfo['link_name'], 'pagetitle' => $ZoneInfo['name'].' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
-                $Smarty->display('pages/zone_info');
+                    $Smarty->assign('LanguageStyle', $ChosenLang);
+                    $Smarty->assign('ZoneInfo', $ZoneInfo);
+                    $Smarty->assign('Page', Page::Info('zone', array('bodycss' => 'zone-'.$ZoneInfo['link_name'], 'pagetitle' => $ZoneInfo['name'].' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
+                    $Smarty->display('pages/zone_info');
+                }
+                else
+                {
+                    $BossesArray = array();
+                    foreach($ZoneInfo['bosses'] as $Boss)
+                        $BossesArray[] = $Boss['boss_link'];
+
+                    $BossInfo = $ZoneInfo['bosses'][String::MASearch($ZoneInfo['bosses'], 'boss_link', $_REQUEST['lastcategory'])];
+
+                    if(in_array($_REQUEST['lastcategory'], $BossesArray))
+                    {
+                        if(String::IsNull($_REQUEST['datatype']))
+                        {
+                            $StorageDir = str_replace('/', DS, getcwd()).DS.'Uploads'.DS.'Core'.DS.'NPC'.DS.'ModelViewer'.DS;
+                            $ItemName = 'creature'.$BossInfo['entry'].'.jpg';
+                            if(!File::Exists($StorageDir.$ItemName))
+                                File::Download('http://media.blizzard.com/wow/renders/npcs/rotate/creature'.$BossInfo['entry'].'.jpg', $StorageDir.$ItemName);
+                            $NPCInfo = Zones::GetNPCInfo($BossInfo['entry']);
+                            $Smarty->assign('NPC', $NPCInfo);
+                            $Smarty->assign('ZoneInfo', $ZoneInfo);
+                            $Smarty->assign('BossInfo', $BossInfo);
+                            $Smarty->assign('Page', Page::Info('zone', array('bodycss' => 'zone-'.$ZoneInfo['link_name'].' boss-'.$_REQUEST['lastcategory'], 'pagetitle' => $BossInfo['name'].' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
+                            $Smarty->display('pages/npc_info');
+                        }
+                        else
+                        {
+                            $NPCInfo = Zones::GetNPCInfo($BossInfo['entry']);
+                            switch(str_replace('.frag', '', $_REQUEST['datatype']))
+                            {
+                                case 'loot':
+                                    $BossLoot = array();
+                                    $BossLoot['dungortenman'] = Zones::GetBossLoot($NPCInfo['lootid']);
+                                    $LootAmount = count($BossLoot['dungortenman']);
+                                    for($i = 1; $i <= 3; $i++)
+                                    {
+                                        if($NPCInfo['difficulty_entry_'.$i] != 0)
+                                        {
+                                            if($i == 1)
+                                            {
+                                                $BossLoot['dungheroicortenman'] = Zones::GetBossLoot($NPCInfo['difficulty_entry_'.$i]['lootid']);
+                                                $LootAmount = $LootAmount + count($BossLoot['dungheroicortenman']);
+                                            }
+                                            elseif($i == 2)
+                                            {
+                                                $BossLoot['twentyfive'] = Zones::GetBossLoot($NPCInfo['difficulty_entry_'.$i]['lootid']);
+                                                $LootAmount = $LootAmount + count($BossLoot['twentyfive']);
+                                            }
+                                            elseif($i == 2)
+                                            {
+                                                $BossLoot['twentyfiveheroic'] = Zones::GetBossLoot($NPCInfo['difficulty_entry_'.$i]['lootid']);
+                                                $LootAmount = $LootAmount + count($BossLoot['twentyfiveheroic']);
+                                            }
+                                        }
+                                    }
+                                    $Smarty->assign('LootAmount', $LootAmount);
+                                    $Smarty->assign('BossLoot', $BossLoot);
+                                break;
+
+                                case 'achievements':
+                                    $Achievements = Zones::GetBossAchievements($NPCInfo['entry']);
+                                    $Smarty->assign('AchievementsCount', count($Achievements));
+                                    $Smarty->assign('Achievements', $Achievements);
+                                break;
+                            }
+                            $Smarty->display('fragments/boss/'.str_replace('.frag', '', $_REQUEST['datatype']));
+                        }
+                    }
+                    else
+                        header('Location: /zone/'.$ZoneInfo['link_name']);
+                }
             }
         }
     break;

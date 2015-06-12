@@ -524,7 +524,7 @@ Class Items
         return $Sockets[$SocketColorID];
     }
 
-    private static function InventoryTypeTranslation($TypeID)
+    public static function InventoryTypeTranslation($TypeID)
     {
         $InventoryType = array(
             '0' => Items::$TM->GetConfigVars('Item_InventoryType_Non_Equipable'),
@@ -612,7 +612,7 @@ Class Items
         return $Result;
     }
 
-    private static function BondTranslation($BondID)
+    public static function BondTranslation($BondID)
     {
         $BondType = array(
             '0' => Items::$TM->GetConfigVars('Item_Bond_No_Bounds'),
