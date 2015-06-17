@@ -4,8 +4,18 @@
 	</div>
 
 	<div class="sidebar-content">
-		<div class="gear-store">
-			<a class="gear-link" href="http://gear.blizzard.com/"></a>
-		</div>
+
+        <ul class="articles-list-plain">
+            {foreach $Realms as $Realm}
+                <li>
+                    <strong>Realm Name: </strong> {$Realm.name}<br />
+                    {if $Realm.status == 'down'}
+                        Server is Offline
+                    {else}
+                        Server is Online
+                    {/if}
+                </li>
+            {/foreach}
+        </ul>
 	</div>
 </div>

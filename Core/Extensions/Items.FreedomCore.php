@@ -6,11 +6,14 @@ Class Items
     public static $WConnection;
     public static $TM;
 
+    public static $SocketBonuses;
+
     public function __construct($VariablesArray)
     {
         Items::$DBConnection = $VariablesArray[0]::$Connection;
         Items::$WConnection = $VariablesArray[0]::$WConnection;
         Items::$TM = $VariablesArray[1];
+        Items::LoadSocketBonus();
     }
 
     private static function GetItemIcon($ItemID)
@@ -677,6 +680,21 @@ Class Items
         return $Stats[$StatID];
     }
 
+    private static function LoadSocketBonus()
+    {
+        $Statement = Items::$DBConnection->prepare('
+        SELECT
+            gp.itemenchantmetID as id,
+            ie.text_loc0 as description
+        FROM
+            freedomcore_gemproperties gp, freedomcore_itemenchantmet ie
+        WHERE
+            gp.itemenchantmetID = ie.itemenchantmetID
+        ');
+        $Statement->execute();
+        Items::$SocketBonuses = $Statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     private static function SocketBonus($BonusID)
     {
         $Bonuses = array(
@@ -684,7 +702,9 @@ Class Items
             2868 => '+6 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_STAMINA'),
             2869 => '+4 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_INTELLECT'),
             2873 => '+4 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_HIT_MELEE_RATING'),
+            2879 => '+3 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_STRENGTH'),
             2892 => '+4 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_STRENGTH'),
+            2900 => '+4 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_SPELL_POWER'),
             3263 => '+4 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_CRIT_TAKEN_MELEE_RATING'),
             3304 => '+8 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_DODGE_RATING'),
             3307 => '+9 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_STAMINA'),
@@ -706,6 +726,11 @@ Class Items
             3877 => '+16 '.Items::$TM->GetConfigVars('Item_Stat_ITEM_MOD_ATTACK_POWER'),
             //  => ' '.Items::$TM->GetConfigVars(''),
         );
+
+        foreach(Items::$SocketBonuses as $Bonus)
+            if(!in_array($Bonus['id'], $Bonuses))
+                $Bonuses[$Bonus['id']] = $Bonus['description'];
+
         return $Bonuses[$BonusID];
     }
 
@@ -963,10 +988,11 @@ Class Spells
             }
         }
         if($ModifierWasFound == false)
+        {
             preg_match_all('!\$\d+\D\d?!', $DescriptionString, $SubSpells);
-                if(empty($SubSpells[0]))
-                    preg_match_all('!\$\D\d?!', $DescriptionString, $SubSpells);
-
+            if(empty($SubSpells[0]))
+                preg_match_all('!\$\D\d?!', $DescriptionString, $SubSpells);
+        }
 
         $SubSpells = call_user_func_array('array_merge', $SubSpells);
         $SubSpellsData = Spells::ParseSubSpells($SubSpells);

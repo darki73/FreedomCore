@@ -388,6 +388,13 @@ switch($_REQUEST['category'])
                     $Smarty->assign('Item', $Item);
                     $Smarty->display('blocks/item_tooltip');
                 }
+                elseif($_REQUEST['lastcategory'] == 'test')
+                {
+                    $Item = Items::GetItemInfo($_REQUEST['subcategory']);
+                    $Spell = Spells::SpellInfo(54870);
+                    echo "<pre>";
+                    print_r($Spell);
+                }
                 elseif(strstr($_REQUEST['lastcategory'], '.frag'))
                 {
                     $Smarty->assign('RandomCommentCode', md5(uniqid(rand(), true)));
@@ -674,7 +681,16 @@ switch($_REQUEST['category'])
         if(String::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
+        {
+            switch($_REQUEST['subcategory'])
+            {
+                case 'realm-status':
+                    Manager::LoadExtension('Realms', $ClassConstructor);
+                    $Smarty->assign('Realms', Realms::GetAllRealms());
+                break;
+            }
             $Smarty->display('sidebar/'.$_REQUEST['subcategory']);
+        }
     break;
 
     case 'render':

@@ -26,6 +26,7 @@ RewriteRule ^(quest)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?catego
 RewriteRule ^(data)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(zone)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(npc)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
+RewriteRule ^(api)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /api.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 
 
 <IfModule mod_headers.c>
