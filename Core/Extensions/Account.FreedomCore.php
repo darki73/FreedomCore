@@ -19,11 +19,136 @@ Class Account
 
     public static function Get($Username)
     {
-        $Statement = Account::$DBConnection->prepare('SELECT id, username, email, registration_date, pinned_character, access_level FROM users WHERE username = :user');
+        $Statement = Account::$DBConnection->prepare('SELECT id, username, email, registration_date, pinned_character, freedomtag_name, freedomtag_id, selected_currency, balance, access_level FROM users WHERE username = :user');
         $Statement->bindParam(':user', $Username);
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         return $Result;
+    }
+
+    public static function VerifyAccountAccess($Username, $AccountID)
+    {
+        $Username = strtoupper($Username);
+        $Statement = Account::$AuthConnection->prepare('SELECT id FROM account WHERE username = :username AND id = :id');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':id', $AccountID);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Result['id'] == $AccountID)
+            return true;
+        else
+            return false;
+    }
+
+    public static function GetBalance($Username, $BalanceJson = false)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT selected_currency, balance FROM users WHERE username = :user');
+        $Statement->bindParam(':user', $Username);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if(!$BalanceJson)
+            return $Result;
+        else
+            return Account::CreateBalanceJSON($Result['selected_currency'], $Result['balance']);
+    }
+
+    public static function SetBalance($Username, $Balance)
+    {
+        $Statement = Account::$DBConnection->prepare('UPDATE users SET balance = :balance WHERE username = :user');
+        $Statement->bindParam(':user', $Username);
+        $Statement->bindParam(':balance', $Balance);
+        $Statement->execute();
+        return true;
+    }
+
+    public static function GetAccountByID($AccountID)
+    {
+        $Statement = Account::$AuthConnection->prepare('SELECT * FROM account WHERE id = :id');
+        $Statement->bindParam(':id', $AccountID);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        $Result['expansion_name'] = Account::ExpansionByID($Result['expansion']);
+        $Result['previous_expansions'] = Account::ExpansionByID($Result['expansion'], true);
+        return $Result;
+    }
+
+    public static function GetGameAccounts($Username)
+    {
+        $Username = strtoupper($Username);
+        $Statement = Account::$AuthConnection->prepare('SELECT * FROM account WHERE username = :username');
+        $Statement->bindParam(':username', $Username);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $ArrayIndex = 0;
+        foreach($Result as $Account)
+        {
+            $Result[$ArrayIndex]['expansion_name'] = Account::ExpansionByID($Account['expansion']);
+            $ArrayIndex++;
+        }
+        return $Result;
+    }
+
+    private static function ExpansionByID($ExpansionID, $GetAllExpansions = false)
+    {
+        $Expansions = array(
+            0 => 'Classic',
+            1 => 'The Burning Crusade',
+            2 => 'Wrath of the Lich King',
+            3 => 'Cataclysm',
+            4 => 'Mists of Pandaria',
+            5 => 'Warlords of Draenor',
+        );
+        if(!$GetAllExpansions)
+            return $Expansions[$ExpansionID];
+        else
+            return array_reverse(array_slice($Expansions, 0, $ExpansionID));
+    }
+
+    public static function GetServicePrice($ServiceName)
+    {
+        $ServiceName = strtolower($ServiceName);
+        $Statement = Account::$DBConnection->prepare('SELECT price FROM prices WHERE short_code = :service');
+        $Statement->bindParam(':service', $ServiceName);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC)['price'];
+    }
+
+    private static function CreateBalanceJSON($SelectedCurrency, $CurrentBalance)
+    {
+        $AvailableCurrencies = array('RUB', 'EUR', 'USD', 'GBP');
+        $BaseCurrency = "USD";
+        $BalanceArray = array();
+        foreach($AvailableCurrencies as $Currency)
+        {
+            if($BaseCurrency == $SelectedCurrency && $Currency == $SelectedCurrency)
+                $BalanceArray[$Currency] = array(
+                    "currency" => $Currency,
+                    "balance" => $CurrentBalance,
+                    "pendingBalance" => 0,
+                    "balanceQuotaUsage" => null,
+                    "balanceIncludingPending" => $CurrentBalance + 0
+                );
+            else
+            {
+                $ConvertRate = new CurrencyConverter($BaseCurrency, $Currency);
+                $ConvertedBalance = $ConvertRate->toForeign($CurrentBalance);
+                $BalanceArray[$Currency] = array(
+                    "currency" => $Currency,
+                    "balance" => round($ConvertedBalance, 2),
+                    "pendingBalance" => 0,
+                    "balanceQuotaUsage" => null,
+                    "balanceIncludingPending" => round($ConvertedBalance, 2) + 0
+                );
+            }
+        }
+        $ServerData = array(
+            "serverHostname" => $_SERVER['SERVER_NAME'],
+            "serverPort" => $_SERVER['SERVER_PORT'],
+            "serverScheme" => 'http',
+            "countryCodeAlpha3" => $SelectedCurrency
+        );
+        $BalanceArray = array_merge($BalanceArray, $ServerData);
+        return json_encode($BalanceArray);
     }
 
     public static function IsAuthorized($Username, $AccessRoleRequired)
@@ -151,6 +276,39 @@ Class Account
     private static function HashPassword($Algorithm, $String)
     {
         return hash($Algorithm, $String);
+    }
+}
+
+Class CurrencyConverter
+{
+    private $fxRate;
+
+    public function __construct($currencyBase, $currencyForeign)
+    {
+        $url = 'http://download.finance.yahoo.com/d/quotes.csv?s='
+            .$currencyBase .$currencyForeign .'=X&f=l1';
+
+        $c = curl_init($url);
+        curl_setopt($c, CURLOPT_HEADER, 0);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+        $this->fxRate = doubleval(curl_exec($c));
+        curl_close($c);
+    }
+
+    public function toBase($amount)
+    {
+        if($this->fxRate == 0)
+            return 0;
+
+        return  $amount / $this->fxRate;
+    }
+
+    public function toForeign($amount)
+    {
+        if($this->fxRate == 0)
+            return 0;
+
+        return $amount * $this->fxRate;
     }
 }
 

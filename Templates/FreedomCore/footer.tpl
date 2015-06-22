@@ -142,8 +142,9 @@
         });
         //]]>
     </script>
+    <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
+    <script type="text/javascript" src="/Templates/{$Template}/js/navbar-tk.min.js"></script>
     {if $Page.type == 'zone'}
-        <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/wiki/wiki.js"></script>
         {if $Page.bodycss|strstr:'boss-'}
             <script type="text/javascript" src="/Templates/{$Template}/js/wiki/npc.js"></script>

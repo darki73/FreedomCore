@@ -1,0 +1,374 @@
+/* Layout */
+#payment-wrapper { margin-top: 25px; min-height: 350px; }
+#payment-wrapper .ui-button.processing span { padding:0 14px }
+.purchase-overview,
+.tw-payment-faq { font-size: 12px; width: 275px; }
+.tw-payment-faq { margin-top: 12px; }
+.payment-overview { width: 690px; margin-left: 25px; float: left; }
+.purchase-overview { float: left; }
+#mask {display:none;background-color:#000;position:absolute;top:0;left:0;width:1000px;height:1000px;z-index:1000;}
+
+/* Payment types form */
+#payment-types ul { margin: 0 auto; list-style-type: none; width: 600px; }
+#payment-types li { float: left; min-width: 150px; margin-right: 0px; margin-top: 10px; }
+#payment-types label { display: inline-block; height: 46px; padding: 2px 0 2px 0; -moz-border-radius: 3px; -webkit-border-radius: 3px; cursor: pointer; position: relative; }
+#payment-types li p.text { display: none; text-align: left; }
+#payment-types .description-toggle { right: 4px; top: 16px; display: block; width: 18px; height: 18px; background: url("/Templates/FreedomCore/images/icons/tooltip-help.gif") no-repeat scroll 0 0 transparent; position: absolute; }
+#payment-types #desc-container { display: block; width: 100%; margin-top: -9px; }
+#payment-types #desc-container p { background-color: #fff; padding: 15px; text-align:  left; -moz-border-radius: 3px; -webkit-border-radius: 3px; z-index: 15; }
+/* Overwriting */
+#payment-types ul.flexible-option { margin: 0 auto; list-style-type: none; width: 100%; }
+#payment-types ul.flexible-option li { margin: 0; }
+#payment-types label.ebank-label { height: 20px; }
+
+.simple-note-box { padding-left: 25px; text-align: left; }
+ul.simple-note { margin: 0 auto; list-style-type: circle; text-align: left; }
+
+/* Default payment types display */
+#payment-types .logo { min-width: 102px; height: 46px; float: left; margin-left: 4px; padding-left: 6px; background-repeat: no-repeat; }
+#payment-types .flexible-option .logo { padding-right: 10px; font-size: 24px; line-height: 46px; vertical-align: middle;}
+#payment-types li input { float: left; margin: 17px 0 0 8px; }
+#payment-types li:hover label { background-color: #f0efee; }
+#payment-types li[class~="active"] label { background-color: #fff; z-index: 20; }
+
+/* Dinero has special layout */
+#payment-types li.dinero { clear: both; width: auto; line-height: none; margin-top: 5px; position: relative; }
+#payment-types li.dinero label { height: auto; float: left; display: inline-block; padding: 10px 10px 15px; border: 1px solid red; }
+#payment-types li.dinero span.dinero-logo { display: block; width: 122px; height: 29px; position: absolute; top: 35px; left: 50px; background: url("/Templates/FreedomCore/images/account/payment/logos/dinero_mail.png") no-repeat center; }
+#payment-types li.dinero .frame { background-color: #e9e7e6; margin-left: 35px; margin-top: 16px; border: 1px solid #e8e6e2; padding: 40px 20px 10px; width: 500px; }
+#payment-types li.dinero:hover .frame { background-color: #f0efee; }
+#payment-types li.dinero.active .frame { background-color: #fff; }
+#payment-types li.dinero label { background-color: #e0dfdd; border-color: #e0dfdd; padding-left: 6px; }
+#payment-types li.dinero .frame img { margin-right: 12px; margin-bottom: 10px; }
+.dinero-delay-note { background: url("/Templates/FreedomCore/images/icons/warning-background.png") no-repeat 0 0; margin-top: 10px; padding-left: 32px; font-weight: bold; line-height: 24px; }
+.dinero-note-frame { background: #e0dfdd; padding: 16px 24px; margin: 24px auto; width: 450px; }
+
+/* T-Online specific */
+.tonline-wrapper .terms-notice { position: relative; }
+.tonline-wrapper .terms-notice input { position: absolute; left: 12px; top: 0; }
+.tonline-wrapper label { position: relative; padding: 0 40px; text-align: left; }
+
+/* Italy specific */
+#payment-types .italy-card-notice { background: url("/Templates/FreedomCore/images/account/payment/logos/italy-cards-logo.png") no-repeat 28px 0; }
+
+/* Korean specific styles */
+.restricted-number-field { float: left; margin-right: 10px; }
+/*those should be obsolete*/
+.form-right .kr-phone3 { width: 30px; }
+.form-right .kr-phone4 { width: 40px; }
+.form-right .kr-phone6 { width: 60px; }
+.form-right .kr-phone7 { width: 80px; }
+
+/* Payment types logos */
+#payment-types .type-visa, #payment-types .type-visa_eu { background-image: url("/Templates/FreedomCore/images/account/payment/logos/visa.png"); width: 65px; }
+#payment-types .type-virtual_visa { background-image: url("/Templates/FreedomCore/images/account/payment/logos/visa_virtual_en.png"); width: 75px; }
+.ru-ru #payment-types .type-virtual_visa { background-image: url("/Templates/FreedomCore/images/account/payment/logos/visa_virtual_ru.png"); width: 81px; }
+.fr-fr #payment-types .type-virtual_visa { background-image: url("/Templates/FreedomCore/images/account/payment/logos/visa_virtual_fr.png"); width: 81px; }
+#payment-types .type-discover { background-image: url("/Templates/FreedomCore/images/account/payment/logos/discover.png"); width: 100px; }
+#payment-types .type-amex, #payment-types .type-amex_eu { background-image: url("/Templates/FreedomCore/images/account/payment/logos/amex.png"); width: 48px; }
+#payment-types .type-mastercard, #payment-types .type-mastercard_eu { background-image: url("/Templates/FreedomCore/images/account/payment/logos/mastercard.png"); width: 56px; }
+#payment-types .type-jcb { background-image: url("/Templates/FreedomCore/images/account/payment/logos/jcb.png"); width: 52px; }
+#payment-types .type-visaelectron { background-image: url("/Templates/FreedomCore/images/account/payment/logos/visaelectron.png"); width: 64px; }
+#payment-types .type-cartebleue { background-image: url("/Templates/FreedomCore/images/account/payment/logos/cartebleue.png"); width: 71px; }
+#payment-types .type-solo { background-image: url("/Templates/FreedomCore/images/account/payment/logos/solo.png"); width: 45px; }
+#payment-types .type-switch { background-image: url("/Templates/FreedomCore/images/account/payment/logos/sw.png"); width: 57px; }
+#payment-types .type-web_money { background-image: url("/Templates/FreedomCore/images/account/payment/logos/web_money.png"); }
+#payment-types .type-deltavisa { background-image: url("/Templates/FreedomCore/images/account/payment/logos/deltavisa.png"); width: 66px; }
+#payment-types .type-kr_cell_phone { background-image: url("/Templates/FreedomCore/images/account/payment/logos/en_cell_phone.png"); width: 102px; }
+#payment-types .type-kr_ars { background-image: url("/Templates/FreedomCore/images/account/payment/logos/en_ars.png"); width: 102px; }
+#payment-types .type-kr_cvs { background-image: url("/Templates/FreedomCore/images/account/payment/logos/kr_cvs.png"); width: 102px; }
+#payment-types .type-kr_bank_transfer { background-image: url("/Templates/FreedomCore/images/account/payment/logos/en_bank_transfer.png"); width: 102px; }
+#payment-types .type-kr_credit_card { background-image: url("/Templates/FreedomCore/images/account/payment/logos/en_credit_card.png"); width: 102px; }
+#payment-types .type-kr_gift_cert_b { background-image: url("/Templates/FreedomCore/images/account/payment/logos/en_gift_cert_b.png"); width: 102px; }
+#payment-types .type-kr_gift_cert_c { background-image: url("/Templates/FreedomCore/images/account/payment/logos/en_gift_cert_c.png"); width: 102px; }
+#payment-types .type-giro_pay { background-image: url("/Templates/FreedomCore/images/account/payment/logos/giropay.png"); width: 70px; }
+#payment-types .type-ideal { background-image: url("/Templates/FreedomCore/images/account/payment/logos/ideal.png"); width: 53px; }
+#payment-types .type-payment_one { background-image: url("/Templates/FreedomCore/images/account/payment/logos/payment_one.png"); width: 100px; }
+#payment-types .type-t_online { background-image: url("/Templates/FreedomCore/images/account/payment/logos/t_online2.png"); width: 92px; }
+#payment-types .type-toditocash { background-image: url("/Templates/FreedomCore/images/account/payment/logos/toditocash.png"); width: 90px; }
+#payment-types .type-giropay { background-image: url("/Templates/FreedomCore/images/account/payment/logos/giropay.png"); width: 70px; }
+#payment-types .type-paypal { background-image: url("/Templates/FreedomCore/images/account/payment/logos/paypal.png"); width: 90px; }
+#payment-types .type-paypal.deu, #payment-types .type-paypal.aut { background-image: url("/Templates/FreedomCore/images/account/payment/logos/paypal_direct_debit.png"); width: 90px; background-position: left center }
+#payment-types .type-paypal.deu.de-de, #payment-types .type-paypal.aut.de-de { background-image: url("/Templates/FreedomCore/images/account/payment/logos/paypal_direct_debit_de.png"); width: 90px; background-position: left center }
+#payment-types .type-mol { background-image: url("/Templates/FreedomCore/images/account/payment/logos/mol.png"); width: 94px; }
+#payment-types .type-mycard { background-image: url("/Templates/FreedomCore/images/account/payment/logos/mycard.png"); width: 100px; }
+#payment-types .type-neweb_atm { background-image: url("/Templates/FreedomCore/images/account/payment/logos/newebatm.png"); width: 100px; }
+#payment-types .type-neweb_virtualatm { background-image: url("/Templates/FreedomCore/images/account/payment/logos/neweb-virtualatm.png"); width: 100px; }
+#payment-types .type-neweb_creditcard { background-image: url("/Templates/FreedomCore/images/account/payment/logos/neweb-creditcard.png"); width: 100px; }
+#payment-types .type-neweb_alipay { background-image: url("/Templates/FreedomCore/images/account/payment/logos/neweb-alipay.png"); width: 100px; }
+#payment-types .type-ntespay .desc { font-size: 14px; }
+#payment-types .type-ntespay .desc img { height: 18px; vertical-align: middle;}
+#payment-types .type-ntespay .help { vertical-align: bottom;}
+/*#payment-types .type-giftcode { background-image: url("/Templates/FreedomCore/images/account/payment/logos/giftcode.png"); width: 90px; }*/
+#payment-types .type-giftcode { font-size: 14px; font-weight: bold; padding-top: 15px; width: 90px; }
+
+#payment-types .ebank label { font-size: 16px; display: inline-block; }
+
+#payment-types .promo-bubble-holder .promo-bubble { right: auto; left: 130px; top: -8px; }
+
+
+/* Terms of Use */
+.submit-container { text-align: center; }
+.terms-notice label { font-size: 16px; display: inline-block; }
+.terms-notice label .icon-external { background-position: right 5px; }
+.terms-notice label .icon-external:hover,
+.terms-notice label .icon-external:focus { background-position: right -35px; }
+.terms-notice label .s-label { font-size: 11px; line-height: 18px; }
+.submit-container .form-note { margin: 1.5em auto .75em auto; text-align:  left; }
+.submit-container .form-note { width: 66%; }
+.submit-container .form-note .note-arrow { background-position: 41% bottom; }
+.submit-container .form-right { width: 55%; text-align: left; }
+.submit-container .form-left { width: 32%; }
+#payment-wrapper .form-row .form-left { padding-right: 15px; line-height: 26px; }
+#payment-wrapper .form-row .form-right { line-height: 26px; }
+#payment-wrapper .total-info .form-row .form-left { padding-right: 0; width: 37%; line-height: 26px; }
+
+#insufficient-note { display: none; }
+.balance-info { display: none; }
+.balance-info .form-left { width: 36.6%; }
+.balance-info .form-middle { width: 18%; text-align: left; font-size: 14px; }
+.balance-info .form-right { width: 40%; text-align: left; font-size: 12px; }
+.balance-info .text-green { color: #4a8432; }
+.balance-info .text-gray { color: #4a4a4a; }
+.balance-info #change-method { background: url("/Templates/FreedomCore/images/icons/account-icons.gif") no-repeat 0 -278px; padding-left: 16px; }
+.balance-info #minimum,
+.balance-info .minimumBalance { display: none; }
+.partialClampsMap-true { display: none; }
+/* Purchase overview */
+.purchase-overview { position: relative; }
+.purchase-overview .content { padding: 0 15px; background-color: #e1e0de; padding-top: 12px; }
+.purchase-overview .content .item { margin-bottom: 22px; padding-bottom: 10px; }
+.purchase-overview .content .last-item { border-bottom: none; margin-bottom: 0; padding-bottom: 16px; }
+.purchase-overview .content .item .thumb { float: left; overflow: hidden; margin-right: 8px; margin-bottom: 6px; }
+.purchase-overview h3 { border-bottom: 1px solid #123956; background: url("/Templates/FreedomCore/images/account/payment/total-bg-bottom.gif") repeat-x 0 0; -moz-border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; border-radius: 5px 5px 0 0; color: #fff; padding: 12px; }
+.purchase-overview .total-price { background: url("/Templates/FreedomCore/images/account/payment/total-bg-bottom.gif") repeat-x 0 0; -moz-border-radius: 0 0 5px 5px; -webkit-border-radius: 0 0 5px 5px; border-radius: 0 0 5px 5px; }
+.purchase-overview .total-price .loading { background: url("/Templates/FreedomCore/images/icons/loading-dark-small.gif") no-repeat left center; height: 28px; width: 14px; }
+
+.total-due { color: #fff; font-size: 15px; line-height: 26px; position: relative; padding: 8px 15px; height: 26px; background: #414141; -moz-border-radius: 0 0 5px 5px; -webkit-border-radius: 0 0 5px 5px; border-radius: 0 0 5px 5px; }
+.total-due strong { font-size: 20px; color: #fff; position: absolute; right: 15px; }
+.purchase-overview-krw .total-due strong { font-size: 15px; }
+.total-due-submit { font-size: 15px; padding: 0 0 10px; line-height: 19px; }
+.total-due-submit strong { padding-left: 5px; padding-top: 5px; }
+.subtotal-due { color: #fff; font-size: 12px; line-height: 26px; position: relative; padding: 8px 15px 4px; border-bottom: 1px solid #CBCAC9; }
+.subtotal-due strong { font-size: 16px; color: #fff; position: absolute; right: 15px; }
+.subtotal-due span.help-link-black { display: inline-block; padding: 0 20px 0 0; height: 20px; line-height: 20px; margin: 0 0 .5em 0; background: url('/Templates/FreedomCore/images/icons/tooltip-help-on-black.gif') no-repeat right center; }
+
+
+.product-detail { position: relative; float: left; width: 160px; }
+.product-detail h4 { font-size: 16px; line-height: 18px; color: #4a4a4a; font-weight: bold; margin-bottom: 8px; }
+.product-detail .description { color: #4a4a4a; font-size: 11px; }
+.detail { position: relative; color: #6b6b6b; border-top: 1px solid #cbcac9; margin-top: 0; font-size: 11px; height: 24px; line-height: 24px; clear: both; }
+.detail strong { position: absolute; right: 0; color: #343434; top: 0; }
+.detail strong.letter-spacing-1 { letter-spacing: -1px; }
+
+.detail.form-row .add-label { font-size: 11px; }
+.terms-notice { margin-bottom: 16px; }
+.terms-notice.form-error label span { color: #730202; }
+#payment-details .promo, #payment-details #nepay-promotion .promo { color: #f00; }
+#payment-details .toggle-container label { padding-left: 26px; display: block; position: relative; }
+#payment-details .toggle-container input { position: absolute; top: -2px; left: 0; }
+#payment-details .toggle-container span { color: #730202 }
+
+/*ebank overview*/
+.purchase-overview .ebank { height: 110px; background-color: #404040; }
+.purchase-overview .current-balance { color: #fff; font-size: 12px; height: 26px; padding: 8px 15px 0; position: relative; }
+.purchase-overview .current-balance div { border-top: 1px solid #cbcac9; padding-top: 5px }
+.purchase-overview .current-balance strong { font-weight: normal; position: absolute; right: 15px }
+.purchase-overview .calculate-balance { color: #fff; font-size: 12px; height: 26px; padding: 0 15px; position: relative; }
+.purchase-overview .calculate-balance a { color: #fff; width: 150px; display: block; padding-left: 23px; background: url('/Templates/FreedomCore/images/icons/calculator.gif') no-repeat 0 5px; cursor: pointer }
+.purchase-overview .calculate-balance a:hover { color: #fff; }
+.purchase-overview .calculate-balance strong { font-weight: normal; position: absolute; right: 15px; top: 8px }
+.purchase-overview .calculate-result { background-color: #4e606e; color: #c2d3dd; padding: 8px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; position: relative; top: -5px }
+.purchase-overview .calculate-result .top-arrow { background: url('/Templates/FreedomCore/images/account/payment/calculator-arrow.gif') no-repeat 0 0; display: block; position: relative; top: -13px; left: 10px; width: 10px; height: 5px }
+
+
+/* Overriding previous styles */
+.hide { display: none; }
+.form { background: none repeat scroll 0 0 #e0dfdd; clear: both; }
+.section-box2 { margin-bottom: 0; border-bottom: 1px solid #89877a; -moz-border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; border-radius: 5px 5px 0 0; background-color: #e0dfdd; padding: 15px; }
+.section-box { margin-bottom: 0; -moz-border-radius: 5px 5px 0 0; -webkit-border-radius: 5px 5px 0 0; border-radius: 5px 5px 0 0; background-color: #e0dfdd; margin-bottom: 40px; padding: 15px 15px 25px; }
+.section-box3 { margin: 0 0 16px; padding: 1px 15px 15px; background-color: #E0DFDD; border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; }
+.thin-box { padding: 0 15px; }
+.age-gate-box { background-color: #e0dfdd; margin-bottom: 40px; padding: 5px 25px; }
+
+/*.form-submit, .section-box .form-submit { padding-left: 0; border: 1px solid red; }*/
+.form-row.payment-selection { margin-bottom: 35px; }
+.form-row.payment-selection label { font-size: 14px; padding-right: 15px; }
+.ui-dropdown { width: 220px; float: none; display: inline-block; }
+
+fieldset.ui-controls { padding-left: 0; }
+.ui-dropdown .dropdown-toggler span { padding-right: 40px; }
+.payment-selection select option { padding-left: 20px; }
+.payment-selection select optgroup { border-bottom: 1px dotted #a4a4a4; }
+.payment-selection select optgroup option { font: normal 14px/26px "Lucida Sans Unicode", "Lucida Grande", "Arial", sans-serif; }
+
+
+/* Clearing floats */
+.form-row:after, .clear-after:after { content: "."; display: block; height: 0; visibility: hidden; clear: both; }
+
+/*China BAM Bank*/
+.ebank-desc { padding: 0 30px }
+.ebank-desc .pay-desc { color: #4A4A4A; font-size: 15px; font-weight: bold; line-height: 35px }
+#page-content .redeem-input-wrapper { float: left; width: 660px; clear: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+#page-content .redeem-input-wrapper .alert-message p { line-height: 30px; margin-bottom: 0 }
+#page-content .buy-prepaid-card-banner { float: right; width: 110px; padding-right: 155px; height: 230px; clear: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+#ebank_redeem_form .try-again { background: url("/Templates/FreedomCore/images/icons/os.png") no-repeat -62px top; padding: 5px 0 5px 40px; margin-left: 275px; width: auto }
+.buy-prepaid-card-banner { background-image: url("/Templates/FreedomCore/images/account/payment/cn-prepaid-card-ie.png"); background-repeat: no-repeat; background-position: 130px 10px; }
+* html .buy-prepaid-card-banner { background-image: url("/Templates/FreedomCore/images/account/payment/cn-prepaid-card-ie.png"); }
+.buy-prepaid-card-banner p { font-size: 14px; padding-top: 20px }
+.form .ebank-info { font-weight: bold; height: 30px; padding-bottom: 15px }
+.form .ebank-info .pay-with { margin-top: 5px; }
+.form .ebank-info .pay-with span { font-size: 14px; color: #fff; }
+.form .ebank-desc { margin: 20px 0; }
+.form .ebank-desc p { margin: 10px 0 }
+
+.bank-balance-wrapper { width: 930px; height: 35px; }
+.bank-balance-wrapper .ebank-wrapper { background: url("/Templates/FreedomCore/images/character-services/e-bank-bg.gif") repeat-x top left; height: 78px; float: right; color: #fff; width: 265px; margin-bottom: 10px }
+.bank-balance-wrapper .ebank-wrapper-right { background: url("/Templates/FreedomCore/images/character-services/e-bank-bg.gif") no-repeat right -78px; position: relative; margin-right: -3px; height: 78px; }
+.bank-balance-wrapper .top-wrapper { height: 45px; }
+.bank-balance-wrapper .ebank { background: url("/Templates/FreedomCore/images/character-services/e-bank-bg.gif") repeat-x left -272px; height: 28px; width: 55px; float: left; padding: 4px 10px 0 10px; font-size: 12px; }
+.bank-balance-wrapper .middle-block { background: url("/Templates/FreedomCore/images/character-services/e-bank-bg.gif") no-repeat right bottom; height: 28px; width: 30px; float: left; }
+.bank-balance-wrapper .balance-box { float: right; padding: 5px 10px 0 0; font-size: 25px; }
+
+.bank-balance-wrapper .bottom-wrapper { padding-left: 5px; width: 260px; height: 27px; float: right; }
+.bank-balance-wrapper .purchase-history { background: url("/Templates/FreedomCore/images/character-services/ebank-buttons.gif") no-repeat 0 -54px; height: 27px; width: 138px; display: block; float: right }
+.bank-balance-wrapper .purchase-history:hover { background-position: 0 -81px; }
+
+.bank-balance-wrapper .purchase-history span { position: relative; top: 5px; left: 33px; color: #fff }
+.bank-balance-wrapper .add-money { background: url("/Templates/FreedomCore/images/character-services/ebank-buttons.gif") no-repeat 0 0; height: 27px; width: 105px; display: block; float: right }
+.bank-balance-wrapper .add-money:hover { background-position: 0 -27px; }
+.bank-balance-wrapper .add-money span { position: relative; top: 5px; left: 33px; color: #fff }
+.bank-balance-wrapper .ebank-seperator { background: url("/Templates/FreedomCore/images/character-services/e-bank-seperator.gif"); width: 2px; height: 25px; float: right; margin: 2px 10px 0 5px ; }
+
+.bank-balance-wrapper .without-history { background: url("/Templates/FreedomCore/images/character-services/e-bank-bg.gif") repeat-x left -156px; height: 58px; float: right; color: #fff; width: 250px }
+.bank-balance-wrapper .without-history .ebank-wrapper-right { background: url("/Templates/FreedomCore/images/character-services/e-bank-bg.gif") no-repeat right -214px; margin-right: -3px; height: 58px; }
+.bank-balance-wrapper .without-history .balance-box { float: right; padding: 12px 10px 0 0; font-size: 25px; }
+.wihout-addmoney { height: 15px; }
+
+.prepaid-info { margin-bottom: 15px }
+.form-row .cardNum { width: 220px }
+.form-row .cardPin { width: 85px }
+
+.add-time-wrapper { position: fixed; z-index: 25 !important; top: 200px; left: 50%; width: 400px; margin-left: -200px; padding-bottom: 25px; background: #07161b url('/Templates/FreedomCore/images/popup-top3.jpg') no-repeat 0 0 ; border: 1px solid #11314a; }
+.add-time-wrapper .add-time { padding: 15px 20px 10px 20px; }
+.add-time-wrapper .add-time h2 { font-size: 16px; font-weight: bold; color: #fff; padding-bottom: 10px }
+.add-time-wrapper .add-time .desc { border-top: 1px solid #123956; padding: 15px 0; }
+.add-time-wrapper .add-time .form-submit { height: 30px }
+.add-time-wrapper .close { float: right; background: transparent url("/Templates/FreedomCore/images/popclose.gif") no-repeat scroll 0 0; width: 26px; height: 26px; position: relative; top: -16px; right: -10px; display: block; }
+.add-time-wrapper a.close:hover,
+.add-time-wrapper a.close:focus { background-position: 0 -26px }
+
+/*eula agreement pages select payment option*/
+div#main.eula-wow-page-conainer { background: #07161b url("/Templates/FreedomCore/images/headers/add-wow.jpg") no-repeat; }
+
+.add-gamebox { width: 890px; margin: 10px 18px; margin-top: 140px; }
+.add-gamebox .left-trial { float: left; width: 250px; margin-right: 40px }
+.add-gamebox h3 { font-size: 23px; color: #74abe0 }
+.add-gamebox h3 span { display: block; font-size: 30px; color: #fff; font-weight: bold }
+.add-gamebox .left-container { background: url("/Templates/FreedomCore/images/character-services/box-blue-top.gif") repeat-y top left; width: 250px; height: 95px; margin-top: 5px }
+.add-gamebox .left-container label:hover { color: #ffcc00; cursor: pointer }
+.add-gamebox .left-container .top { background: url("/Templates/FreedomCore/images/character-services/box-blue-top.gif") no-repeat right -93px; font-size: 14px; color: #fff; font-weight: bold; margin-left: 5px; height: 93px; }
+.add-gamebox .top .radio-container { margin: 33px 0 0 20px; float: left; width: 30px; }
+.add-gamebox .top .radio-desc { float: left; width: 170px; margin-top: 35px; }
+.add-gamebox .bottom { background: url("/Templates/FreedomCore/images/character-services/box-blue-bottom.gif") no-repeat left bottom; height: 5px; width: 250px }
+.add-gamebox .bottom-right { background: url("/Templates/FreedomCore/images/character-services/box-blue-bottom.gif") no-repeat right top; height: 5px }
+.add-gamebox .left-trial .reflection { background: url("/Templates/FreedomCore/images/character-services/box-blue-reflection.gif") no-repeat left -17px; width: 250px; height: 110px; margin-top: 7px; }
+.add-gamebox .left-trial .reflection-right { background: url("/Templates/FreedomCore/images/character-services/box-blue-reflection.gif") no-repeat right top; height: 5px; }
+.add-gamebox .desc { padding: 10px 15px; font-size: 12px }
+
+.add-gamebox .right-fullversion { float: left; width: 600px }
+.add-gamebox .right-container { background: url("/Templates/FreedomCore/images/character-services/box-orange-top.gif") no-repeat top left; width: 600px; height: 95px; margin-top: 5px; }
+.add-gamebox .right-container .top { background: url("/Templates/FreedomCore/images/character-services/box-orange-top.gif") no-repeat right -5px; margin-left: 5px; height: 5px; }
+
+.add-gamebox .right-container label:hover { color: #ffcc00; cursor: pointer; }
+.add-gamebox .right-container .radio-container { margin: 15px 0 0 50px; float: left; width: 30px }
+.add-gamebox .right-container .option { float: left; width: 100px; margin-top: 16px }
+.add-gamebox .right-container .option span { display: block; color: #000 }
+.add-gamebox .right-container .middle { background: url("/Templates/FreedomCore/images/character-services/box-orange-middle.gif") repeat-y; width: 600px; height: 88px; font-size: 14px; color: #fff; font-weight: bold; }
+.add-gamebox .right-container .middle .choice-desc { width: 600px; height: 17px; padding-left: 20px; color: #412200; font-weight: normal }
+.add-gamebox .right-container .bottom { background: url("/Templates/FreedomCore/images/character-services/box-orange-bottom.gif") no-repeat left bottom; height: 5px; width: 600px }
+.add-gamebox .right-container .bottom-right { background: url("/Templates/FreedomCore/images/character-services/box-orange-bottom.gif") no-repeat right top; height: 5px }
+.add-gamebox .right-fullversion .reflection { background: url("/Templates/FreedomCore/images/character-services/box-orange-reflection.gif") no-repeat left -17px; width: 600px; height: 110px; margin-top: 7px; }
+.add-gamebox .right-fullversion .reflection-right { background: url("/Templates/FreedomCore/images/character-services/box-orange-reflection.gif") no-repeat right top; height: 5px; }
+
+.add-gamebox div.notrial { padding: 20px 0; margin-left: 5px; }
+.add-gamebox div.fullcon { padding: 15px 18px; background-color: #003854; font-size: 14px; color: #fff; letter-spacing: -1px; height: 85px; margin: 0 auto; width: 850px; }
+.add-gamebox div.inner-wrapper { margin: 13px 0 0 245px; }
+.add-gamebox div.inner-wrapper .radio-wrapper { height: 20px; font-weight: bold; background-color: #00283c; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 13px; float: left; margin-right: 15px }
+.add-gamebox div.inner-wrapper .radio-wrapper .radio-box { float: left; width: 30px; }
+.add-gamebox div.inner-wrapper .amount-option { float: left; margin-top: 1px }
+.add-gamebox div.inner-wrapper .amount-option:hover { color: #ffcc00; cursor: pointer }
+
+.radio { background: url("/Templates/FreedomCore/images/character-services/form-elements-large.gif") no-repeat 0 -84px; width: 21px; height: 21px; padding: 0 5px 0 0; display: block; }
+input.styled { display: none; }
+
+/*ebank recharge success alert*/
+.recharge-success { position: relative; }
+.recharge-success h3 { font-size: 20px }
+.recharge-success .outbox { background: #406b01 url("/Templates/FreedomCore/images/success-tile.gif") repeat-x 0 0; padding: 0; text-align: center; border-color: #a44338; color: white; margin: 10px 0 20px 0 }
+.recharge-success .outbox .inbox { width: auto; background: url("/Templates/FreedomCore/images/success-bg.gif") no-repeat 0 0; border: 0; margin: 0; padding: 8px 8px 8px 20px; font-size: 15px }
+.recharge-success .outbox .inbox .close-box { display: block; background: url("/Templates/FreedomCore/images/character-services/selected-item-close-small.gif") no-repeat 0 -38px; width: 20px; height: 20px; float: right; cursor: pointer; }
+
+.iah-container { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; border: 1px solid #aaa; padding: 10px; margin: 20px; margin-top: 40px; position: relative; }
+.iah-container .iah-logo { position: absolute; top: -20px; left: -16px; background-color: #e0dfdd; }
+.iah-container .purchase-link { margin: 20px; text-align: center; font-size: 14px; font-weight: bold; }
+
+/* new internal error box */
+.internal-error { background: url("/Templates/FreedomCore/images/form/alert-error-close.png") repeat-x scroll 0 0 #530901; color: #C4BDB0; font-size: 11px; margin: 25px auto; overflow: hidden; width: 550px; }
+.internal-error .alert-inner { background: url("/Templates/FreedomCore/images/form/alert-error.png") repeat-x scroll 0 0 #732E03; }
+.internal-error .alert-message { background: url("/Templates/FreedomCore/images/icons/error.png") no-repeat scroll 13px 18px transparent; padding: 15px 10px 15px 50px; }
+
+/* Redeem Pre-paid Card Code */
+.card-code-redeem-tw { float: left; margin-top: 30px; padding: 20px; width: 600px; min-height: 300px; background: #dfdedc url("/Templates/FreedomCore/images/account/add-game/tw-prepaid.png") no-repeat right 60px; }
+.card-code-redeem-tw .card-code-box { margin-top: 25px; width: 380px; }
+.card-code-box .question-title { font-size: 16px; font-weight: bold; }
+.card-code-box .question-answer { margin-top: 10px; font-size: 12px; }
+.card-code-different { float: right; margin-top: 30px; width: 310px; min-height: 230px; background: url("/Templates/FreedomCore/images/account/add-game/tw-prepaid-with-mycard.png") no-repeat right 0 }
+.card-code-different .card-code-box { width: 165px; }
+
+.code-converted-claim { margin: 45px 0 0; width: 810px; }
+.code-converted-claim .code-converted-image { padding-left: 280px; background: url("/Templates/FreedomCore/images/account/payment/code-converted.jpg") no-repeat 0 0 }
+.code-converted { margin: 30px 0; padding: 25px 15px 35px; font-weight: bold; text-align: center; }
+.code-converted .title { padding-bottom: 15px; font-size: 16px; }
+.code-converted .code { padding-bottom: 15px; font-size: 26px; }
+
+/* chargeback */
+#chargebackBlock{display:none;}
+
+/* age gate */
+.payment-age-gate-wrapper dt { display: block; }
+.payment-age-gate-wrapper .age-gate { padding: 13px; margin: 1em 0 3em 0; }
+.payment-age-gate-wrapper .age-gate .caption { margin: 0 0 .5em 0; }
+.payment-age-gate-wrapper .age-gate select.input { height: 32px; display: inline-block; vertical-align: middle; margin-right: .5em; padding: 4px 6px 6px 6px; }
+.payment-age-gate-wrapper .age-gate .button1 { display: inline-block; vertical-align: middle; padding: 0; }
+.d3-predownload-tip { position: relative; background: #4d606d; width: 500px; margin: -5px auto 0 auto; padding: 12px 24px; color: #fff; }
+.d3-predownload-tip .arrow { position: absolute; width: 11px; height: 6px; left: 220px; top: -6px; background: url("/Templates/FreedomCore/images/icons/sprite.png") no-repeat -146px -106px; overflow: hidden; }
+
+/* payment notes */
+.payment-note { padding-left: 232px; }
+.payment-note-label { line-height: 16px; display: inline-block; vertical-align: top; font-style: italic; }
+.payment-note-icon { width: 32px; height: 32px; overflow: hidden; display: inline-block; vertical-align: top; background: url("/Templates/FreedomCore/images/icons/sprite.png") -256px -224px; }
+.payment-limits-icon { width: 32px; height: 32px; overflow: hidden; display: inline-block; vertical-align: top; background: url("/Templates/FreedomCore/images/icons/sprite.png") -256px -192px; }
+
+.payment-overview .payment-note { padding-left: 216px; }
+.payment-overview .payment-note-label { width: 380px; }
+.payment-overview .payment-note-icon { margin-right: 16px; }
+
+/* page loading */
+#payment-toggle-loading { display: none; padding: 200px 0; text-align: center; }
+
+/* work-around for duplicated error messages */
+#payment-wrapper .alert.error { display: none; }
+
+.phone-number-wrapper input { min-width: 170px; width: 170px; }
+
+.paypal-desc,
+.neweb-desc { margin: 10px 0 1em 0; background: url("/Templates/FreedomCore/images/icons/sprite.png") no-repeat -256px -224px; padding-left: 38px; }
+.mol-warning { color: #f90; }
+.margin-0 { margin: 0; }
+
+/* kr-activex */
+.activex-message { display: none;text-align:center; }
+
+.spending-limit-note .alert-page { margin: 0; padding: 40px; width: auto; }
+.other-payment-options { text-align: center; }

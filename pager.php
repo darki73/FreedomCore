@@ -6,6 +6,12 @@ switch($_REQUEST['category'])
 	case 'account':
 		if(!String::IsNull($_REQUEST['subcategory']))
 		{
+            if(isset($User['id']))
+            {
+                $AccountBalance = Account::GetBalance($User['username']);
+                $Smarty->assign('AccountBalance', $AccountBalance);
+            }
+
 			switch($_REQUEST['subcategory'])
 			{
 				case 'login':
@@ -34,6 +40,181 @@ switch($_REQUEST['category'])
                     session_destroy();
                     setcookie("FreedomCoreLanguage", null, time()-3600);
                     header('Location: /');
+                break;
+
+                case 'management':
+                    $Smarty->translate('Account');
+                    if(String::IsNull($_REQUEST['lastcategory']))
+                    {
+                        $Smarty->assign('User', $User);
+                        $Smarty->assign('Accounts', Account::GetGameAccounts($User['username']));
+                        $Smarty->assign('Page', Page::Info('account_management', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management'))));
+                        $Smarty->display('account/account_management');
+                    }
+                    else
+                    {
+                        $AccountID = str_replace('WoW', '', $_REQUEST['accountName']);
+                        $Smarty->assign('Account', Account::GetAccountByID($AccountID));
+                        if(Account::VerifyAccountAccess($User['username'], $AccountID))
+                        {
+                            switch($_REQUEST['lastcategory'])
+                            {
+                                case 'dashboard':
+                                    $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management'))));
+                                    $Smarty->display('account/account_dashboard');
+                                break;
+
+                                case 'services':
+                                    if(!String::IsNull($_REQUEST['datatype']))
+                                    {
+                                        switch($_REQUEST['datatype'])
+                                        {
+                                            case 'character-services':
+                                                if(!String::IsNull($_REQUEST['service']))
+                                                    switch($_REQUEST['service'])
+                                                    {
+                                                        case 'PCT':
+                                                            if(!isset($_REQUEST['servicecat']))
+                                                            {
+                                                                echo "Not yet implemented!";
+                                                            }
+                                                            else
+                                                            {
+                                                                switch($_REQUEST['servicecat'])
+                                                                {
+                                                                    default:
+                                                                        header('Location: /account/management');
+                                                                        break;
+                                                                }
+                                                            }
+                                                            break;
+
+                                                        case 'PFC':
+                                                            if(!isset($_REQUEST['servicecat']))
+                                                            {
+                                                                $Service = array(
+                                                                    'name' => strtolower($_REQUEST['service']),
+                                                                    'price' => Account::GetServicePrice($_REQUEST['service'])
+                                                                );
+                                                                $Smarty->assign('Service', $Service);
+                                                                $Smarty->assign('Characters', Characters::GetCharacters($User['id']));
+                                                                $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'servicespage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Service_PFC').' - ')));
+                                                                $Smarty->display('account/pcs_faction');
+                                                            }
+                                                            else
+                                                            {
+                                                                $Service = array(
+                                                                    'name' => strtolower($_REQUEST['service']),
+                                                                    'price' => Account::GetServicePrice($_REQUEST['service'])
+                                                                );
+                                                                $Smarty->assign('Service', $Service);
+                                                                $Smarty->assign('Character', Characters::GetCharacterData($_REQUEST['character']));
+                                                                switch($_REQUEST['servicecat'])
+                                                                {
+                                                                    case 'history':
+                                                                        echo "<pre>";
+                                                                        print_r($_REQUEST);
+                                                                    break;
+
+                                                                    case 'tos':
+                                                                        $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'servicespage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Service_PFC').' - ')));
+                                                                        $Smarty->display('account/pcs_faction_tos');
+                                                                    break;
+
+                                                                    case 'confirm':
+                                                                        $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'servicespage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Service_PFC').' - ')));
+                                                                        $Smarty->display('account/pcs_faction_confirm');
+                                                                    break;
+
+                                                                    default:
+                                                                        header('Location: /account/management');
+                                                                        break;
+                                                                }
+                                                            }
+                                                            break;
+
+                                                        case 'PRC':
+
+                                                            break;
+
+                                                        case 'PCC':
+
+                                                            break;
+
+                                                        case 'PNC':
+
+                                                            break;
+
+                                                        default:
+                                                            header('Location: /account/management');
+                                                            break;
+                                                    }
+                                                else
+                                                    header('Location: /account/management');
+                                            break;
+
+                                            case 'is-character-eligible':
+                                                header('Content-Type: application/json; charset=utf-8');
+                                                $PlainResponse = Characters::VerifyEligibility($_REQUEST['character'], $_REQUEST['service']);
+                                                echo json_encode($PlainResponse, JSON_UNESCAPED_UNICODE);
+                                            break;
+
+                                            default:
+                                                header('Location: /account/management');
+                                            break;
+                                        }
+                                    }
+                                    else
+                                        header('Location: /account/management');
+                                break;
+
+
+                                case 'payment':
+                                    if(String::IsNull($_REQUEST['datatype']))
+                                        header('Location: /account/management');
+                                    else
+                                    {
+                                        $AccountID = str_replace('WoW', '', $_REQUEST['accountName']);
+                                        $Service = array(
+                                            'name' => strtolower($_REQUEST['service']),
+                                            'price' => Account::GetServicePrice($_REQUEST['service'])
+                                        );
+                                        $Smarty->assign('Service', $Service);
+                                        $Smarty->assign('Account', Account::GetAccountByID($AccountID));
+                                        $Smarty->assign('Character', Characters::GetCharacterData($_REQUEST['character']));
+                                        switch($_REQUEST['datatype'])
+                                        {
+                                            case 'pay':
+                                                $Smarty->assign('Request', $_REQUEST);
+                                                $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'paymentpage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Payment_Pay').' - ')));
+                                                $Smarty->display('account/payment_pay');
+                                                break;
+
+                                            case 'complete_payment':
+                                                $PaymentState = '';
+                                                switch($_REQUEST['service'])
+                                                {
+                                                    case 'PFC':
+                                                        $PaymentState = 64;
+                                                        break;
+                                                }
+                                                Account::SetBalance($User['username'], $_REQUEST['newbalance']);
+                                                Characters::SetAtLoginState($_REQUEST['character'], $PaymentState);
+                                                header('Location: /account/management');
+                                                break;
+                                        }
+                                    }
+                                break;
+
+                                default:
+                                    echo "<pre>";
+                                    print_r($_REQUEST);
+                                break;
+                            }
+                        }
+                        else
+                            header('Location: /account/management');
+                    }
                 break;
 
 				case 'createaccount':
@@ -103,6 +284,14 @@ switch($_REQUEST['category'])
                 case 'menu.json':
                     Manager::LoadExtension('Menu', array($Database, $Smarty));
                     echo Menu::GenerateMenu();
+                break;
+
+                case 'refresh-balance':
+                    echo Account::GetBalance($User['username'], true);
+                break;
+
+                case 'set-account-cookie':
+
                 break;
             }
         }

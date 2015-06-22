@@ -1,73 +1,110 @@
 {include file="head.tpl"}
 <body class="{$Language} {$Page.bodycss}">
-	<div id="wrapper">
-        <div id="service" >
-            <ul class="service-bar">
-                <li class="service-cell service-home">
-                    <a accesskey="1" data-action="{$AppName} Home" href=
-                    "/" tabindex="50" title="{$AppName}">&nbsp;</a>
-                </li>
-                {if !$smarty.session.loggedin}
-                <li class="service-cell service-welcome">
-                    <a href="/account/login">{#Authorize_Account#}</a> {#Or#} <a href=
-                                                              "/account/create">{#Create_New_Account_User#}</a>
-                </li>
-                {else}
-                    <li class="service-cell service-welcome">
-                        {#Welcome#} {$User.username}
+    <div id="nav-client-header" class="nav-client compact">
+        <div id="nav-client-bar">
+            <div class="grid-container nav-header-content">
+                <ul class="nav-list nav-left" id="nav-client-main-menu">
+                    <li>
+                        <a id="nav-client-home" class="nav-item nav-home" href="/" data-analytics="global-nav" data-analytics-placement="Nav - {$AppName} Icon"></a>
                     </li>
-                    {if $User.access_level == 4}
-                        <li class="service-cell service-account">
-                            <a accesskey="3" class="service-link" data-action="Administrator" href=
-                            "/admin/dashboard" tabindex="50">{#Administrator_Title#}</a>
+                    <li>
+                        <a id="nav-client-shop" class="nav-item nav-link" href="/shop" data-analytics="global-nav" data-analytics-placement="Nav - {#Menu_Shop#}">{#Menu_Shop#}</a>
+                    </li>
+                </ul>
+                {if !$smarty.session.loggedin}
+                <ul class="nav-list nav-right" id="nav-client-account-menu">
+                    <li>
+                        <div id="username">
+                            <div class="dropdown pull-right">
+                                <a class="nav-link username dropdown-toggle" data-toggle="dropdown" rel="navbar">
+                                    {#Account_Management#}
+                                    <b class="caret"></b>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <div class="arrow top"></div>
+                                    <div class="user-profile">
+                                        <div class="dropdown-section">
+                                            <div class="nav-box">
+                                                <a class="nav-item nav-btn nav-btn-block nav-login-btn" href="/account/login" data-analytics="global-nav" data-analytics-placement="Nav - Account - Log In">{#Login_Authorization#}</a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-section">
+                                            <ul class="nav-list">
+                                                <li>
+                                                    <a class="nav-item nav-a nav-item-box" href="/account/management/" data-analytics="global-nav" data-analytics-placement="Nav - Account - Settings">
+                                                        <i class="nav-icon-24-blue nav-icon-character-cog"></i>
+                                                        Параметры
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a id="nav-client-support-link" class="nav-item nav-link" href="/support/" data-analytics="global-nav" data-analytics-placement="Nav - {#Support#}"> {#Support#} </a>
+                    </li>
+                </ul>
+                {else}
+                    <ul class="nav-list nav-right" id="nav-client-account-menu">
+                        <li>
+                            <div id="username">
+                                <div class="dropdown pull-right">
+                                    <a class="nav-link username dropdown-toggle" data-toggle="dropdown" rel="navbar">
+                                        {$User.username}
+                                        <b class="caret"></b>
+                                    </a>
+                                    <div class="dropdown-menu pull-right">
+                                        <div class="arrow top"></div>
+                                        <div class="user-profile">
+                                            {if $User.access_level == 4}
+                                                <div class="dropdown-section">
+                                                    <ul class="nav-list">
+                                                        <li>
+                                                            <a class="nav-item nav-a nav-item-box" href="/admin/dashboard" data-analytics="global-nav" data-analytics-placement="Nav - Account - Settings">
+                                                                <i class="nav-icon-24-blue nav-icon-character-cog"></i>{#Administrator_Title#}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            {/if}
+                                            <div class="dropdown-section">
+                                                <div class="nav-box selectable">
+                                                    {if $User.freedomtag_name != ''}
+                                                        <div class="label">
+                                                            <span class="battletag">{$User.freedomtag_name}</span>
+                                                            <span class="code">$User.freedomtag_id}</span>
+                                                        </div>
+                                                    {/if}
+                                                    <div class="email">{$User.email}</div>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-section">
+                                                <ul class="nav-list">
+                                                    <li>
+                                                        <a class="nav-item nav-a nav-item-box" href="/account/management/" data-analytics="global-nav" data-analytics-placement="Nav - Account - Settings">
+                                                            <i class="nav-icon-24-blue nav-icon-character-cog"></i>{#Account_Management#}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="dropdown-section">
+                                                <a class="nav-item nav-item-box" href="/account/signout" data-analytics="global-nav" data-analytics-placement="Nav - Account - Log Out"><i class="nav-icon-24-blue nav-icon-logout"></i>{#Login_Logout#}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
-                    {/if}
+                        <li>
+                            <a id="nav-client-support-link" class="nav-item nav-link" href="/support/" data-analytics="global-nav" data-analytics-placement="Nav - {#Support#}"> {#Support#} </a>
+                        </li>
+                    </ul>
                 {/if}
-                <li class="service-cell service-account">
-                    <a accesskey="3" class="service-link" data-action="Account" href=
-                    "/account/management/" tabindex="50">{#Account_Management#}</a>
-                </li>
-                {if $smarty.session.loggedin}
-                <li class="service-cell service-account">
-                    <a accesskey="3" class="service-link" data-action="Account" href=
-                    "/account/signout/" tabindex="50">{#Logout#}</a>
-                </li>
-                {/if}
-                <li class="service-cell service-support service-support-enhanced">
-                    <a accesskey="4" class="service-link service-link-dropdown"
-                       data-action="Support - Support" href="#support" id="support-link"
-                       rel="javascript" style="cursor: pointer;" tabindex=
-                       "50">{#Support#}<span class="no-support-tickets" id=
-                        "support-ticket-count"></span></a>
-
-                    <div class="support-menu" id="support-menu" style="display:none;">
-                        <div class="support-primary">
-                            <ul class="support-nav">
-                                <li>
-                                    <a class="support-category" data-action=
-                                    "Support - Your Support Tickets" href=
-                                       "/account/tickets" id=
-                                       "support-nav-tickets" tabindex="55"><strong class=
-                                                                                   "support-caption">{#Tickets#}</strong> {#Tickets_Description#}</a>
-                                </li>
-                            </ul><span class="clear"><!-- --></span>
-                        </div>
-
-                        <div class="support-secondary"></div>
-                    </div>
-                </li>
-            </ul>
-
-
-            <div id="warnings-wrapper">
-                <noscript>
-                    <div class="warning warning-red" id="javascript-warning">
-                        <div class="warning-inner2">
-                            Для просмотра сайта требуется поддержка JavaScript.
-                        </div>
-                    </div></noscript>
             </div>
         </div>
+    </div>
+	<div id="wrapper">
 		<div id="header">
 			<div class="search-bar">
 				<form action="/search" method="get" autocomplete="off">

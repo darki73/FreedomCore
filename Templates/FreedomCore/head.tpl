@@ -8,7 +8,8 @@
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/common-game-site.css" />
 	<link title="{$AppName}® - {#Head_News_Meta#}" href="/feed/news" type="application/atom+xml" rel="alternate"/>
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/expansion-{$ExpansionTemplate}.css" />
-	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wow.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wow.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/nav-client-desktop.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/lightbox.css" />
     {if $Page.type == "community" && $Page.bodycss == 'community-home'}
     <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/community.css" />

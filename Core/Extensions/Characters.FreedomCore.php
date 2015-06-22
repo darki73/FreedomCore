@@ -52,6 +52,83 @@ Class Characters
             return 0;
     }
 
+    public static function VerifyEligibility($Character, $Service)
+    {
+        switch($Service)
+        {
+            case 'PFC':
+                $Eligible = false;
+                $HasMail = false;
+                $IsOnline = false;
+                $Reasons = array();
+
+                if(Characters::CheckCharacterInbox($Character))
+                    $HasMail = true;
+                if(Characters::CheckIfCharacterOnline($Character))
+                    $IsOnline = true;
+
+                if(!$HasMail && !$IsOnline)
+                    return array('eligible' => true, 'reasons' => array());
+                else
+                    if($HasMail && !$IsOnline)
+                        return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20016Title')));
+                    elseif(!$HasMail && $IsOnline)
+                        return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
+                    elseif($HasMail && $IsOnline)
+                        return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
+            break;
+        }
+    }
+
+    private static function VerificationTranslation($Reason)
+    {
+        $ErrorTypes = array(
+            '20012Title' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20012Title'),
+            '20012Desc' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20012Desc'),
+            '20016Title' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20016Title'),
+            '20016Desc' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20016Desc'),
+            '20032Title' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20032Title'),
+            '20032Desc' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20032Desc'),
+            '20033Title' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20033Title'),
+            '20033Desc' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20033Desc'),
+            '20034Title' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20034Title'),
+            '20034Desc' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20034Desc'),
+            '20057Title' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20057Title'),
+            '20057Desc' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20057Desc'),
+            '20064Title' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20064Title'),
+            '20064Desc' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_20064Desc'),
+            'unknown' => Characters::$TM->GetConfigVars('Account_Management_Service_Error_unknown')
+        );
+        if(array_key_exists($Reason, $ErrorTypes))
+            return $ErrorTypes[$Reason];
+        else
+            return $ErrorTypes['unknown'];
+    }
+
+    private static function CheckCharacterInbox($CharacterName)
+    {
+        $Statement = Characters::$CharConnection->prepare('SELECT m.*, c.name FROM mail m, characters c WHERE m.receiver = c.guid AND c.name = :name');
+        $Statement->bindParam(':name', $CharacterName);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        if(empty($Result))
+            return false;
+        else
+            return true;
+    }
+
+    private static function CheckIfCharacterOnline($CharacterName)
+    {
+        $Statement = Characters::$CharConnection->prepare('SELECT online FROM characters WHERE name = :name');
+        $Statement->bindParam(':name', $CharacterName);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Result['online'] == 0)
+            return false;
+        else
+            return true;
+    }
+
     public static function GetGearForCharacter($CharacterGuid)
     {
         $Statement = Characters::$CharConnection->prepare('
@@ -250,6 +327,15 @@ Class Characters
             return array('id' => '1', 'translation' => Characters::$TM->GetConfigVars('Guild_Side_Horde'), 'name' => 'horde');
         else
             return array('id' => '0', 'translation' => Characters::$TM->GetConfigVars('Guild_Side_Alliance'), 'name' => 'alliance');
+    }
+
+    public static function SetAtLoginState($CharacterName, $State)
+    {
+        $Statement = Characters::$CharConnection->prepare('UPDATE characters SET at_login = :state WHERE name = :charname');
+        $Statement->bindParam(':charname', $CharacterName);
+        $Statement->bindParam(':state', $State);
+        $Statement->execute();
+        return true;
     }
 
     public static function GetCharacterData($CharacterName)

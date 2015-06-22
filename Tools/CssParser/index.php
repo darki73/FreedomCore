@@ -1,7 +1,7 @@
 <?php
 set_time_limit(300);
 define("DS", DIRECTORY_SEPARATOR);
-$FileName = 'boss.css';
+$FileName = 'lobby.css';
 $Lines = file($FileName);
 $RootFolder = str_replace("\Tools\CssParser", "", str_replace("/Tools/CssParser", "", getcwd()));
 $TemplatesFolder = $RootFolder.DS."Templates".DS."FreedomCore";
@@ -13,7 +13,9 @@ $LocalFileArray = array();
 $BattleNetStaticContent = array(
 	"0" => "http://eu.battle.net/wow/static/local-common",
 	"1" => "http://eu.battle.net/wow/static",
-	"2" => "http://eu.battle.net/login/static"
+	"2" => "http://eu.battle.net/login/static",
+	"3" => "http://bneteu-a.akamaihd.net/account/static/local-common/",
+	"4" => "http://bneteu-a.akamaihd.net/account/static/",
 );
 $Found = false;
 for($i = 0; $i < count($Lines); $i++)
@@ -43,6 +45,28 @@ for($i = 0; $i < count($Lines); $i++)
 		{
 			$RemoteFileArray[] = $Lines[$i];
 			$LocalFileArray[] = str_replace("\\", DS, str_replace('/', DS, str_replace($BattleNetStaticContent[2], $TemplatesFolder, $Lines[$i])));
+		}
+	}
+	else if(strpos($Lines[$i], $BattleNetStaticContent[3]) !== false)
+	{
+		$StringBeginOn = strpos($Lines[$i], '(')+1;
+		$StringEndsOn = strpos($Lines[$i], ')') - $StringBeginOn;
+		$Lines[$i] = substr($Lines[$i], $StringBeginOn, $StringEndsOn);
+		if (substr($Lines[$i], 0, 4) === 'http') 
+		{
+			$RemoteFileArray[] = $Lines[$i];
+			$LocalFileArray[] = str_replace("\\", DS, str_replace('/', DS, str_replace($BattleNetStaticContent[3], $TemplatesFolder, $Lines[$i])));
+		}
+	}
+	else if(strpos($Lines[$i], $BattleNetStaticContent[4]) !== false)
+	{
+		$StringBeginOn = strpos($Lines[$i], '(')+1;
+		$StringEndsOn = strpos($Lines[$i], ')') - $StringBeginOn;
+		$Lines[$i] = substr($Lines[$i], $StringBeginOn, $StringEndsOn);
+		if (substr($Lines[$i], 0, 4) === 'http') 
+		{
+			$RemoteFileArray[] = $Lines[$i];
+			$LocalFileArray[] = str_replace("\\", DS, str_replace('/', DS, str_replace($BattleNetStaticContent[4], $TemplatesFolder, $Lines[$i])));
 		}
 	}
 }

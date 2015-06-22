@@ -1,0 +1,24 @@
+
+.ui-corner-all { -moz-border-radius: 5px; }
+.ui-widget-overlay { background: #000; left: 0; top: 0; position: absolute; height: 100%; width: 100%; opacity: .8; filter: opacity=(.8); }
+
+/* draggable */
+.ui-draggable .ui-dialog-titlebar { cursor: move; }
+
+/* dialog */
+.ui-dialog { background: #dbdbdb; border: 1px solid #fff; overflow: hidden; position: absolute; }
+.ui-dialog .ui-dialog-titlebar { height: 30px; font-size: 14px; padding: 0 10px; line-height: 30px; color: #fff; background: url("/Templates/FreedomCore/images/layout/section-title.gif") 0 0 repeat-x; }
+.ui-dialog .ui-dialog-titlebar a { float: right; color: #fff; background: url("/Templates/FreedomCore/images/service-bar/close.gif") 100% 50% no-repeat; padding-right: 17px; }
+.ui-dialog .ui-dialog-content { padding: 10px; width: auto; height: auto; }
+.ui-dialog .ui-dialog-buttonpane { text-align: center; padding: 10px; border-top: 1px solid #bababa; }
+.ui-dialog-buttonpane button.ui-button .first { margin-right: 10px; }
+.ui-dialog-buttonpane button.ui-button span { padding-right: 30px; }
+
+/* button
+.ui-dialog .ui-button { font-size: 11px; border: none; display: inline-block; position: relative; }
+.ui-dialog .ui-button,
+.ui-dialog .ui-button .ui-button-text { color: #fff; background: url("../images/buttons/default.png"); text-transform: uppercase; }
+.ui-dialog .ui-button { padding-left: 25px; }
+.ui-dialog .ui-button .ui-button-text { height: 38px; line-height: 38px; display: block; float: left; margin: -2px 0 0 -3px; padding-right: 25px; background-position: 100% -123px; }
+.ui-dialog .ui-button.ui-state-hover { background-position: 0 -41px; }
+.ui-dialog .ui-button.ui-state-hover .ui-button-text { background-position: 100% -164px; }*/
