@@ -62,6 +62,31 @@ Class String
         return number_format($n);
     }
 
+    public static function GetTimeDiff($timestamp)
+    {
+        $how_log_ago = '';
+        $seconds = time() - $timestamp;
+        $minutes = (int)($seconds / 60);
+        $hours = (int)($minutes / 60);
+        $days = (int)($hours / 24);
+        if ($days >= 1) {
+            $how_log_ago = $days . ' d' . ($days != 1 ? 's' : '');
+        } else if ($hours >= 1) {
+            $how_log_ago = $hours . ' h' . ($hours != 1 ? 's' : '');
+        } else if ($minutes >= 1) {
+            $how_log_ago = $minutes . ' m' . ($minutes != 1 ? 's' : '');
+        } else {
+            $how_log_ago = $seconds . ' s' . ($seconds != 1 ? 's' : '');
+        }
+        return $how_log_ago;
+    }
+
+    public static function SecondsToTime($seconds) {
+        $dtF = new DateTime("@0");
+        $dtT = new DateTime("@$seconds");
+        return $dtF->diff($dtT)->format('%ad %hh %im %ss');
+    }
+
     public static function MoneyToCoins($money)
     {
         $coins = array();

@@ -4,12 +4,14 @@ Class Realms
 {
     private static $DBConnection;
     private static $AConnection;
+    private static $CConnection;
     private static $TM;
 
     public function __construct($VariablesArray)
     {
         Realms::$DBConnection = $VariablesArray[0]::$Connection;
         Realms::$AConnection = $VariablesArray[0]::$AConnection;
+        Realms::$CConnection = $VariablesArray[0]::$CConnection;
         Realms::$TM = $VariablesArray[1];
     }
 
@@ -25,9 +27,26 @@ Class Realms
             if($CheckConnection) { $Result[$Index]['status'] = "up"; } else { $Result[$Index]['status'] = "down"; }
             $Result[$Index]['type'] = Realms::RealmTypeByID($Server['icon']);
             $Result[$Index]['language'] = Realms::LanguageByID($Server['timezone']);
+            $Result[$Index]['uptime'] = Realms::GetUptimeForRealm($Server['id']);
+            $Result[$Index]['online'] = Realms::GetOnlineForRealm($Server['id']);
             $Index++;
         }
         return $Result;
+    }
+
+    private static function GetOnlineForRealm($RealmID)
+    {
+        $Statement = Realms::$CConnection->prepare('SELECT count(guid) as now_online FROM characters WHERE online = 1');
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC)['now_online'];
+    }
+
+    private static function GetUptimeForRealm($RealmID)
+    {
+        $Statement = Realms::$AConnection->prepare('SELECT uptime FROM uptime WHERE realmid = :rid LIMIT 1');
+        $Statement->bindParam(':rid', $RealmID);
+        $Statement->execute();
+        return String::SecondsToTime($Statement->fetch(PDO::FETCH_ASSOC)['uptime']);
     }
 
     private static function RealmTypeByID($TypeID)

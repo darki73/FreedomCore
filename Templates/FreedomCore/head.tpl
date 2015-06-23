@@ -33,6 +33,7 @@
 	{if $Page.type == "homepage" || $Page.type == "blog" || $Page.type == 'community' && $Page.bodycss == 'community-home'}
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/build/cms.min.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/cms.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/sidebar.css" />
 	{/if}
     {if $Page.type == "shop" || $Page.bodycss == "services-home"}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/shop-index.css" />
