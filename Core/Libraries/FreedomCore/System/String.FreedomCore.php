@@ -70,13 +70,13 @@ Class String
         $hours = (int)($minutes / 60);
         $days = (int)($hours / 24);
         if ($days >= 1) {
-            $how_log_ago = $days . ' d' . ($days != 1 ? 's' : '');
+            $how_log_ago = $days . 'd' . ($days != 1 ? 's' : '');
         } else if ($hours >= 1) {
-            $how_log_ago = $hours . ' h' . ($hours != 1 ? 's' : '');
+            $how_log_ago = $hours . 'h' . ($hours != 1 ? 's' : '');
         } else if ($minutes >= 1) {
-            $how_log_ago = $minutes . ' m' . ($minutes != 1 ? 's' : '');
+            $how_log_ago = $minutes . 'm' . ($minutes != 1 ? 's' : '');
         } else {
-            $how_log_ago = $seconds . ' s' . ($seconds != 1 ? 's' : '');
+            $how_log_ago = $seconds . 's' . ($seconds != 1 ? 's' : '');
         }
         return $how_log_ago;
     }
