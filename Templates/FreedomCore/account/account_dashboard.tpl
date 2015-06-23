@@ -96,12 +96,20 @@
                                 </ul>
                             </div>
                             <div class="content additional-services" id="additional-services">
+                                <ul>
 
+                                </ul>
                             </div>
                             <div class="content referrals-rewards" id="referrals-rewards">
-                                <p class="no-subcategory-desc">
-                                    У вас сейчас нет активных приглашений. Подробнее об услуге «Пригласи друга» см. <a href="/shop/recruit-a-friend/" target="_blank">здесь</a>.
-                                </p>
+                                <ul>
+                                    <li class="wow-service raf">
+                                        <a href="/account/management/services/referrals?accountName=WoW{$Account.id}&amp;service=RAF&amp;servicecat=description" onclick="">
+                                            <span class="icon glow-shadow-3"></span>
+                                            <strong>{#Account_Management_Service_RAF#}</strong>
+                                            {#Account_Management_Service_RAF_Description#}
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="content game-time-subscriptions" id="game-time-subscriptions">
 

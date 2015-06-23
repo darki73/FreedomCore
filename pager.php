@@ -153,6 +153,53 @@ switch($_REQUEST['category'])
                                                 echo json_encode($PlainResponse, JSON_UNESCAPED_UNICODE);
                                             break;
 
+                                            case 'referrals':
+                                                if(!String::IsNull($_REQUEST['service']))
+                                                {
+                                                    $Service = array(
+                                                        'name' => strtolower($_REQUEST['service']),
+                                                        'title' => $Smarty->GetConfigVars('Account_Management_Service_'.$_REQUEST['service']),
+                                                        'description' => $Smarty->GetConfigVars('Account_Management_Service_'.$_REQUEST['service'].'_Description'),
+                                                        'history' => $Smarty->GetConfigVars('Account_Management_Service_'.$_REQUEST['service'].'_History'),
+                                                        'service' => $_REQUEST['service'],
+                                                        'price' => Account::GetServicePrice($_REQUEST['service'])
+                                                    );
+                                                    $Smarty->assign('Service', $Service);
+                                                    switch($_REQUEST['service'])
+                                                    {
+
+                                                        case 'RAF':
+                                                            if(!isset($_REQUEST['servicecat']))
+                                                            {
+                                                                echo "<pre>";
+                                                                print_r($_REQUEST);
+                                                            }
+                                                            else
+                                                            {
+                                                                switch($_REQUEST['servicecat'])
+                                                                {
+                                                                    case 'history':
+
+                                                                    break;
+
+                                                                    case 'description':
+                                                                        $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'servicespage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Service_'.$Service['service']).' - ')));
+                                                                        $Smarty->display('account/ref_raf_help');
+                                                                    break;
+                                                                }
+                                                            }
+                                                            break;
+
+                                                        default:
+                                                            echo "<pre>";
+                                                            print_r($_REQUEST);
+                                                            break;
+                                                    }
+                                                }
+                                                else
+                                                    header('Location: /account/management');
+                                            break;
+
                                             default:
                                                 header('Location: /account/management');
                                             break;

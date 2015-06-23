@@ -136,6 +136,19 @@ Account_Management_Service_PCC_History = История операций по и
 Account_Management_Service_PNC_History = История операций по смене имени
 Account_Management_Payment_Status_Completed = Выполнено
 Account_Management_Payment_Status_Queued = В очереди
-
+Account_Management_Service_RAF = Пригласи друга
+Account_Management_Service_RAF_Description = Пригласите своего друга в Азерот
+Account_Management_Service_RAF_Help_Header = Вы верный, заботливый друг? Тогда Вас ждет множество  подарков в игре.
+Account_Management_Service_RAF_Help_SubHeader = Приглашение друга позволит Вам повысить удовольствие от игры на нашем сервере, а так же, вы сможете получить множество внутриигровых подарков. И это еще не все!
+Account_Management_Service_RAF_Help_Why_Header = Зачем приглашать друзей в игру?
+Account_Management_Service_RAF_Help_More = Подробнее
+Account_Management_Service_RAF_Help_Invite = Я хочу пригласить друга!
+Account_Management_Service_RAF_Help_Solo_Intro = У вас нет друзей в игре, вам одиноко и постоянно приходится искать группу для рейдов или подземелий
+Account_Management_Service_RAF_Help_Solo_Description = Вам постоянно приходится искать новых людей для посещения подземелий или рейдов. Если же вы застрали на квесте, вам приходится пытаться пройти его самому или же отменить этот квест.
+Account_Management_Service_RAF_Help_Many_Intro = Это вы и ваши друзья! С ними веселее играть и не только....
+Account_Management_Service_RAF_Help_Many_Description = Для вас нет непроходимых подземелий и вы всегда можете рассчитывать на помощь. За каждого приглашенного друга вы сможете получить внутриигровую награду, а так же, вы сможете прокачивать ваших персонажей с увеличенным втрое рейтингом на опыт!
+Account_Management_Service_RAF_Help_ =
+Account_Management_Service_RAF_Help_ =
+Account_Management_Service_RAF_Help_ =
 
 Account_Management_ =

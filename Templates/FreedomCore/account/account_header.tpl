@@ -116,7 +116,7 @@
                     </div>
                 </form>
             </div>
-            <h1 id="logo"><a accesskey="h" href="/" tabindex="50"></a></h1>
+            <h1 id="logo"><a accesskey="h" href="/account/management" tabindex="50"></a></h1>
             <div id="navigation">
                 <div id="page-menu" class="large">
                     <h2><a href="/account/management/"> {#Account_Management_M#}

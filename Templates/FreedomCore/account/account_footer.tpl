@@ -31,18 +31,6 @@
         </div>
     </div>
 
-    <div class="modal eu-cookie-compliance desktop hide" id="eu-cookie-compliance">
-        <div class="modal-header">
-            <a class="close" data-dismiss="modal" id="cookie-compliance-close"><i class="icon-remove icon-white"></i></a>
-            <h1>Cookie-файлы</h1>
-        </div>
-        <div class="modal-body">
-            <p>На сайтах Blizzard Entertainment используются cookie-файлы и другие аналогичные технологии. Если, прочитав это сообщение, вы остаетесь на нашем сайте, это означает, что вы не возражаете против использования этих технологий.</p>
-        </div>
-        <button class="btn btn-primary" id="cookie-compliance-agree">Хорошо</button>
-        <a class="btn" id="cookie-compliance-learn" href="http://eu.blizzard.com/company/about/privacy.html" target="_blank">Подробнее</a>
-    </div>
-
     <script type="text/javascript">
         //<![CDATA[
         var csrftoken = "625ea365-1f2f-418d-bdab-6eff64de74bb";
@@ -66,6 +54,7 @@
     {/if}
     {if $Page.bodycss == 'servicespage'}
         <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/account/guild_services.js"></script>
     {/if}
     {if $Page.bodycss == 'paymentpage'}
         <script type="text/javascript" src="/Templates/{$Template}/js/account/payment.js"></script>

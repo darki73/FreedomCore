@@ -21,22 +21,31 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/freedomnet.css" />
         <link rel="stylesheet" type="text/css" media="print" href="/Templates/{$Template}/css/account/freedomnet-print.css" />
         {if $Page.bodycss != 'paymentpage'}
-        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard.css" />
-        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard_secondary.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard_secondary.css" />
         {/if}
         {if $Page.bodycss == 'servicespage'}
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/guild_services.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/payment_history.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/payment_history.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/services.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/ui.css" />
-            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/locale/{$Language}.css" />
         {/if}
         {if $Page.bodycss == 'paymentpage'}
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/payment.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/payment_secondary.css" />
-            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/locale/{$Language}.css" />
         {/if}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/ratings.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/inputs.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/locale/{$Language}.css" />
+        <style>
+            #navigation #page-menu h2 {
+                font-size: 18px !important;
+                letter-spacing: -1px !important;
+                line-height: 30px !important;
+                margin-top: 7px !important;
+            }
+        </style>
     {/if}
 
     <script type="text/javascript" src="/Templates/{$Template}/js/third-party/jquery-1.7.1.min.js"></script>
