@@ -54,30 +54,25 @@ Class Characters
 
     public static function VerifyEligibility($Character, $Service)
     {
-        switch($Service)
-        {
-            case 'PFC':
-                $Eligible = false;
-                $HasMail = false;
-                $IsOnline = false;
-                $Reasons = array();
+        $Eligible = false;
+        $HasMail = false;
+        $IsOnline = false;
+        $Reasons = array();
 
-                if(Characters::CheckCharacterInbox($Character))
-                    $HasMail = true;
-                if(Characters::CheckIfCharacterOnline($Character))
-                    $IsOnline = true;
+        if(Characters::CheckCharacterInbox($Character))
+            $HasMail = true;
+        if(Characters::CheckIfCharacterOnline($Character))
+            $IsOnline = true;
 
-                if(!$HasMail && !$IsOnline)
-                    return array('eligible' => true, 'reasons' => array());
-                else
-                    if($HasMail && !$IsOnline)
-                        return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20016Title')));
-                    elseif(!$HasMail && $IsOnline)
-                        return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
-                    elseif($HasMail && $IsOnline)
-                        return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
-            break;
-        }
+        if(!$HasMail && !$IsOnline)
+            return array('eligible' => true, 'reasons' => array());
+        else
+            if($HasMail && !$IsOnline)
+                return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20016Title')));
+            elseif(!$HasMail && $IsOnline)
+                return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
+            elseif($HasMail && $IsOnline)
+                return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
     }
 
     private static function VerificationTranslation($Reason)

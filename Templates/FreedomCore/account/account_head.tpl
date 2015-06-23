@@ -25,6 +25,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard_secondary.css" />
         {/if}
         {if $Page.bodycss == 'servicespage'}
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/payment_history.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/services.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/ui.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/locale/{$Language}.css" />

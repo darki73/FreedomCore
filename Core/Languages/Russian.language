@@ -24,6 +24,11 @@ Logout = Выйти
 Results = Результаты
 Results_Nothing_Found = Результатов не найдено
 Of = из
+Date = Дата
+Summ = Сумма
+Payment = Покупка
+Status = Состояние
+
 
 #Game Page
 Game_About_Exp = Все о дополнении

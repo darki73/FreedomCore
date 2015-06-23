@@ -61,6 +61,30 @@ Class Account
         return true;
     }
 
+    public static function InsertPaymentDetails($UserID, $ServiceID, $Price)
+    {
+        $Status = 1;
+        $Date = date('Y-m-d H:i:s', time());
+        $Statement = Account::$DBConnection->prepare('INSERT INTO users_payments_history (userid, service, price, date, status) VALUES (:uid, :service, :price, :date, :status)');
+        $Statement->bindParam(':uid', $UserID);
+        $Statement->bindParam(':service', $ServiceID);
+        $Statement->bindParam(':price', $Price);
+        $Statement->bindParam(':date', $Date);
+        $Statement->bindParam(':status', $Status);
+        $Statement->execute();
+        return true;
+    }
+
+    public static function GetServicePaymentHistory($UserID, $ServiceID)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT * FROM users_payments_history WHERE userid = :uid AND service = :service');
+        $Statement->bindParam(':uid', $UserID);
+        $Statement->bindParam(':service', $ServiceID);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        return $Result;
+    }
+
     public static function GetAccountByID($AccountID)
     {
         $Statement = Account::$AuthConnection->prepare('SELECT * FROM account WHERE id = :id');

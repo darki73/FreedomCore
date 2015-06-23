@@ -28,6 +28,8 @@ Class Security
                 $GetExtension = explode('.', $Value);
                 if(end($GetExtension) == 'php')
                     unset($Files[$Key]);
+                elseif(end($GetExtension) == 'html')
+                    unset($Files[$Key]);
                 else
                 {
                     if(!empty($Files))

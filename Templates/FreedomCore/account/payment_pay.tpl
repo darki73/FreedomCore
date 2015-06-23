@@ -14,7 +14,7 @@
                         <div class="content">
                             <div class="item last-item">
                                 <span class="thumb">
-                                <img src="/Templates/{$Template}/images/services/wow/{$Service.name}.png" alt="Смена фракции" title="Смена фракции" />
+                                <img src="/Templates/{$Template}/images/services/wow/{$Service.name}.png" alt="{$Service.title}" title="{$Service.title}" />
                                 </span>
                                 <div class="product-detail clear-after">
                                     {assign 'ServiceName' 'Account_Management_Service_'|cat:strtoupper($Service.name)}
@@ -42,7 +42,7 @@
                                     </div>
                                 {else}
                                     <div class="detail">
-                                        {#Account_Management_Old_Faction#}
+                                        {#Character_Faction#}
                                         <strong>{$Character.side_translation}</strong>
                                     </div>
                                 {/if}
@@ -66,6 +66,14 @@
                             </div>
                             <div class="section-box border-4">
                                 <div id="payment-form">
+                                    <div class="form-row">
+                                        <span class="form-left">
+                                            {#Account_Management_Service#}
+                                        </span>
+                                        <span class="form-right">
+                                            {$Service.title}
+                                        </span>
+                                    </div>
                                     <div class="form-row">
                                         <span class="form-left">
                                             {#Account_Management_Payment_PayingFrom#}
@@ -116,6 +124,7 @@
                                     <input type="hidden" name="service" value="PFC">
                                     <input type="hidden" name="character" value="{$Character.name}">
                                     <input type="hidden" name="newbalance" value="{$Balance}">
+                                    <input type="hidden" name="price" value="{$Service.price}">
                                     <fieldset class="ui-controls section-buttons">
                                         <button class="ui-button button1" type="submit" id="submitted" tabindex="1">
                                             <span class="button-left">

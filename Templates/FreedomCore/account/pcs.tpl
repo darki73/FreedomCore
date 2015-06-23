@@ -8,13 +8,13 @@
                 <div class="primary">
                     <div  class="header">
                         <h2 class="subcategory">{#Account_Management_Service_CS#}</h2>
-                        <h3 class="headline">{#Account_Management_Service_PFC#}</h3>
+                        <h3 class="headline">{$Service.title}</h3>
                         <a href="/account/management/dashboard?accountName=WoW{$Account.id}"><img src="/Templates/{$Template}/images/game-icons/wowx5.png" alt="World of Warcraft" width="48" height="48" /></a>
                     </div>
                     <div class="service-wrapper">
                         <p class="service-nav">
-                            <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service=PFC" class="active">{#Account_Management_Service#}</a>
-                            <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service=PFC&amp;servicecat=history">{#Account_Management_Service_History#}</a>
+                            <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service={$Service.service}" class="active">{#Account_Management_Service#}</a>
+                            <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service={$Service.service}&amp;servicecat=history">{#Account_Management_Service_History#}</a>
                             <a href="/account/management/dashboard?accountName=WoW{$Account.id}">{#Account_Management_Back_To_Account#}</a>
                         </p>
                         <div class="service-info">
@@ -32,6 +32,16 @@
                                 <p class="service-price headline">{#Account_Management_Service_Price#}<br /> {$Service.price|string_format:"%.2f"} USD
                                 </p>
                                 <p>{#Account_Management_Service_Warning#}</p>
+                                {if $Service.name == 'pnc'}
+                                    <div class="service-tag-contents border-3 margin-top-20">
+                                        <h2 class="caption">{#Account_Management_Service_Change_Name_Free#}:</h2>
+                                        <ul class="arrow-list">
+                                            <li><a href="/account/management/services/character-services?accountName=WoW{$Account.id}&service=PCC">{#Account_Management_Service_PCC#}</a></li>
+                                            <li><a href="/account/management/services/character-services?accountName=WoW{$Account.id}&service=PRC">{#Account_Management_Service_PRC#}</a></li>
+                                            <li><a href="/account/management/services/character-services?accountName=WoW{$Account.id}&service=PFC">{#Account_Management_Service_PFC#}</a></li>
+                                        </ul>
+                                    </div>
+                                {/if}
                             </div>
                         </div>
                         <div class="service-form">
@@ -44,7 +54,7 @@
                                             </div>
                                             <div class="character-description">
                                             <span class="character-name caption">
-                                                <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service=PFC&amp;servicecat=tos&amp;character={$Character.name}" class="character-link">
+                                                <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service={$Service.service}&amp;servicecat=tos&amp;character={$Character.name}" class="character-link">
                                                     {$Character.name} {if $Character.guild_name != ''}- <em>{$Character.guild_name}</em>{/if}
                                                 </a>
                                             </span>
@@ -86,7 +96,7 @@
                                         'title': '{#Account_Management_Service_Verifying#}'
                                     },
                                     'active': {
-                                        serviceName: '{$Service.name|strtoupper}',
+                                        serviceName: '{$Service.service}',
                                         viewingRealm: '0'
                                     }
                                 };

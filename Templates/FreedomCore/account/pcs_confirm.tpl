@@ -2,8 +2,6 @@
 <div id="layout-middle">
     <div class="wrapper">
         <div id="content">
-            <script type="text/javascript" src="/Templates/{$Template}/js/account/services.js"></script>
-            <script type="text/javascript" src="/Templates/{$Template}/js/account/realm-select.js"></script>
             <div class="dashboard service">
                 <div class="primary">
                     <div  class="header">
@@ -41,41 +39,15 @@
                             </div>
                         </div>
                         <div class="service-form">
-                            <div class="service-interior">
-                                <h2 class="caption">{#Account_Management_Service_ToS_Limitations#}</h2>
-                                <div class="tos-left full-width">
-                                    <ul>
-                                        <li>{#Account_Management_Service_PFC_ToS_One#}</li>
-                                        <li>{#Account_Management_Service_PFC_ToS_Two#}</li>
-                                        <li>{#Account_Management_Service_PFC_ToS_Free#}</li>
-                                        <li>{#Account_Management_Service_PFC_ToS_Four#}</li>
-                                    </ul>
-                                </div>
-                                <span class="clear"></span>
-                                <form method="POST" action="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service=PFC&amp;servicecat=confirm&amp;character={$Character.name}">
-                                    <fieldset class="ui-controls section-stacked">
-                                        <button class="ui-button button1" type="submit" id="tos-submit" tabindex="1">
-                                            <span class="button-left">
-                                                <span class="button-right">{#Account_Management_Service_ToS_Accept#}</span>
-                                            </span>
-                                        </button>
-                                        <a class="ui-cancel " href="/account/management/services/character-services?accountName=WoW{$Account.id}&service=PFC" tabindex="1">
-                                            <span>
-                                                {#Account_Management_Service_ToS_Decline#}
-                                            </span>
-                                        </a>
-                                    </fieldset>
-                                    <script type="text/javascript">
-                                        //<![CDATA[
-                                        (function() {
-                                            var tosSubmit = document.getElementById('tos-submit');
-                                            tosSubmit.removeAttribute('disabled');
-                                            tosSubmit.className = 'ui-button button1';
-                                        })();
-                                        //]]>
-                                    </script>
-                                </form>
-                            </div>
+                            {if $Service.name == 'pfc'}
+                                {include file='account/service_confirm/faction.tpl'}
+                            {elseif $Service.name == 'prc'}
+                                {include file='account/service_confirm/race.tpl'}
+                            {elseif $Service.name == 'pcc'}
+                                {include file='account/service_confirm/character.tpl'}
+                            {elseif $Service.name == 'pnc'}
+                                {include file='account/service_confirm/name.tpl'}
+                            {/if}
                         </div>
                         <span class="clear"></span>
                     </div>
