@@ -121,7 +121,7 @@
                                     {#Account_Management_Payment_InsufFunds#}
                                 {else}
                                     <input type="hidden" name="accountName" value="WoW{$Account.id}">
-                                    <input type="hidden" name="service" value="PFC">
+                                    <input type="hidden" name="service" value="{$Service.service}">
                                     <input type="hidden" name="character" value="{$Character.name}">
                                     <input type="hidden" name="newbalance" value="{$Balance}">
                                     <input type="hidden" name="price" value="{$Service.price}">
