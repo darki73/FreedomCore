@@ -5,9 +5,9 @@
             <p id="name">{$Realm.name}</p>
             <p id="info">{if $Realm.status == 'down'}<font color="red">Offline</font>{else}<font color="green">Online</font>{/if}</p>
         </div>
-        <div id="body" class="clearfix text-shadow">
+        <div id="containerbody" class="clearfix text-shadow">
             <p id="online"><font color="#d28010">{$Realm.online}</font> {#Players_Online#}</p>
-            <p id="uptime"><font color="#5b5851">{$Realm.uptime}</font> Uptime</p>
+            <p id="uptime"><font color="#5b5851">{$Realm.uptime}</font></p>
         </div>
     </div>
     {/foreach}

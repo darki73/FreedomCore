@@ -43,10 +43,10 @@ Class Realms
 
     private static function GetUptimeForRealm($RealmID)
     {
-        $Statement = Realms::$AConnection->prepare('SELECT starttime FROM uptime WHERE realmid = :rid AND uptime = 0 LIMIT 1');
+        $Statement = Realms::$AConnection->prepare('SELECT starttime FROM uptime WHERE realmid = :rid LIMIT 1');
         $Statement->bindParam(':rid', $RealmID);
         $Statement->execute();
-        return String::GetTimeDiff($Statement->fetch(PDO::FETCH_ASSOC)['uptime']);
+        return String::GetTimeDiff($Statement->fetch(PDO::FETCH_ASSOC)['starttime']);
     }
 
     private static function RealmTypeByID($TypeID)

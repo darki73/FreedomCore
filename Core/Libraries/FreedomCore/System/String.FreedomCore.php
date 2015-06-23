@@ -64,21 +64,22 @@ Class String
 
     public static function GetTimeDiff($timestamp)
     {
-        $how_log_ago = '';
-        $seconds = time() - $timestamp;
-        $minutes = (int)($seconds / 60);
-        $hours = (int)($minutes / 60);
-        $days = (int)($hours / 24);
-        if ($days >= 1) {
-            $how_log_ago = $days . 'd' . ($days != 1 ? 's' : '');
-        } else if ($hours >= 1) {
-            $how_log_ago = $hours . 'h' . ($hours != 1 ? 's' : '');
-        } else if ($minutes >= 1) {
-            $how_log_ago = $minutes . 'm' . ($minutes != 1 ? 's' : '');
-        } else {
-            $how_log_ago = $seconds . 's' . ($seconds != 1 ? 's' : '');
-        }
-        return $how_log_ago;
+        $seconds = time()-$timestamp;
+        $HowLongAgo = "";
+        $days = intval(intval($seconds) / (3600*24));
+        if($days> 0)
+            $HowLongAgo .= str_replace(' ', '', "$days d").' ';
+        $hours = (intval($seconds) / 3600) % 24;
+        if($hours > 0)
+            $HowLongAgo .= str_replace(' ', '', "$hours h").' ';
+        $minutes = (intval($seconds) / 60) % 60;
+        if($minutes > 0)
+            $HowLongAgo .= str_replace(' ', '', "$minutes m").' ';
+        $seconds = intval($seconds) % 60;
+        if ($seconds > 0)
+            $HowLongAgo .= str_replace(' ', '', "$seconds s").' ';
+
+        return $HowLongAgo;
     }
 
     public static function SecondsToTime($seconds) {
