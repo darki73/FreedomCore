@@ -1,5 +1,5 @@
 <?php
-require_once('/Core/Core.php');
+require_once('Core/Core.php');
 $ClassConstructor = array($Database, $Smarty);
 switch($_REQUEST['category'])
 {
