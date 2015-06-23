@@ -112,6 +112,47 @@ Class Account
         return $Result;
     }
 
+    public static function CreateFreedomTag($UserID, $FreedomTag)
+    {
+        $FreedomTagID = 1;
+        if(!Account::IsFreedomTagFree($FreedomTag))
+            $FreedomTagID = Account::GetLastFreedomTagID($FreedomTag);
+
+        Account::UpdateUsersFreedomTag($UserID, $FreedomTag, $FreedomTagID);
+        return array('tag' => $FreedomTag, 'id' => $FreedomTagID);
+    }
+
+    private static function IsFreedomTagFree($FreedomTag)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT freedomtag_name FROM users WHERE freedomtag_name = :ftname');
+        $Statement->bindParam(':ftname', $FreedomTag);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Statement->rowCount() > 0)
+            return false;
+        else
+            return true;
+    }
+
+    private static function GetLastFreedomTagID($FreedomTag)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT MAX(freedomtag_id)+1 as new_id FROM users WHERE freedomtag_name = :ftname');
+        $Statement->bindParam(':ftname', $FreedomTag);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        return $Result['new_id'];
+    }
+
+    private static function UpdateUsersFreedomTag($UserID, $FreedomTagName, $FreedomTagID)
+    {
+        $Statement = Account::$DBConnection->prepare('UPDATE users SET freedomtag_name = :ftname, freedomtag_id = :ftid WHERE id = :userid');
+        $Statement->bindParam(':ftname', $FreedomTagName);
+        $Statement->bindParam(':ftid', $FreedomTagID);
+        $Statement->bindParam(':userid', $UserID);
+        $Statement->execute();
+        return true;
+    }
+
     private static function ExpansionByID($ExpansionID, $GetAllExpansions = false)
     {
         $Expansions = array(

@@ -73,7 +73,7 @@
                                                 {if $User.freedomtag_name != ''}
                                                     <div class="label">
                                                         <span class="battletag">{$User.freedomtag_name}</span>
-                                                        <span class="code">$User.freedomtag_id}</span>
+                                                        <span class="code">#{$User.freedomtag_id}</span>
                                                     </div>
                                                 {/if}
                                                 <div class="email">{$User.email}</div>

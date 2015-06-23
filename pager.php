@@ -53,7 +53,10 @@ switch($_REQUEST['category'])
                     }
                     else
                     {
-                        $AccountID = str_replace('WoW', '', $_REQUEST['accountName']);
+                        if(isset($_REQUEST['accountName']))
+                            $AccountID = str_replace('WoW', '', $_REQUEST['accountName']);
+                        else
+                            $AccountID = $User['id'];
                         $Smarty->assign('Account', Account::GetAccountByID($AccountID));
                         if(Account::VerifyAccountAccess($User['username'], $AccountID))
                         {
@@ -262,6 +265,18 @@ switch($_REQUEST['category'])
                                                 break;
                                         }
                                     }
+                                break;
+
+                                case 'freedomtag-create':
+                                    $Smarty->assign('Page', Page::Info('account_freedomtag', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_FreedomTag_PageTitle').' - ')));
+                                    $Smarty->display('account/freedomtag_create');
+                                break;
+
+                                case 'freedomtag-verify':
+                                    $FreedomTag = Account::CreateFreedomTag($User['id'], $_REQUEST['freedomTag']);
+                                    $Smarty->assign('FreedomTag', $FreedomTag);
+                                    $Smarty->assign('Page', Page::Info('account_freedomtag', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_FreedomTag_PageTitle').' - ')));
+                                    $Smarty->display('account/freedomtag_verify');
                                 break;
 
                                 default:

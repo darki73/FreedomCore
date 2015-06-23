@@ -5,6 +5,16 @@
     <link rel="shortcut icon" href="" />
     <link rel="search" type="application/opensearchdescription+xml" href="http://{$smarty.server.HTTP_HOST}/data/opensearch" title="{#Head_Opensearch_Meta#} {$AppName}" />
 
+    {if $Page.type == 'account_freedomtag'}
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/common.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/nav-client-desktop.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/freedomnet.css" />
+        <link rel="stylesheet" type="text/css" media="print" href="/Templates/{$Template}/css/account/freedomnet-print.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/ratings.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/inputs.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/freedomtag.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/languages/{$Language}.css" />
+    {/if}
     {if $Page.type == 'account_management'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/nav-client-desktop.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/common.css" />

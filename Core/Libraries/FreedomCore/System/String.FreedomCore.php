@@ -40,6 +40,12 @@ Class String
 			return false;
 	}
 
+    public static function Request()
+    {
+        echo "<pre>";
+        print_r($_REQUEST);
+    }
+
     public static function UnshiftAssoc(&$Array, $Key, $Value)
     {
         $Array = array_reverse($Array, true);
