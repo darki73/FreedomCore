@@ -38,7 +38,7 @@
                                                 <tr class="">
                                                     <td>
                                                         <span>
-                                                            <time datetime="{$Payment.date}" data-format="dd/MM/yyyy">{$Payment.date|date_format:"%d/%e/%Y"}</time>
+                                                            <time datetime="{$Payment.date}" data-format="dd/MM/yyyy">{$Payment.date|date_format:"%d/%m/%Y"}</time>
                                                         </span>
                                                     </td>
                                                     <td data-raw="{$Payment.price}">

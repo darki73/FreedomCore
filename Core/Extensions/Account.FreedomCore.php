@@ -75,6 +75,34 @@ Class Account
         return true;
     }
 
+    public static function ChangePasswordForUser($Username, $Password)
+    {
+        $AccountPassword = Account::HashPassword('sha1', $Username.':'.$Password);
+        $GameUsername = strtoupper($Username);
+        $GamePassword = Account::HashPassword('sha1', strtoupper($Username).':'.strtoupper($Password));
+        Account::ChangeAccountPassword($Username, $AccountPassword);
+        Account::ChangeGamePassword($GameUsername, $GamePassword);
+        return true;
+    }
+
+    private static function ChangeAccountPassword($Username, $Password)
+    {
+        $Statement = Account::$DBConnection->prepare('UPDATE users SET password = :password WHERE username = :username');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':password', $Password);
+        $Statement->execute();
+        return true;
+    }
+
+    private static function ChangeGamePassword($Username, $Password)
+    {
+        $Statement = Account::$AuthConnection->prepare('UPDATE account SET sha_pass_hash = :password WHERE username = :username');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':password', $Password);
+        $Statement->execute();
+        return true;
+    }
+
     public static function GetServicePaymentHistory($UserID, $ServiceID)
     {
         $Statement = Account::$DBConnection->prepare('SELECT * FROM users_payments_history WHERE userid = :uid AND service = :service');
@@ -82,7 +110,63 @@ Class Account
         $Statement->bindParam(':service', $ServiceID);
         $Statement->execute();
         $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $ArrayIndex = 0;
+        foreach($Result as $Payment)
+        {
+            $Result[$ArrayIndex]['status'] = Account::PaymentStatusConverter($Payment['status']);
+        }
+
         return $Result;
+    }
+
+    public static function VerifyOldPassword($Username, $Password)
+    {
+        $StringToHash = $Username.':'.$Password;
+        $HashedPassword = Account::HashPassword('sha1', $StringToHash);
+        $Statement = Account::$DBConnection->prepare('SELECT username FROM users WHERE username = :username AND password = :password');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':password', $HashedPassword);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Result['username'] == $Username)
+            return true;
+        else
+            return false;
+    }
+
+    public static function GetPaymentHistory($UserID)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT * FROM users_payments_history WHERE userid = :uid');
+        $Statement->bindParam(':uid', $UserID);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $ArrayIndex = 0;
+        foreach($Result as $Payment)
+        {
+            $Result[$ArrayIndex]['status'] = Account::PaymentStatusConverter($Payment['status']);
+        }
+
+        return $Result;
+    }
+
+    public static function GetPaymentInfo($UserID, $PaymentID)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT * FROM users_payments_history WHERE userid = :uid AND id = :payment');
+        $Statement->bindParam(':uid', $UserID);
+        $Statement->bindParam(':payment', $PaymentID);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        $Result['status'] = Account::PaymentStatusConverter($Result['status']);
+        return $Result;
+    }
+
+    private static function PaymentStatusConverter($StatusID)
+    {
+        $Statuses = array(
+            0 => Account::$TM->GetConfigVars('Account_Management_Payment_Status_Queued'),
+            1 => Account::$TM->GetConfigVars('Account_Management_Payment_Status_Completed'),
+        );
+        return $Statuses[$StatusID];
     }
 
     public static function GetAccountByID($AccountID)

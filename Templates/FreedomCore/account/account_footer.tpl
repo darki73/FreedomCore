@@ -60,6 +60,12 @@
         <script type="text/javascript" src="/Templates/{$Template}/js/account/payment.js"></script>
     {/if}
 
+    {if $Page.type == 'account_parameters'}
+        <script type="text/javascript" src="/Templates/{$Template}/js/inputs.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/account/password.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/freedomcore.js"></script>
+    {/if}
+
     {if $Page.type == 'account_freedomtag'}
         <script type="text/javascript" src="/Templates/{$Template}/js/inputs.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/freedomtag/freedomtag-validator.js"></script>

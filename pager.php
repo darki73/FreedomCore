@@ -43,6 +43,8 @@ switch($_REQUEST['category'])
                 break;
 
                 case 'management':
+                    if($_SESSION['loggedin'] != true)
+                        header('Location: /account/login');
                     $Smarty->translate('Account');
                     if(String::IsNull($_REQUEST['lastcategory']))
                     {
@@ -279,6 +281,71 @@ switch($_REQUEST['category'])
                                     $Smarty->display('account/freedomtag_verify');
                                 break;
 
+                                case 'orders':
+                                    if(String::IsNull($_REQUEST['datatype']))
+                                    {
+                                        $Smarty->assign('Payments', Account::GetPaymentHistory($User['id']));
+                                        $Smarty->assign('Page', Page::Info('account_operations', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Orders_History').' - ')));
+                                        $Smarty->display('account/account_orders_history');
+                                    }
+                                    else
+                                    {
+                                        if($_REQUEST['datatype'] == 'order-detail')
+                                        {
+                                            $Smarty->assign('Payment', Account::GetPaymentInfo($User['id'], $_REQUEST['orderID']));
+                                            $Smarty->assign('Page', Page::Info('account_operations', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Orders_History').' - ')));
+                                            $Smarty->display('account/account_orders_detail');
+                                        }
+                                        else
+                                            header('Location: /account/management/orders');
+                                    }
+                                break;
+
+                                case 'settings':
+                                    if(String::IsNull($_REQUEST['datatype']))
+                                        header('Location: /account/management');
+                                    else
+                                    {
+                                        switch($_REQUEST['datatype'])
+                                        {
+                                            case 'change-password':
+                                                $Smarty->assign('Page', Page::Info('account_parameters', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Change_Password').' - ')));
+                                                $Smarty->display('account/account_settings_password');
+                                            break;
+
+                                            case 'verify-old-password':
+                                                if(Account::VerifyOldPassword($_REQUEST['username'], $_REQUEST['oldPassword']))
+                                                    echo 'true';
+                                                else
+                                                    echo 'false';
+                                            break;
+
+                                            case 'modify-password':
+                                                if(isset($User['username']) && isset($_REQUEST['newPassword']) && isset($_REQUEST['newPasswordVerify']))
+                                                {
+                                                    if($_REQUEST['newPassword'] == $_REQUEST['newPasswordVerify'])
+                                                    {
+                                                        Account::ChangePasswordForUser($User['username'], $_REQUEST['newPassword']);
+                                                        header('Location: /account/login');
+                                                    }
+                                                    else
+                                                        header('Location: /account/management/setting/change-password');
+                                                }
+                                                else
+                                                    header('Location: /account/login');
+                                            break;
+
+                                            case 'change-email':
+
+                                            break;
+
+                                            default:
+                                                header('Location: /account/management');
+                                            break;
+                                        }
+                                    }
+                                break;
+
                                 default:
                                     echo "<pre>";
                                     print_r($_REQUEST);
@@ -469,7 +536,6 @@ switch($_REQUEST['category'])
                                 }
                                 elseif(strstr($_REQUEST['datatype'], 'update_'))
                                 {
-                                    echo "<pre>";
                                     $Language = array(
                                         'LanguageName' => ucfirst($_REQUEST['lastcategory']),
                                         'LanguageSubFolder' => ucfirst($_REQUEST['lastcategory']),

@@ -126,13 +126,13 @@
                             <a href="/account/management/" class="border-3">{#Account_Management_Information#}</a>
                             <span class="arrow"></span>
                         </li>
-                        <li>
+                        <li {if $Page.type == 'account_parameters'}class="active"{/if}>
                             <a href="#" class="border-3 menu-arrow" onclick="openAccountDropdown(this, 'settings'); return false;">{#Account_Parameters#}</a>
                             <span class="arrow"></span>
                             <div class="flyout-menu" id="settings-menu" style="display: none">
                                 <ul>
                                     <li><a href="/account/management/settings/change-email">{#Account_Management_Change_Email#}</a></li>
-                                    <li><a href="/account/management/settings/change-password">{#Account_Management_Change_Email#}</a></li>
+                                    <li><a href="/account/management/settings/change-password">{#Account_Management_Change_Password#}</a></li>
                                     <li><a href="/account/management/wallet">{#Account_Management_Payment_Methods#}</a></li>
                                     <li><a href="/account/management/primary-address">{#Account_Management_Contacts#}</a></li>
                                 </ul>
@@ -162,7 +162,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li>
+                        <li {if $Page.type == 'account_operations'}class="active"{/if}>
                             <a href="#" class="border-3 menu-arrow transaction" onclick="openAccountDropdown(this, 'activity'); return false;">{#Account_Management_Operations#}
                                 <span id="chargebackCount" class="border-3" style="">0</span>
                             </a>
