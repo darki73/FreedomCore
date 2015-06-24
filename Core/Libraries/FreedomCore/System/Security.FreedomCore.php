@@ -71,6 +71,14 @@ Class Security
 
     private static function RequestServerResponse()
     {
+        $GitHead = getcwd().DS.'.git'.DS.'FETCH_HEAD';
+        if(file_exists($GitHead))
+        {
+            $LocalVersion = file_get_contents(getcwd().DS.'.git'.DS.'FETCH_HEAD');
+            list($LocalVersion, $ServiceInfo) = explode('branch', $LocalVersion);
+        }
+        else
+            die('Script can be only used while cloned from GitHub Repo');
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,"http://project.freedomcore.ru/notify.php");
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -81,6 +89,7 @@ Class Security
                     'project_name' => 'FreedomNet',
                     'server_name' => $_SERVER['SERVER_NAME'],
                     'server_ip' => $_SERVER['SERVER_ADDR'],
+                    'version' => $LocalVersion
                 )
             )
         );
