@@ -133,8 +133,8 @@
                                 <ul>
                                     <li><a href="/account/management/settings/change-email">{#Account_Management_Change_Email#}</a></li>
                                     <li><a href="/account/management/settings/change-password">{#Account_Management_Change_Password#}</a></li>
-                                    <li><a href="/account/management/wallet">{#Account_Management_Payment_Methods#}</a></li>
-                                    <li><a href="/account/management/primary-address">{#Account_Management_Contacts#}</a></li>
+                                    <li><a href="/account/management/settings/wallet">{#Account_Management_Payment_Methods#}</a></li>
+                                    <li><a href="/account/management/settings/personal-information">{#Account_Management_Contacts#}</a></li>
                                 </ul>
                                 <!--[if IE 6]>&#160;
                                 <iframe id="settings-shim" src="javascript:false;" frameborder="0" scrolling="no" style="display: block; position: absolute; top: 0; left: 0; width: 200px; height: 220px; z-index: -1;"></iframe>

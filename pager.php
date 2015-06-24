@@ -326,6 +326,7 @@ switch($_REQUEST['category'])
                                                     if($_REQUEST['newPassword'] == $_REQUEST['newPasswordVerify'])
                                                     {
                                                         Account::ChangePasswordForUser($User['username'], $_REQUEST['newPassword']);
+                                                        session_destroy();
                                                         header('Location: /account/login');
                                                     }
                                                     else
@@ -335,8 +336,28 @@ switch($_REQUEST['category'])
                                                     header('Location: /account/login');
                                             break;
 
-                                            case 'change-email':
+                                            case 'wallet':
+                                                $Smarty->assign('Page', Page::Info('account_parameters', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Payment_Methods').' - ')));
+                                                $Smarty->display('account/account_settings_wallet');
+                                            break;
 
+                                            case 'change-email':
+                                                $Smarty->assign('Page', Page::Info('account_parameters', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Change_Email').' - ')));
+                                                $Smarty->display('account/account_settings_email');
+                                            break;
+
+                                            case 'modify-email':
+                                                if($_REQUEST['newEmail'] == $_REQUEST['newEmailVerify'])
+                                                    if(Account::VerifyOldPassword($_REQUEST['username'], $_REQUEST['password']))
+                                                    {
+                                                        Account::ChangeEmailForUser($_REQUEST['username'], $_REQUEST['newEmail']);
+                                                        session_destroy();
+                                                        header('Location: /account/login');
+                                                    }
+                                                    else
+                                                        header('Location: /account/management/settings/change-email');
+                                                else
+                                                    header('Location: /account/management/settings/change-email');
                                             break;
 
                                             default:
@@ -390,18 +411,38 @@ switch($_REQUEST['category'])
                     if(!String::IsNull($_REQUEST['accountName']) && !String::IsNull($_REQUEST['password']) && !String::IsNull($_REQUEST['persistLogin']) && !String::IsNull($_REQUEST['csrftoken']))
                     {
                         if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
-                            if(Account::Authorize($_REQUEST['accountName'], $_REQUEST['password']))
+                            if(filter_var($_REQUEST['accountName'], FILTER_VALIDATE_EMAIL))
                             {
-                                Session::UpdateSession(array('loggedin' => true, 'username' => $_REQUEST['accountName'], 'remember_me' => $_REQUEST['persistLogin']));
-                                if(isset($_REQUEST['returnto']))
-                                    header('Location: '.$_REQUEST['returnto']);
+                                $AuthorizeByEmail = Account::AuthorizeByEmail($_REQUEST['accountName'], $_REQUEST['password']);
+                                if(Account::AuthorizeByEmail($_REQUEST['accountName'], $_REQUEST['password']))
+                                {
+                                    Session::UpdateSession(array('loggedin' => true, 'username' => $AuthorizeByEmail, 'remember_me' => $_REQUEST['persistLogin']));
+                                    if(isset($_REQUEST['returnto']))
+                                        header('Location: '.$_REQUEST['returnto']);
+                                    else
+                                        header('Location: /');
+                                }
                                 else
-                                    header('Location: /');
+                                {
+                                    header('Location: /account/login');
+                                    Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                                }
                             }
                             else
                             {
-                                header('Location: /account/login');
-                                Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                                if(Account::Authorize($_REQUEST['accountName'], $_REQUEST['password']))
+                                {
+                                    Session::UpdateSession(array('loggedin' => true, 'username' => $_REQUEST['accountName'], 'remember_me' => $_REQUEST['persistLogin']));
+                                    if(isset($_REQUEST['returnto']))
+                                        header('Location: '.$_REQUEST['returnto']);
+                                    else
+                                        header('Location: /');
+                                }
+                                else
+                                {
+                                    header('Location: /account/login');
+                                    Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                                }
                             }
                         else
                         {

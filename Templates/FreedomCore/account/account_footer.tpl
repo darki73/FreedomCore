@@ -63,6 +63,7 @@
     {if $Page.type == 'account_parameters'}
         <script type="text/javascript" src="/Templates/{$Template}/js/inputs.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/account/password.js"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/account/email.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/freedomcore.js"></script>
     {/if}
 

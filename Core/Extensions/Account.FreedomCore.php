@@ -85,6 +85,32 @@ Class Account
         return true;
     }
 
+    public static function ChangeEmailForUser($Username, $Email)
+    {
+        $GameUsername = strtoupper($Username);
+        Account::ChangeAccountEmail($Username, $Email);
+        Account::ChangeGameEmail($GameUsername, $Email);
+        return true;
+    }
+
+    private static function ChangeAccountEmail($Username, $Email)
+    {
+        $Statement = Account::$DBConnection->prepare('UPDATE users SET email = :email WHERE username = :username');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':email', $Email);
+        $Statement->execute();
+        return true;
+    }
+
+    private static function ChangeGameEmail($Username, $Email)
+    {
+        $Statement = Account::$AuthConnection->prepare('UPDATE account SET email = :email WHERE username = :username');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':email', $Email);
+        $Statement->execute();
+        return true;
+    }
+
     private static function ChangeAccountPassword($Username, $Password)
     {
         $Statement = Account::$DBConnection->prepare('UPDATE users SET password = :password WHERE username = :username');
@@ -393,6 +419,23 @@ Class Account
             }
             $_SESSION['access_role'] = $Result['access_level'];
             return true; // Successfull Athorization
+        }
+        else
+            return false;
+    }
+
+    public static function AuthorizeByEmail($Email, $Password)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT username FROM users WHERE email = :email');
+        $Statement->bindParam(':email', $Email);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Statement->rowCount() > 0)
+        {
+            if(Account::Authorize($Result['username'], $Password))
+                return $Result['username'];
+            else
+                return false;
         }
         else
             return false;

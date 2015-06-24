@@ -206,5 +206,25 @@ Account_Management_Parameters_passwordStrength1 = низкий
 Account_Management_Parameters_passwordStrength2 = приемлемый
 Account_Management_Parameters_passwordStrength3 = высокий
 Account_Management_Parameters_oldpasswordError = Неверный старый пароль
+Account_Management_Parameters_Wallet_Subheader = На этой странице вы можете указать, какими способами оплаты вы будете пользоваться в игре и в Интернет-магазине %s.
+Account_Management_Parameters_Wallet_MainPayment = Основной способ оплаты
+Account_Management_Parameters_Wallet_MainPayment_Tooltip = Ваш основной способ оплаты используется для покупок в игре и при оплате электронных товаров в Интернет-магазине %s.
+Account_Management_Parameters_Wallet_Owner = Владелец кошелька
+Account_Management_Parameters_Wallet_Number = № кошелька
+Account_Management_Parameters_Wallet_ValidTill = Действует до
+Account_Management_Parameters_Wallet_ValidUnlimited = Бессрочный
+Account_Management_Parameters_Wallet_Wallet_Tooltip = Кошельком %s можно использовать для покупок и в игре, и на сайте.
+Account_Management_Parameters_Wallet_Operation_Verification = Проверка операции
+Account_Management_Parameters_Wallet_Operation_Verification_Tooltip = Средствами, которые вы зачислите в кошелек, можно пользоваться не сразу. Операция должна пройти проверку. Это может занять до 3 дней.
+Account_Management_Parameters_Email_Change_Subheader = Укажите новый E-mail для своей записи
+Account_Management_Parameters_Email_Change_Hint_One = Введите новый электронный адрес: он будет использоваться и в качестве нового названия этой учетной записи.
+Account_Management_Parameters_Email_Change_Hint_Two = На новый адрес сразу будет выслано контрольное сообщение: для завершения смены адреса вам нужно будет перейти по указанной в нем ссылке.
+Account_Management_Parameters_Email_Change_New_Email_Label = Новый E-mail
+Account_Management_Parameters_Email_Change_New_Email_Placeholder = Укажите электронный адрес
+Account_Management_Parameters_Email_Change_Confirm_New_Email_Label = Подтвердите новый E-mail
+Account_Management_Parameters_Email_Change_Confirm_New_Email_Placeholder = Подтвердите электронный адрес
+Account_Management_Parameters_Email_Change_Password_Label = Пароль
+Account_Management_Parameters_Email_Change_Password_Placeholder = Введите пароль
+
 
 Account_Management_ =
