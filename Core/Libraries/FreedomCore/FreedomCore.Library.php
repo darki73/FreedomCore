@@ -45,7 +45,45 @@ Class FreedomCore
         	->setCacheDir('.' . DS . 'Cache' . DS)
         	->setConfigDir('.' . DS . FREEDOMCORE_DIR . 'Configuration' . DS)
         	->setLanguageDir('.' . DS . FREEDOMCORE_DIR . 'Languages' . DS);
+        FreedomCore::VerifyCurlInstallation();
+        FreedomCore::VerifyPDOInstallation();
 	}
+
+    /**
+     * Function to check if Curl is Enabled
+     * System Environment
+     *
+     */
+
+    private static function VerifyCurlInstallation()
+    {
+        $CurlInstalled = false;
+        if(in_array('curl', get_loaded_extensions()))
+            $CurlInstalled = true;
+        else
+            $CurlInstalled = false;
+
+        if(!$CurlInstalled)
+            die('Curl Extension is not installed!');
+    }
+
+    /**
+     * Function to check if PDO is Enabled
+     * System Environment
+     *
+     */
+
+    private static function VerifyPDOInstallation()
+    {
+        $PDOInstalled = false;
+        if(extension_loaded('pdo'))
+            $PDOInstalled = true;
+        else
+            $PDOInstalled = false;
+
+        if(!$PDOInstalled)
+            die('PDO_MySQL is not installed!');
+    }
 
     /**
     * Function to initialize Freedomcore
