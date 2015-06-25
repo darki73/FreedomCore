@@ -23,6 +23,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/ratings.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/inputs.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/wallet.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/address-book.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/settings.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/languages/{$Language}.css" />
     {/if}

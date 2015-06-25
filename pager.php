@@ -320,6 +320,11 @@ switch($_REQUEST['category'])
                                                     echo 'false';
                                             break;
 
+                                            case 'personal-information':
+                                                $Smarty->assign('Page', Page::Info('account_parameters', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Contacts').' - ')));
+                                                $Smarty->display('account/account_settings_personal_information');
+                                            break;
+
                                             case 'modify-password':
                                                 if(isset($User['username']) && isset($_REQUEST['newPassword']) && isset($_REQUEST['newPasswordVerify']))
                                                 {

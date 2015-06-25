@@ -6,7 +6,7 @@ Account_Management_Information = Информация
 Account_Management_Change_Email = Смена E-Mail
 Account_Management_Change_Password = Смена Пароля
 Account_Management_Payment_Methods = Способы оплаты
-Account_Management_Contacts = Контактная информация и адрес доставки
+Account_Management_Contacts = Контактная информация
 Account_Management_Games_And_Codes = Игры и коды
 Account_Management_Get_A_Game = Электронные версии
 Account_Management_Download_Games = Загрузка клиентов игр
@@ -225,6 +225,16 @@ Account_Management_Parameters_Email_Change_Confirm_New_Email_Label = Подтв�
 Account_Management_Parameters_Email_Change_Confirm_New_Email_Placeholder = Подтвердите электронный адрес
 Account_Management_Parameters_Email_Change_Password_Label = Пароль
 Account_Management_Parameters_Email_Change_Password_Placeholder = Введите пароль
-
+Account_Management_Parameters_PersonalInformation_Edit = Редактировать
+Account_Management_Parameters_PersonalInformation = Ваша основная контактная информация
+Account_Management_Parameters_PersonalInformation_MainAddress = Сейчас это ваш основной контактный адрес.
+Account_Management_Parameters_PersonalInformation_ =
+Account_Management_Parameters_PersonalInformation_ =
+Account_Management_Parameters_PersonalInformation_ =
+Account_Management_Parameters_PersonalInformation_ =
+Account_Management_Parameters_PersonalInformation_ =
+Account_Management_Parameters_PersonalInformation_ =
+Account_Management_Parameters_PersonalInformation_ =
+Account_Management_Parameters_PersonalInformation_ =
 
 Account_Management_ =

@@ -12,8 +12,7 @@ Class Utilities extends FreedomCore
         if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE']))
 		    $BrowserLanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
         else
-            $BrowserLanguage = 'ru';
-
+            $BrowserLanguage = 'en';
 		if($IsCode)
 		{
 			if($PreferedLanguage != null)
@@ -105,8 +104,12 @@ Class Utilities extends FreedomCore
                 $Language = "French.language";
                 break;
 
+            case 'en':
+                $Language = "English.language";
+                break;
+
             default:
-                $Language = "Russian.language";
+                $Language = "English.language";
                 break;
         }
 
