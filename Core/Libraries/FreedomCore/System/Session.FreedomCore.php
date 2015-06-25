@@ -4,15 +4,13 @@ Class Session
 {
 
 	public static $DBConnection;
-	public static $TM;
     private static $SessionCreated = false;
 
-	public function __construct($Database, $Smarty)
+	public function __construct($Database)
 	{
 		session_set_save_handler(array($this, 'Open'), array($this, 'Close'), array($this, 'Read'), array($this, 'Write'), array($this, 'Destroy'), array($this, 'GarbageCollector'));
 		register_shutdown_function('session_write_close');
 		Session::$DBConnection = $Database::$Connection;
-		Session::$TM = $Smarty;
 	}
 
     private static function GenerateSessionData()
@@ -20,6 +18,7 @@ Class Session
         $_SESSION['loggedin'] = '';
         $_SESSION['username'] = '';
         $_SESSION['remember_me'] = '';
+        $_SESSION['preferredlanguage'] = '';
     }
 
 	public static function UpdateSession($Data)

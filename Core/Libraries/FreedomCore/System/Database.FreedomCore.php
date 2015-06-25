@@ -34,4 +34,6 @@ Class Database
 
 global $FCCore, $Database;
 $Database = new Database($FCCore);
+$Session = new Session($Database);
+Session::Start('FreedomCore', false);
 ?>

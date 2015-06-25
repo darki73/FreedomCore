@@ -3,8 +3,6 @@ header('X-Frame-Options: SAMEORIGIN');
 require_once('Core/Classes/Autoloader.Class.php');
 Autoloader::Initialize();
 new ErrorHandler($Smarty);
-$Session = new Session($Database, $Smarty);
-Session::Start('FreedomCore', false);
 Manager::LoadExtension('Account', array($Database, $Smarty));
 if(isset($_SESSION['username']))
 {

@@ -4,11 +4,10 @@ Class Utilities extends FreedomCore
 {
 	public static function GetLanguage($IsCode = false)
 	{
-
-		if(isset($_SESSION['preferredlanguage']))
+		if($_SESSION['preferredlanguage'] != '')
 			$PreferedLanguage = $_SESSION['preferredlanguage'];
 		else
-			$PreferedLanguage = null;
+			$PreferedLanguage = '';
         if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE']))
 		    $BrowserLanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
         else
@@ -22,7 +21,7 @@ Class Utilities extends FreedomCore
 		}
 		else
 		{
-			if($PreferedLanguage != null)
+			if($PreferedLanguage != '')
 				return Utilities::LoopLanguages($PreferedLanguage);
 			else
 				return Utilities::LoopLanguages($BrowserLanguage);

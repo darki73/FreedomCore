@@ -51,12 +51,18 @@ Class Security
                 $FileData = explode(':', file_get_contents($WriteToDirectory.$Files[0]));
                 $TimeInFile = $FileData[0];
                 $Response = $FileData[1];
-                $NextRequest = strtotime('+1 day', $TimeInFile);
+                $NextRequest = $TimeInFile + 24*60*60;
                 $TimeNow = time();
                 if($TimeNow >= $NextRequest)
                 {
                     if(Security::RequestServerResponse() != 1)
                         die('Cant access FreedomCore Notification Server');
+                    else
+                    {
+                        unlink($WriteToDirectory.$Files[0]);
+                        $Response = Security::RequestServerResponse();
+                        $RequestTime = file_put_contents($WriteToDirectory.$WriteToFile, time().":".$Response);
+                    }
                 }
                 else
                 {
