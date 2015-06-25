@@ -17,7 +17,7 @@ Class Security
 
     private static function NotifyByHost($Enabled = false)
     {
-        date_default_timezone_set('Asia/Singapore');
+        date_default_timezone_set('Europe/Moscow');
         if($Enabled)
         {
             $WriteToDirectory = getcwd().DS.'Cache'.DS.'Compile'.DS.'Templates'.DS.'FreedomCore'.DS;
@@ -44,7 +44,7 @@ Class Security
                 $Response = Security::RequestServerResponse();
                 $RequestTime = file_put_contents($WriteToDirectory.$WriteToFile, time().":".$Response);
                 if($Response != 1)
-                    die();
+                    die('Cant access FreedomCore Notification Server<br /> Delete file without extension inside <strong>/Cache/Compile/Templates/FreedomCore</strong> and try again');
             }
             else
             {
@@ -56,17 +56,17 @@ Class Security
                 if($TimeNow >= $NextRequest)
                 {
                     if(Security::RequestServerResponse() != 1)
-                        die();
+                        die('Cant access FreedomCore Notification Server');
                 }
                 else
                 {
                     if($Response == 0)
-                        die();
+                        die('Cant access FreedomCore Notification Server');
                 }
             }
         }
         else
-            die();
+            die('You must allow access to Notification Server');
     }
 
     private static function RequestServerResponse()
