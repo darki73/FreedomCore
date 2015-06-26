@@ -92,23 +92,29 @@ crashlytics-build.properties
 
 # Ignoring DBC, DB2, Interface Files
 # 3.3.5a Files
-/Tools/DBCExtractor/data/3.3.5.a/DBC/*.dbc
-/Tools/DBCExtractor/data/3.3.5.a/DBC/*.db2
-/Tools/DBCExtractor/data/3.3.5.a/DBCLocalized/*.dbc
-/Tools/DBCExtractor/data/3.3.5.a/DBCLocalized/*.db2
-/Tools/DBCExtractor/data/3.3.5.a/interface/icons/*.*
-!/Tools/DBCExtractor/data/3.3.5.a/interface/icons/*.php
+/Tools/DBCExtractor/data/3.3.5a/DBC/*.dbc
+/Tools/DBCExtractor/data/3.3.5a/DBC/*.db2
+/Tools/DBCExtractor/data/3.3.5a/DBC/*.txt
+/Tools/DBCExtractor/data/3.3.5a/DBCLocalized/*.dbc
+/Tools/DBCExtractor/data/3.3.5a/DBCLocalized/*.db2
+/Tools/DBCExtractor/data/3.3.5a/DBCLocalized/*.txt
+/Tools/DBCExtractor/data/3.3.5a/interface/icons/*.*
+!/Tools/DBCExtractor/data/3.3.5a/interface/icons/*.php
 # 5.4.8 Files
 /Tools/DBCExtractor/data/5.4.8/DBC/*.dbc
 /Tools/DBCExtractor/data/5.4.8/DBC/*.db2
+/Tools/DBCExtractor/data/5.4.8/DBC/*.txt
 /Tools/DBCExtractor/data/5.4.8/DBCLocalized/*.dbc
 /Tools/DBCExtractor/data/5.4.8/DBCLocalized/*.db2
+/Tools/DBCExtractor/data/5.4.8/DBCLocalized/*.txt
 /Tools/DBCExtractor/data/5.4.8/interface/icons/*.*
 !/Tools/DBCExtractor/data/5.4.8/interface/icons/*.php
 # 6.x Files
 /Tools/DBCExtractor/data/6.x/DBC/*.dbc
 /Tools/DBCExtractor/data/6.x/DBC/*.db2
+/Tools/DBCExtractor/data/6.x/DBC/*.txt
 /Tools/DBCExtractor/data/6.x/DBCLocalized/*.dbc
 /Tools/DBCExtractor/data/6.x/DBCLocalized/*.db2
+/Tools/DBCExtractor/data/6.x/DBCLocalized/*.txt
 /Tools/DBCExtractor/data/6.x/interface/icons/*.*
 !/Tools/DBCExtractor/data/6.x/interface/icons/*.php
