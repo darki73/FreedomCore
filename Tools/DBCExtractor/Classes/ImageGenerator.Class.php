@@ -8,13 +8,15 @@ Class ImageGenerator
 	private static $Locale;
 	private static $ImagesDir;
 	private static $DirArray;
+    private static $Patch;
 
-	public function __construct($Data, $DBCDir, $Loc, $IDir)
+	public function __construct($Data, $DBCDir, $Loc, $IDir, $Patch)
 	{
 		ImageGenerator::$DataDir = $Data;
 		ImageGenerator::$DBCDirectory = $DBCDir;
 		ImageGenerator::$Locale = $Loc;
 		ImageGenerator::$ImagesDir = $IDir;
+        ImageGenerator::$Patch = $Patch;
 		ImageGenerator::UpdateFolderStructure();
 	}
 
@@ -75,7 +77,7 @@ Class ImageGenerator
 		{
 			$SourceFileName = strtolower(str_replace("\\", "/", $Row[1]));
 			if (strpos($SourceFileName, "/") === FALSE)
-				$SourceFileName = "interface/icons/" . $SourceFileName;
+				$SourceFileName = ImageGenerator::$Patch."/interface/icons/" . $SourceFileName;
 			$Source = ImageGenerator::$DataDir . $SourceFileName . ".blp";
 			$SourceStat = @stat($Source);
 			if ($Row[1] == "")
