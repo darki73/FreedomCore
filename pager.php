@@ -416,10 +416,11 @@ switch($_REQUEST['category'])
                     if(!String::IsNull($_REQUEST['accountName']) && !String::IsNull($_REQUEST['password']) && !String::IsNull($_REQUEST['persistLogin']) && !String::IsNull($_REQUEST['csrftoken']))
                     {
                         if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
+                        {
                             if(filter_var($_REQUEST['accountName'], FILTER_VALIDATE_EMAIL))
                             {
                                 $AuthorizeByEmail = Account::AuthorizeByEmail($_REQUEST['accountName'], $_REQUEST['password']);
-                                if(Account::AuthorizeByEmail($_REQUEST['accountName'], $_REQUEST['password']))
+                                if($AuthorizeByEmail)
                                 {
                                     Session::UpdateSession(array('loggedin' => true, 'username' => $AuthorizeByEmail, 'remember_me' => $_REQUEST['persistLogin']));
                                     if(isset($_REQUEST['returnto']))
@@ -429,8 +430,8 @@ switch($_REQUEST['category'])
                                 }
                                 else
                                 {
-                                    header('Location: /account/login');
                                     Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                                    header('Location: /account/login');
                                 }
                             }
                             else
@@ -445,15 +446,21 @@ switch($_REQUEST['category'])
                                 }
                                 else
                                 {
-                                    header('Location: /account/login');
                                     Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                                    header('Location: /account/login');
                                 }
                             }
+                        }
                         else
                         {
-                            header('Location: /account/login');
                             Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                            header('Location: /account/login');
                         }
+                    }
+                    else
+                    {
+                        Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                        header('Location: /account/login');
                     }
 				break;
 			}
