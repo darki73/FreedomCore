@@ -38,8 +38,10 @@ $ chmod 755 -R Cache
 ### Generating Icons for Webiste
 - Icons are not provided with clean installation with FreedomCore
 - You must generate them using **DBCExtractor** Tool provided in **Tools** folder
-- Place Extracted MPQ Archive with all the icons inside **/Tools/DBCExtractor/data/** folder
-- Run **Generate_Icons.php**
+- Place Extracted MPQ Archive with all the icons inside **/Tools/DBCExtractor/data/_Patch_Version_/interface/icons** folder
+- Open in Browser **/Tools/DBCExtractor/** and select **Generate Icons** appropriate for your patch  
+Short video on how to extract icons (based on WoD 6.2 Patch)
+[![FreedomNet Icons Extractor](http://img.youtube.com/vi/14o4nTLQ3aw/0.jpg)](http://www.youtube.com/watch?v=14o4nTLQ3aw)
 
 #Important Stuff
 Since this project lets say in **Alpha** stage, im not going to support database updates.   

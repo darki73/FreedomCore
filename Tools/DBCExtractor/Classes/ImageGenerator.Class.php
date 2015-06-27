@@ -77,8 +77,8 @@ Class ImageGenerator
 		{
 			$SourceFileName = strtolower(str_replace("\\", "/", $Row[1]));
 			if (strpos($SourceFileName, "/") === FALSE)
-				$SourceFileName = ImageGenerator::$Patch."/interface/icons/" . $SourceFileName;
-			$Source = ImageGenerator::$DataDir . $SourceFileName . ".blp";
+				$SourceFileName = "/interface/icons/" . $SourceFileName;
+			$Source = ImageGenerator::$DataDir .ImageGenerator::$Patch.'/'. $SourceFileName . ".blp";
 			$SourceStat = @stat($Source);
 			if ($Row[1] == "")
 				echo " ";
@@ -115,7 +115,7 @@ Class ImageGenerator
 			$CurrentIcon++;
 			if($CurrentIcon % 60 == 0)
 				ImageGenerator::Status(" " . $CurrentIcon . "/" . $Count . " (" . round(100*$CurrentIcon/$Count) . "%)\n");
-		}
+    }
 
 		if ($CurrentIcon % 60 != 0)
 			ImageGenerator::Status(" " . $CurrentIcon . "/" . $Count . " (100%)\n");
