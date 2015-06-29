@@ -409,10 +409,6 @@ switch($_REQUEST['category'])
                         header('Location: /');
                 break;
 
-                case 'test':
-
-                break;
-
 				case 'createaccount':
                     if($_REQUEST['password'] != $_REQUEST['rpassword'])
                     {
@@ -425,7 +421,10 @@ switch($_REQUEST['category'])
                         {
                             $ActivationCode = sha1(mt_rand(10000,99999).time().$_REQUEST['email'].$_REQUEST['username']);
                             $CreationStatus = Account::CreateTMPAccount($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['email'], $ActivationCode);
-                            if($CreationStatus)
+                            var_dump($CreationStatus);
+                            if (!$CreationStatus)
+                                header('Location: /account/create');
+                            else
                             {
                                 $Account = array(
                                     'username' => $_REQUEST['username'],
@@ -441,16 +440,6 @@ switch($_REQUEST['category'])
                                 unset($_SESSION['generated_captcha']);
                                 echo "Confirmation Email Has been sent to your email";
                                 header('Refresh:5; url=/', true, 303);
-                            }
-                            elseif ($CreationStatus == -1)
-                            {
-                                $_SESSION['accountcreationstatus'] = 'Account_Username_Exists';
-                                header('Location: /account/create');
-                            }
-                            elseif ($CreationStatus == -2)
-                            {
-                                $_SESSION['accountcreationstatus'] = 'Account_Email_Exists';
-                                header('Location: /account/create');
                             }
                         }
                         else

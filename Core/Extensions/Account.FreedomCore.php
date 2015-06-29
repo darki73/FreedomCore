@@ -73,27 +73,36 @@ Class Account
 
     public static function CreateTMPAccount($Username, $Password, $Email, $Code)
     {
+        $TMPUsernameUsed = false;
+        $TMPEmailUsed = false;
+        $UsernameUsed = false;
+        $EmailUsed = false;
         if(Account::CheckForTMPUsername($Username))
-            return -1;
+            $TMPUsernameUsed = true;
         if(Account::CheckForTMPEmail($Email))
-            return -2;
+            $TMPEmailUsed = true;
         if(Account::VerifyUsername($Username))
-            return -1;
+            $UsernameUsed = true;
         if(Account::VerifyEmail($Email))
-            return -2;
+            $EmailUsed = true;
 
-        $RegistrationDate = date( 'Y-m-d H:i:s', time());
-        $HashedPassword = Account::HashPassword('sha1', $Username.':'.$Password);
-        $GameHashedPassword = strtoupper(Account::HashPassword('sha1', strtoupper($Username).':'.strtoupper($Password)));
-        $Statement = Account::$DBConnection->prepare('INSERT INTO users_activation (username, site_password, game_password, email, registration_date, activation_code, activated) VALUES (:username, :password, :gamepassword, :email, :registrationdate, :code, 0)');
-        $Statement->bindParam(':username', $Username);
-        $Statement->bindParam(':password', $HashedPassword);
-        $Statement->bindParam(':gamepassword', $GameHashedPassword);
-        $Statement->bindParam(':email', $Email);
-        $Statement->bindParam(':registrationdate', $RegistrationDate);
-        $Statement->bindParam(':code', $Code);
-        $Statement->execute();
-        return true;
+        if(!$TMPUsernameUsed && !$TMPEmailUsed && !$UsernameUsed && !$EmailUsed)
+        {
+            $RegistrationDate = date( 'Y-m-d H:i:s', time());
+            $HashedPassword = Account::HashPassword('sha1', $Username.':'.$Password);
+            $GameHashedPassword = strtoupper(Account::HashPassword('sha1', strtoupper($Username).':'.strtoupper($Password)));
+            $Statement = Account::$DBConnection->prepare('INSERT INTO users_activation (username, site_password, game_password, email, registration_date, activation_code, activated) VALUES (:username, :password, :gamepassword, :email, :registrationdate, :code, 0)');
+            $Statement->bindParam(':username', $Username);
+            $Statement->bindParam(':password', $HashedPassword);
+            $Statement->bindParam(':gamepassword', $GameHashedPassword);
+            $Statement->bindParam(':email', $Email);
+            $Statement->bindParam(':registrationdate', $RegistrationDate);
+            $Statement->bindParam(':code', $Code);
+            $Statement->execute();
+            return true;
+        }
+        else
+            return false;
     }
 
     public static function GetActivationData($Username, $Email, $Code)
