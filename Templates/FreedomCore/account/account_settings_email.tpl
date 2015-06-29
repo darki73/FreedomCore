@@ -14,6 +14,7 @@
                             <span class="clear"></span>
                             <form method="post" action="/account/management/settings/modify-email" id="change-settings" novalidate="novalidate">
                                 <input type="hidden" id="username" name="username" value="{$User.username}">
+                                <input type="hidden" name="csrftoken" id="csrftoken" value="{$CSRFToken}">
                                 <div class="input-row input-row-text">
                                     <span class="input-left">
                                         <label for="newEmail">

@@ -51,6 +51,24 @@
 						</div>
 					</div>
 
+                    <div class="control-group">
+                        <div class="captcha">
+                            <a id="captcha-anchor" role="button" href="javascript:;">
+                                <i class="icon-48-refresh"></i>
+                                <div class="captcha-image">
+                                    <img id="sec-string" align="middle" src="/account/captcha.jpg" alt="{#Captcha_Renew#}" title="{#Captcha_Renew#}" />
+                                </div>
+                            </a>
+                            <div class="clearfix"></div></div>
+                    </div>
+
+                    <div class="control-group">
+                        <label id="captchaInput-label" class="control-label" for="captchaInput">Код</label>
+                        <div class="controls">
+                            <input aria-labelledby="captchaInput-label" id="captchaInput" name="captchaInput" title="Код" maxlength="320" type="text" tabindex="1" class="input-block input-large" autocomplete="off" placeholder="{#Captcha_Code#}" autocorrect="off" spellcheck="false" />
+                        </div>
+                    </div>
+
 					<div class="persistWrapper">
 						<label class="checkbox-label css-label" for="persistLogin" id=
 						"persistLogin-label"><input checked="checked" id="persistLogin"

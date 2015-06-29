@@ -13,6 +13,7 @@
                         <div class="password-entry">
                             <span class="clear"><!-- --></span>
                             <form method="post" action="/account/management/settings/modify-password" id="change-settings" novalidate="novalidate">
+                                <input type="hidden" name="csrftoken" id="csrftoken" value="{$CSRFToken}">
                                 <div class="input-row input-row-text">
                                     <span class="input-left">
                                         <label for="oldPassword">

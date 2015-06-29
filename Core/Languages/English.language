@@ -29,7 +29,8 @@ Summ = Total
 Payment = Payment
 Status = Status
 Players_Online = Players Online 
-
+Captcha_Code = Code
+Captcha_Renew = Renew
 
 #Game Page
 Game_About_Exp = About Expansion

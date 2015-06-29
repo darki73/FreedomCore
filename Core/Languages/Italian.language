@@ -29,7 +29,8 @@ Summ =
 Payment = 
 Status = 
 Players_Online = 
-
+Captcha_Code =
+Captcha_Renew =
 
 #Game Page
 Game_About_Exp = 

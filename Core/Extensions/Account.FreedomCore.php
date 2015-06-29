@@ -61,6 +61,87 @@ Class Account
         return true;
     }
 
+    public static function SendActivationEmail($Email, $HTMLCode)
+    {
+        $Subject = 'Account Registration';
+        $Headers = 'From: noreply@'.$_SERVER['HTTP_HOST']."\r\n";
+        $Headers .= 'Reply-To: noreply@'.$_SERVER['HTTP_HOST']."\r\n";
+        $Headers .= 'X-Mailer: FreedomCore Notification Service';
+        $Headers .= 'MIME-Version: 1.0'."\r\n";
+        $Headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
+        mail($Email, $Subject, $HTMLCode, $Headers);
+    }
+
+    public static function CreateTMPAccount($Username, $Password, $Email, $Code)
+    {
+        if(Account::CheckForTMPUsername($Username))
+            return -1;
+        if(Account::CheckForTMPEmail($Email))
+            return -2;
+
+        $RegistrationDate = date( 'Y-m-d H:i:s', time());
+        $HashedPassword = Account::HashPassword('sha1', $Username.':'.$Password);
+        $GameHashedPassword = strtoupper(Account::HashPassword('sha1', strtoupper($Username).':'.strtoupper($Password)));
+        $Statement = Account::$DBConnection->prepare('INSERT INTO users_activation (username, site_password, game_password, email, registration_date, activation_code, activated) VALUES (:username, :password, :gamepassword, :email, :registrationdate, :code, 0)');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':password', $HashedPassword);
+        $Statement->bindParam(':gamepassword', $GameHashedPassword);
+        $Statement->bindParam(':email', $Email);
+        $Statement->bindParam(':registrationdate', $RegistrationDate);
+        $Statement->bindParam(':code', $Code);
+        $Statement->execute();
+        return true;
+    }
+
+    public static function GetActivationData($Username, $Email, $Code)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT * FROM users_activation WHERE username = :username AND email = :email AND activation_code = :code');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':email', $Email);
+        $Statement->bindParam(':code', $Code);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Result['username'] == $Username)
+            return $Result;
+        else
+            return false;
+    }
+
+    public static function Activate($Result)
+    {
+        $Statement = Account::$DBConnection->prepare('UPDATE users_activation SET activated = 1 WHERE username = :username AND email = :email AND activation_code = :code');
+        $Statement->bindParam(':username', $Result['username']);
+        $Statement->bindParam(':email', $Result['email']);
+        $Statement->bindParam(':code', $Result['activation_code']);
+        $Statement->execute();
+        Account::Create($Result['username'], $Result['site_password'], $Result['email']);
+        Account::CreateGameAccount($Result['username'], $Result['game_password'], $Result['email'], $Result['registration_date']);
+    }
+
+    private static function CheckForTMPUsername($Username)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT username FROM users_activation WHERE username = :username');
+        $Statement->bindParam(':username', $Username);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Result['username'] == $Username)
+            return true;
+        else
+            return false;
+    }
+
+    private static function CheckForTMPEmail($Email)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT email FROM users_activation WHERE email = :email');
+        $Statement->bindParam(':email', $Email);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Result['email'] == $Email)
+            return true;
+        else
+            return false;
+    }
+
     public static function InsertPaymentDetails($UserID, $ServiceID, $Price)
     {
         $Status = 1;
@@ -377,23 +458,20 @@ Class Account
             return -2;
 
         $RegistrationDate = date( 'Y-m-d H:i:s', time());
-        $HashedPassword = Account::HashPassword('sha1', $Username.':'.$Password);
         $Statement = Account::$DBConnection->prepare('INSERT INTO users (username, password, email, registration_date) VALUES (:username, :password, :email, :regdate)');
         $Statement->bindParam(':username', $Username);
-        $Statement->bindParam(':password', $HashedPassword);
+        $Statement->bindParam(':password', $Password);
         $Statement->bindParam(':email', $Email);
         $Statement->bindParam(':regdate', $RegistrationDate);
         $Statement->execute();
-        Account::CreateGameAccount($Username, $Password, $Email, $RegistrationDate);
         return 0;
     }
 
     private static function CreateGameAccount($Username, $Password, $Email, $RegistrationDate)
     {
-        $HashedPassword = Account::HashPassword('sha1', strtoupper($Username).':'.strtoupper($Password));
-        $Statement = Account::$AuthConnection->prepare('INSERT INTO account (username, sha_pass_hash, email, reg_mail, joindate, expansion) VALUES (:username, :password, :email, :email, :regdate, 3)');
+        $Statement = Account::$AuthConnection->prepare('INSERT INTO account (username, sha_pass_hash, email, reg_mail, joindate, expansion) VALUES (:username, :password, :email, :email, :regdate, 2)');
         $Statement->bindParam(':username', strtoupper($Username));
-        $Statement->bindParam(':password', strtoupper($HashedPassword));
+        $Statement->bindParam(':password', strtoupper($Password));
         $Statement->bindParam(':email', $Email);
         $Statement->bindParam(':regdate', $RegistrationDate);
         $Statement->execute();

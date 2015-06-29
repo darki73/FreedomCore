@@ -214,7 +214,6 @@ switch($_REQUEST['category'])
                                         header('Location: /account/management');
                                 break;
 
-
                                 case 'payment':
                                     if(String::IsNull($_REQUEST['datatype']))
                                         header('Location: /account/management');
@@ -309,6 +308,7 @@ switch($_REQUEST['category'])
                                         switch($_REQUEST['datatype'])
                                         {
                                             case 'change-password':
+                                                $Smarty->assign('CSRFToken', Session::GenerateCSRFToken());
                                                 $Smarty->assign('Page', Page::Info('account_parameters', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Change_Password').' - ')));
                                                 $Smarty->display('account/account_settings_password');
                                             break;
@@ -326,16 +326,20 @@ switch($_REQUEST['category'])
                                             break;
 
                                             case 'modify-password':
-                                                if(isset($User['username']) && isset($_REQUEST['newPassword']) && isset($_REQUEST['newPasswordVerify']))
+                                                if(isset($User['username']) && isset($_REQUEST['newPassword']) && isset($_REQUEST['newPasswordVerify']) && isset($_REQUEST['csrftoken']))
                                                 {
                                                     if($_REQUEST['newPassword'] == $_REQUEST['newPasswordVerify'])
                                                     {
-                                                        Account::ChangePasswordForUser($User['username'], $_REQUEST['newPassword']);
-                                                        session_destroy();
-                                                        header('Location: /account/login');
+                                                        if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
+                                                        {
+                                                            Account::ChangePasswordForUser($User['username'], $_REQUEST['newPassword']);
+                                                            session_destroy();
+                                                            header('Location: /account/login');
+                                                        }
+                                                        header('Location: /account/management/settings/change-password');
                                                     }
                                                     else
-                                                        header('Location: /account/management/setting/change-password');
+                                                        header('Location: /account/management/settings/change-password');
                                                 }
                                                 else
                                                     header('Location: /account/login');
@@ -347,6 +351,7 @@ switch($_REQUEST['category'])
                                             break;
 
                                             case 'change-email':
+                                                $Smarty->assign('CSRFToken', Session::GenerateCSRFToken());
                                                 $Smarty->assign('Page', Page::Info('account_parameters', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Change_Email').' - ')));
                                                 $Smarty->display('account/account_settings_email');
                                             break;
@@ -355,9 +360,14 @@ switch($_REQUEST['category'])
                                                 if($_REQUEST['newEmail'] == $_REQUEST['newEmailVerify'])
                                                     if(Account::VerifyOldPassword($_REQUEST['username'], $_REQUEST['password']))
                                                     {
-                                                        Account::ChangeEmailForUser($_REQUEST['username'], $_REQUEST['newEmail']);
-                                                        session_destroy();
-                                                        header('Location: /account/login');
+                                                        if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
+                                                        {
+                                                            Account::ChangeEmailForUser($_REQUEST['username'], $_REQUEST['newEmail']);
+                                                            session_destroy();
+                                                            header('Location: /account/login');
+                                                        }
+                                                        else
+                                                            header('Location: /account/management/settings/change-email');
                                                     }
                                                     else
                                                         header('Location: /account/management/settings/change-email');
@@ -383,6 +393,26 @@ switch($_REQUEST['category'])
                     }
                 break;
 
+                case 'activate':
+                    if(isset($_REQUEST['email']) && isset($_REQUEST['username']) && isset($_REQUEST['code']))
+                    {
+                        $ActivationData = Account::GetActivationData($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['code']);
+                        if(!$ActivationData)
+                            header('Location: /');
+                        else
+                        {
+                            Account::Activate($ActivationData);
+                            header('Location: /');
+                        }
+                    }
+                    else
+                        header('Location: /');
+                break;
+
+                case 'test':
+
+                break;
+
 				case 'createaccount':
                     if($_REQUEST['password'] != $_REQUEST['rpassword'])
                     {
@@ -391,74 +421,108 @@ switch($_REQUEST['category'])
                     }
                     else
                     {
-                        $CreationStatus = Account::Create($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['email']);
-
-                        if($CreationStatus == -1)
-                            $_SESSION['accountcreationstatus'] = 'Account_Username_Exists';
-                        elseif($CreationStatus == -2)
-                            $_SESSION['accountcreationstatus'] = 'Account_Email_Exists';
-                        else
+                        if($_SESSION['generated_captcha'] == $_REQUEST['captchaInput'])
                         {
-                            Account::Authorize($_REQUEST['username'], $_REQUEST['password']);
-                            Session::UpdateSession(array('loggedin' => true, 'username' => $_REQUEST['username'], 'remember_me' => true));
-                            header('Location: /');
+                            $ActivationCode = sha1(mt_rand(10000,99999).time().$_REQUEST['email'].$_REQUEST['username']);
+                            $CreationStatus = Account::CreateTMPAccount($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['email'], $ActivationCode);
+                            if ($CreationStatus == -1)
+                            {
+                                $_SESSION['accountcreationstatus'] = 'Account_Username_Exists';
+                            }
+                            elseif ($CreationStatus == -2)
+                            {
+                                $_SESSION['accountcreationstatus'] = 'Account_Email_Exists';
+                            }
+                            else
+                            {
+                                $Account = array(
+                                    'username' => $_REQUEST['username'],
+                                    'email' => $_REQUEST['email'],
+                                    'activation_code' => $ActivationCode
+                                );
+                                $Smarty->translate('Account');
+                                $Smarty->assign('Account', $Account);
+                                $Smarty->assign('Website', $_SERVER['HTTP_HOST']);
+                                $EMailTemplate = $Smarty->fetch('account/email_template.tpl');
+                                Account::SendActivationEmail($_REQUEST['email'], $EMailTemplate);
+
+                                unset($_SESSION['generated_captcha']);
+                                echo "Confirmation Email Has been sent to your email";
+                            }
                         }
+                        else
+                            header('Location: /account/create');
                     }
 
                 break;
 
 				case 'captcha.jpg':
-					header("Content-type: image/jpg");
+					header("Content-type: image/png");
 					String::GenerateCaptcha();
 				break;
 
 				case 'performlogin':
-                    if(!String::IsNull($_REQUEST['accountName']) && !String::IsNull($_REQUEST['password']) && !String::IsNull($_REQUEST['persistLogin']) && !String::IsNull($_REQUEST['csrftoken']))
+                    if(!String::IsNull($_REQUEST['accountName']) && !String::IsNull($_REQUEST['password']) && !String::IsNull($_REQUEST['persistLogin']) && !String::IsNull($_REQUEST['csrftoken']) && !String::IsNull($_REQUEST['captchaInput']))
                     {
-                        if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
+                        if($_SESSION['generated_captcha'] == $_REQUEST['captchaInput'])
                         {
-                            if(filter_var($_REQUEST['accountName'], FILTER_VALIDATE_EMAIL))
+                            if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
                             {
-                                $AuthorizeByEmail = Account::AuthorizeByEmail($_REQUEST['accountName'], $_REQUEST['password']);
-                                if($AuthorizeByEmail)
+                                if(filter_var($_REQUEST['accountName'], FILTER_VALIDATE_EMAIL))
                                 {
-                                    Session::UpdateSession(array('loggedin' => true, 'username' => $AuthorizeByEmail, 'remember_me' => $_REQUEST['persistLogin']));
-                                    if(isset($_REQUEST['returnto']))
-                                        header('Location: '.$_REQUEST['returnto']);
+                                    $AuthorizeByEmail = Account::AuthorizeByEmail($_REQUEST['accountName'], $_REQUEST['password']);
+                                    if($AuthorizeByEmail)
+                                    {
+                                        Session::UpdateSession(array('loggedin' => true, 'username' => $AuthorizeByEmail, 'remember_me' => $_REQUEST['persistLogin']));
+                                        if(isset($_REQUEST['returnto']))
+                                            header('Location: '.$_REQUEST['returnto']);
+                                        else
+                                            header('Location: /');
+
+                                        unset($_SESSION['generated_captcha']);
+                                    }
                                     else
-                                        header('Location: /');
+                                    {
+                                        Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                                        unset($_SESSION['generated_captcha']);
+                                        header('Location: /account/login');
+                                    }
                                 }
                                 else
                                 {
-                                    Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
-                                    header('Location: /account/login');
+                                    if(Account::Authorize($_REQUEST['accountName'], $_REQUEST['password']))
+                                    {
+                                        Session::UpdateSession(array('loggedin' => true, 'username' => $_REQUEST['accountName'], 'remember_me' => $_REQUEST['persistLogin']));
+                                        if(isset($_REQUEST['returnto']))
+                                            header('Location: '.$_REQUEST['returnto']);
+                                        else
+                                            header('Location: /');
+                                        unset($_SESSION['generated_captcha']);
+                                    }
+                                    else
+                                    {
+                                        Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                                        unset($_SESSION['generated_captcha']);
+                                        header('Location: /account/login');
+                                    }
                                 }
                             }
                             else
                             {
-                                if(Account::Authorize($_REQUEST['accountName'], $_REQUEST['password']))
-                                {
-                                    Session::UpdateSession(array('loggedin' => true, 'username' => $_REQUEST['accountName'], 'remember_me' => $_REQUEST['persistLogin']));
-                                    if(isset($_REQUEST['returnto']))
-                                        header('Location: '.$_REQUEST['returnto']);
-                                    else
-                                        header('Location: /');
-                                }
-                                else
-                                {
-                                    Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
-                                    header('Location: /account/login');
-                                }
+                                Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                                unset($_SESSION['generated_captcha']);
+                                header('Location: /account/login');
                             }
                         }
                         else
                         {
-                            Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
+                            unset($_SESSION['generated_captcha']);
                             header('Location: /account/login');
                         }
                     }
                     else
                     {
+                        unset($_SESSION['generated_captcha']);
                         Session::UnsetKeys(array('loggedin', 'username', 'remember_me'));
                         header('Location: /account/login');
                     }

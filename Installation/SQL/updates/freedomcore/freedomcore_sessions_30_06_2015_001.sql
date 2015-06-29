@@ -1,0 +1,2 @@
+ALTER TABLE `sessions` 
+CHANGE COLUMN `data` `data` VARCHAR(600) NULL DEFAULT NULL ;

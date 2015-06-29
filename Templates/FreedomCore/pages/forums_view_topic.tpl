@@ -74,7 +74,7 @@
 
                                 </div>
                                 <div class="post-info">
-                                    
+
                                 </div>
                             </div>
                         </div>

@@ -236,5 +236,11 @@ Account_Management_Parameters_PersonalInformation_ =
 Account_Management_Parameters_PersonalInformation_ =
 Account_Management_Parameters_PersonalInformation_ =
 Account_Management_Parameters_PersonalInformation_ =
+Account_Registration_ThankYou = Благодарим Вас за регистрацию на нашем проекте!
+Account_Registration_JustRegistered = Вы только что зарегистрировали учетную запись на нашем проекте. <br />Теперь вам необходимо подтвердить свою учетную запись.<br /> Для этого просто нажмите на кнопку расположенную ниже
+Account_Registration_ActivateAccount = Активировать Аккаунт!
+Account_Registration_ButtonNotWorking = Если по каким-то причинам кнопка активации не работает, воспользуйтесь этой ссылкой<br />
+Account_Registration_WhyActivate = Перейдите по этой ссылке, чтобы активировать вашу учетную запись. <br />После этого вы сможете войти в игру и пользоваться всеми преимуществами нашего сайта!
+Account_Registration_HappyGame = Удачи и приятной игры!<br> Служба разработки и поддержки
 
 Account_Management_ =

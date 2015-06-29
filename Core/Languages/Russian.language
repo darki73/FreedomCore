@@ -29,6 +29,8 @@ Summ = Сумма
 Payment = Покупка
 Status = Состояние
 Players_Online = Игроков Онлайн
+Captcha_Code = Код
+Captcha_Renew = Обновить
 
 
 #Game Page
