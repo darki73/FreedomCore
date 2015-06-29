@@ -25,6 +25,14 @@ Class Page
 		else
 			return $Page;
 	}
+
+    public static function GenerateErrorPage($Smarty, $Code)
+    {
+        $ErrorDescription = ErrorHandler::ListenForError($Code);
+        $Smarty->assign('Error', $ErrorDescription);
+        $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
+        $Smarty->display('pages/error_page');
+    }
 }
 
 ?>

@@ -46,6 +46,32 @@ Class String
         print_r($_REQUEST);
     }
 
+    public static function Match($ArgOne, $ArgTwo)
+    {
+        if($ArgOne == $ArgTwo)
+            return true;
+        else
+            return false;
+    }
+
+    public static function PrettyPrint($Array)
+    {
+        echo "<pre>";
+        print_r($Array);
+    }
+
+    public static function MassUnset($Array, $Unset)
+    {
+        $ArrayIndex = 0;
+        foreach($Array as $Item)
+        {
+            foreach($Unset as $Delete)
+                unset($Array[$ArrayIndex][$Delete]);
+            $ArrayIndex++;
+        }
+        return $Array;
+    }
+
     public static function UnshiftAssoc(&$Array, $Key, $Value)
     {
         $Array = array_reverse($Array, true);

@@ -1,0 +1,74 @@
+Forum_Page_Title = Форумы
+Forum_Category_Empty_Description = Just a placeholder
+Forum_Search_This_Forum = Искать на этом форуме
+Forum_Create_Topic = Создать тему
+Forum_Table_Topic_Name = Тема
+Forum_Table_Author_Name = Автор
+Forum_Table_Responses_Name = Ответы
+Forum_Table_Views_Name = Просмотры
+Forum_Table_LastMessage_Name = Последнее сообщение
+Forum_Topic_Replies = ответов
+Forum_Topic_View = просмотров
+Forum_Topic_LastReply = Последний ответ
+Forum_No_Topics_Found = В данном разделе еще не созданно ни одной темы
+Forum_Make_It_Sticky = Попросить прикрепить
+Forum_Make_It_Sticky_Full = Попросить сделать это обсуждение прикрепленным.
+Forum_Reply = Ответить
+
+Forum_Category_Support_Name = Поддержка
+Forum_Category_Support_Support_Title = Служба Поддержки
+Forum_Category_Support_Support_Description = Форум, предназначенный для вопросов службам поддержки и обсуждения проблем, связанных с игрой или учетными записями.
+Forum_Category_Technical_Title = Техническая поддержка
+Forum_Category_Technical_Description = Помощь в устранении технических проблем с установкой и обновлением World of Warcraft, соединением с игровыми мирами и зависанием игры.
+Forum_Category_Localization_Title = Перевод и локализация
+Forum_Category_Localization_Description = Здесь можно обсудить русскую локализацию и сообщить о найденных ошибках в переводе игры или веб-сайта.
+
+
+Forum_Category_Community_Name = Сообщество
+Forum_Category_Community_Roleplay_Title = Ролевая игра
+Forum_Category_Community_Roleplay_Description = Посидите в таверне с орками и эльфийками, а также обсудите все аспекты ролевой игры с единомышленниками.
+Forum_Category_Community_Common_Title = Общие темы
+Forum_Category_Community_Common_Description = Не можете найти подходящий раздел для обсуждения игры? Добро пожаловать в общий котел!
+Forum_Category_Community_SearchingPvE_Title = Поиск игроков (PvE)
+Forum_Category_Community_SearchingPvE_Description = Место встречи для тех, кто ищет гильдию, рейд или напарника/группу для PvE.
+Forum_Category_Community_SearchingPvP_Title = Поиск игроков (PvP)
+Forum_Category_Community_SearchingPvP_Description = Собираетесь испытать себя на поле боя или арене? Здесь вы сможете найти себе команду.
+
+Forum_Category_GameProcess_Name = Игровой Процесс
+Forum_Category_GameProcess_NoobHelp_Title = Помощь новичкам и руководства
+Forum_Category_GameProcess_NoobHelp_Description = Впервые играете в World of Warcraft? Здесь опытные игроки ответят на ваши вопросы, а прочитав руководства, вы узнаете, какие приключения вас ожидают!
+Forum_Category_GameProcess_Quests_Title = Задания
+Forum_Category_GameProcess_Quests_Description = Застряли в ходе выполнения? Или просто хотите поделиться интересными заданиями? Тогда вам сюда.
+Forum_Category_GameProcess_Professions_Title = Профессии
+Forum_Category_GameProcess_Professions_Description = Раскройте секреты мастеров различных ремесел, а также поделитесь информацией о самых «рыбных» местах.
+Forum_Category_GameProcess_Achievements_Title = Достижения
+Forum_Category_GameProcess_Achievements_Description = Одни пытаются добиться всего и сразу, а другие усердно работают над получением самых сложных достижений.
+Forum_Category_GameProcess_Raids_Title = Рейды и подземелья
+Forum_Category_GameProcess_Raids_Description = Пять вас, десять или двадцать пять – значения не имеет. Этот раздел создан специально для вас!
+Forum_Category_GameProcess_Interface_Title = Интерфейс и макросы
+Forum_Category_GameProcess_Interface_Description = Пытаетесь настроить макросы и изменить пользовательский интерфейс? Загляните сюда.
+
+
+Forum_Category_PvP_Name = Бои Между Игроками (PvP)
+Forum_Category_PvP_RBG_Title = Арена и рейтинговые поля боя
+Forum_Category_PvP_RBG_Description = Любите соревнования и сражения на максимуме возможностей? Тогда вам сюда. Здесь обсуждаются бои на Аренах и рейтинговых полях боя.
+Forum_Category_PvP_World_Title = PvP на полях боя и за их пределами
+Forum_Category_PvP_World_Description = Вы новичок в PvP? Любите ходить на поля боя ради развлечения или сражаться за их пределами? Тогда вы непременно найдете единомышленников в этом разделе.
+
+Forum_Category_Classes_Name = Классы
+Forum_Category_Classes_Warrior_Title = Воин
+Forum_Category_Classes_Priest_Title = Жрец
+Forum_Category_Classes_Druid_Title = Друид
+Forum_Category_Classes_Mage_Title = Маг
+Forum_Category_Classes_Monk_Title = Монах
+Forum_Category_Classes_Hunter_Title = Охотник
+Forum_Category_Classes_Paladin_Title = Паладин
+Forum_Category_Classes_Rogue_Title = Разбойник
+Forum_Category_Classes_DK_Title = Рыцарь Смерти
+Forum_Category_Classes_Warlock_Title = Чернокнижник
+Forum_Category_Classes_Shaman_Title = Шаман
+
+
+
+Forum_Category_Name =
+Forum_Category__Title =

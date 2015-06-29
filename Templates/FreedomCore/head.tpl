@@ -11,6 +11,13 @@
     <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wow.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/nav-client-desktop.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/lightbox.css" />
+    {if $Page.type == 'forum'}
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/build/cms.min.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/forums/forums-index.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/forums/view-forum.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/forums/view-topic.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/forums/freedom-tracker.css" />
+    {/if}
     {if $Page.type == "community" && $Page.bodycss == 'community-home'}
     <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/community.css" />
     {/if}

@@ -793,12 +793,7 @@ switch($_REQUEST['category'])
 
     case 'character':
         if(String::IsNull($_REQUEST['subcategory']))
-        {
-            $ErrorDescription = ErrorHandler::ListenForError(404);
-            $Smarty->assign('Error', $ErrorDescription);
-            $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
-            $Smarty->display('pages/error_page');
-        }
+            Page::GenerateErrorPage($Smarty, 404);
         else
         {
             if(Characters::CheckCharacter($_REQUEST['subcategory']))
@@ -945,12 +940,7 @@ switch($_REQUEST['category'])
 
     case 'spell':
         if(String::IsNull($_REQUEST['subcategory']))
-        {
-            $ErrorDescription = ErrorHandler::ListenForError(404);
-            $Smarty->assign('Error', $ErrorDescription);
-            $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
-            $Smarty->display('pages/error_page');
-        }
+            Page::GenerateErrorPage($Smarty, 404);
         else
         {
             if (!String::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
@@ -965,12 +955,7 @@ switch($_REQUEST['category'])
 
     case 'quest':
         if(String::IsNull($_REQUEST['subcategory']))
-        {
-            $ErrorDescription = ErrorHandler::ListenForError(404);
-            $Smarty->assign('Error', $ErrorDescription);
-            $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
-            $Smarty->display('pages/error_page');
-        }
+            Page::GenerateErrorPage($Smarty, 404);
         else
         {
             if (!String::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
@@ -985,12 +970,7 @@ switch($_REQUEST['category'])
 
     case 'guild':
         if(String::IsNull($_REQUEST['subcategory']))
-        {
-            $ErrorDescription = ErrorHandler::ListenForError(404);
-            $Smarty->assign('Error', $ErrorDescription);
-            $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
-            $Smarty->display('pages/error_page');
-        }
+            Page::GenerateErrorPage($Smarty, 404);
         else
         {
             if(Characters::CheckGuild($_REQUEST['subcategory']))
@@ -1049,12 +1029,7 @@ switch($_REQUEST['category'])
                 }
             }
             else
-            {
-                $ErrorDescription = ErrorHandler::ListenForError(404);
-                $Smarty->assign('Error', $ErrorDescription);
-                $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
-                $Smarty->display('pages/error_page');
-            }
+                Page::GenerateErrorPage($Smarty, 404);
         }
     break;
 
@@ -1561,12 +1536,7 @@ switch($_REQUEST['category'])
 
     case 'npc':
         if(String::IsNull($_REQUEST['subcategory']))
-        {
-            $ErrorDescription = ErrorHandler::ListenForError(404);
-            $Smarty->assign('Error', $ErrorDescription);
-            $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
-            $Smarty->display('pages/error_page');
-        }
+            Page::GenerateErrorPage($Smarty, 404);
         else
         {
             if($_REQUEST['lastcategory'] == 'tooltip')
@@ -1578,6 +1548,52 @@ switch($_REQUEST['category'])
             }
             else
                 header('Location: /');
+        }
+    break;
+
+    case 'forum':
+        $Smarty->translate('Forums');
+        Manager::LoadExtension('Forums', $ClassConstructor);
+        if(String::IsNull($_REQUEST['subcategory']))
+        {
+            $Smarty->assign('Forums', Forums::GetForums());
+            $Smarty->assign('Page', Page::Info('forum', array('bodycss' => 'forums forums-home', 'pagetitle' => $Smarty->GetConfigVars('Forum_Page_Title').' - ')));
+            $Smarty->display('pages/forums_list_categories');
+        }
+        else
+        {
+            if(is_numeric($_REQUEST['subcategory']))
+            {
+                if(Forums::CheckForumExistance($_REQUEST['subcategory']))
+                {
+                    if(String::IsNull($_REQUEST['lastcategory']))
+                    {
+                        $Topics = Forums::GetTopics($_REQUEST['subcategory']);
+                        if(String::Match($Topics['topics'][0]['id'], ''))
+                            $Topics['topics'] = array();
+                        $Smarty->assign('Forum', $Topics);
+                        $Smarty->assign('Page', Page::Info('forum', array('bodycss' => 'forums view-forum', 'pagetitle' => $Topics['forum_name'].' - ')));
+                        $Smarty->display('pages/forums_list_topics');
+                    }
+                    else
+                        if(String::Match($_REQUEST['lastcategory'], 'topic'))
+                            echo "Создаем топик!";
+                        else
+                            Page::GenerateErrorPage($Smarty, 404);
+                }
+                else
+                    Page::GenerateErrorPage($Smarty, 404);
+            }
+            else
+                if(String::Match($_REQUEST['subcategory'], 'topic'))
+                {
+                    $TopicData = Forums::GetTopicData($_REQUEST['lastcategory']);
+                    $Smarty->assign('TopicData', $TopicData);
+                    $Smarty->assign('Page', Page::Info('forum', array('bodycss' => 'forums view-topic logged-in', 'pagetitle' => $TopicData['topic']['name'].' - ')));
+                    $Smarty->display('pages/forums_view_topic');
+                }
+                else
+                    Page::GenerateErrorPage($Smarty, 404);
         }
     break;
 
