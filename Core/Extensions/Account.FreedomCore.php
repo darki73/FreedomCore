@@ -65,7 +65,6 @@ Class Account
     {
         $Subject = 'Account Registration';
         $Headers = 'From: noreply@'.$_SERVER['HTTP_HOST']."\r\n";
-        $Headers .= 'Reply-To: noreply@'.$_SERVER['HTTP_HOST']."\r\n";
         $Headers .= 'X-Mailer: FreedomCore Notification Service';
         $Headers .= 'MIME-Version: 1.0'."\r\n";
         $Headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
@@ -77,6 +76,10 @@ Class Account
         if(Account::CheckForTMPUsername($Username))
             return -1;
         if(Account::CheckForTMPEmail($Email))
+            return -2;
+        if(Account::VerifyUsername($Username))
+            return -1;
+        if(Account::VerifyEmail($Email))
             return -2;
 
         $RegistrationDate = date( 'Y-m-d H:i:s', time());
