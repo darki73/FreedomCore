@@ -233,27 +233,27 @@ Class Items
             FROM
                 quest_template
             WHERE
-                    RewardItemId1 = :itemid
+                    RewardItem1 = :itemid
                 OR
-                    RewardItemId2 = :itemid
+                    RewardItem2 = :itemid
                 OR
-                    RewardItemId3 = :itemid
+                    RewardItem3 = :itemid
                 OR
-                    RewardItemId4 = :itemid
+                    RewardItem4 = :itemid
         ');
         $Statement->bindParam(':itemid', $ItemID);
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         if(!empty($Result))
         {
-            if($Result['RewardItemId1'] != 0)
-                $Result['RewardItemIcon1'] = Items::GetItemIcon($Result['RewardItemId1']);
-            if($Result['RewardItemId2'] != 0)
-                $Result['RewardItemIcon2'] = Items::GetItemIcon($Result['RewardItemId2']);
-            if($Result['RewardItemId3'] != 0)
-                $Result['RewardItemIcon3'] = Items::GetItemIcon($Result['RewardItemId3']);
-            if($Result['RewardItemId4'] != 0)
-                $Result['RewardItemIcon4'] = Items::GetItemIcon($Result['RewardItemId4']);
+            if($Result['RewardItem1'] != 0)
+                $Result['RewardItemIcon1'] = Items::GetItemIcon($Result['RewardItem1']);
+            if($Result['RewardItem2'] != 0)
+                $Result['RewardItemIcon2'] = Items::GetItemIcon($Result['RewardItem2']);
+            if($Result['RewardItem3'] != 0)
+                $Result['RewardItemIcon3'] = Items::GetItemIcon($Result['RewardItem3']);
+            if($Result['RewardItem4'] != 0)
+                $Result['RewardItemIcon4'] = Items::GetItemIcon($Result['RewardItem4']);
             return $Result;
         }
         else
@@ -605,12 +605,12 @@ Class Items
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         for($i = 1; $i <= 4; $i++)
         {
-            if($Result['RewardItemId'.$i] != 0)
+            if($Result['RewardItem'.$i] != 0)
             {
-                $Result['RewardItemId'.$i] = Items::GetItemInfo($Result['RewardItemId'.$i]);
+                $Result['RewardItem'.$i] = Items::GetItemInfo($Result['RewardItem'.$i]);
             }
         }
-        $Result['XPReward'] = Items::QuestXP($Result['Level'], $Result['RewardXPId']);
+        $Result['XPReward'] = Items::QuestXP($Result['QuestLevel'], $Result['RewardXPId']);
         $Result['MoneyReward'] = String::MoneyToCoins($Result['RewardOrRequiredMoney']);
         return $Result;
     }

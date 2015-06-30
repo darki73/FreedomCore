@@ -46,39 +46,39 @@
             {foreach $Relations as $Relation}
                 <tr class="row" >
                     <td>
-                        <a href="javascript:;" data-fansite="quest|{$Relation.Id}|{$Relation.Title}" class="fansite-link float-right"> </a>
-                        <strong class="has-tip" data-quest="{$Relation.Id}">{$Relation.Title}</strong>
+                        <a href="javascript:;" data-fansite="quest|{$Relation.Id}|{$Relation.LogTitle}" class="fansite-link float-right"> </a>
+                        <strong class="has-tip" data-quest="{$Relation.Id}">{$Relation.LogTitle}</strong>
                     </td>
-                    <td data-raw="{$Relation.Level}" class="align-center">
-                        {$Relation.Level}
+                    <td data-raw="{$Relation.QuestLevel}" class="align-center">
+                        {$Relation.QuestLevel}
                     </td>
                     <td data-raw="{$Relation.MinLevel}" class="align-center">
                         {$Relation.MinLevel}
                     </td>
                     <td data-raw="1">
-                        {if $Relation.RewardItemId1 != 0}
-                            <a href="/item/{$Relation.RewardItemId1}" class="item-link reagent">
+                        {if $Relation.RewardItem1 != 0}
+                            <a href="/item/{$Relation.RewardItem1}" class="item-link reagent">
                             <span  class="icon-frame frame-18 " style='background-image: url("/Templates/{$Template}/images/icons/small/{$Relation.RewardItemIcon1}.jpg");'>
                                     {$Relation.RewardItemCount1}
                             </span>
                             </a>
                         {/if}
-                        {if $Relation.RewardItemId2 != 0}
-                            <a href="/item/{$Relation.RewardItemId2}" class="item-link reagent">
+                        {if $Relation.RewardItem2 != 0}
+                            <a href="/item/{$Relation.RewardItem2}" class="item-link reagent">
                             <span  class="icon-frame frame-18 " style='background-image: url("/Templates/{$Template}/images/icons/small/{$Relation.RewardItemIcon2}.jpg");'>
                                     {$Relation.RewardItemCount2}
                             </span>
                             </a>
                         {/if}
-                        {if $Relation.RewardItemId3 != 0}
-                            <a href="/item/{$Relation.RewardItemId3}" class="item-link reagent">
+                        {if $Relation.RewardItem3 != 0}
+                            <a href="/item/{$Relation.RewardItem3}" class="item-link reagent">
                             <span  class="icon-frame frame-18 " style='background-image: url("/Templates/{$Template}/images/icons/small/{$Relation.RewardItemIcon3}.jpg");'>
                                     {$Relation.RewardItemCount3}
                             </span>
                             </a>
                         {/if}
-                        {if $Relation.RewardItemId4 != 0}
-                            <a href="/item/{$Relation.RewardItemId4}" class="item-link reagent">
+                        {if $Relation.RewardItem4 != 0}
+                            <a href="/item/{$Relation.RewardItem4}" class="item-link reagent">
                             <span  class="icon-frame frame-18 " style='background-image: url("/Templates/{$Template}/images/icons/small/{$Relation.RewardItemIcon4}.jpg");'>
                                     {$Relation.RewardItemCount4}
                             </span>
