@@ -36,7 +36,7 @@ Class Items
 
     private static function GetSkillReqs($SkillID, $SkillPoints)
     {
-        $Statement = Items::$DBConnection->prepare('SELECT * FROM freedomcore.freedomcore_spell WHERE effect2MiscValue = :skillid AND rank_loc0 != ""');
+        $Statement = Items::$DBConnection->prepare('SELECT * FROM freedomcore_spell WHERE effect2MiscValue = :skillid AND rank_loc0 != ""');
         $Statement->bindParam(':skillid', $SkillID);
         $Statement->execute();
         $Result = $Statement->fetchAll();
@@ -137,7 +137,7 @@ Class Items
         SELECT 
             * 
         FROM 
-            freedomcore.freedomcore_itemset fis
+            freedomcore_itemset fis
         WHERE
                 fis.item1 = :itemid OR fis.item2 = :itemid OR fis.item3 = :itemid OR fis.item4 = :itemid OR fis.item5 = :itemid OR fis.item6 = :itemid OR fis.item7 = :itemid OR fis.item8 = :itemid OR fis.item9 = :itemid OR fis.item10 = :itemid
                 
@@ -231,7 +231,7 @@ Class Items
             SELECT
                 *
             FROM
-                world.quest_template
+                quest_template
             WHERE
                     RewardItemId1 = :itemid
                 OR
@@ -456,10 +456,10 @@ Class Items
                 ct.maxlevel,
                 c.map
             FROM
-                world.npc_vendor nv
-            LEFT JOIN world.creature_template ct ON
+                npc_vendor nv
+            LEFT JOIN creature_template ct ON
                 nv.entry = ct.entry
-            LEFT JOIN world.creature c ON
+            LEFT JOIN creature c ON
                 ct.entry = c.id
             WHERE
                 item = :itemid;
@@ -566,7 +566,7 @@ Class Items
 
     private static function GetSpellData($SpellID)
     {
-        $Statement = Items::$DBConnection->prepare('SELECT spellID, durationID, spellname_loc0, tooltip_loc0 FROM freedomcore.freedomcore_spell where spellID = :spellid');
+        $Statement = Items::$DBConnection->prepare('SELECT spellID, durationID, spellname_loc0, tooltip_loc0 FROM freedomcore_spell where spellID = :spellid');
         $Statement->bindParam(':spellid', $SpellID);
         $Statement->execute();
         return $Statement->fetch(PDO::FETCH_ASSOC);
