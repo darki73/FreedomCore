@@ -4,12 +4,19 @@ require_once('Core/Classes/Autoloader.Class.php');
 Autoloader::Initialize();
 new ErrorHandler($Smarty);
 Manager::LoadExtension('Account', array($Database, $Smarty));
-if(isset($_SESSION['username']))
+Manager::LoadExtension('Characters', array($Database, $Smarty));
+Manager::LoadExtension('Items', array($Database, $Smarty));
+if(isset($_SESSION['username']) && !String::IsNull($_SESSION['username']))
 {
-    Manager::LoadExtension('Characters', array($Database, $Smarty));
-    Manager::LoadExtension('Items', array($Database, $Smarty));
     $User = Account::Get($_SESSION['username']);
-    $Smarty->assign('Characters', Characters::GetCharacters($User['id']));
+    $Characters = Characters::GetCharacters($User['id']);
+    $Smarty->assign('Characters', $Characters);
     $Smarty->assign('User', $User);
+    $SelectedCharacterForComments = array();
+    if($Characters != 0)
+        foreach($Characters as $Character)
+            if($Character['guid'] == $User['pinned_character'])
+                $SelectedCharacterForComments = $Character;
+    $Smarty->assign('CommentCharacter', $SelectedCharacterForComments);
 }
 ?>

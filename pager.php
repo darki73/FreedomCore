@@ -1378,9 +1378,18 @@ switch($_REQUEST['category'])
                                 $Smarty->display('blog/comments_load');
                                 break;
 
+                            case 'test':
+                                String::PrettyPrint(News::GetComments(1));
+                            break;
+
                             case 'comment.json':
-                                News::AddComment(str_replace('blog.', '', $_REQUEST['subcategory']), $_SESSION['username'], $_REQUEST['detail']);
-                                $ArticleID = str_replace('blog.', '', $_REQUEST['subcategory']);
+                                $AvailableLanguages = array('ru', 'it', 'pt', 'kr', 'de', 'es', 'fr', 'en');
+                                $RemoveBlogInfo = str_replace('blog.', '', $_REQUEST['subcategory']);
+                                $ArticleID = str_replace(substr($RemoveBlogInfo, 0, 3), '', $RemoveBlogInfo);
+                                if(!isset($_REQUEST['replyCommentId']))
+                                    News::AddComment($ArticleID, $SelectedCharacterForComments['name'], $_REQUEST['detail']);
+                                else
+                                    News::AddReply($ArticleID, $SelectedCharacterForComments['name'], $_REQUEST['detail'], $_REQUEST['replyCommentId']);
                                 $Response = array(
                                     "commentId" => News::GetLastCommentID($ArticleID),
                                     "articleId" => $ArticleID

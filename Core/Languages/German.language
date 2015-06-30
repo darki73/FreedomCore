@@ -219,7 +219,8 @@ Comments_Like =
 Comments_DisLike = 
 Comments_Trolling = 
 Comments_Report = 
-Comments_Spam = 
+Comments_Spam =
+Comments_No_Characters =
 
 # Administrator Localization
 Administrator_Title = 

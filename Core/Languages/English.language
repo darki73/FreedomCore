@@ -220,6 +220,7 @@ Comments_DisLike = Dislike
 Comments_Trolling = Trolling
 Comments_Report = Report
 Comments_Spam = Spam
+Comments_No_Characters = No characters were found
 
 # Administrator Localization
 Administrator_Title = <font color="red">Administrator Panel</font>

@@ -1,106 +1,276 @@
 {if !$smarty.session.loggedin}
+    <div class="comments-form-wrapper">
+        <div class="comments-error-gate">
+            <p>{#Login_Authorization_Needed#}</p>
+            <button class="ui-button button1" onclick="Login.open();" type="button">
+                <span class="button-left">
+                    <span class="button-right">
+                        {#Login_Log_In#}
+                    </span>
+                </span>
+            </button>
+        </div>
+    </div>
+{else}
+    {if $Characters == 0}
         <div class="comments-form-wrapper">
             <div class="comments-error-gate">
-                <p>{#Login_Authorization_Needed#}</p>
-                <button class="ui-button button1" onclick="Login.open();" type="button"><span class="button-left"><span class="button-right">{#Login_Log_In#}</span></span></button>
+                <p>{#Comments_No_Characters#}</p>
             </div>
         </div>
     {else}
         <div class="comments-form-wrapper">
-            <form action="" class="comments-form" id="comments-add-form" method="post"
-                  name="comments-add-form">
+            <form id="comments-reply-form" class="comments-form" action="" method="post" style="display: none">
                 <div class="bnet-avatar">
                     <div class="avatar-outer">
-                        <a href="/account/profile/{$User.username}/">
-                            <img alt="" height="64" src= "" width="64">
-                            <span class="avatar-inner"></span>
+                        <a href="/character/{$CommentCharacter.name}">
+                            <img height="64" width="64" src="/Templates/{$Template}/images/2d/avatar/{$CommentCharacter.race}-{$CommentCharacter.gender}.jpg" alt=""/>
+                            <span class="avatar-inner"/>
                         </a>
                     </div>
                 </div>
-
                 <div class="character-info user ajax-update">
-                    <div class="bnet-username">
-                        <div class="ui-context character-select" id="context-2">
+                    <div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+                        <div id="context-1" class="ui-context character-select">
                             <div class="context">
-                                <a class="close" href="javascript:;" onclick=
-                                "return CharSelect.close(this);"></a>
-
+                                <a href="javascript:;" class="close" onclick="return CharSelect.close(this);"/>
                                 <div class="context-user">
-                                    <strong>{$User.username}</strong>
+                                    <strong>{$CommentCharacter.name}</strong>
                                 </div>
-
                                 <div class="context-links">
-                                    <a class="icon-profile link-first" href="/account/profile/{$User.username}" rel="np"
-                                       title="{#Profile#}">
-                                        <span class="context-icon"></span>{#Profile#}</a>
-                                    <a class="icon-posts" href="/search?f=post&amp;a={$User.username}&amp;sort=time" rel="np" title="{#Posts_My#}">
+                                    <a href="/character/{$CommentCharacter.name}" title="Profile" rel="np" class="icon-profile link-first">
+                                        <span class="context-icon"/>
+                                        Profile
+                                    </a>
+                                    <a href="/search?f=post&a={$CommentCharacter.name}&sort=time" title="View my posts" rel="np" class="icon-posts">
                                         <span class="context-icon"></span>
                                     </a>
-                                    <a class="icon-auctions" href="/vault/character/auction/" rel="np" title="{#Auction_View#}">
-                                        <span class="context-icon"></span>
+                                    <a href="/vault/character/auction" title="View auctions" rel="np" class="icon-auctions">
+                                        <span class="context-icon"/>
                                     </a>
-                                    <a class="icon-events link-last" href="/vault/character/event" rel="np" title="{#Events_View#}">
-                                        <span class="context-icon"></span>
+                                    <a href="/vault/character/event" title="View events" rel="np" class="icon-events link-last">
+                                        <span class="context-icon"/>
                                     </a>
                                 </div>
                             </div>
-
-                        </div><a class="context-link wow-class-1" href="/account/profile/{$User.username}">
-                            <span class="poster-name">{$User.username}</span>
+                            <div class="character-list">
+                                <div class="primary chars-pane">
+                                    <div class="char-wrapper">
+                                        <a href="/character/{$CommentCharacter.name}" class="char pinned" rel="np">
+                                            <span class="pin"/>
+                                            <span class="name">{$CommentCharacter.name}</span>
+                                            <span class="class wow-class-{$CommentCharacter.class}">{$CommentCharacter.level} {$CommentCharacter.race_name} {$CommentCharacter.class_name}</span>
+                                        </a>
+                                    </div>
+                                    <a href="javascript:;" class="manage-chars" onclick="CharSelect.swipe('in', this); return false;">
+                                        <span class="plus"/>
+                                        Manage Characters<br />
+                                        <span>
+                                            Customise characters that appear in this menu.
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="secondary chars-pane">
+                                    <div class="char-wrapper scrollbar-wrapper" id="scroll">
+                                        <div class="scrollbar">
+                                            <div class="track">
+                                                <div class="thumb"/>
+                                            </div>
+                                        </div>
+                                        <div class="viewport">
+                                            <div class="overview">
+                                                <a href="/character/{$CommentCharacter.name}" class="wow-class-{$CommentCharacter.class} pinned" rel="np" data-tooltip="{$CommentCharacter.race_name} {$CommentCharacter.class_name}">
+                                                <span class="icon icon-race">
+                                                    <img src="/Templates/{$Template}/images/icons/small/race_{$CommentCharacter.race}_{$CommentCharacter.gender}.jpg" alt="" width="14" height="14"/>
+                                                </span>
+                                                <span class="icon icon-class">
+                                                    <img src="/Templates/{$Template}/images/icons/small/class_{$CommentCharacter.class}.jpg" alt="" width="14" height="14"/>
+                                                </span>
+                                                    {$CommentCharacter.level} {$CommentCharacter.name}
+                                                </a>
+                                                <div class="no-results hide">No characters were found</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter">
+                                        <input type="input" class="input character-filter" value="Filter..." alt="Filter..."/>
+                                        <br />
+                                        <a href="javascript:;" onclick="CharSelect.swipe('out', this); return false;">
+                                            Return to characters
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/character/{$CommentCharacter.name}" itemprop="url" class="context-link wow-class-{$CommentCharacter.class}">
+                            <span itemprop="name" class="poster-name">{$CommentCharacter.name}</span>
                         </a>
                     </div>
                 </div>
-
                 <div class="text-wrapper">
                     <div class="input-wrapper">
-                        <textarea class="input textarea" name="detail"></textarea>
+                        <textarea name="detail" class="input textarea"/>
                     </div>
-
                     <ul class="comments-error-form">
-                        <li class="error-required">Обязательное для заполнения
-                            поле</li>
-
-                        <li class="error-throttled">Вы сейчас не можете размещать
-                            сообщения</li>
-
-                        <li class="error-length">Превышено максимальное количество
-                            символов</li>
-
-                        <li class="error-title">Учетная запись заблокирована на
-                            форумах</li>
-
-                        <li class="error-frozen">Срок действия игровой лицензии истек
-                            или нет текущей подписки.</li>
-
-                        <li class="error-locked">Возможность размещения сообщения с
-                            этой учетной записи была отключена.</li>
-
-                        <li class="error-cancelled">Срок действия игровой лицензии
-                            истек или лицензия была отменена.</li>
-
-                        <li class="error-trial">На этом форуме нельзя размещать и
-                            оценивать сообщения со стартовой учетной записи. Конвертируйте
-                            учетную запись в полную, чтобы активировать эти функции.</li>
-
-                        <li class="error-unknown">Произошла ошибка. Попробуйте,
-                            пожалуйста, еще раз. Но сначала выйдите из системы и
-                            авторизуйтесь заново.</li>
+                        <li class="error-required">Field required</li>
+                        <li class="error-throttled">You cannot post at this time</li>
+                        <li class="error-length">This field is too long</li>
+                        <li class="error-title">Account Banned</li>
+                        <li class="error-frozen">This game license has expired or been frozen.</li>
+                        <li class="error-locked">
+                            This account has had its communication ability disabled.
+                        </li>
+                        <li class="error-cancelled">This game license has expired or been cancelled.</li>
+                        <li class="error-trial">
+                            Starter Edition accounts do not have the ability to create posts or use the rating buttons. Please upgrade to a full account to enable these features.
+                        </li>
+                        <li class="error-unknown">
+                            An error occurred. Please log out and back in, and try again.
+                        </li>
                     </ul>
-
                     <div class="comments-action">
-                        <button class="ui-button button1 comment-submit" onclick="return Comments.add(this);" type="button">
+                        <button class="ui-button button1" type="button" onclick="return Comments.add(this, true);">
+                            <span class="buton-left">
+                                <span class="button-left">
+                                    <span class="button-right">
+                                        Post
+                                    </span>
+                                </span>
+                            </span>
+                        </button>
+                        <a class="ui-cancel" href="#" onclick="return Comments.cancelReply(this);">
+                            <span>
+                                Cancel
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+            <form id="comments-add-form" class="comments-form" action="" method="post">
+                <div class="bnet-avatar">
+                    <div class="avatar-outer">
+                        <a href="/character/{$CommentCharacter.name}">
+                            <img height="64" width="64" src="/Templates/{$Template}/images/2d/avatar/{$CommentCharacter.race}-{$CommentCharacter.gender}.jpg" alt=""/>
+                            <span class="avatar-inner"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="character-info user ajax-update">
+                    <div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+                        <div id="context-1" class="ui-context character-select">
+                            <div class="context">
+                                <a href="javascript:;" class="close" onclick="return CharSelect.close(this);"/>
+                                <div class="context-user">
+                                    <strong>{$CommentCharacter.name}</strong>
+                                </div>
+                                <div class="context-links">
+                                    <a href="/character/{$CommentCharacter.name}" title="Profile" rel="np" class="icon-profile link-first">
+                                        <span class="context-icon"/>
+                                        Profile
+                                    </a>
+                                    <a href="/search?f=post&a={$CommentCharacter.name}&sort=time" title="View my posts" rel="np" class="icon-posts">
+                                        <span class="context-icon"></span>
+                                    </a>
+                                    <a href="/vault/character/auction" title="View auctions" rel="np" class="icon-auctions">
+                                        <span class="context-icon"/>
+                                    </a>
+                                    <a href="/vault/character/event" title="View events" rel="np" class="icon-events link-last">
+                                        <span class="context-icon"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="character-list">
+                                <div class="primary chars-pane">
+                                    <div class="char-wrapper">
+                                        <a href="/character/{$CommentCharacter.name}" class="char pinned" rel="np">
+                                            <span class="pin"/>
+                                            <span class="name">{$CommentCharacter.name}</span>
+                                            <span class="class wow-class-{$CommentCharacter.class}">{$CommentCharacter.level} {$CommentCharacter.race_name} {$CommentCharacter.class_name}</span>
+                                        </a>
+                                    </div>
+                                    <a href="javascript:;" class="manage-chars" onclick="CharSelect.swipe('in', this); return false;">
+                                        <span class="plus"/>
+                                        Manage Characters<br />
+                                        <span>
+                                            Customise characters that appear in this menu.
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="secondary chars-pane">
+                                    <div class="char-wrapper scrollbar-wrapper" id="scroll">
+                                        <div class="scrollbar">
+                                            <div class="track">
+                                                <div class="thumb"/>
+                                            </div>
+                                        </div>
+                                        <div class="viewport">
+                                            <div class="overview">
+                                                <a href="/character/{$CommentCharacter.name}" class="wow-class-{$CommentCharacter.class} pinned" rel="np" data-tooltip="{$CommentCharacter.race_name} {$CommentCharacter.class_name}">
+                                                <span class="icon icon-race">
+                                                    <img src="/Templates/{$Template}/images/icons/small/race_{$CommentCharacter.race}_{$CommentCharacter.gender}.jpg" alt="" width="14" height="14"/>
+                                                </span>
+                                                <span class="icon icon-class">
+                                                    <img src="/Templates/{$Template}/images/icons/small/class_{$CommentCharacter.class}.jpg" alt="" width="14" height="14"/>
+                                                </span>
+                                                    {$CommentCharacter.level} {$CommentCharacter.name}
+                                                </a>
+                                                <div class="no-results hide">No characters were found</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter">
+                                        <input type="input" class="input character-filter" value="Filter..." alt="Filter..."/>
+                                        <br />
+                                        <a href="javascript:;" onclick="CharSelect.swipe('out', this); return false;">
+                                            Return to characters
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/character/{$CommentCharacter.name}" itemprop="url" class="context-link wow-class-{$CommentCharacter.class}">
+                            <span itemprop="name" class="poster-name">{$CommentCharacter.name}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-wrapper">
+                    <div class="input-wrapper">
+                        <textarea name="detail" class="input textarea"/>
+                    </div>
+                    <ul class="comments-error-form">
+                        <li class="error-required">Field required</li>
+                        <li class="error-throttled">You cannot post at this time</li>
+                        <li class="error-length">This field is too long</li>
+                        <li class="error-title">Account Banned</li>
+                        <li class="error-frozen">This game license has expired or been frozen.</li>
+                        <li class="error-locked">
+                            This account has had its communication ability disabled.
+                        </li>
+                        <li class="error-cancelled">This game license has expired or been cancelled.</li>
+                        <li class="error-trial">
+                            Starter Edition accounts do not have the ability to create posts or use the rating buttons. Please upgrade to a full account to enable these features.
+                        </li>
+                        <li class="error-unknown">
+                            An error occurred. Please log out and back in, and try again.
+                        </li>
+                    </ul>
+                    <div class="comments-action">
+                        <button class="ui-button button1 comment-submit" type="button" onclick="return Comments.add(this);">
                             <span class="button-left">
                                 <span class="button-right">
-                                    {#Messages_Send#}
+                                    Post
                                 </span>
                             </span>
                         </button>
                     </div>
-
                     <div class="comments-throttler">
-                        {#Comments_Wait_Till_Next#}<span class="throttle-time">60</span>
+                        Time till next post:
+                        <span class="throttle-time">
+                            60
+                        </span>
                     </div>
                 </div>
             </form>
         </div>
     {/if}
+{/if}

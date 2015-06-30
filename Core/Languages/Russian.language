@@ -221,6 +221,7 @@ Comments_DisLike = Не Нравится
 Comments_Trolling = Троллинг
 Comments_Report = Сообщить Модераторам
 Comments_Spam = Спам
+Comments_No_Characters = У вас нет персонажей
 
 # Administrator Localization
 Administrator_Title = <font color="red">Панель Администратора</font>
