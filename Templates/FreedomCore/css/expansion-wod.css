@@ -1,17 +1,8 @@
-parsererror {
-	position:absolute
-}
-
-html {
-	min-width:1006px
-}
+parsererror { position:absolute; }
+html { min-width: 1006px; }
 
 body {
-	background:#000 url(/Templates/FreedomCore/images/layout/bg/WoD/body-bg-baked.jpg) 50% 0 no-repeat;
-	-webkit-background-size:auto;
-	color:#efc9a0;
-	font:normal 12px/1.5 Arial,Verdana,sans-serif
-}
+	background:#000 url(/Templates/FreedomCore/images/layout/bg/WoD/body-bg-baked.jpg) 50% 45px no-repeat; -webkit-background-size: auto; color: #efc9a0; font: normal 12px/1.5 Arial, Verdana, sans-serif; }
 
 @media (max-width: 1920px) {
 body {

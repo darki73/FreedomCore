@@ -42,7 +42,7 @@ $FCCore['ApplicationName']				=	"FreedomCore";
 $FCCore['ApplicationDescription']		=	"FreedomCore Test Engine";
 $FCCore['ApplicationKeywords']			=	"FreedomHead";
 $FCCore['Template']						=	"FreedomCore";
-$FCCore['ExpansionTemplate']			=	"WoD"; // MoP - Mists of Pandaria, WoD - Warlords of Draenor, Cata - Cataclysm
+$FCCore['ExpansionTemplate']			=	"WoD"; // MoP - Mists of Pandaria, WoD - Warlords of Draenor, Cata - Cataclysm, WotLK - Wrath of the Lich King
 
 // Social Media Links
 $FCCore['Social']['Facebook']			=	"FreedomHead";

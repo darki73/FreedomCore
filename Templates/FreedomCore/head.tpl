@@ -8,7 +8,11 @@
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/common-game-site.css" />
 	<link title="{$AppName}® - {#Head_News_Meta#}" href="/feed/news" type="application/atom+xml" rel="alternate"/>
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/expansion-{$ExpansionTemplate}.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wow.css" />
+    {if $ExpansionTemplate == 'WotLK'}
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wow-wotlk.css" />
+    {else}
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wow.css" />
+    {/if}
     <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/nav-client-desktop.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/lightbox.css" />
     {if $Page.type == 'forum'}

@@ -402,12 +402,12 @@ tr:hover .fansite-link,
 .search .summary .suggested-results .result a { font-weight: normal; }
 
 /* menu */
-#menu { width: 623px; height: 65px; position: absolute; left: 19px; top: 19px; -moz-user-select: none; -webkit-user-select: none; user-select: none; background-image: url(/Templates/FreedomCore/images/layout/bg/WoD/menu-tab-baked.jpg); }
+#menu { width: 623px; height: 65px; position: absolute; left: 19px; top: 19px; -moz-user-select: none; -webkit-user-select: none; user-select: none; background-image: url(/Templates/FreedomCore/images/layout/bg/WotLK/menu-tab-baked.jpg); }
 #menu li { width: 102px; float: left; height: 65px; }
 #menu li a { height: 65px; display: block; text-align: center; text-transform: uppercase; color: #ffa400 }
 #menu li a span { padding-top: 45px; display: block; font: normal 12px Arial, Verdana, serif; text-shadow: #000 0 0 5px; position: relative; top: -5px }
 #menu li a:hover,
-#menu li a.menu-active { background-image: url(/Templates/FreedomCore/images/layout/bg/WoD/menu-tab-baked.jpg); }
+#menu li a.menu-active { background-image: url(/Templates/FreedomCore/images/layout/bg/WotLK/menu-tab-baked.jpg); }
 #menu li a:hover { color: white; }
 #menu li a.menu-active { color: #fff !important; -moz-box-shadow: 0 0 15px #ff7501; -webkit-box-shadow: 0 0 15px #ff7501; box-shadow: 0 0 15px #ff7501; position: relative; }
 #menu li.menu-game,
