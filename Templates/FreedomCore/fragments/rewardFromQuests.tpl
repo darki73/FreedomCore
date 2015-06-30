@@ -46,8 +46,8 @@
             {foreach $Relations as $Relation}
                 <tr class="row" >
                     <td>
-                        <a href="javascript:;" data-fansite="quest|{$Relation.Id}|{$Relation.LogTitle}" class="fansite-link float-right"> </a>
-                        <strong class="has-tip" data-quest="{$Relation.Id}">{$Relation.LogTitle}</strong>
+                        <a href="javascript:;" data-fansite="quest|{$Relation.ID}|{$Relation.LogTitle}" class="fansite-link float-right"> </a>
+                        <strong class="has-tip" data-quest="{$Relation.ID}">{$Relation.LogTitle}</strong>
                     </td>
                     <td data-raw="{$Relation.QuestLevel}" class="align-center">
                         {$Relation.QuestLevel}
