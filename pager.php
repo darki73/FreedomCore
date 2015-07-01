@@ -953,6 +953,7 @@ switch($_REQUEST['category'])
                         break;
 
                         case 'tooltip':
+                            $Smarty->assign('Specializations', Characters::GetSpecByTalents($CharacterData['guid']));
                             $Smarty->display('blocks/character_tooltip');
                         break;
 

@@ -17,7 +17,13 @@
                         </div>
                         <span class="clear"><!-- --></span>
                         <div class="under-name color-c{$Character.class}">
-                            <a href="/game/race/{$Character.race_data.name}" class="race">{$Character.race_data.translation}</a>-<a href="/game/class/{$Character.class_data.name}" class="class">{$Character.class_data.translation}</a> (<a id="profile-info-spec" href="#talents" class="spec tip">Spec Placeholder</a>) <span class="level"><strong>{$Character.level}</strong></span> {#LevelShort#}
+                            <a href="/game/race/{$Character.race_data.name}" class="race">{$Character.race_data.translation}</a>-<a href="/game/class/{$Character.class_data.name}" class="class">{$Character.class_data.translation}</a> (<a id="profile-info-spec" href="#talents" class="spec tip">
+                                {foreach $Specializations as $Spec}
+                                    {if $Spec.spec == $Spec.activespec}
+                                        {$Spec.Description}
+                                    {/if}
+                                {/foreach}
+                            </a>) <span class="level"><strong>{$Character.level}</strong></span> {#LevelShort#}
                         </div>
                         <div class="achievements"><a href="/character/{$Character.name}/achievement">{$Character.apoints}</a></div>
                     </div>
