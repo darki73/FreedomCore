@@ -177,7 +177,7 @@ Class Zones
                 fa.description_loc0 as Description,
                 fa.points as Points,
                 fact.name_loc0 as Category,
-                fsi.iconname as Icon
+                LOWER(fsi.iconname) as Icon
             FROM
                 freedomcore_achievementcriteria fac
             LEFT JOIN freedomcore_achievement fa ON
