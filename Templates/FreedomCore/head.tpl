@@ -37,6 +37,9 @@
         {if $Page.bodycss|strstr:'boss-'}
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/boss.css" />
         {/if}
+        <style type="text/css">
+            #content .content-top { background: url("/Templates/{$Template}/images/wiki/zone/bgs/{$ZoneInfo.link_name}.jpg") 0 0 no-repeat; }
+        </style>
     {/if}
     {if $Page.bodycss == 'realm-status'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/realmstatus.css" />
@@ -78,6 +81,11 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/profile.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/zone.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/character/summary.css" />
+        <style type="text/css">
+            #content .content-top { background: url("/Templates/{$Template}/images/character/summary/backgrounds/race/{$Character.race}.jpg") left top no-repeat; }
+            .profile-wrapper { background-image: url("/Templates/{$Template}/images/2d/profilemain/race/{$Character.race}-{$Character.gender}.jpg"); }
+        </style>
+
     {/if}
     {if $Page.bodycss == 'achievement_page'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/profile.css" />

@@ -88,6 +88,7 @@ crashlytics-build.properties
 /Uploads/Core/NPC/ModelViewer/*.jpg
 /Templates/FreedomCore/images/dungeon-maps/*
 /Templates/FreedomCore/images/wiki/zone/*
+!/Templates/FreedomCore/images/wiki/zone/bgs
 /Cache/securitychecklist.php
 
 # Ignoring DBC, DB2, Interface Files
