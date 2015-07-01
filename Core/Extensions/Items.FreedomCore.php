@@ -4,6 +4,7 @@ Class Items
 {
     public static $DBConnection;
     public static $WConnection;
+    public static $CConnection;
     public static $TM;
 
     public static $SocketBonuses;
@@ -12,6 +13,7 @@ Class Items
     {
         Items::$DBConnection = $VariablesArray[0]::$Connection;
         Items::$WConnection = $VariablesArray[0]::$WConnection;
+        Items::$CConnection = $VariablesArray[0]::$CConnection;
         Items::$TM = $VariablesArray[1];
         Items::LoadSocketBonus();
     }
@@ -222,6 +224,19 @@ Class Items
         $Statement->bindParam(':comment', $CommentText);
         $Statement->bindParam(':dt', $DateAndTime);
         $Statement->bindParam(':language', $LanguageCode);
+        $Statement->execute();
+    }
+
+    public static function AddReply($ArticleID, $PostedBy, $CommentText, $LanguageCode, $ReplyTo)
+    {
+        $DateAndTime = date('Y-m-d H:i:s');
+        $Statement = News::$DBConnection->prepare('INSERT INTO item_comments (item_id, comment_by, comment_text, comment_date, language_code, replied_to) VALUES (:itemid, :poster, :comment, :dt, :language, :rt)');
+        $Statement->bindParam(':itemid', $ArticleID);
+        $Statement->bindParam(':poster', $PostedBy);
+        $Statement->bindParam(':comment', $CommentText);
+        $Statement->bindParam(':dt', $DateAndTime);
+        $Statement->bindParam(':language', $LanguageCode);
+        $Statement->bindParam(':rt', $ReplyTo);
         $Statement->execute();
     }
 
@@ -505,14 +520,63 @@ Class Items
 
     private static function GetCommentsForItem($ItemID)
     {
-        $Statement = Items::$DBConnection->prepare('SELECT * FROM item_comments WHERE item_id = :itemid ORDER BY id DESC');
+        global $FCCore;
+        $Statement = Items::$CConnection->prepare('
+          SELECT
+            ic.*,
+            ch.race as poster_race,
+            ch.class as poster_class,
+            ch.gender as poster_gender
+          FROM
+            '.$FCCore['Database']['database'].'.item_comments ic, characters ch
+          WHERE
+                ic.comment_by = ch.name
+            AND
+                item_id = :itemid
+          ORDER BY id DESC
+        ');
         $Statement->bindParam(':itemid', $ItemID);
         $Statement->execute();
         $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+
         if(!empty($Result))
+        {
+            $ArrayIndex = 0;
+            foreach($Result as $Comment)
+            {
+                $Result[$ArrayIndex]['nested_comments'] = Items::GetNestedComments($ItemID, $Comment['id']);
+                $ArrayIndex++;
+            }
             return $Result;
+        }
         else
             return array();
+    }
+
+    private static function GetNestedComments($ItemID, $ParentCommendID)
+    {
+        global $FCCore;
+        $Statement = Items::$CConnection->prepare('
+            SELECT
+                ic.*,
+                ch.race as poster_race,
+                ch.class as poster_class,
+                ch.gender as poster_gender
+            FROM
+                '.$FCCore['Database']['database'].'.item_comments ic, characters ch
+            WHERE
+                ic.comment_by = ch.name
+            AND
+                replied_to = :rt
+            AND
+                item_id = :iid
+
+        ');
+        $Statement->bindParam(':rt', $ParentCommendID);
+        $Statement->bindParam(':iid', $ItemID);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        return $Result;
     }
 
     private static function SocketDescription($SocketColorID)

@@ -1350,7 +1350,10 @@ switch($_REQUEST['category'])
                             break;
 
                             case 'comment.json':
-                                Items::AddComment($SearchFor, $_SESSION['username'], $_REQUEST['detail'], $Language);
+                                if(!isset($_REQUEST['replyCommentId']))
+                                    Items::AddComment($SearchFor, $SelectedCharacterForComments['name'], $_REQUEST['detail'], $Language);
+                                else
+                                    Items::AddReply($SearchFor, $SelectedCharacterForComments['name'], $_REQUEST['detail'], $Language, $_REQUEST['replyCommentId']);
                                 $Response = array(
                                     "commentId" => Items::GetLastCommentID($SearchFor),
                                     "articleId" => $SearchFor
@@ -1377,10 +1380,6 @@ switch($_REQUEST['category'])
                                 $Smarty->assign('Comments', News::GetComments($_REQUEST['page']));
                                 $Smarty->display('blog/comments_load');
                                 break;
-
-                            case 'test':
-                                String::PrettyPrint(News::GetComments(1));
-                            break;
 
                             case 'comment.json':
                                 $AvailableLanguages = array('ru', 'it', 'pt', 'kr', 'de', 'es', 'fr', 'en');
