@@ -795,7 +795,7 @@ Class Items
             if(!in_array($Bonus['id'], $Bonuses))
                 $Bonuses[$Bonus['id']] = $Bonus['description'];
 
-        return $Bonuses[$BonusID];
+        return @$Bonuses[$BonusID];
     }
 
     public static function ItemClass($ClassID)
@@ -1044,7 +1044,7 @@ Class Spells
                 $Explode = explode($Modifier, substr($DescriptionString, strpos($DescriptionString, '$')));
                 $SpellID = $Explode[0];
                 $UsedModifier = $Modifier;
-                $SecondExplode = explode(';', $Explode[1]);
+                @$SecondExplode = explode(';', $Explode[1]);
                 $Duration = $SecondExplode[0];
                 $ExplodedWith = ';';
                 $SubSpells[] = @array(str_replace('.', '', $SecondExplode[1]));
