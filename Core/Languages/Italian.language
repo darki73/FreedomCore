@@ -164,6 +164,10 @@ Account_No_Characters = Nessun Personaggio
 Login_Logout = Logout
 Login_Log_In = Log in
 Login_Authorization_Needed = Devi <a href="?login" onclick="return Login.open();">connetterti</a> per essere abilitato a commentare.
+Account_Characters_Return_Back =
+Account_Characters_Not_Found =
+Account_Characters_Management =
+Account_Characters_DropDown =
 
 Realm_Status_Title = Realm Status
 Latest_Updates_Title = 

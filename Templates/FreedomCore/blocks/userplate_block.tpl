@@ -33,17 +33,17 @@
                                 </div>
     
                                 <div class="context-links">
-                                    <a class="icon-profile link-first" href="/character/{$Character.name}/" rel="np"title="Профиль">
+                                    <a class="icon-profile link-first" href="/character/{$Character.name}/" rel="np"title="{#Profile#}">
                                         <span class="context-icon"></span>
-                                        Профиль
+                                        {#Profile#}
                                     </a> 
-                                    <a class="icon-posts" href="/search?f=post&amp;a={$Character.name}&amp;sort=time"rel="np" title="Мои сообщения">
-                                        <span class="context-icon"></span>
-                                    </a> 
-                                    <a class="icon-auctions" href="/vault/character/auction/" rel="np" title="Просмотреть аукцион">
+                                    <a class="icon-posts" href="/search?f=post&amp;a={$Character.name}&amp;sort=time"rel="np" title="{#Posts_My#}">
                                         <span class="context-icon"></span>
                                     </a> 
-                                    <a class="icon-events link-last" href="/vault/character/event" rel="np" title="Просмотреть события">
+                                    <a class="icon-auctions" href="/vault/character/auction/" rel="np" title="{#Auction_View#}">
+                                        <span class="context-icon"></span>
+                                    </a> 
+                                    <a class="icon-events link-last" href="/vault/character/event" rel="np" title="{#Events_View#}">
                                         <span class="context-icon"></span>
                                     </a>
                                 </div>
@@ -63,9 +63,8 @@
                                     {/foreach}
                                 </div>
                                 <a class="manage-chars" href="javascript:;" onclick="CharSelect.swipe('in', this); return false;"><span class="plus"></span>
-                                Управление персонажами<br>
-                                <span>Настройте выпадающее меню
-                                персонажа.</span></a>
+                                {#Account_Characters_Management#}<br>
+                                <span>{#Account_Characters_DropDown#}</span></a>
                             </div>
 
                             <div class="secondary chars-pane" style=
@@ -93,7 +92,7 @@
                                             {/foreach}
 
                                             <div class="no-results hide">
-                                                Персонажей не найдено
+                                                {#Account_Characters_Not_Found#}
                                             </div>
                                         </div>
                                     </div>
@@ -105,7 +104,7 @@
                                     value="Фильтр"><br>
                                     <a href="javascript:;" onclick=
                                     "CharSelect.swipe('out', this); return false;">
-                                    К списку персонажей</a>
+                                    {#Account_Characters_Return_Back#}</a>
                                 </div>
                             </div>
                         </div>

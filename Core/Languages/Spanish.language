@@ -159,7 +159,11 @@ Login_Already_Have_Account =
 Account_No_Characters = 
 Login_Logout = 
 Login_Log_In = 
-Login_Authorization_Needed = 
+Login_Authorization_Needed =
+Account_Characters_Return_Back =
+Account_Characters_Not_Found =
+Account_Characters_Management =
+Account_Characters_DropDown =
 
 Realm_Status_Title = 
 Latest_Updates_Title = 

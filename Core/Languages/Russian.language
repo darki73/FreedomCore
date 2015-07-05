@@ -161,6 +161,10 @@ Account_No_Characters = У вас нет персонажей
 Login_Logout = Выйти
 Login_Log_In = Войти
 Login_Authorization_Needed = Вы должны <a href="?login" onclick="return Login.open();">авторизоваться</a> со своей учетной записи, чтобы оставить комментарий.
+Account_Characters_Return_Back = К списку персонажей
+Account_Characters_Not_Found = Персонажей не найдено
+Account_Characters_Management = Управление персонажами
+Account_Characters_DropDown = Настройте выпадающее меню персонажа.
 
 Realm_Status_Title = Статистика Миров
 Latest_Updates_Title = Последние Обновления
@@ -182,6 +186,7 @@ Events_View = Просмотреть события
 Messages_Send = Отправить Сообщение
 Posts = Сообщения
 Articles_Latest = Последние статьи
+
 
 # Footer Localization
 Footer_ToS = Пользовательское соглашение

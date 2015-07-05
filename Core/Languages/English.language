@@ -160,6 +160,10 @@ Account_No_Characters = No characters
 Login_Logout = Logout
 Login_Log_In = Log In
 Login_Authorization_Needed = You need to <a href="?login" onclick="return Login.open();">Log In</a> to be able to post a comment
+Account_Characters_Return_Back =
+Account_Characters_Not_Found =
+Account_Characters_Management =
+Account_Characters_DropDown =
 
 Realm_Status_Title = Realm Status
 Latest_Updates_Title = Latest Updates
