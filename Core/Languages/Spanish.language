@@ -60,6 +60,7 @@ Game_Story =
 Game_Characters = 
 Game_Races = 
 Game_Classes = 
+Game_Classes_Desc = Esta nueva y mejorada guía de clases contiene más información sobre cada una de las clases de World of Warcraft, con una descripción sobre sus habilidades, estilos de juego e historia sobre la faz de Azeroth.
 Game_Races_Desc = 
 
 Game_FAQ_Title = 

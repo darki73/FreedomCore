@@ -60,6 +60,7 @@ Game_Story =
 Game_Characters = 
 Game_Races = 
 Game_Classes = 
+Game_Classes_Desc = 
 Game_Races_Desc = 
 
 Game_FAQ_Title = 

@@ -62,6 +62,7 @@ Game_Story = Die Geschichte der Warcraft
 Game_Characters = Die Charakter der Warcraft
 Game_Races = Völker
 Game_Classes = Klassen
+Game_Classes_Desc = Dies ist der neue und verbesserte Klassenguide zu allen Klassen in World of Warcraft mit einer Beschreibung ihrer Fähigkeiten, Spielstile und Geschichte in der Welt von Azeroth.
 Game_Races_Desc = Azeroth ist die Heimat von dutzenden einzigartigen und faszinierenden Völkern. In diesem Abschnitt erfahrt ihr mehr über den Hintergrund der verschiedenen spielbaren Völker, ihre Heimat sowie vieles mehr.
 
 Game_FAQ_Title = Was ist World of Warcraft
