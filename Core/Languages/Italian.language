@@ -60,6 +60,7 @@ Game_Story = La storia di Warcraft
 Game_Characters = I personaggi di Warcraft
 Game_Races = Razze
 Game_Classes = Classi
+Game_Classes_Desc = La nuova guida alle classi contiene tantissime informazioni sulle classi giocabili di World of Warcraft, con una descrizione delle loro abilità, dei loro stili di gioco e della loro storia nel mondo di Azeroth.
 Game_Races_Desc = Azeroth ospita tantissime razze uniche e interessanti. In questa sezione, potrai scoprire di più sulle razze giocabili, sulle loro terre natali e molto altro ancora.
 
 Game_FAQ_Title = Cos'è World of Warcraft

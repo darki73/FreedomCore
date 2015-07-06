@@ -60,6 +60,7 @@ Game_Story = The Story of Warcraft
 Game_Characters = The Characters of Warcraft
 Game_Races = Races
 Game_Classes = Classes
+Game_Classes_Desc = This new and improved class guide contains more information about each of World of Warcraft’s classes with a description of their abilities, playstyles, and history in the world of Azeroth.
 Game_Races_Desc = Azeroth is home to dozens of unique and interesting races. In this section, you will be able to learn more about the background of the game’s playable races, their homelands, and much more.
 
 Game_FAQ_Title = Beginners Guide
@@ -366,7 +367,7 @@ Character_Status = Status
 Character_Last_Update = Last Update
 
 Character_Stat_Main = 
-Character_Stat_Strength = Strangth
+Character_Stat_Strength = Strength
 Character_Stat_Agility = Agility
 Character_Stat_Intellect  = Intellect
 Character_Stat_Stamina = Stamina
