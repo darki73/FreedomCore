@@ -1,36 +1,49 @@
-Game_Professions_Header_Description = 
-Game_Professions_Alchemy_Description = 
-Game_Professions_Mining_Description = 
-Game_Professions_Engineering_Description = 
-Game_Professions_Leatherworking_Description = 
-Game_Professions_Blacksmithing_Description = 
-Game_Professions_Enchanting_Description = 
-Game_Professions_Inscription_Description = 
-Game_Professions_Tailoring_Description = 
-Game_Professions_Skinning_Description = 
-Game_Professions_Herbalism_Description = 
-Game_Professions_Jewelcrafting_Description = 
-Game_Professions_Archaeology_Description = 
-Game_Professions_Cooking_Description = 
-Game_Professions_First_Aid_Description = 
-Game_Professions_Fishing_Description = 
+Game_Professions_Header_Description = Crafters who set out to master a profession discover skills every bit as valuable as swordplay or spellcraft. They can create weapons, tools and magic potions, bandage wounds, harvest precious materials, inscribe ancient runes of power, and more. Of course, truly canny professionals think bigger than outfitting themselves. When they’re not supplementing their own arsenal, they’ll be making a profit supplementing someone else’s.
+Game_Professions_Alchemy_Description = Los alquimistas usan hierbas para crear brebajes extraños y mágicos que sanan, confieren poderes y producen efectos positivos como invisibilidad, resistencia elemental, restaurar maná y muchos más.
+Game_Professions_Mining_Description = Los mineros buscan valiosas y útiles menas y las extraen directamente de la tierra con sus picos.
+Game_Professions_Engineering_Description = Los ingenieros aprovechan su creatividad para fabricar una inmensa (y a veces aleatoria) variedad de objetos útiles.
+Game_Professions_Leatherworking_Description = Los peleteros recogen los pellejos duros, espinosos o recios de las bestias de todas partes y los transforman en productos útiles.
+Game_Professions_Blacksmithing_Description = Los herboristas recogen con gran cuidado las útiles y potentes hierbas que van encontrando por el mundo.
+Game_Professions_Enchanting_Description = Los encantadores desencantan los objetos mágicos que sobran y utilizan el residuo resultante para aumentar permanentemente el equipo de su elección.
+Game_Professions_Inscription_Description = Los escribas tejen palabras de poder en glifos que pueden mejorar las habilidades y facultades de los héroes, y añadir efectos especiales que no se pueden conseguir por medios normales.
+Game_Professions_Tailoring_Description = Los sastres pueden tejer maravillas a partir de una tela sencilla.
+Game_Professions_Skinning_Description = Los desolladores suelen recoger los pellejos de los animales muertos y amasan pilas de piel y cuero para asegurarse de que no se desperdicia nada.
+Game_Professions_Herbalism_Description = Los herboristas recogen con gran cuidado las útiles y potentes hierbas que van encontrando por el mundo.
+Game_Professions_Jewelcrafting_Description = Los joyeros explotan los sorprendentes poderes de las piedras preciosas y crean poderosas joyas y abalorios.
+Game_Professions_Archaeology_Description = Los arqueólogos recorren el mundo e, incluso, lugares más lejanos, en busca de misteriosos restos del pasado.
+Game_Professions_Cooking_Description = Los cocineros experimentan con recetas extrañas y maravillosas recogidas en todos los rincones de Azeroth.
+Game_Professions_First_Aid_Description = En el peligroso mundo de Azeroth, los médicos salvan vidas con vendas y antídotos que sanan heridas y eliminan venenos.
+Game_Professions_Fishing_Description = Los pescadores se relajan y se alimentan recogiendo las riquezas de los lagos y mares de Azeroth.
 
-Game_Professions_Alchemy_Description_Full = 
-Game_Professions_Mining_Description_Full = 
-Game_Professions_Engineering_Description_Full = 
-Game_Professions_Leatherworking_Description_Full = 
-Game_Professions_Blacksmithing_Description_Full = 
-Game_Professions_Enchanting_Description_Full = 
-Game_Professions_Inscription_Description_Full = 
-Game_Professions_Tailoring_Description_Full = 
-Game_Professions_Skinning_Description_Full = 
-Game_Professions_Herbalism_Description_Full = 
-Game_Professions_Jewelcrafting_Description_Full = 
-Game_Professions_Archaeology_Description_Full = 
-Game_Professions_Cooking_Description_Full = 
-Game_Professions_First_Aid_Description_Full = 
-Game_Professions_Fishing_Description_Full = 
+Game_Professions_Alchemy_Description_Full = Los alquimistas usan hierbas para crear brebajes extraños y mágicos que sanan, confieren poderes y producen efectos positivos como invisibilidad, resistencia elemental, restaurar maná y muchos más. También pueden transmutar materiales místicos en formas nuevas poco comunes y exóticas. Gracias a su poder para crear consumibles valiosos (objetos de un solo uso), los alquimistas son una adquisición muy útil para grupos y bandas. Al crear materiales poco comunes, los alquimistas pueden amasar una buena fortuna, facilitar la creación de poderosas armas y armaduras e, incluso, ¡influir en la economía de Azeroth! 
 
-Game_Professions_Primary = 
-Game_Professions_Secondary = 
+Game_Professions_Mining_Description_Full = Los mineros buscan valiosas y útiles menas y las extraen directamente de la tierra con sus picos. Su conocimiento de la tierra les otorga una fuerte intuición sobre dónde encontrar las vetas más ricas de oro, plata o incluso de otros metales preciosos, que extraen y funden para ganar oro o para utilizarlas en trabajos de metalurgia de todo tipo. 
+
+Game_Professions_Engineering_Description_Full = Los ingenieros aprovechan su creatividad para fabricar una inmensa (y a veces aleatoria) variedad de objetos útiles. Trasteando sin descanso y lidiando con fallos continuos, un ingeniero puede crear objetos totalmente únicos: potenciadores de vista, armas potentes, mascotas robots, monturas mecánicas e incluso abalorios de lo más inusual. Los ingenieros más hábiles utilizan sus inventos para resolver problemas y hacer que sus vidas y las de sus compañeros sean más fáciles, dinámicas y mejores. 
+
+Game_Professions_Leatherworking_Description_Full = Los peleteros recogen los pellejos duros, espinosos o recios de las bestias de todas partes y los transforman en productos útiles. Entre estas creaciones, lo primero son las armaduras más ligeras, de cuero o malla, junto con las capas, las bolsas, y parches y costuras que aumentan los valores defensivos de las armaduras. El arte de la peletería es útil para aquellos que quieren equipar a los demás y a sí mismos con armaduras adecuadas, así como para aquellos que quieren obtener beneficios vendiendo sus creaciones poco comunes.
+
+Game_Professions_Blacksmithing_Description_Full = Los herreros utilizan su pericia con el martillo y el yunque para crear armas mortales, pesados trajes de malla, armaduras de placas y más objetos especializados. Los herreros con verdadero talento también pueden modificar su propio equipo añadiendo ranuras para gemas mágicas. El equipamiento que fabrican permite a los herreros equipar a los miembros del grupo o de la hermandad y a sí mismos (sobre todo a aquellos que llevan armaduras pesadas), y vender sus productos en la casa de subastas. 
+
+Game_Professions_Enchanting_Description_Full = Los encantadores desencantan los objetos mágicos que sobran y utilizan el residuo resultante para aumentar permanentemente el equipo de su elección. Con los encantamientos y materiales adecuados, un encantador puede añadir bonus a sus armaduras o armas y hacerlas más fuertes, rápidas o resistentes (entre una gran variedad de otros poderes místicos). Los encantadores astutos venden sus servicios especiales a otros héroes y suelen imponer unos precios desorbitados debido a la peculiaridad del trabajo que realizan. 
+
+Game_Professions_Inscription_Description_Full = Los escribas tejen palabras de poder en glifos que pueden mejorar las habilidades y facultades de los héroes, y añadir efectos especiales que no se pueden conseguir por medios normales. Al transferir sus poderes a la tinta, los escribas también pueden crear pergaminos consumibles, escritos místicos y pedazos de vitela que les permiten transmitir sus encantamientos a otras personas. Al igual que encantamiento, inscripción puede ayudar a los aventureros veteranos a mejorar aún más, pero se centra en aumentar los poderes de la clase, no del equipo. 
+
+Game_Professions_Tailoring_Description_Full = Los sastres pueden tejer maravillas a partir de una tela sencilla. Las armaduras de tela, túnicas, camisas, bolsas y otros productos son ámbito del sastre. Los beneficios son diversos: las clases que llevan armaduras ligeras pueden vestir túnicas místicas, todo tipo de héroes pueden disfrutar de una gran variedad de bolsas, y todo el mundo sabrá apreciar las camisas y prendas decorativas que surgen del telar del sastre. 
+
+Game_Professions_Skinning_Description_Full = Los desolladores suelen recoger los pellejos de los animales muertos y amasan pilas de piel y cuero para asegurarse de que no se desperdicia nada. Desuello es una profesión adecuada y conveniente para aquellos que ya se dedican a cazar animales, aunque siempre resulta útil. Los cueros exóticos (como la piel de dragón) pueden alcanzar precios muy altos y son vitales para los patrones de peletería, así como para las recetas de otras profesiones. 
+Game_Professions_Herbalism_Description_Full = Los herboristas recogen con gran cuidado las útiles y potentes hierbas que van encontrando por el mundo. A medida que viajan, los herboristas utilizan sus agudos sentidos para encontrar la flora más preciada y poco común, necesarias para sus propias recetas y las de otras profesiones. También pueden producir grandes cantidades de componentes que tanto ellos mismos como otros miembros de la hermandad o del grupo necesitarán para desarrollar sus profesiones. O pueden obtener oro vendiendo dichos componentes o comerciando con fardos de hierbas. 
+
+Game_Professions_Jewelcrafting_Description_Full = Los joyeros explotan los sorprendentes poderes de las piedras preciosas y crean poderosas joyas y abalorios. Pueden fabricar anillos, amuletos y otros objetos de conocido poder místico, pero también tallan gemas para que encajen en objetos con ranuras como armas y piezas de armadura, lo que permite que esas piezas de equipo adquieran propiedades únicas. Un joyero con talento puede estar seguro de que sus servicios serán muy demandados para crear objetos especiales, mejorar equipo o tallar gemas poco comunes. 
+
+Game_Professions_Archaeology_Description_Full = Los arqueólogos recorren el mundo e, incluso, lugares más lejanos, en busca de misteriosos restos del pasado. Sus excavaciones descubren todo tipo de artefactos y un arqueólogo persistente investigará desde objetos históricos comunes hasta misteriosas artefactos de enorme rareza. 
+
+Game_Professions_Cooking_Description_Full = Los cocineros experimentan con recetas extrañas y maravillosas recogidas en todos los rincones de Azeroth. Un chef entregado es capaz de convertir los ingredientes más mundanos, peces recién pescados o restos de carne animal en comidas exquisitas y nutritivas. Los cocineros más ambiciosos incluso pueden crear festines enormes para saciar el hambre de grupos enteros de aventureros. La comida que se hace con cocina acelera la recuperación de salud y algunas comidas otorgan beneficios de larga duración a héroes que tengan el estómago lleno. 
+
+Game_Professions_First_Aid_Description_Full = En el peligroso mundo de Azeroth, los médicos salvan vidas con vendas y antídotos que sanan heridas y eliminan venenos. Al transformar tela de diversa calidad en potentes suministros médicos, pueden conseguir que los héroes heridos vuelvan a la batalla rápidamente y sirven como complemento (pero no sustituto) de los medios mágicos de sanación. 
+
+Game_Professions_Fishing_Description_Full = Los pescadores se relajan y se alimentan recogiendo las riquezas de los lagos y mares de Azeroth. Una cuidadosa selección del cebo y una dosis de paciencia pueden dar como resultado capturas verdaderamente gratificantes: desde delicias marineras que restauran la salud del héroe o mejoran sus atributos, hasta restos flotantes empapados como cajas y cofres. ¡Con la pesca incluso se pueden conseguir componentes poco comunes y objetos perdidos en el fondo del océano o tragados por criaturas marinas! 
+
+Game_Professions_Primary = Primaria
+Game_Professions_Secondary = Secundaria
 Game_Professions_ =
