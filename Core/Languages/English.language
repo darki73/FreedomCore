@@ -165,6 +165,7 @@ Account_Characters_Return_Back =
 Account_Characters_Not_Found =
 Account_Characters_Management =
 Account_Characters_DropDown =
+Account_Authorization_Required =
 
 Realm_Status_Title = Realm Status
 Latest_Updates_Title = Latest Updates

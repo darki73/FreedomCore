@@ -158,7 +158,7 @@
                         <a href="/account/login" class="card-character plate-logged-out">
                             <span class="card-portrait"></span>
                             <span class="wow-login-key"></span>
-                            <span class="login-msg"><strong>Авторизуйтесь</strong>, и перед вами будет еще больше возможностей!</span>
+                            <span class="login-msg">{#Account_Authorization_Required#}</span>
                         </a>
                     </div>
                 {else}

@@ -166,6 +166,7 @@ Account_Characters_Return_Back = К списку персонажей
 Account_Characters_Not_Found = Персонажей не найдено
 Account_Characters_Management = Управление персонажами
 Account_Characters_DropDown = Настройте выпадающее меню персонажа.
+Account_Authorization_Required = <strong>Авторизуйтесь</strong>, и перед вами будет еще больше возможностей!
 
 Realm_Status_Title = Статистика Миров
 Latest_Updates_Title = Последние Обновления
