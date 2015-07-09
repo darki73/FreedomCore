@@ -59,7 +59,7 @@ Class Forums
             FROM
                 '.$FCCore['Database']['database'].'.forum_topics ft, '.$FCCore['Database']['database'].'.users u, '.$FCCore['Database']['database'].'.forum_comments fc, characters c
             WHERE
-                    u.username = ft.posted_by
+                    c.name = ft.posted_by
                 AND
                     c.guid = u.pinned_character
                 AND
@@ -108,6 +108,7 @@ Class Forums
             $Result[$ArrayIndex]['forum_name'] = Forums::$TM->GetConfigVars($Topic['forum_name']);
             $ArrayIndex++;
         }
+        $ArrayIndex = 0;
         $TopicData = array(
             'type' => array(
                 'id' => $Result[0]['forum_type'],
@@ -123,6 +124,19 @@ Class Forums
             ),
             'replies' => array()
         );
+        foreach($Result as $Reply)
+        {
+            $CharacterData = Characters::GetShortProfileInfo($Reply['posted_by']);
+            $Result[$ArrayIndex]['class'] = $CharacterData['class'];
+            $Result[$ArrayIndex]['race'] = $CharacterData['race'];
+            $Result[$ArrayIndex]['class_name'] = $CharacterData['class_name'];
+            $Result[$ArrayIndex]['race_name'] = $CharacterData['race_name'];
+            $Result[$ArrayIndex]['gender'] = $CharacterData['gender'];
+            $Result[$ArrayIndex]['level'] = $CharacterData['level'];
+            $Result[$ArrayIndex]['apoints'] = $CharacterData['apoints'];
+            $Result[$ArrayIndex]['post_message'] = Forums::ParseBBCode($Reply['post_message']);
+            $ArrayIndex++;
+        }
         $TopicData['replies'] = String::MassUnset($Result, array('forum_type', 'forum_type_name', 'forum_id', 'forum_name', 'topic', 'topic_id'));
 
         return $TopicData;
@@ -138,7 +152,7 @@ Class Forums
             FROM
                 '.$FCCore['Database']['database'].'.forum_comments fc, '.$FCCore['Database']['database'].'.users u, characters c
             WHERE
-                    u.username = fc.posted_by
+                    c.name = fc.posted_by
                 AND
                     c.guid = u.pinned_character
                 AND
@@ -179,6 +193,63 @@ Class Forums
         );
 
         return $ForumTypes[$ForumType];
+    }
+
+    public static function CreateTopic($ForumID, $PostedBy, $Topic, $Message)
+    {
+        $PostTime = time();
+        $TopicID = Forums::AddTopic($ForumID, $PostedBy, $Topic, 0, $PostTime);
+        Forums::AddTopicComment($ForumID, $TopicID, 1, $PostedBy, $PostTime, nl2br($Message));
+        return $TopicID;
+    }
+
+    private static function AddTopic($ForumID, $PostedBy, $Topic, $Views, $PostTime)
+    {
+        $Statement = Forums::$DBConnection->prepare('INSERT INTO forum_topics (forum_id, posted_by, topic, views, post_time) VALUES (:forumid, :postedby, :topic, :views, :posttime)');
+        $Statement->bindParam(':forumid', $ForumID);
+        $Statement->bindParam(':postedby', $PostedBy);
+        $Statement->bindParam(':views', $Views);
+        $Statement->bindParam(':topic', $Topic);
+        $Statement->bindParam(':posttime', $PostTime);
+        $Statement->execute();
+        $TopicID = Forums::$DBConnection->lastInsertId();
+        return $TopicID;
+    }
+
+    private static function AddTopicComment($ForumID, $TopicID, $PostID, $PostedBy, $PostTime, $PostMessage)
+    {
+        if(strstr($PostMessage, '[img]') || strstr($PostMessage, '<img>'))
+            $PostMessage = str_replace('[img]', '', str_replace('[/img]', '', str_replace('<img>', '', str_replace('</img>', '', $PostMessage))));
+        $Statement = Forums::$DBConnection->prepare('INSERT INTO forum_comments (forum_id, topic_id, post_id, posted_by, post_time, post_message) VALUES (:fid, :tid, :pid, :pby, :ptime, :pmessage)');
+        $Statement->bindParam(':fid', $ForumID);
+        $Statement->bindParam(':tid', $TopicID);
+        $Statement->bindParam(':pid', $PostID);
+        $Statement->bindParam(':pby', $PostedBy);
+        $Statement->bindParam(':ptime', $PostTime);
+        $Statement->bindParam(':pmessage', $PostMessage);
+        $Statement->execute();
+    }
+
+    public static function QuotePost($Forum, $Topic, $Post)
+    {
+        $Statement = Forums::$DBConnection->prepare('SELECT posted_by, post_message FROM forum_comments WHERE forum_id = :fid AND topic_id= :tid AND post_id = :pid');
+        $Statement->bindParam(':fid', $Forum);
+        $Statement->bindParam(':tid', $Topic);
+        $Statement->bindParam(':pid', $Post);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        $JsonResponse = json_encode(
+            array(
+                'poster' => $Result['posted_by'],
+                'detail' => $Result['post_message']
+            )
+        );
+        return $JsonResponse;
+    }
+
+    private static function ParseBBCode($Message)
+    {
+        return str_replace('[', '<', str_replace(']', '>', $Message));
     }
 }
 

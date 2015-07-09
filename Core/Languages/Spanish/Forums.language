@@ -14,6 +14,9 @@ Forum_No_Topics_Found =
 Forum_Make_It_Sticky =
 Forum_Make_It_Sticky_Full =
 Forum_Reply =
+Forum_Preview =
+Forum_Edit_Topic =
+
 
 Forum_Category_Support_Name = Asistencia
 Forum_Category_Support_Support_Title = Asistencia al cliente
@@ -68,7 +71,7 @@ Forum_Category_Classes_DK_Title = Caballero de la muerte
 Forum_Category_Classes_Warlock_Title = Brujo
 Forum_Category_Classes_Shaman_Title = Chamán
 
-
+Forum_Create_New_Topic =
 
 Forum_Category_Name =
 Forum_Category__Title =

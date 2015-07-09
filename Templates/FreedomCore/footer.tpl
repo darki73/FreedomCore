@@ -109,12 +109,7 @@
 
 	</div>
 </div>
-    <script>
-        //<![CDATA[
-        var xsToken = '625ea365-1f2f-418d-bdab-6eff64de74bb';
-        var jsonSearchHandlerUrl = '//{$smarty.server.HTTP_HOST}';
-        //]]>
-    </script>
+	{include file = 'parts/MSG_Javascript.tpl'}
     <script type="text/javascript" src="/Templates/{$Template}/js/menu.js"></script>
     {if $Page.type == 'blog' || $Page.type == 'community' || $Page.type == 'search' || $Page.bodycss == 'item-index' || $Page.type == 'profession'}
         <script type="text/javascript" src="/Templates/{$Template}/js/wow.js"></script>

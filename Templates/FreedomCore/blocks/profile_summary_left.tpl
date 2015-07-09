@@ -249,7 +249,7 @@
         </div>
 
         {include file="parts/Character_Summary_Stats.tpl"}
-        {include file="parts/Msg_{$Language}.tpl"}
+        {include file="parts/Msg_Summary.tpl"}
 
     </div>
 </div>

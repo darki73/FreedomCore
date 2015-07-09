@@ -44,6 +44,7 @@ Class Characters
                 $Result[$Index]['race_name'] = Characters::GetRaceByID($Character['race'])['translation'];
                 $Result[$Index]['class_name'] = Characters::GetClassByID($Character['class'])['translation'];
                 $Result[$Index]['side'] = Characters::GetSideByRaceID($Character['race'])['name'];
+                $Result[$Index]['apoints'] = Characters::GetAchievementPoints($Character['guid'])['points'];
                 $Index++;
             }
             return $Result;
@@ -73,6 +74,19 @@ Class Characters
                 return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
             elseif($HasMail && $IsOnline)
                 return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
+    }
+
+    public static function GetShortProfileInfo($Character)
+    {
+        $Statement = Characters::$CharConnection->prepare('SELECT guid, class, race, gender, level FROM characters WHERE name = :name');
+        $Statement->bindParam(':name', $Character);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        $Result['class_name'] = Characters::GetClassByID($Result['class'])['translation'];
+        $Result['race_name'] = Characters::GetRaceByID($Result['race'])['translation'];
+        $Result['apoints'] = Characters::GetAchievementPoints($Result['guid'])['points'];
+
+        return $Result;
     }
 
     private static function VerificationTranslation($Reason)
@@ -412,7 +426,7 @@ Class Characters
         Characters::$CharacterClass = $Result['class'];
         return $Result;
     }
-
+    
     private static function GetHasteRatingByLevel($Level)
     {
         if($Level >= 90 && $Level < 100)

@@ -1641,10 +1641,36 @@ switch($_REQUEST['category'])
                         $Smarty->display('pages/forums_list_topics');
                     }
                     else
-                        if(String::Match($_REQUEST['lastcategory'], 'topic'))
-                            echo "Создаем топик!";
+                        if(String::IsNull($_REQUEST['datatype']))
+                        {
+                            if(String::Match($_REQUEST['lastcategory'], 'topic'))
+                            {
+                                $Topics = Forums::GetTopics($_REQUEST['subcategory']);
+                                if(String::Match($Topics['topics'][0]['id'], ''))
+                                    $Topics['topics'] = array();
+                                $Smarty->assign('CSRFToken', Session::GenerateCSRFToken());
+                                $Smarty->assign('Forum', $Topics);
+                                $Smarty->assign('Page', Page::Info('forum', array('bodycss' => 'forums view-topic create-topic logged-in', 'pagetitle' => $Smarty->GetConfigVars('Forum_Create_New_Topic').' - '.$Smarty->GetConfigVars('Forum_Page_Title').' - ')));
+                                $Smarty->display('forum/create_topic');
+                            }
+                            else
+                                Page::GenerateErrorPage($Smarty, 404);
+                        }
                         else
-                            Page::GenerateErrorPage($Smarty, 404);
+                        {
+                            if(String::Match($_REQUEST['datatype'], 'post'))
+                            {
+                                if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
+                                {
+                                   $TopicID = Forums::CreateTopic($_REQUEST['subcategory'], $SelectedCharacterForComments['name'], $_REQUEST['subject'], $_REQUEST['postCommand_detail']);
+                                    header('Location: /forum/topic/'.$TopicID);
+                                }
+                                else
+                                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                            }
+                            else
+                                Page::GenerateErrorPage($Smarty, 404);
+                        }
                 }
                 else
                     Page::GenerateErrorPage($Smarty, 404);
@@ -1652,11 +1678,38 @@ switch($_REQUEST['category'])
             else
                 if(String::Match($_REQUEST['subcategory'], 'topic'))
                 {
-                    $TopicData = Forums::GetTopicData($_REQUEST['lastcategory']);
-                    $Smarty->assign('TopicData', $TopicData);
-                    $Smarty->assign('Page', Page::Info('forum', array('bodycss' => 'forums view-topic logged-in', 'pagetitle' => $TopicData['topic']['name'].' - ')));
-                    $Smarty->display('pages/forums_view_topic');
+                    if(String::IsNull($_REQUEST['datatype']))
+                    {
+                        $TopicData = Forums::GetTopicData($_REQUEST['lastcategory']);
+                        Forums::UpdateTopicViews($TopicData['category']['id'], $TopicData['topic']['id']);
+                        $Smarty->assign('CSRFToken', Session::GenerateCSRFToken());
+                        $Smarty->assign('TopicData', $TopicData);
+                        $Smarty->assign('Page', Page::Info('forum', array('bodycss' => 'forums view-topic logged-in', 'pagetitle' => $TopicData['topic']['name'].' - ')));
+                        $Smarty->display('pages/forums_view_topic');
+                    }
+                    else
+                    {
+                        switch($_REQUEST['datatype'])
+                        {
+                            case 'post':
+                                if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
+                                {
+                                    String::Request();
+                                }
+                                break;
+
+                            case 'up':
+                                    String::Request();
+                                break;
+
+                            case 'report':
+                                    String::Request();
+                                break;
+                        }
+                    }
                 }
+                elseif(String::Match($_REQUEST['subcategory'], 'quote'))
+                    echo Forums::QuotePost($_REQUEST['forumID'], $_REQUEST['topicID'], $_REQUEST['postID']);
                 else
                     Page::GenerateErrorPage($Smarty, 404);
         }

@@ -6,7 +6,7 @@ Class Security
     public function __construct()
     {
         Security::HideServerIdentity();
-        Security::NotifyByHost(true);
+        //Security::NotifyByHost(true);
     }
 
     public static function HideServerIdentity()
