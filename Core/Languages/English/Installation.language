@@ -1,0 +1,27 @@
+Installation_Main = Home
+Installation_SysReq = Requirements
+Installation_SysReq_Desc = For the stable operation we recommend using the following software versions
+Installation_SoftInstalled = Installs
+Installation_Allowed = All components have been tested, you can proceed with the installation!
+Installation_Allowed_Desc = To complete the installation, complete the following fields
+Installation_Installation = Installed Version
+Installation_Check_Failed = One component failed check
+Installation_Check_Failed_Desc = To continue, you must upgrade the component to the required version
+
+Installation_MySQL_Settings = MySQL Options
+Installation_MySQL_Host = Host
+Installation_MySQL_DB = Database Name
+Installation_MySQL_User = User
+Installation_MySQL_Password = Password
+Installation_MySQL_Encoding = Encoding
+
+Installation_Perform_Not_Checking = We will not check the correctness of the entered data, check them out again!
+Installation_Perform_Installation = Install!
+
+Installation_Manager = Installation Manager
+Installation_WorksOnAllDevices = Works on all devices
+Installation_WorksOnAllDevices_Description = Our CMS works on all devices! <br /> Whether it is an iPhone, iPad, Android, PC or Mac,your users will be able to fully enjoy their stay on your site
+Installation_Optimization_Header = High level optimization
+Installation_Optimization_Description = Regardless of the Internet, your users will be able to fully assess system performance
+Installation_OS_Header = Doesn't matter, Linux / Windows or Mac
+Installation_OS_Description = Our CMS can work on all types of OS! <br /> It does not matter if the web server installed on Linix / Windows or Mac

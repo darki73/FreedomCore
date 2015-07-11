@@ -1,0 +1,27 @@
+Installation_Main = 
+Installation_SysReq = 
+Installation_SysReq_Desc = 
+Installation_SoftInstalled = 
+Installation_Allowed = 
+Installation_Allowed_Desc = 
+Installation_Installation = 
+Installation_Check_Failed = 
+Installation_Check_Failed_Desc = 
+
+Installation_MySQL_Settings = 
+Installation_MySQL_Host = 
+Installation_MySQL_DB = 
+Installation_MySQL_User = 
+Installation_MySQL_Password = 
+Installation_MySQL_Encoding = 
+
+Installation_Perform_Not_Checking = 
+Installation_Perform_Installation = 
+
+Installation_Manager = 
+Installation_WorksOnAllDevices = 
+Installation_WorksOnAllDevices_Description = 
+Installation_Optimization_Header = 
+Installation_Optimization_Description = 
+Installation_OS_Header = 
+Installation_OS_Description = 
