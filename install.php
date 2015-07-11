@@ -70,11 +70,11 @@ switch($_REQUEST['category'])
         if(File::Exists($ConfigFolder))
         {
             unlink($ConfigFolder);
-            file_put_contents($ConfigFolder, $ConfigurationFile);
+            //file_put_contents($ConfigFolder, $ConfigurationFile);
         }
         else
         {
-            file_put_contents($ConfigFolder, $ConfigurationFile);
+            //file_put_contents($ConfigFolder, $ConfigurationFile);
         }
         echo '1';
     break;
@@ -88,7 +88,10 @@ switch($_REQUEST['category'])
         preg_match('/[1-9].[0-9].[1-9][0-9]/', $info, $match);
         $MySQLVersion = $match[0];
         $ApacheVersion = str_replace(' ', '', str_replace('Apache/', '', strstr(apache_get_version(), '(', true)));
-        $PHPVersion = strstr(phpversion(), '-', true);
+        if (strpos(phpversion(),'-') !== false)
+            $PHPVersion = strstr(phpversion(), '-', true);
+        else
+            $PHPVersion = phpversion();
 
         if(str_replace('.', '', $MySQLVersion) >= 5011)
             $MySQLCheck = true;
