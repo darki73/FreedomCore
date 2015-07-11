@@ -2,6 +2,7 @@ Options -Indexes
 Options +FollowSymLinks
 ServerSignature Off
 RewriteEngine On
+AddDefaultCharset utf-8
 
 
 RewriteRule ^(account)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
@@ -28,6 +29,7 @@ RewriteRule ^(zone)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?categor
 RewriteRule ^(npc)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(api)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /api.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(forum)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
+RewriteRule ^(install)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /install.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 
 <IfModule mod_headers.c>
    Header always append X-Frame-Options SAMEORIGIN

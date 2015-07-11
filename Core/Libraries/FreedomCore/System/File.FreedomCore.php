@@ -75,6 +75,24 @@ Class File
         return $FilesArray;
     }
 
+    public static function GetDirectoryContent($Directory)
+    {
+        $Iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($Directory));
+        $FilesArray = array();
+        while($Iterator->valid())
+        {
+            if (!$Iterator->isDot())
+            {
+                $FilesArray[] = array(
+                    'FileLink' => $Iterator->key(),
+                    'FileName' => $Iterator->getSubPathName()
+                );
+            }
+            $Iterator->next();
+        }
+        return $FilesArray;
+    }
+
     public static function ReadFileToArray($FileName, $ExplodeBy)
     {
         $File = file($FileName, FILE_IGNORE_NEW_LINES);
