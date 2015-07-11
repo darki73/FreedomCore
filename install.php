@@ -88,13 +88,14 @@ switch($_REQUEST['category'])
         preg_match('/[1-9].[0-9].[1-9][0-9]/', $info, $match);
         $MySQLVersion = $match[0];
         $ApacheVersion = str_replace(' ', '', str_replace('Apache/', '', strstr(apache_get_version(), '(', true)));
+        $PHPVersion = strstr(phpversion(), '-', true);
 
         if(str_replace('.', '', $MySQLVersion) >= 5011)
             $MySQLCheck = true;
         else
             $MySQLCheck = false;
 
-        if(substr(str_replace('.', '', phpversion()), 0, 2) >= 55)
+        if(substr(str_replace('.', '', $PHPVersion), 0, 2) >= 54)
             $PHPCheck = true;
         else
             $PHPCheck = false;
@@ -102,7 +103,7 @@ switch($_REQUEST['category'])
         if(substr(str_replace('.', '', $ApacheVersion), 0, 2) > 22)
             $ApacheCheck = true;
         elseif(substr(str_replace('.', '', $ApacheVersion), 0, 2) == 22)
-            if(substr(str_replace('.', '', $ApacheVersion), 0, 4) == 2214)
+            if(substr(str_replace('.', '', $ApacheVersion), 0, 4) >= 2214)
                 $ApacheCheck = true;
             else
                 $ApacheCheck = false;
@@ -116,7 +117,7 @@ switch($_REQUEST['category'])
 
         $InstalledSoftware = array(
             'php' => array(
-                'version' => 'PHP '.phpversion(),
+                'version' => 'PHP '.$PHPVersion,
                 'verified' => $PHPCheck
             ),
             'apache' => array(

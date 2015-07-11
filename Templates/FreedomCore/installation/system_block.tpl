@@ -29,7 +29,7 @@
                             <img class="img-circle" src="/Templates/{$Template}/images/installation/incorrect.png">
                         {/if}
                     </div>
-                    <h3>PHP 5.5.1</h3>
+                    <h3>PHP 5.4.x</h3>
                     <p>{#Installation_SoftInstalled#}<br />{$Software.php.version}</p>
                 </div>
             </div>
