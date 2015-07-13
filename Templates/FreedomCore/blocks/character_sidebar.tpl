@@ -55,6 +55,15 @@
         </span>
     </a>
 </li>
+<li {if $SelectedCategory == 'pvp'}class=" active"{/if}>
+    <a href="/character/{$Character.name}/pvp" class="" rel="np">
+        <span class="arrow">
+            <span class="icon">
+                PvP
+            </span>
+        </span>
+    </a>
+</li>
 <li>
     <a href="/guild/{$Character.guild_name}/?character={$Character.name}" class=" has-submenu" rel="np">
         <span class="arrow">

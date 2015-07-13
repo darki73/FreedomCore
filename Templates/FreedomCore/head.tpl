@@ -87,6 +87,11 @@
         </style>
 
     {/if}
+    {if $Page.type == 'community' && $Page.bodycss == 'character-pvp'}
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/profile.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/arena/arena.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/arena/pvp.css" />
+    {/if}
     {if $Page.bodycss == 'achievement_page'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/profile.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/character/achievement.css" />

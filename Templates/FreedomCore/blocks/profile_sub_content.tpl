@@ -33,7 +33,15 @@
                 {foreach $ArenaRating as $Rating}
                     <li class="rating">
                         <span class="value">{$Rating.personalRating}</span>
-                        <span class="name">{if $Rating.type == 2}2v2 arena Rating{elseif $Rating.type == 3}3v3 arena Rating{else}5v5 arena Rating{/if}</span>
+                        <span class="name">
+                            {if $Rating.type == 2}
+                                2v2 arena Rating
+                            {elseif $Rating.type == 3}
+                                3v3 arena Rating
+                            {else}
+                                5v5 arena Rating
+                            {/if}
+                        </span>
                     </li>
                 {/foreach}
             </ul>

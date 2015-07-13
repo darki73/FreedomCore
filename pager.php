@@ -1599,6 +1599,11 @@ switch($_REQUEST['category'])
         }
     break;
 
+    case 'pvp':
+        $Smarty->assign('Page', Page::Info('community', array('bodycss' => 'character-pvp', 'pagetitle' => 'PvP - '.$Smarty->GetConfigVars('Menu_Community').' - ')));
+        $Smarty->display('pages/character_pvp');
+    break;
+
     case 'npc':
         if(String::IsNull($_REQUEST['subcategory']))
             Page::GenerateErrorPage($Smarty, 404);
