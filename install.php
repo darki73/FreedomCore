@@ -111,7 +111,7 @@ switch($_REQUEST['category'])
             else
                 $ApacheCheck = false;
         else
-            $ApacheCheck = false;
+            $ApacheCheck = true;
 
         if($PHPCheck && $MySQLCheck && $ApacheCheck)
             $AllowInstallation = true;
@@ -124,7 +124,7 @@ switch($_REQUEST['category'])
                 'verified' => $PHPCheck
             ),
             'apache' => array(
-                'version' => 'Apahce '.$ApacheVersion,
+                'version' => 'Apache '.$ApacheVersion,
                 'verified' => $ApacheCheck
             ),
             'mysql' => array(
@@ -134,8 +134,7 @@ switch($_REQUEST['category'])
             'allow' => $AllowInstallation
         );
 
-        //String::PrettyPrint(File::GetDirectoryContent(getcwd().DS.'sql'.DS.'base'));
-        $Smarty->assign('FilesToImport', File::GetDirectoryContent(getcwd().DS.'sql'.DS.'base'));
+        $Smarty->assign('FilesToImport', File::GetDirectoryContent(getcwd().DS.'sql'.DS.'base', 'sql'));
         $Smarty->assign('Software', $InstalledSoftware);
         $Smarty->display('installation/main');
         break;

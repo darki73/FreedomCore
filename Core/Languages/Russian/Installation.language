@@ -28,3 +28,5 @@ Installation_OS_Description = Наша CMS может работать на вс
 
 Installation_FilesToImport_Header = Следующие файлы будут импортированы в базу
 Installation_FileToImport_Desc = Для работы сайта, нам необходимо импортировать следующие файлы в базу Website
+Installation_Attention = Внимание!
+Installation_Manual_Import = Ввиду большого размера вспомогательной базы, вам придется импортировать ее вручную.<br /> Для этого перейдите в папку <strong>sql/base</strong> и импортируйте содержимое файла freedomcore.7z в базу Website

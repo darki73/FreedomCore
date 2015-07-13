@@ -85,7 +85,13 @@
                     </div>
                 {/if}
             {/foreach}
-
+        </div>
+    </div>
+    <div class="container">
+        <div class=" title"></div>
+        <div class=" title">
+            <h1>{#Installation_Attention#}</h1>
+            <p>{#Installation_Manual_Import#}</p>
         </div>
     </div>
 </div>

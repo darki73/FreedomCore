@@ -75,7 +75,7 @@ Class File
         return $FilesArray;
     }
 
-    public static function GetDirectoryContent($Directory)
+    public static function GetDirectoryContent($Directory, $SearchForFormat = null)
     {
         $Iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($Directory));
         $FilesArray = array();
@@ -83,10 +83,21 @@ Class File
         {
             if (!$Iterator->isDot())
             {
-                $FilesArray[] = array(
-                    'FileLink' => $Iterator->key(),
-                    'FileName' => $Iterator->getSubPathName()
-                );
+                if($SearchForFormat != null)
+                {
+                    $Exploded = explode('.', $Iterator->getSubPathName());
+
+                    if($Exploded[1] == $SearchForFormat)
+                        $FilesArray[] = array(
+                            'FileLink' => $Iterator->key(),
+                            'FileName' => $Iterator->getSubPathName()
+                        );
+                }
+                else
+                    $FilesArray[] = array(
+                        'FileLink' => $Iterator->key(),
+                        'FileName' => $Iterator->getSubPathName()
+                    );
             }
             $Iterator->next();
         }
