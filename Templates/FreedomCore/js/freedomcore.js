@@ -60,6 +60,30 @@ function makeErrorBox(errorMsgs) {
     return errorHtml;
 }
 
+var Installation = {
+
+    configcreate: function()
+    {
+        var DatabaseData = $('#database_settings').serialize();
+        $.ajax({
+            type: 'POST',
+            url: '/install?category=createconfig',
+            data: DatabaseData,
+            cache: false,
+            success: function(data){
+                if(data == 1)
+                {
+                    document.getElementById('filestoimport').style.display = 'block';
+                    $('#filestoimport')[0].scrollIntoView(true);
+                }
+                else
+                    alert('Unhandled error occured!');
+            }
+        });
+        return false;
+    }
+}
+
 var Localization = {
 
     update: function(Language, File)

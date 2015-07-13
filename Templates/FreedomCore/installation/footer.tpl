@@ -24,5 +24,6 @@
     <script src="/Templates/{$Template}/js/installation/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" src="/Templates/{$Template}/js/installation/app.js"></script>
+    <script type="text/javascript" src="/Templates/{$Template}/js/freedomcore.js"></script>
 </body>
 </html>

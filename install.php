@@ -77,7 +77,7 @@ switch($_REQUEST['category'])
             //file_put_contents($ConfigFolder, $ConfigurationFile);
         }
         echo '1';
-    break;
+        break;
 
     default:
         ob_start();
@@ -135,6 +135,7 @@ switch($_REQUEST['category'])
         );
 
         //String::PrettyPrint(File::GetDirectoryContent(getcwd().DS.'sql'.DS.'base'));
+        $Smarty->assign('FilesToImport', File::GetDirectoryContent(getcwd().DS.'sql'.DS.'base'));
         $Smarty->assign('Software', $InstalledSoftware);
         $Smarty->display('installation/main');
         break;

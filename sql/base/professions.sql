@@ -1,0 +1,83 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.9.1
+-- http://www.phpmyadmin.net
+--
+-- Хост: localhost
+-- Время создания: Июл 13 2015 г., 03:55
+-- Версия сервера: 5.7.7-rc-log
+-- Версия PHP: 5.6.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- База данных: `freedomcore`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `professions`
+--
+
+CREATE TABLE IF NOT EXISTS `professions` (
+`id` int(11) NOT NULL,
+  `profession_id` int(11) DEFAULT NULL,
+  `is_primary` int(11) DEFAULT NULL,
+  `profession_name` varchar(70) DEFAULT NULL,
+  `profession_translation` varchar(70) DEFAULT NULL,
+  `profession_description` varchar(70) DEFAULT NULL,
+  `profession_long_description` varchar(70) DEFAULT NULL,
+  `profession_main_text` varchar(70) DEFAULT NULL,
+  `comments_key` varchar(70) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `professions`
+--
+
+INSERT INTO `professions` (`id`, `profession_id`, `is_primary`, `profession_name`, `profession_translation`, `profession_description`, `profession_long_description`, `profession_main_text`, `comments_key`) VALUES
+(1, 171, 1, 'alchemy', 'Character_Professions_Alchemy', 'Game_Professions_Alchemy_Description', 'Game_Professions_Alchemy_Description_Full', NULL, NULL),
+(2, 186, 1, 'mining', 'Character_Professions_Mining', 'Game_Professions_Mining_Description', 'Game_Professions_Mining_Description_Full', NULL, NULL),
+(3, 202, 1, 'engineering', 'Character_Professions_Engineering', 'Game_Professions_Engineering_Description', 'Game_Professions_Engineering_Description_Full', NULL, NULL),
+(4, 165, 1, 'leatherworking', 'Character_Professions_Leatherworking', 'Game_Professions_Leatherworking_Description', 'Game_Professions_Leatherworking_Description_Full', NULL, NULL),
+(5, 164, 1, 'blacksmithing', 'Character_Professions_Blacksmithing', 'Game_Professions_Blacksmithing_Description', 'Game_Professions_Blacksmithing_Description_Full', NULL, NULL),
+(6, 333, 1, 'enchanting', 'Character_Professions_Enchanting', 'Game_Professions_Enchanting_Description', 'Game_Professions_Enchanting_Description_Full', NULL, NULL),
+(7, 773, 1, 'inscription', 'Character_Professions_Inscription', 'Game_Professions_Inscription_Description', 'Game_Professions_Inscription_Description_Full', NULL, NULL),
+(8, 197, 1, 'tailoring', 'Character_Professions_Tailoring', 'Game_Professions_Tailoring_Description', 'Game_Professions_Tailoring_Description_Full', NULL, NULL),
+(9, 393, 1, 'skinning', 'Character_Professions_Skinning', 'Game_Professions_Skinning_Description', 'Game_Professions_Skinning_Description_Full', NULL, NULL),
+(10, 182, 1, 'herbalism', 'Character_Professions_Herbalism', 'Game_Professions_Herbalism_Description', 'Game_Professions_Herbalism_Description_Full', NULL, NULL),
+(11, 755, 1, 'jewelcrafting', 'Character_Professions_Jewelcrafting', 'Game_Professions_Jewelcrafting_Description', 'Game_Professions_Jewelcrafting_Description_Full', NULL, NULL),
+(12, 794, 0, 'archaeology', 'Character_Professions_Archaeology', 'Game_Professions_Archaeology_Description', 'Game_Professions_Archaeology_Description_Full', NULL, NULL),
+(13, 185, 0, 'cooking', 'Character_Professions_Cooking', 'Game_Professions_Cooking_Description', 'Game_Professions_Cooking_Description_Full', NULL, NULL),
+(14, 129, 0, 'first-aid', 'Character_Professions_First_aid', 'Game_Professions_First_Aid_Description', 'Game_Professions_First_Aid_Description_Full', NULL, NULL),
+(15, 356, 0, 'fishing', 'Character_Professions_Fishing', 'Game_Professions_Fishing_Description', 'Game_Professions_Fishing_Description_Full', NULL, NULL);
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `professions`
+--
+ALTER TABLE `professions`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `professions`
+--
+ALTER TABLE `professions`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

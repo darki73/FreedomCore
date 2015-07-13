@@ -24,4 +24,8 @@ Installation_WorksOnAllDevices_Description = Our CMS works on all devices! <br /
 Installation_Optimization_Header = High level optimization
 Installation_Optimization_Description = Regardless of the Internet, your users will be able to fully assess system performance
 Installation_OS_Header = Doesn't matter, Linux / Windows or Mac
-Installation_OS_Description = Our CMS can work on all types of OS! <br /> It does not matter if the web server installed on Linix / Windows or Mac
+Installation_OS_Description = Our CMS can work on all types of OS! <br /> It does not matter if the web server installed on Linux / Windows or Mac
+
+
+Installation_FilesToImport_Header = These files need to be imported to database
+Installation_FileToImport_Desc = In order to prepare Website database, we need to import these files

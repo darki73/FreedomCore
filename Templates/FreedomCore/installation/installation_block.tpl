@@ -7,7 +7,7 @@
                 <p>{#Installation_Allowed_Desc#}</p>
             </div>
             <center><h3>{#Installation_MySQL_Settings#}</h3></center>
-            <form action="/install.php?category=createconfig" method="POST">
+            <form id="database_settings" onsubmit="return Installation.configcreate();">
                 <div class="row-fluid">
                     <div class="span4">
                         <center><h4>Auth</h4></center>
@@ -58,5 +58,34 @@
                 <p>{#Installation_Check_Failed_Desc#}</p>
             </div>
         {/if}
+    </div>
+</div>
+
+<div class="section primary-section" id="filestoimport" style="display:none;">
+    <div class="container">
+        <div class=" title">
+            <h1>{#Installation_FilesToImport_Header#}</h1>
+            <p>{#Installation_FileToImport_Desc#}</p>
+        </div>
+        <div class="row-fluid">
+            {assign 'RowsCount' '0'}
+            {assign 'FilesPerBlock' '0'}
+            {$FilesPerBlock = (($FilesToImport|count)/3)|ceil}
+            {foreach from=$FilesToImport item=File key=i}
+                {if $RowsCount == 0}
+                    <div class="span4">
+                        <span id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</span><br />
+                        {$RowsCount = $RowsCount +1}
+                {elseif $RowsCount < $FilesPerBlock-1}
+                        <span id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</span><br />
+                        {$RowsCount = $RowsCount +1}
+                {elseif $RowsCount == $FilesPerBlock-1}
+                        <span id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</span>
+                        {$RowsCount = 0}
+                    </div>
+                {/if}
+            {/foreach}
+
+        </div>
     </div>
 </div>

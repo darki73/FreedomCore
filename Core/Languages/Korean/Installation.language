@@ -24,4 +24,7 @@ Installation_WorksOnAllDevices_Description =
 Installation_Optimization_Header = 
 Installation_Optimization_Description = 
 Installation_OS_Header = 
-Installation_OS_Description = 
+Installation_OS_Description =
+
+Installation_FilesToImport_Header =
+Installation_FileToImport_Desc =
