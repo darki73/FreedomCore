@@ -77,7 +77,21 @@ switch($_REQUEST['category'])
             //file_put_contents($ConfigFolder, $ConfigurationFile);
         }
         echo '1';
-        break;
+    break;
+
+    case 'import':
+        $ClassConstructor = array($Database, $Smarty);
+        Manager::LoadExtension('Installer', $ClassConstructor);
+        $BaseFolder = getcwd().DS.'sql'.DS.'base'.DS;
+        $ImprotFile = $_REQUEST['link'];
+        $FilePath = $BaseFolder.$ImprotFile;
+
+        if(Installer::Import($FilePath))
+            echo "Imported";
+        else
+            echo "Failed!";
+
+    break;
 
     default:
         ob_start();

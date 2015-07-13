@@ -74,13 +74,13 @@
             {foreach from=$FilesToImport item=File key=i}
                 {if $RowsCount == 0}
                     <div class="span4">
-                        <span id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</span><br />
+                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a><br />
                         {$RowsCount = $RowsCount +1}
                 {elseif $RowsCount < $FilesPerBlock-1}
-                        <span id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</span><br />
+                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a><br />
                         {$RowsCount = $RowsCount +1}
                 {elseif $RowsCount == $FilesPerBlock-1}
-                        <span id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</span>
+                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a>
                         {$RowsCount = 0}
                     </div>
                 {/if}

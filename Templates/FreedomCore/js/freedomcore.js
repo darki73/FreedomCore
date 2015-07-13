@@ -81,6 +81,21 @@ var Installation = {
             }
         });
         return false;
+    },
+
+    import: function(link, name)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '/install?category=import&link='+encodeURIComponent(link),
+            data: null,
+            cache: false,
+            success: function(data)
+            {
+                console.log(data);
+            }
+        });
+        return false;
     }
 }
 

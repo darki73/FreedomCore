@@ -181,6 +181,15 @@ p {
     border-right: 585px outset transparent;
     position: relative;
 }
+
+.fileimportlink{
+    color:white;
+}
+
+.fileimportlink:hover{
+    color:gold;
+}
+
 /*
 2.1 Animations
 **********/
