@@ -19,9 +19,17 @@ Class Autoloader
 	}
 	private static function LoadConfig()
 	{
-		require_once('Core/Configuration/Configuration.php');
-		if($FCCore['debug'])
-			Autoloader::$IsDebugEnabled = true;
+        if(file_exists(getcwd().DIRECTORY_SEPARATOR.'Core'.DIRECTORY_SEPARATOR.'Configuration'.DIRECTORY_SEPARATOR.'Configuration.php'))
+        {
+            require_once('Core/Configuration/Configuration.php');
+            if($FCCore['debug'])
+                Autoloader::$IsDebugEnabled = true;
+        }
+        else
+        {
+            copy(getcwd().DIRECTORY_SEPARATOR.'Core'.DIRECTORY_SEPARATOR.'Configuration'.DIRECTORY_SEPARATOR.'Configuration.php.in', getcwd().DIRECTORY_SEPARATOR.'Core'.DIRECTORY_SEPARATOR.'Configuration'.DIRECTORY_SEPARATOR.'Configuration.php');
+            header('Location: /');
+        }
 	}
 	public static function VerifyInstallation()
 	{

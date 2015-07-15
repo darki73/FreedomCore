@@ -5,6 +5,7 @@ $Smarty->translate('Installation');
 switch($_REQUEST['category'])
 {
     case 'createconfig':
+        $_SESSION['installation_in_progress'] = true;
         $ConfigurationFile = '
             <?php
                 global $FCCore;
@@ -66,38 +67,57 @@ switch($_REQUEST['category'])
                 $FCCore["Facebook"]["pageid"]			=	"";
             ?>
         ';
-        $ConfigFolder = getcwd().DS.'Core'.DS.'Configuration'.DS.'Configuration.php.undone';
+        $ClassConstructor = array($Database, $Smarty);
+        Manager::LoadExtension('Installer', $ClassConstructor);
+        $ConfigFolder = getcwd().DS.'Core'.DS.'Configuration'.DS.'Configuration.php';
         if(File::Exists($ConfigFolder))
         {
+            $BaseFolder = getcwd().DS.'sql'.DS.'core'.DS;
+            $ImportFile = $BaseFolder.'sessions.sql';
+            Installer::ImportCoreTable($_REQUEST['website_host'], $_REQUEST['website_user'], $_REQUEST['website_password'], $_REQUEST['website_db'], $_REQUEST['website_encoding'], $ImportFile);
             unlink($ConfigFolder);
-            //file_put_contents($ConfigFolder, $ConfigurationFile);
+            file_put_contents($ConfigFolder, $ConfigurationFile);
         }
         else
         {
-            //file_put_contents($ConfigFolder, $ConfigurationFile);
+            $BaseFolder = getcwd().DS.'sql'.DS.'core'.DS;
+            $ImportFile = $BaseFolder.'sessions.sql';
+            Installer::ImportCoreTable($_REQUEST['website_host'], $_REQUEST['website_user'], $_REQUEST['website_password'], $_REQUEST['website_db'], $_REQUEST['website_encoding'], $ImportFile);
+            file_put_contents($ConfigFolder, $ConfigurationFile);
         }
         echo '1';
     break;
 
     case 'import':
+        $_SESSION['installation_in_progress'] = true;
+        $ConfigFolder = getcwd().DS.'Core'.DS.'Configuration'.DS.'Configuration.php';
+        require_once($ConfigFolder);
         $ClassConstructor = array($Database, $Smarty);
         Manager::LoadExtension('Installer', $ClassConstructor);
         $BaseFolder = getcwd().DS.'sql'.DS.'base'.DS;
         $ImprotFile = $_REQUEST['link'];
         $FilePath = $BaseFolder.$ImprotFile;
 
-        if(Installer::Import($FilePath))
-            echo "Imported";
+        if(Installer::Import($FCCore['Database']['host'], $FCCore['Database']['username'], $FCCore['Database']['password'], $FCCore['Database']['database'], $FCCore['Database']['encoding'], $FilePath))
+            echo 1;
         else
-            echo "Failed!";
+            echo 0;
 
     break;
+
+    case 'finish':
+        rename('install.php', substr( "abcdefghijklmnopqrstuvwxyz" ,mt_rand( 0 ,25 ) ,1 ) .substr( md5( time( ) ) ,1 ).'.php');
+        session_destroy();
+        header('Location: /');
+
+        break;
 
     default:
         ob_start();
         phpinfo(INFO_MODULES);
         $info = ob_get_contents();
         ob_end_clean();
+        $_SESSION['installation_in_progress'] = true;
         $info = stristr($info, 'Client API version');
         preg_match('/[1-9].[0-9].[1-9][0-9]/', $info, $match);
         $MySQLVersion = $match[0];

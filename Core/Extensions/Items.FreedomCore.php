@@ -15,7 +15,7 @@ Class Items
         Items::$WConnection = $VariablesArray[0]::$WConnection;
         Items::$CConnection = $VariablesArray[0]::$CConnection;
         Items::$TM = $VariablesArray[1];
-        Items::LoadSocketBonus();
+        //Items::LoadSocketBonus();
     }
 
     private static function GetItemIcon($ItemID)
@@ -791,9 +791,9 @@ Class Items
             //  => ' '.Items::$TM->GetConfigVars(''),
         );
 
-        foreach(Items::$SocketBonuses as $Bonus)
-            if(!in_array($Bonus['id'], $Bonuses))
-                $Bonuses[$Bonus['id']] = $Bonus['description'];
+//        foreach(Items::$SocketBonuses as $Bonus)
+//            if(!in_array($Bonus['id'], $Bonuses))
+//                $Bonuses[$Bonus['id']] = $Bonus['description'];
 
         return @$Bonuses[$BonusID];
     }

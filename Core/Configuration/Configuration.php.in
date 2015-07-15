@@ -1,33 +1,8 @@
 <?php
 
 global $FCCore;
-// Auth Database Settings
-$FCCore['AuthDB']['host']				=	'localhost';
-$FCCore['AuthDB']['database']			=	'auth';
-$FCCore['AuthDB']['username']			=	'';
-$FCCore['AuthDB']['password']			=	'';
-$FCCore['AuthDB']['encoding']			=	'UTF8';
-// Characters Database Settings
-$FCCore['CharDB']['host']				=	'localhost';
-$FCCore['CharDB']['database']			=	'characters';
-$FCCore['CharDB']['username']			=	'';
-$FCCore['CharDB']['password']			=	'';
-$FCCore['CharDB']['encoding']			=	'UTF8';
-// World Database Settings
-$FCCore['WorldDB']['host']				=	'localhost';
-$FCCore['WorldDB']['database']			=	'world';
-$FCCore['WorldDB']['username']			=	'';
-$FCCore['WorldDB']['password']			=	'';
-$FCCore['WorldDB']['encoding']			=	'UTF8';
-// Database Settings
-$FCCore['Database']['host']				=	'localhost';
-$FCCore['Database']['database']			=	'freedomcore';
-$FCCore['Database']['username']			=	'';
-$FCCore['Database']['password']			=	'';
-$FCCore['Database']['encoding']			=	'UTF8';
-$FCCore['Database']['encoding']			=	'UTF8';
 // System Configuration
-//$FCCore['TimeZone']					=	'Asia/Singapore'; // Singapore
+//$FCCore['TimeZone']					    =	'Asia/Singapore'; // Singapore
 $FCCore['TimeZone']						=	'Europe/Moscow'; //Moscow
 // Smarty Configuration
 $FCCore['SmartyCaching']				=	false;
@@ -35,7 +10,7 @@ $FCCore['SmartyDebug']					=	false;
 // FreedomCore Configuration
 $FCCore['Caching']						=	false;
 $FCCore['debug']						=	true;
-$FCCore['email']						=	"no-reply@freedomcore.eu";	// Admin Email
+$FCCore['email']						=	"";	// Admin Email
 $FCCore['registration']					=	false;
 // Template Engine Configuration
 $FCCore['ApplicationName']				=	"FreedomCore";

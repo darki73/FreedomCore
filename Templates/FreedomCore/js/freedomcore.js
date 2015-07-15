@@ -77,7 +77,10 @@ var Installation = {
                     $('#filestoimport')[0].scrollIntoView(true);
                 }
                 else
+                {
+                    console.log(data);
                     alert('Unhandled error occured!');
+                }
             }
         });
         return false;
@@ -85,6 +88,8 @@ var Installation = {
 
     import: function(link, name)
     {
+        var SpanName = 'installation_status_'+name;
+        document.getElementById(SpanName).innerHTML = "<img height='15px' width='15px' src='/Templates/FreedomCore/images/loaders/uber-loading.gif'>";
         $.ajax({
             type: 'POST',
             url: '/install?category=import&link='+encodeURIComponent(link),
@@ -92,7 +97,16 @@ var Installation = {
             cache: false,
             success: function(data)
             {
-                console.log(data);
+                if(data == 1)
+                {
+                    document.getElementById(SpanName).innerHTML = "";
+                    document.getElementById(SpanName).innerHTML = "<img height='15px' width='15px' src='/Templates/FreedomCore/images/icons/arrow-done-plain.gif'>";
+                }
+                else
+                {
+                    document.getElementById(SpanName).innerHTML = "";
+                    document.getElementById(SpanName).innerHTML = "<img height='15px' width='15px' src='/Templates/FreedomCore/images/icons/cross.png'>";
+                }
             }
         });
         return false;

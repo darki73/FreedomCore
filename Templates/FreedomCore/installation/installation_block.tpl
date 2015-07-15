@@ -64,8 +64,9 @@
 <div class="section primary-section" id="filestoimport" style="display:none;">
     <div class="container">
         <div class=" title">
+            <br />
             <h1>{#Installation_FilesToImport_Header#}</h1>
-            <p>{#Installation_FileToImport_Desc#}</p>
+            <p>{#Installation_FileToImport_Desc#}<br />{#Installation_HowToImport#}</p>
         </div>
         <div class="row-fluid">
             {assign 'RowsCount' '0'}
@@ -74,13 +75,13 @@
             {foreach from=$FilesToImport item=File key=i}
                 {if $RowsCount == 0}
                     <div class="span4">
-                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a><br />
+                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a> <span id="installation_status_{$File.FileName|replace:'.sql':''}"></span><br />
                         {$RowsCount = $RowsCount +1}
                 {elseif $RowsCount < $FilesPerBlock-1}
-                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a><br />
+                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a> <span id="installation_status_{$File.FileName|replace:'.sql':''}"></span><br />
                         {$RowsCount = $RowsCount +1}
                 {elseif $RowsCount == $FilesPerBlock-1}
-                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a>
+                        <a onclick="return Installation.import('{$File.FileName}', '{$File.FileName|replace:'.sql':''}');" class="fileimportlink" id='{$File.FileName|replace:'.sql':''}'>{$File.FileName}</a> <span id="installation_status_{$File.FileName|replace:'.sql':''}"></span>
                         {$RowsCount = 0}
                     </div>
                 {/if}
@@ -93,5 +94,10 @@
             <h1>{#Installation_Attention#}</h1>
             <p>{#Installation_Manual_Import#}</p>
         </div>
+        <center>
+            <h3>
+                {#Installation_Finish#}
+            </h3>
+        </center>
     </div>
 </div>

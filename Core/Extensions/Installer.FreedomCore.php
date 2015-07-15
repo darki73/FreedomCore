@@ -15,16 +15,39 @@ Class Installer
         Installer::$TM = $VariablesArray[1];
     }
 
-    public static function Import($File)
+    public static function Import($Host, $User, $Password, $Database, $Encoding, $File)
     {
+        $Connection = new PDO("mysql:host=".$Host.";dbname=".$Database.";charset=".$Encoding, $User, $Password, array(PDO::ATTR_PERSISTENT => false));
+        $Connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $ImportStatus = false;
         $Lines = file($File, FILE_IGNORE_NEW_LINES);
         foreach($Lines as $Line)
         {
-            $Statement = Installer::$DBConnection->prepare($Line);
+            $Statement = $Connection->prepare($Line);
+            if($Statement->execute())
+                $ImportStatus = true;
+            else
+                $ImportStatus = false;
+        }
+        $Connection = null;
+        return $ImportStatus;
+    }
+
+    public static function ImportCoreTable($Host, $User, $Password, $Database, $Encoding, $File)
+    {
+        $Connection = new PDO("mysql:host=".$Host.";dbname=".$Database.";charset=".$Encoding, $User, $Password, array(PDO::ATTR_PERSISTENT => false));
+        $Connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $Lines = file($File, FILE_IGNORE_NEW_LINES);
+        foreach($Lines as $Line)
+        {
+            $Statement = $Connection->prepare($Line);
             if($Statement->execute())
                 return true;
             else
                 return false;
         }
+
+        $Connection = null;
     }
 }

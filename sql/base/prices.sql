@@ -2,4 +2,3 @@ CREATE TABLE IF NOT EXISTS `prices` (`id` int(11) NOT NULL, `type` int(11) DEFAU
 INSERT INTO `prices` (`id`, `type`, `short_code`, `price`) VALUES (1, 1, 'pct', 20), (2, 1, 'pfc', 25), (3, 1, 'prc', 20), (4, 1, 'pcc', 15), (5, 1, 'pnc', 8);
 ALTER TABLE `prices` ADD PRIMARY KEY (`id`);
 ALTER TABLE `prices` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
-

@@ -31,3 +31,6 @@ Installation_FilesToImport_Header = These files need to be imported to database
 Installation_FileToImport_Desc = In order to prepare Website database, we need to import these files
 Installation_Attention = Attention!
 Installation_Manual_Import = Due to large size of additional database you will have to import it manually.<br /> To do this, head over to <strong>sql/base</strong> folder and import content of freedomcore.7z file into Website database
+
+Installation_HowToImport = To import files to DB, just click on them. Progress will be displayed
+Installation_Finish = After you've imported all the files, you can <a href="/install?category=finish" style="color: #0088cc">Finish Installation</a>
