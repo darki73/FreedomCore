@@ -55,7 +55,7 @@ Class Achievements
             description_loc0 as description,
             category,
             points,
-            LOWER(si.iconname)
+            LOWER(si.iconname) as iconname
         FROM
             freedomcore_achievement fa
         LEFT JOIN freedomcore_spellicons si ON
@@ -77,7 +77,7 @@ Class Achievements
             description_loc0 as description,
             category,
             points,
-            LOWER(si.iconname)
+            LOWER(si.iconname) as iconname
         FROM
             freedomcore_achievement fa
         LEFT JOIN freedomcore_spellicons si ON
