@@ -873,13 +873,28 @@ switch($_REQUEST['category'])
                             }
                             else
                             {
-                                ob_flush();
+                                ob_end_flush();
                                 Manager::LoadExtension('Achievements', $ClassConstructor);
-                                $Smarty->assign('IncompleteAchievements', Achievements::GetAchievementsInCategory($_REQUEST['datatype']));
-                                $Smarty->assign('Categories', Achievements::GetCategories());
-                                $Smarty->assign('CompletedAchievements', Characters::GetCompletedAchievements($CharacterData['guid']));
+                                $AllCategorues = Achievements::GetCategories();
+                                $AInCat = Achievements::GetAchievementsInCategory($_REQUEST['datatype']);
+                                $CompletedAchievements = Characters::GetCompletedAchievements($CharacterData['guid']);
+                                $WorkingWith = $AllCategorues[String::MASearch($AllCategorues, 'id', $_REQUEST['datatype'])];
+                                $CA = array();
+                                foreach($CompletedAchievements as $Achievement)
+                                    if($Achievement['category'] == $WorkingWith['id'])
+                                        $CA[] = $Achievement['achievement'];
+
+                                foreach($AInCat as $Key=>$Value)
+                                    foreach($CA as $CompA)
+                                        if($Value['id'] == $CompA)
+                                            unset($AInCat[$Key]);
+                                $Smarty->assign('IncompleteAchievements', $AInCat);
+                                $Smarty->assign('Categories', $AllCategorues);
+                                $Smarty->assign('CompletedAchievements', $CompletedAchievements);
                                 $Smarty->assign('Category', $_REQUEST['datatype']);
+                                $Smarty->assign('WorkingWith', $WorkingWith);
                                 $Smarty->display('blocks/achievements_category');
+                                ob_start();
                             }
                         break;
 

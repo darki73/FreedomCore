@@ -73,9 +73,9 @@ crashlytics.properties
 crashlytics-build.properties
 
 /Core/Configuration/Configuration.php
-.Cache/
-.Cache/Compile/
-.Cache/Compile/Templates/
+/Cache/
+/Cache/Compile/
+/Cache/Compile/Templates/*.php
 /Cache/Compile/Templates/FreedomCore/*
 !/Cache/Compile/Templates/FreedomCore/index.html
 /Templates/FreedomCore/images/icons/large/*.*
