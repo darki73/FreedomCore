@@ -1,337 +1,296 @@
-<script type="text/javascript">
+<script type="{#MSG_Summary_Stats_#}">
     //<![CDATA[
     var MsgSummary = {
         inventory: {
             slots: {
-                1: "Голова",
-                2: "Шея",
-                3: "Плечи",
-                4: "Рубашка",
-                5: "Грудь",
-                6: "Пояс",
-                7: "Ноги",
-                8: "Ступни",
-                9: "Запястья",
-                10: "Руки",
-                11: "Палец",
-                12: "Аксессуар",
-                15: "Дальний бой",
-                16: "Спина",
-                19: "Гербовая накидка",
-                21: "Правая рука",
-                22: "Левая рука",
-                28: "Реликвия",
-                empty: "Эта ячейка пуста"
-            }
-        },
-        audit: {
-            whatIsThis: "С помощью этой функции вы можете узнать, как улучшить характеристики своего персонажа. Функция ищет:<br /\><br /\>- пустые ячейки символов;<br /\>- неиспользованные очки талантов;<br /\>- незачарованные предметы;<br /\>- пустые гнезда для самоцветов;<br /\>- неподходящую броню;<br /\>- отсутствующую пряжку в поясе;<br /\>- отсутствующие бонусы за профессии.",
-            missing: "Не хватает: {ldelim}0{rdelim}",
-            enchants: {
-                tooltip: "Не зачаровано"
-            },
-            sockets: {
-                singular: "пустое гнездо",
-                plural: "пустых гнезда"
-            },
-            armor: {
-                tooltip: "Не {ldelim}0{rdelim}",
-                1: "Ткань",
-                2: "Кожа",
-                3: "Кольчуга",
-                4: "Латы"
-            },
-            lowLevel: {
-                tooltip: "Низкий уровень"
-            },
-            blacksmithing: {
-                name: "Кузнечное дело",
-                tooltip: "Отсутствует гнездо"
-            },
-            enchanting: {
-                name: "Наложение чар",
-                tooltip: "Не зачаровано"
-            },
-            engineering: {
-                name: "Инженерное дело",
-                tooltip: "Нет улучшения"
-            },
-            inscription: {
-                name: "Начертание",
-                tooltip: "Не зачаровано"
-            },
-            leatherworking: {
-                name: "Кожевенное дело",
-                tooltip: "Не зачаровано"
+                1: "{#MSG_Summary_Head#}",
+                2: "{#MSG_Summary_Neck#}",
+                3: "{#MSG_Summary_Shoulders#}",
+                4: "{#MSG_Summary_Shirt#}",
+                5: "{#MSG_Summary_Chest#}",
+                6: "{#MSG_Summary_Waist#}",
+                7: "{#MSG_Summary_Legs#}",
+                8: "{#MSG_Summary_Feet#}",
+                9: "{#MSG_Summary_Wrists#}",
+                10: "{#MSG_Summary_Hands#}",
+                11: "{#MSG_Summary_Finger#}",
+                12: "{#MSG_Summary_Trinket#}",
+                15: "{#MSG_Summary_Ranged#}",
+                16: "{#MSG_Summary_Back#}",
+                19: "{#MSG_Summary_Tabard#}",
+                21: "{#MSG_Summary_RightHand#}",
+                22: "{#MSG_Summary_LeftHand#}",
+                28: "{#MSG_Summary_Relic#}",
+                empty: "{#MSG_Summary_Empty#}"
             }
         },
         talents: {
             specTooltip: {
-                title: "Специализация",
-                primary: "Основная:",
-                secondary: "Второстепенная:",
-                active: "Активная"
+                title: "{#MSG_Summary_Specialization_title#}",
+                primary: "{#MSG_Summary_Specialization_primary#}",
+                secondary: "{#MSG_Summary_Specialization_secondary#}",
+                active: "{#MSG_Summary_Specialization_active#}"
             }
         },
         stats: {
             toggle: {
-                all: "Показать все характеристики",
-                core: "Показать только основные характеристики"
+                all: "{#MSG_Summary_Stats_toggle_all#}",
+                core: "{#MSG_Summary_Stats_toggle_core#}"
             },
             increases: {
-                attackPower: "Увеличивает силу атаки на {ldelim}0{rdelim}.",
-                critChance: "Увеличивает шанс критического удара {ldelim}0{rdelim}%.",
-                spellCritChance: "Увеличивает шанс нанесения критического урона магией на {ldelim}0{rdelim}%.",
-                spellPower: "Увеличивает силу заклинаний на {ldelim}0{rdelim}.",
-                health: "Увеличивает здоровье на {ldelim}0{rdelim}.",
-                mana: "Увеличивает количество маны на {ldelim}0{rdelim}.",
-                manaRegen: "Увеличивает восполнение маны на {ldelim}0{rdelim} ед. каждые 5 сек., пока не произносятся заклинания.",
-                meleeDps: "Увеличивает урон, наносимый в ближнем бою, на {ldelim}0{rdelim} ед. в секунду.",
-                rangedDps: "Увеличивает урон, наносимый в дальнем бою, на {ldelim}0{rdelim} ед. в секунду.",
-                petArmor: "Увеличивает броню питомца на {ldelim}0{rdelim} ед.",
-                petAttackPower: "Увеличивает силу атаки питомца на {ldelim}0{rdelim} ед.",
-                petSpellDamage: "Увеличивает урон от заклинаний питомца на {ldelim}0{rdelim} ед.",
-                petAttackPowerSpellDamage: "Увеличивает силу атаки питомца на {ldelim}0{rdelim} ед. и урон от его заклинаний на {ldelim}1{rdelim} ед."
+                attackPower: "{#MSG_Summary_Stats_increases_attackPower#}",
+                critChance: "{#MSG_Summary_Stats_increases_critChance#}",
+                spellCritChance: "{#MSG_Summary_Stats_increases_spellCritChance#}",
+                spellPower: "{#MSG_Summary_Stats_increases_spellPower#}",
+                health: "{#MSG_Summary_Stats_increases_health#}",
+                mana: "{#MSG_Summary_Stats_increases_mana#}",
+                manaRegen: "{#MSG_Summary_Stats_increases_manaRegen#}",
+                meleeDps: "{#MSG_Summary_Stats_increases_meleeDps#}",
+                rangedDps: "{#MSG_Summary_Stats_increases_rangedDps#}",
+                petArmor: "{#MSG_Summary_Stats_increases_petArmor#}",
+                petAttackPower: "{#MSG_Summary_Stats_increases_petAttackPower#}",
+                petSpellDamage: "{#MSG_Summary_Stats_increases_petSpellDamage#}",
+                petAttackPowerSpellDamage: "{#MSG_Summary_Stats_increases_petAttackPowerSpellDamage#}"
             },
             decreases: {
-                damageTaken: "Снижает получаемый физический урон на {ldelim}0{rdelim}%.",
-                enemyRes: "Снижает сопротивляемость противника на {ldelim}0{rdelim} ед.",
-                dodgeParry: "Снижает вероятность того, что ваш удар будет парирован или от вашего удара уклонятся, на {ldelim}0{rdelim}%."
+                damageTaken: "{#MSG_Summary_Stats_decreases_damageTaken#}",
+                enemyRes: "{#MSG_Summary_Stats_decreases_enemyRes#}",
+                dodgeParry: "{#MSG_Summary_Stats_decreases_dodgeParry#}"
             },
-            noBenefits: "Не предоставляет бонусов вашему классу.",
-            beforeReturns: "(До снижения действенности повторяющихся эффектов)",
+            noBenefits: "{#MSG_Summary_Stats_noBenefits#}",
+            beforeReturns: "{#MSG_Summary_Stats_beforeReturns#}",
             damage: {
-                speed: "Скорость атаки (сек.):",
-                damage: "Урон:",
-                dps: "Урон в сек.:"
+                speed: "{#MSG_Summary_Stats_damage_speed#}",
+                damage: "{#MSG_Summary_Stats_damage_damage#}",
+                dps: "{#MSG_Summary_Stats_damage_dps#}"
             },
             averageItemLevel: {
-                title: "Уровень предмета {ldelim}0{rdelim}",
-                description: "Средний уровень вашего лучшего снаряжения. С его повышением вы сможете вставать в очередь в более сложные для прохождения подземелья."
+                title: "{#MSG_Summary_Stats_averageItemLevel_title#}",
+                description: "{#MSG_Summary_Stats_averageItemLevel_description#}"
             },
             health: {
-                title: "Здоровье {ldelim}0{rdelim}",
-                description: "Максимальный запас здоровья. Когда запас здоровья падает до нуля, вы погибаете."
+                title: "{#MSG_Summary_Stats_health_title#}",
+                description: "{#MSG_Summary_Stats_health_description#}"
             },
             mana: {
-                title: "Мана {ldelim}0{rdelim}",
-                description: "Максимальный запас маны. Мана расходуется на произнесение заклинаний."
+                title: "{#MSG_Summary_Stats_mana_title#}",
+                description: "{#MSG_Summary_Stats_mana_description#}"
             },
             rage: {
-                title: "Ярость {ldelim}0{rdelim}",
-                description: "Максимальный запас ярости. Ярость расходуется при применении способностей и накапливается, когда персонаж атакует врагов или получает урон."
+                title: "{#MSG_Summary_Stats_rage_title#}",
+                description: "{#MSG_Summary_Stats_rage_description#}"
             },
             focus: {
-                title: "Концентрация {ldelim}0{rdelim}",
-                description: "Максимальный уровень концентрации. Концентрация понижается при применении способностей и повышается со временем."
+                title: "{#MSG_Summary_Stats_focus_title#}",
+                description: "{#MSG_Summary_Stats_focus_description#}"
             },
             energy: {
-                title: "Энергия {ldelim}0{rdelim}",
-                description: "Максимальный запас энергии. Энергия расходуется при применении способностей и восстанавливается со временем."
+                title: "{#MSG_Summary_Stats_energy_title#}",
+                description: "{#MSG_Summary_Stats_energy_description#}"
             },
             runic: {
-                title: "Сила рун {ldelim}0{rdelim}",
-                description: "Максимальный запас силы рун."
+                title: "{#MSG_Summary_Stats_runic_title#}",
+                description: "{#MSG_Summary_Stats_runic_description#}"
             },
             strength: {
-                title: "Сила {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_strength_title#}"
             },
             agility: {
-                title: "Ловкость {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_agility_title#}"
             },
             stamina: {
-                title: "Выносливость {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_stamina_title#}"
             },
             intellect: {
-                title: "Интеллект {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_intellect_title#}"
             },
             spirit: {
-                title: "Дух {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_spirit_title#}"
             },
             mastery: {
-                title: "Искусность {ldelim}0{rdelim}",
-                description: "Рейтинг искусности {ldelim}0{rdelim} увеличивает значение искусности на {ldelim}1{rdelim}% ед.",
-                unknown: "Вы должны сперва изучить искусность у учителя.",
-                unspecced: "Выберите специализацию, чтобы активировать бонус рейтинга искусности. "
+                title: "{#MSG_Summary_Stats_mastery_title#}",
+                description: "{#MSG_Summary_Stats_mastery_description#}",
+                unknown: "{#MSG_Summary_Stats_mastery_unknown#}",
+                unspecced: "{#MSG_Summary_Stats_mastery_unspecced#}"
             },
             crit: {
-                title: "Критический удар {ldelim}0{rdelim}%",
-                description: "Вероятность нанести дополнительный урон и восстановить дополнительное здоровье.",
-                description2: "Показатель критического удара: {ldelim}0{rdelim} [+{ldelim}1{rdelim}%]"
+                title: "{#MSG_Summary_Stats_crit_title#}",
+                description: "{#MSG_Summary_Stats_crit_description#}",
+                description2: "{#MSG_Summary_Stats_crit_description2#}"
             },
             haste: {
-                title: "Скорость +{ldelim}0{rdelim}%",
-                description: "Увеличивает скорость атаки и применения заклинаний.",
-                description2: "Скорость: {ldelim}0{rdelim} [+{ldelim}1{rdelim}%]"
+                title: "{#MSG_Summary_Stats_haste_title#}",
+                description: "{#MSG_Summary_Stats_haste_description#}",
+                description2: "{#MSG_Summary_Stats_haste_description2#}"
             },
             meleeDps: {
-                title: "Урон в секунду"
+                title: "{#MSG_Summary_Stats_meleeDps_title#}"
             },
             meleeAttackPower: {
-                title: "Сила атаки в ближнем бою {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_meleeAttackPower_title#}"
             },
             meleeSpeed: {
-                title: "Скорость атаки в ближнем бою {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_meleeSpeed_title#}"
             },
             meleeHaste: {
-                title: "Скорость в ближнем бою {ldelim}0{rdelim}%",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает скорость атаки на {ldelim}1{rdelim}%.",
-                description2: "Увеличивает скорость атаки в ближнем бою."
+                title: "{#MSG_Summary_Stats_meleeHaste_title#}",
+                description: "{#MSG_Summary_Stats_meleeHaste_description#}",
+                description2: "{#MSG_Summary_Stats_meleeHaste_description2#}"
             },
             meleeHit: {
-                title: "Рейтинг меткости в ближнем бою {ldelim}0{rdelim}%",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает шанс попадания на {ldelim}1{rdelim}%."
+                title: "{#MSG_Summary_Stats_meleeHit_title#}",
+                description: "{#MSG_Summary_Stats_meleeHit_description#}"
             },
             meleeCrit: {
-                title: "Рейтинг критического удара в ближнем бою {ldelim}0{rdelim}%",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает шанс нанести критический удар {ldelim}1{rdelim}%.",
-                description2: "Шанс нанести дополнительный урон в ближнем бою."
+                title: "{#MSG_Summary_Stats_meleeCrit_title#}",
+                description: "{#MSG_Summary_Stats_meleeCrit_description#}",
+                description2: "{#MSG_Summary_Stats_meleeCrit_description2#}"
             },
             expertise: {
-                title: "Мастерство {ldelim}0{rdelim}",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает значение мастерства на {ldelim}1{rdelim} ед."
+                title: "{#MSG_Summary_Stats_expertise_title#}",
+                description: "{#MSG_Summary_Stats_expertise_description#}"
             },
             rangedDps: {
-                title: "Урон в секунду"
+                title: "{#MSG_Summary_Stats_rangedDps_title#}"
             },
             rangedAttackPower: {
-                title: "Сила атаки в дальнем бою {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_rangedAttackPower_title#}"
             },
             rangedSpeed: {
-                title: "Скорость атаки в дальнем бою {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_rangedSpeed_title#}"
             },
             rangedHaste: {
-                title: "Скорость в дальнем бою {ldelim}0{rdelim}%",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает скорость атаки на {ldelim}1{rdelim}%.",
-                description2: "Увеличивает скорость атаки в дальнем бою."
+                title: "{#MSG_Summary_Stats_rangedHaste_title#}",
+                description: "{#MSG_Summary_Stats_rangedHaste_description#}",
+                description2: "{#MSG_Summary_Stats_rangedHaste_description2#}"
             },
             rangedHit: {
-                title: "Рейтинг меткости в дальнем бою {ldelim}0{rdelim}%",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает шанс попадания на {ldelim}1{rdelim}%."
+                title: "{#MSG_Summary_Stats_rangedHit_title#}",
+                description: "{#MSG_Summary_Stats_rangedHit_description#}"
             },
             rangedCrit: {
-                title: "Рейтинг критического удара в дальнем бою {ldelim}0{rdelim}%",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает шанс нанести критический удар {ldelim}1{rdelim}%.",
-                description2: "Шанс нанести дополнительный урон в дальнем бою."
+                title: "{#MSG_Summary_Stats_rangedCrit_title#}",
+                description: "{#MSG_Summary_Stats_rangedCrit_description#}",
+                description2: "{#MSG_Summary_Stats_rangedCrit_description2#}"
             },
             spellPower: {
-                title: "Сила заклинаний {ldelim}0{rdelim}",
-                description: "Увеличивает урон и исцеляющую силу заклинаний."
+                title: "{#MSG_Summary_Stats_spellPower_title#}",
+                description: "{#MSG_Summary_Stats_spellPower_description#}"
             },
             spellHaste: {
-                title: "Скорость произнесения заклинаний {ldelim}0{rdelim}%",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает скорость произнесения заклинаний на {ldelim}1{rdelim}%.",
-                description2: "Увеличивает скорость произнесения заклинаний."
+                title: "{#MSG_Summary_Stats_spellHaste_title#}",
+                description: "{#MSG_Summary_Stats_spellHaste_description#}",
+                description2: "{#MSG_Summary_Stats_spellHaste_description2#}"
             },
             spellHit: {
-                title: "Вероятность попадания заклинанием {ldelim}0{rdelim}%",
-                description: "Рейтинг меткости {ldelim}0{rdelim} увеличивает шанс попадания на {ldelim}1{rdelim}%."
+                title: "{#MSG_Summary_Stats_spellHit_title#}",
+                description: "{#MSG_Summary_Stats_spellHit_description#}"
             },
             spellCrit: {
-                title: "Вероятность критического эффекта заклинания {ldelim}0{rdelim}%",
-                description: "Рейтинг критического удара {ldelim}0{rdelim} увеличивает шанс нанести критический удар {ldelim}1{rdelim}%.",
-                description2: "Шанс нанести заклинанием дополнительный урон или исцеление."
+                title: "{#MSG_Summary_Stats_spellCrit_title#}",
+                description: "{#MSG_Summary_Stats_spellCrit_description#}",
+                description2: "{#MSG_Summary_Stats_spellCrit_description2#}"
             },
             manaRegen: {
-                title: "Восполнение маны",
-                description: "{ldelim}0{rdelim} ед. маны восполняется раз в 5 сек. вне боя."
+                title: "{#MSG_Summary_Stats_manaRegen_title#}",
+                description: "{#MSG_Summary_Stats_manaRegen_description#}"
             },
             combatRegen: {
-                title: "Восполнение в бою",
-                description: "{ldelim}0{rdelim} ед. маны восполняется раз в 5 сек. в бою."
+                title: "{#MSG_Summary_Stats_combatRegen_title#}",
+                description: "{#MSG_Summary_Stats_combatRegen_description#}"
             },
             armor: {
-                title: "Броня {ldelim}0{rdelim}"
+                title: "{#MSG_Summary_Stats_armor_title#}"
             },
             dodge: {
-                title: "Шанс уклонения {ldelim}0{rdelim}%",
-                description: "Рейтинг {ldelim}0{rdelim} увеличивает шанс уклониться от удара на {ldelim}1{rdelim}%."
+                title: "{#MSG_Summary_Stats_dodge_title#}",
+                description: "{#MSG_Summary_Stats_dodge_description#}"
             },
             parry: {
-                title: "Шанс парировать удар {ldelim}0{rdelim}%",
-                description: "Рейтинг  {ldelim}0{rdelim} увеличивает шанс парировать удар на {ldelim}1{rdelim}%."
+                title: "{#MSG_Summary_Stats_parry_title#}",
+                description: "{#MSG_Summary_Stats_parry_description#}"
             },
             block: {
-                title: "Шанс блокирования {ldelim}0{rdelim}%",
-                description: "Рейтинг  {ldelim}0{rdelim} увеличивает шанс блокировать удар на {ldelim}1{rdelim}%.",
-                description2: "Блокирование останавливает {ldelim}0{rdelim}% наносимого вам урона."
+                title: "{#MSG_Summary_Stats_block_title#}",
+                description: "{#MSG_Summary_Stats_block_description#}",
+                description2: "{#MSG_Summary_Stats_block_description2#}"
             },
             resilience: {
-                title: "PvP-устойчивость {ldelim}0{rdelim}%",
-                description: "Снижает урон, наносимого вам другими игроками и их питомцами или прислужниками.",
-                description2: "Рейтинг устойчивости {ldelim}0{rdelim} (увеличивает значение устойчивости на {ldelim}1{rdelim}% ед.)"
+                title: "{#MSG_Summary_Stats_resilience_title#}",
+                description: "{#MSG_Summary_Stats_resilience_description#}",
+                description2: "{#MSG_Summary_Stats_resilience_description2#}"
             },
             pvppower: {
-                title: "PvP-сила {ldelim}0{rdelim}%",
-                description: "Увеличивает урон, наносимый игрокам и их питомцам и прислужникам, а также повышает эффективность лечения, применяемого в PvP-зонах.",
-                description2: "Рейтинг силы {ldelim}0{rdelim}",
-                description3: "+{ldelim}0{rdelim}% к лечению",
-                description4: "+{ldelim}0{rdelim}% к урону"
+                title: "{#MSG_Summary_Stats_pvppower_title#}",
+                description: "{#MSG_Summary_Stats_pvppower_description#}",
+                description2: "{#MSG_Summary_Stats_pvppower_description2#}",
+                description3: "{#MSG_Summary_Stats_pvppower_description3#}",
+                description4: "{#MSG_Summary_Stats_pvppower_description4#}"
             },
             arcaneRes: {
-                title: "Сопротивление тайной магии {ldelim}0{rdelim}",
-                description: "Снижает урон от тайной магии в среднем на {ldelim}0{rdelim}%."
+                title: "{#MSG_Summary_Stats_arcaneRes_title#}",
+                description: "{#MSG_Summary_Stats_arcaneRes_description#}"
             },
             fireRes: {
-                title: "Сопротивление магии огня {ldelim}0{rdelim}",
-                description: "Снижает урон от магии огня в среднем на {ldelim}0{rdelim}%."
+                title: "{#MSG_Summary_Stats_fireRes_title#}",
+                description: "{#MSG_Summary_Stats_fireRes_description#}"
             },
             frostRes: {
-                title: "Сопротивление магии льдя {ldelim}0{rdelim}",
-                description: "Снижает урон от магии льдя в среднем на {ldelim}0{rdelim}%."
+                title: "{#MSG_Summary_Stats_frostRes_title#}",
+                description: "{#MSG_Summary_Stats_frostRes_description#}"
             },
             natureRes: {
-                title: "Сопротивление силам природы {ldelim}0{rdelim}",
-                description: "Снижает урон от сил природы в среднем на {ldelim}0{rdelim}%."
+                title: "{#MSG_Summary_Stats_natureRes_title#}",
+                description: "{#MSG_Summary_Stats_natureRes_description#}"
             },
             shadowRes: {
-                title: "Сопротивление темной магии {ldelim}0{rdelim}",
-                description: "Снижает урон от темной магии в среднем на {ldelim}0{rdelim}%."
+                title: "{#MSG_Summary_Stats_shadowRes_title#}",
+                description: "{#MSG_Summary_Stats_shadowRes_description#}"
             },
             bonusArmor: {
-                title: "Бонус брони {ldelim}0{rdelim}",
-                description: "Общее снижение физического урона за счет брони: {ldelim}0{rdelim}%",
-                description2: "Повышение силы атаки на {ldelim}0{rdelim}."
+                title: "{#MSG_Summary_Stats_bonusArmor_title#}",
+                description: "{#MSG_Summary_Stats_bonusArmor_description#}",
+                description2: "{#MSG_Summary_Stats_bonusArmor_description2#}"
             },
             multistrike: {
-                title: "Многократная атака {ldelim}0{rdelim}%",
-                description: "Вероятность {ldelim}0{rdelim}% произвести дополнительную атаку или исцеление в размере {ldelim}1{rdelim}% от обычного объема, обсчитывается два раза.",
-                description2: "Показатель многократной атаки: {ldelim}0{rdelim} [{ldelim}1{rdelim}%]"
+                title: "{#MSG_Summary_Stats_multistrike_title#}",
+                description: "{#MSG_Summary_Stats_multistrike_description#}",
+                description2: "{#MSG_Summary_Stats_multistrike_description2#}"
             },
             leech: {
-                title: "Cамоисцеление {ldelim}0{rdelim}%",
-                description: "Часть нанесенного вами урона и произведенного исцеления возвращается вам в виде здоровья.",
-                description2: "Cамоисцеление: {ldelim}0{rdelim} [+{ldelim}1{rdelim}%]"
+                title: "{#MSG_Summary_Stats_leech_title#}",
+                description: "{#MSG_Summary_Stats_leech_description#}",
+                description2: "{#MSG_Summary_Stats_leech_description2#}"
             },
             versatility: {
-                title: "Универсальность {ldelim}0{rdelim}%/{ldelim}1{rdelim}%",
-                description: "Увеличивает наносимый урон и эффективность исцеления на {ldelim}0{rdelim}% и уменьшает получаемый урон на {ldelim}1{rdelim}%.",
-                description2: "Показатель универсальности: {ldelim}0{rdelim} [{ldelim}1{rdelim}%/{ldelim}2{rdelim}%]"
+                title: "{#MSG_Summary_Stats_versatility_title#}",
+                description: "{#MSG_Summary_Stats_versatility_description#}",
+                description2: "{#MSG_Summary_Stats_versatility_description2#}"
             },
             avoidance: {
-                title: "Избегание {ldelim}0{rdelim}%",
-                description: "Уменьшает урон от заклинаний с действием по области.",
-                description2: "Показатель избегания: {ldelim}0{rdelim} [+{ldelim}1{rdelim}%]"
+                title: "{#MSG_Summary_Stats_avoidance_title#}",
+                description: "{#MSG_Summary_Stats_avoidance_description#}",
+                description2: "{#MSG_Summary_Stats_avoidance_description2#}"
             }
         },
         recentActivity: {
-            subscribe: "Подписаться на эту ленту новостей"
+            subscribe: "{#MSG_Summary_Stats_recentActivity_subscribe#}"
         },
         raid: {
             tooltip: {
-                lfr: "(СПР)",
-                flex: "(Гибкий)",
-                normal: "(норм.)",
-                heroic: "(героич.)",
-                mythic: "(эпохальный)",
-                complete: "{ldelim}0{rdelim}% завершено ({ldelim}1{rdelim}/{ldelim}2{rdelim})",
-                optional: "(на выбор)"
+                lfr: "{#MSG_Summary_Stats_raid_tooltip_lfr#}",
+                flex: "{#MSG_Summary_Stats_raid_tooltip_flex#}",
+                normal: "{#MSG_Summary_Stats_raid_tooltip_normal#}",
+                heroic: "{#MSG_Summary_Stats_raid_tooltip_heroic#}",
+                mythic: "{#MSG_Summary_Stats_raid_tooltip_mythic#}",
+                complete: "{#MSG_Summary_Stats_raid_tooltip_complete#}",
+                optional: "{#MSG_Summary_Stats_raid_tooltip_optional#}"
             }
         },
         links: {
-            tools: "Инструментарий",
-            saveImage: "Сохранить изображение персонажа",
-            saveimageTitle: "Сохранить изображение персонажа для дальнейшего использования на кредитной карте World of Warcraft Rewards Visa."
+            tools: "{#MSG_Summary_Stats_links_tools#}",
+            saveImage: "{#MSG_Summary_Stats_links_saveImage#}",
+            saveimageTitle: "{#MSG_Summary_Stats_links_saveimageTitle#}"
         }
     };
     //]]>
