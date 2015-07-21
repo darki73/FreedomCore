@@ -449,8 +449,10 @@ switch($_REQUEST['category'])
                 break;
 
 				case 'captcha.jpg':
-					header("Content-type: image/png");
-					String::GenerateCaptcha();
+                    header("Content-Type:image/png");
+                    flush();
+                    ob_clean();
+                    String::GenerateCaptcha();
 				break;
 
 				case 'performlogin':

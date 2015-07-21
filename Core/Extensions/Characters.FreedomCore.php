@@ -422,9 +422,30 @@ Class Characters
         $Result['level_data']['blockpoints'] = Characters::GetBlockRatingByLevel($Result['level']);
         $Result['level_data']['critpoints'] = Characters::GetCritRatingByLevel($Result['level']);
         $Result['level_data']['hastepoints'] = Characters::GetHasteRatingByLevel($Result['level']);
+        $StatByClass = Characters::StatByClass($Result['class']);
+        $Result['power_data'] = $StatByClass;
+        $Result['power_data']['value'] = $Result[$StatByClass['field']];
         Characters::$CharacterLevel = $Result['level'];
         Characters::$CharacterClass = $Result['class'];
         return $Result;
+    }
+
+    private static function StatByClass($ClassID)
+    {
+        $Stats = [
+            1 => ['id' => 1, 'field' => 'power2', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_rage_title'))],
+            2 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            3 => ['id' => 2, 'field' => 'power3', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_focus_title'))],
+            4 => ['id' => 3, 'field' => 'power4', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_energy_title'))],
+            5 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            6 => ['id' => 6, 'field' => 'power7', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_runic_title'))],
+            7 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            8 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            9 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            10 => ['id' => 3, 'field' => 'power4', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_energy_title'))],
+            11 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))]
+        ];
+        return $Stats[$ClassID];
     }
     
     private static function GetHasteRatingByLevel($Level)

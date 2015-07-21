@@ -7,59 +7,12 @@
                     {$Character.health}
                 </span>
             </li>
-            {assign 'CharacterPowerType' 0}
-            {assign 'CharacterPowerValue' 0}
-            {if $Character.power1 != 0}
-            <li class="resource-0" id="summary-power" data-id="power-0">
-                <span class="name">Мана</span>
+            <li class="resource-{$Character.power_data.id}" id="summary-power" data-id="power-{$Character.power_data.id}">
+                <span class="name">{$Character.power_data.translation}</span>
                 <span class="value">
-                        {$Character.power1}
-                        {$CharacterPowerValue = $Character.power1}
-                        {$CharacterPowerType = 0}
+                        {$Character.power_data.value}
                 </span>
             </li>
-            {elseif $Character.power2 != 0}
-            <li class="resource-1" id="summary-power" data-id="power-1">
-                <span class="name">Ярость</span>
-                <span class="value">
-                        {$Character.power2}
-                        {$CharacterPowerValue = $Character.power2}
-                        {$CharacterPowerType = 1}
-                </span>
-            </li>
-            {elseif $Character.power3 != 0}
-            <li class="resource-2" id="summary-power" data-id="power-2">
-                <span class="name">Фокус</span>
-                <span class="value">
-                        {$Character.power3}
-                        {$CharacterPowerValue = $Character.power3}
-                        {$CharacterPowerType = 2}
-                </span>
-            </li>
-            {elseif $Character.power4 != 0}
-            <li class="resource-3" id="summary-power" data-id="power-3">
-                <span class="name">Энергия</span>
-                <span class="value">
-                        {$Character.power4}
-                        {$CharacterPowerValue = $Character.power4}
-                        {$CharacterPowerType = 3}
-                </span>
-            </li>
-            {elseif $Character.power6 != 0 || $Character.power7 != 0 }
-            <li class="resource-6" id="summary-power" data-id="power-6">
-                <span class="name">Руны</span>
-                <span class="value">
-                        {if $Character.power6 != 0}
-                            {$Character.power6}
-                            {$CharacterPowerValue = $Character.power6}
-                        {elseif $Character.power7 != 0}
-                            {$Character.power7}
-                            {$CharacterPowerValue = $Character.power7}
-                        {/if}
-                        {$CharacterPowerType = 6}
-                </span>
-            </li>
-            {/if}
         </ul>
     </div>
     {$StrengthValue = $Inventory.StrengthValue + $Character.level_data.str}

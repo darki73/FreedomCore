@@ -193,14 +193,13 @@ Class String
             unset($_SESSION['generated_captcha']);
 		$InitialString = str_shuffle("abcdefghijklmnopqrstuvwxyz1234567890");
 		$RandomString = substr($InitialString,0,9);
-		$CreateBlankImage = @ImageCreate (200, 70) or die ("Cannot Initialize new GD image stream");
+		$CreateBlankImage = ImageCreate (200, 70) or die ("Cannot Initialize new GD image stream");
 		$BackgroundColor = ImageColorAllocateAlpha($CreateBlankImage, 255, 255, 255, 127);
         imagefill($CreateBlankImage,0,0,0x7fff0000);
         $BackgroundColor = ImageColorAllocate($CreateBlankImage, 204, 255, 51);
-		$TextColor = ImageColorAllocate ($CreateBlankImage, 51, 51, 255); 
+		$TextColor = ImageColorAllocate ($CreateBlankImage, 51, 51, 255);
 		ImageString($CreateBlankImage,5,50,25,$RandomString,$TextColor);
-		ImagePng($CreateBlankImage);
-		imagedestroy($CreateBlankImage);
+        ImagePng($CreateBlankImage);
         $_SESSION['generated_captcha'] = $RandomString;
 	}
 }
