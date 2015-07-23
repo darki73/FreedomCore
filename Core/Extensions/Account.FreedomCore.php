@@ -767,9 +767,11 @@ Class Account
      */
     private static function CreateGameAccount($Username, $Password, $Email, $RegistrationDate)
     {
+        $Username = strtoupper($Username);
+        $Password = strtoupper($Password);
         $Statement = Account::$AuthConnection->prepare('INSERT INTO account (username, sha_pass_hash, email, reg_mail, joindate, expansion) VALUES (:username, :password, :email, :email, :regdate, 2)');
-        $Statement->bindParam(':username', strtoupper($Username));
-        $Statement->bindParam(':password', strtoupper($Password));
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':password', $Password);
         $Statement->bindParam(':email', $Email);
         $Statement->bindParam(':regdate', $RegistrationDate);
         $Statement->execute();

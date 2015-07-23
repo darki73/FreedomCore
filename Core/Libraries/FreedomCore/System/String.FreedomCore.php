@@ -190,7 +190,7 @@ Class String
 	public static function GenerateCaptcha()
 	{
         if(isset($_SESSION['generated_captcha']))
-            unset($_SESSION['generated_captcha']);
+            Session::UnsetKeys(array('generated_captcha'));
 		$InitialString = str_shuffle("abcdefghijklmnopqrstuvwxyz1234567890");
 		$RandomString = substr($InitialString,0,9);
 		$CreateBlankImage = ImageCreate (200, 70) or die ("Cannot Initialize new GD image stream");
@@ -200,7 +200,7 @@ Class String
 		$TextColor = ImageColorAllocate ($CreateBlankImage, 51, 51, 255);
 		ImageString($CreateBlankImage,5,50,25,$RandomString,$TextColor);
         ImagePng($CreateBlankImage);
-        $_SESSION['generated_captcha'] = $RandomString;
+        Session::UpdateSession(array('generated_captcha' => $RandomString));
 	}
 }
 

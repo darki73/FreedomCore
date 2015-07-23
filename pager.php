@@ -421,7 +421,6 @@ switch($_REQUEST['category'])
                         {
                             $ActivationCode = sha1(mt_rand(10000,99999).time().$_REQUEST['email'].$_REQUEST['username']);
                             $CreationStatus = Account::CreateTMPAccount($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['email'], $ActivationCode);
-                            var_dump($CreationStatus);
                             if (!$CreationStatus)
                                 header('Location: /account/create');
                             else

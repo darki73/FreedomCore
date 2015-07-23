@@ -18,15 +18,16 @@ Class Session
         $_SESSION['loggedin'] = '';
         $_SESSION['username'] = '';
         $_SESSION['remember_me'] = '';
-        $_SESSION['preferredlanguage'] = '';
+		$_SESSION['preferredlanguage'] = '';
+		$_SESSION['generated_captcha'] = '';
     }
 
 	public static function UpdateSession($Data)
 	{
+		if(!isset($_SESSION['loggedin']))
+			Session::GenerateSessionData();
 		foreach($Data as $key=>$value)
-		{
 			$_SESSION[$key] = $value;
-		}
 	}
 
 	public static function GenerateCSRFToken()
@@ -74,8 +75,11 @@ Class Session
         session_set_cookie_params($CookieParameters["lifetime"], $CookieParameters["path"], $CookieParameters["domain"], $Secure, $HTTPOnly);
 		session_name($SessionName);
 		session_start();
-		//session_regenerate_id(true); // Unstable, disabled by now
-        Session::$SessionCreated = true;
+		session_regenerate_id(true);
+		if(!Session::$SessionCreated)
+			if(!isset($_SESSION['loggedin']))
+				Session::GenerateSessionData();
+		Session::$SessionCreated = true;
 	}
 
 	static function Open()
@@ -91,6 +95,7 @@ Class Session
 
 	static function Close()
 	{
+		Session::$DBConnection = null;
 		return true;
 	}
 
@@ -145,8 +150,6 @@ Class Session
 		$Statement->bindParam(':sessionid', $SessionID);
 		$Statement->execute();
 		$Result = $Statement->fetch(PDO::FETCH_ASSOC);
-        if(!isset($_SESSION['loggedin']))
-            Session::GenerateSessionData();
 		if($Result['session_key'] != '')
 			return $Result['session_key'];
 		else
