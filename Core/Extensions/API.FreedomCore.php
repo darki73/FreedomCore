@@ -20,6 +20,7 @@ Class API
         Manager::LoadExtension($Class, $ClassConstructor);
         return $Class::$Method($Parameters);
     }
+
 }
 
 ?>

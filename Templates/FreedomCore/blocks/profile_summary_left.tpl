@@ -110,7 +110,7 @@
                         <ul>
                             <li data-id="spellpower" class="">
                                 <span class="name">Сила заклинаний</span>
-                                <span class="value">710</span>
+                                <span class="value">{$Inventory.SpellPowerValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="manaregen" class=" no-tooltip">

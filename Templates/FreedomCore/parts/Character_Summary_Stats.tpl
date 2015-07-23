@@ -7,8 +7,8 @@
     $(document).ready(function() {
         new Summary.Stats({
             "health": {$Character.health},
-            "power": {$CharacterPowerValue},
-            "powerTypeId": {$CharacterPowerType},
+            "power": {$Character.power_data.value},
+            "powerTypeId": {$Character.power_data.id},
             // Item Level Values
             "averageItemLevelEquipped": {$CountItemLevel},
             "averageItemLevelBest": {$CountItemLevel},

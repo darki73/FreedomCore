@@ -138,6 +138,33 @@ Class Characters
             return true;
     }
 
+    public static function GetCharacterGlyphs($CharacterGuid)
+    {
+        $Statement = Characters::$CharConnection->prepare('SELECT * FROM character_glyphs WHERE guid = :guid');
+        $Statement->bindParam(':guid', $CharacterGuid);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $ArrayIndex = 0;
+        foreach($Result as $Glyphs)
+        {
+            unset($Result[$ArrayIndex]['guid']);
+            unset($Result[$ArrayIndex]['spec']);
+            $ArrayIndex++;
+        }
+        $ArrayIndex = 0;
+        foreach($Result as $Glyph)
+        {
+            for($i = 1; $i < 7; $i++)
+                if($Glyph['glyph'.$i] != 0)
+                {
+                    $Result[$ArrayIndex]['glyph'.$i] = Spells::SpellInfo(Items::GetItemInfo($Glyph['glyph'.$i])['spellid_1']);
+                    $Result[$ArrayIndex]['glyph'.$i]['Name'] = str_replace('Glyph of', '', str_replace('Glyph of the', '', $Result[$ArrayIndex]['glyph'.$i]['Name']));
+                }
+            $ArrayIndex++;
+        }
+        return $Result;
+    }
+
     public static function GetGearForCharacter($CharacterGuid)
     {
         $Statement = Characters::$CharConnection->prepare('
@@ -197,6 +224,7 @@ Class Characters
         $BlockValue = 0;
         $CritValue = 0;
         $HasteValue = 0;
+        $SpellPowerValue = 0;
 
         $MainHandSpeed = 0;
         $OffHandSpeed = 0;
@@ -230,6 +258,8 @@ Class Characters
                             $CritValue = $CritValue + $Item['data']['stat_value'.$i];
                         elseif ($Item['data']['stat_type'.$i] == 36)
                             $HasteValue = $HasteValue + $Item['data']['stat_value'.$i];
+                        elseif ($Item['data']['stat_type'.$i] == 45)
+                            $SpellPowerValue = $SpellPowerValue + $Item['data']['stat_value'.$i];
                         elseif ($Item['data']['stat_type'.$i] == 48)
                             $BlockValue = $BlockValue + $Item['data']['stat_value'.$i];
                     }
@@ -254,6 +284,7 @@ Class Characters
         $Result['BlockValue'] = $BlockValue;
         $Result['CritValue'] = $CritValue;
         $Result['HasteValue'] = $HasteValue;
+        $Result['SpellPowerValue'] = $SpellPowerValue;
         $Result['MainHandSpeed'] = $MainHandSpeed;
         $Result['OffHandSpeed'] = $OffHandSpeed;
         $Result['RangedSpeed'] = $RangedSpeed;

@@ -328,6 +328,8 @@ Profile_Character_Profession_Table_Source = Source
 Profile_Character_Profession_Table_Skill = Skill
 Profile_Character_Profession_Table_ =
 Profile_Character_Profession_OhWell = Oh well...
+Profile_Character_Profession_Glyphs_Small = Minor glyphs
+Profile_Character_Profession_Glyphs_Big = Major glyphs
 Profile_Character_Profession_GoLearn = You need to go and learn one of the available <a href="/game/profession/">professions</a>...
 
 

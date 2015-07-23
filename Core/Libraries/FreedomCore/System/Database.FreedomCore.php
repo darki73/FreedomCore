@@ -35,7 +35,8 @@ Class Database
 
 global $FCCore, $Database;
 $Database = new Database($FCCore);
-if(isset($FCCore['Database']['host']))
+
+if(isset($FCCore['Database']['host']) && $FCCore['Database']['host'] != '')
 {
     if(!isset($_SESSION['installation_in_progress']))
     {

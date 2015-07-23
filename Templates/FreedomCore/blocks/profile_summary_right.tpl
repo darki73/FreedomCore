@@ -1,10 +1,7 @@
 <div class="summary-bottom-right">
     <div class="summary-talents" id="summary-talents">
         <h3 class="category ">
-            <span class="title">Talents</span>
-            <a name="talents" href="#" target="_blank" id="export-build" class="talent-export">
-                View in Talent Calculator<span class="arrow"></span>
-            </a>
+            <span class="title">{#MSG_FanSite_talentcalc#}</span>
         </h3>
 
         <div class="profile-box-simple">
@@ -21,9 +18,6 @@
                             <span class="frame">
                                 <span class="icon"><img src="/Templates/{$Template}/images/icons/medium/spec_{$Character.class_data.name}_{$Spec.name}.jpg" alt="" /></span>
                             </span>
-                            {*<span class="roles">*}
-                                    {*<span class="icon-tank"></span>*}
-                            {*</span>*}
                             <span class="name-build">
                                 <span class="name ">{$Spec.Description}</span>
                             </span>
@@ -33,6 +27,86 @@
 
                 <span class="clear"><!-- --></span>
             </div>
+            <div class="talent-build selected" id="talent-build-0">
+                <div class="talents">
+
+                </div>
+                <div class="glyphs">
+                    <ul>
+                        <li>
+                            <h3>
+                                {#Profile_Character_Profession_Glyphs_Big#}
+                            </h3>
+                        </li>
+                        {for $i = 1; $i < 4; $i++}
+                            {assign 'glyphid' 'glyph'|cat:$i}
+                            {if $Glyphs.0.$glyphid != 0}
+                                <li>
+                                    <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span>
+                                </li>
+                            {/if}
+                        {/for}
+
+                        <li>
+                            <h3>
+                                {#Profile_Character_Profession_Glyphs_Small#}
+                            </h3>
+                        </li>
+                        {for $i = 1; $i > 3; $i++}
+                            {assign 'glyphid' 'glyph'|cat:$i}
+                            {if $Glyphs.0.$glyphid != 0}
+                                <li>
+                                    <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span>
+                                </li>
+                            {/if}
+                            {if $i == 7}
+                                {break}
+                            {/if}
+                        {/for}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="talent-build selected" id="talent-build-1" style="display: none;">
+                <div class="talents">
+
+                </div>
+                <div class="glyphs">
+                    <ul>
+                        <li>
+                            <h3>
+                                {#Profile_Character_Profession_Glyphs_Big#}
+                            </h3>
+                        </li>
+                        {for $i = 1; $i < 4; $i++}
+                            {assign 'glyphid' 'glyph'|cat:$i}
+                            {if $Glyphs.1.$glyphid != 0}
+                                <li>
+                                    <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.1.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.1.$glyphid.SpellID}"></span>
+                                </li>
+                            {/if}
+                        {/for}
+
+                        <li>
+                            <h3>
+                                {#Profile_Character_Profession_Glyphs_Small#}
+                            </h3>
+                        </li>
+                        {for $i = 1; $i > 3; $i++}
+                            {assign 'glyphid' 'glyph'|cat:$i}
+                            {if $Glyphs.1.$glyphid != 0}
+                                <li>
+                                    <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.1.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.1.$glyphid.SpellID}"></span>
+                                </li>
+                            {/if}
+                            {if $i == 7}
+                                {break}
+                            {/if}
+                        {/for}
+                    </ul>
+                </div>
+            </div>
+
         </div>
         <script  type="text/javascript">
             //<![CDATA[

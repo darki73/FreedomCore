@@ -990,6 +990,7 @@ switch($_REQUEST['category'])
                             $Smarty->assign('PageType', $_REQUEST['lastcategory']);
                             $Smarty->assign('Specializations', Characters::GetSpecByTalents($CharacterData['guid']));
                             $Smarty->assign('Inventory', Characters::GetGearForCharacter($CharacterData['guid']));
+                            $Smarty->assign('Glyphs', Characters::GetCharacterGlyphs($CharacterData['guid']));
                             $Smarty->assign('ArenaRating', Characters::GetPVPRaiting($CharacterData['guid']));
                             $Smarty->assign('Professions', $Professions);
                             $Smarty->assign('Raids', $Raids);

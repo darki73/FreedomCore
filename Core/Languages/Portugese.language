@@ -327,7 +327,9 @@ Profile_Character_Profession_Table_Regs =
 Profile_Character_Profession_Table_Source = 
 Profile_Character_Profession_Table_Skill = 
 Profile_Character_Profession_Table_ =
-Profile_Character_Profession_OhWell = 
+Profile_Character_Profession_OhWell =
+Profile_Character_Profession_Glyphs_Small =
+Profile_Character_Profession_Glyphs_Big =
 Profile_Character_Profession_GoLearn = 
 
 

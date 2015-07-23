@@ -329,6 +329,8 @@ Profile_Character_Profession_Table_Regs = Реагенты
 Profile_Character_Profession_Table_Source = Источник
 Profile_Character_Profession_Table_Skill = Навык
 Profile_Character_Profession_Table_ =
+Profile_Character_Profession_Glyphs_Small = Малые Символы
+Profile_Character_Profession_Glyphs_Big = Большие символы
 Profile_Character_Profession_OhWell = Мда
 Profile_Character_Profession_GoLearn = Толку от этого персонажа немного, подучиться бы ему, что ли, какой полезной <a href="/game/profession/">профессии</a>...
 
