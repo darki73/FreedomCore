@@ -1435,10 +1435,49 @@ switch($_REQUEST['category'])
 	break;
 
     case 'shop':
+        $Smarty->translate('Shop');
+        Manager::LoadExtension('Shop', $ClassConstructor);
         if(String::IsNull($_REQUEST['subcategory']))
         {
-            $Smarty->assign('Page', Page::Info('shop', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
+            $Smarty->assign('SidebarItems', Shop::GetSidebar());
+            $Smarty->assign('Page', Page::Info('shop', array('bodycss' => 'browse-template product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
             $Smarty->display('shop');
+        }
+        else
+        {
+            $Category = explode('-', $_REQUEST['subcategory'])[0];
+            switch($Category)
+            {
+                case 'mount':
+                    $WhichMount = str_replace('mount-', '', $_REQUEST['subcategory']);
+                    $MountData = Shop::GetItemData($WhichMount);
+                    $Smarty->assign('ItemData', $MountData);
+                    $Smarty->assign('Page', Page::Info('shop-mount', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $MountData['item_name'].' - ')));
+                    $Smarty->display('shop/mount');
+                break;
+
+                case 'buy':
+                    if(Account::IsAuthorized($_SESSION['username'], 0))
+                    {
+                        $Smarty->assign('PurchaseCompleted', false);
+                        $WhichItem = str_replace('buy-', '', str_replace('pet-', '', str_replace('mount-', '', $_REQUEST['subcategory'])));
+                        $ItemData = Shop::GetItemData($WhichItem);
+                        $Smarty->assign('ItemData', $ItemData);
+                        $Smarty->assign('Page', Page::Info('shop-buy', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
+                        $Smarty->display('shop/buy');
+                    }
+                    else
+                        header('Location: /account/login');
+                break;
+
+                case 'pet':
+                    String::PrettyPrint($_REQUEST);
+                break;
+
+                default:
+                    header('Location: /shop');
+                break;
+            }
         }
     break;
 

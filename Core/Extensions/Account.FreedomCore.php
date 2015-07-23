@@ -672,12 +672,15 @@ Class Account
     {
         $ValidUser = false;
         $ValidRole = false;
-        if($_SESSION['username'] == $Username)
-            $ValidUser = true;
-        if($_SESSION['access_role'] == $AccessRoleRequired || $_SESSION['access_role'] > $AccessRoleRequired)
+        if(isset($_SESSION['username']) && $_SESSION['username'] != '')
         {
-            $ValidRole = true;
-            $_SESSION['user_access'] = Account::VerifyAccessRole($AccessRoleRequired);
+            if($_SESSION['username'] == $Username)
+                $ValidUser = true;
+            if($_SESSION['access_role'] == $AccessRoleRequired || $_SESSION['access_role'] > $AccessRoleRequired)
+            {
+                $ValidRole = true;
+                $_SESSION['user_access'] = Account::VerifyAccessRole($AccessRoleRequired);
+            }
         }
 
         if($ValidUser && $ValidRole)
