@@ -151,6 +151,23 @@
                         {/if}
                     </ul>
                 </div>
+                {if $smarty.session.loggedin}
+                <div class="grid-50">
+                    <ul class="nav">
+                        <li class="dropdown pull-right battlenet-balance-status">
+                            <a href="#" class="dropdown-toggle" id="battlenet-balance-select" role="button" data-toggle="dropdown">
+                                <span class="balance-amount">{$User.selected_currency} {$User.balance}.00</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="battlenet-balance-select">
+                                <li><a tabindex="-1" href="/shop/add-balance">Add Balance</a></li>
+                                <li><a tabindex="-1" href="/account/management/claim-code" data-external="sso">Add Pre-paid Card<i class="icon-external-link"></i></a></li>
+                                <li><a tabindex="-1" href="/account/management/orders" data-external="sso">Balance History<i class="icon-external-link"></i></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                {/if}
             </div>
         </nav>
     {/if}
