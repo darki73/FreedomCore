@@ -24,8 +24,6 @@ Class Session
 
 	public static function UpdateSession($Data)
 	{
-		if(!isset($_SESSION['loggedin']))
-			Session::GenerateSessionData();
 		foreach($Data as $key=>$value)
 			$_SESSION[$key] = $value;
 	}
@@ -76,9 +74,6 @@ Class Session
 		session_name($SessionName);
 		session_start();
 		session_regenerate_id(true);
-		if(!Session::$SessionCreated)
-			if(!isset($_SESSION['loggedin']))
-				Session::GenerateSessionData();
 		Session::$SessionCreated = true;
 	}
 

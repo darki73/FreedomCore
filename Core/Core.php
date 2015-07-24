@@ -3,8 +3,10 @@ header('X-Frame-Options: SAMEORIGIN');
 require_once('Core/Classes/Autoloader.Class.php');
 Autoloader::Initialize();
 new ErrorHandler($Smarty);;
-if(!isset($_SESSION['installation_in_progress']) || $_SESSION['installation_in_progress'] != true)
+if(!$InstallationIsInProgress)
 {
+    $Session = new Session($Database);
+    Session::Start('FreedomCore', false);
     Manager::LoadExtension('Account', array($Database, $Smarty));
     Manager::LoadExtension('Characters', array($Database, $Smarty));
     Manager::LoadExtension('Items', array($Database, $Smarty));
@@ -20,6 +22,9 @@ if(!isset($_SESSION['installation_in_progress']) || $_SESSION['installation_in_p
                 if($Character['guid'] == $User['pinned_character'])
                     $SelectedCharacterForComments = $Character;
         $Smarty->assign('CommentCharacter', $SelectedCharacterForComments);
+        Session::UpdateSession($_SESSION);
     }
+    else
+        Session::UpdateSession(array('loggedin' => false));
 }
 ?>

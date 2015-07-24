@@ -4,7 +4,7 @@ Class Utilities extends FreedomCore
 {
 	public static function GetLanguage($IsCode = false)
 	{
-		if($_SESSION['preferredlanguage'] != '')
+		if(isset($_SESSION['preferredlanguage']) && $_SESSION['preferredlanguage'] != '')
 			$PreferedLanguage = $_SESSION['preferredlanguage'];
 		else
 			$PreferedLanguage = '';
