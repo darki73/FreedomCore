@@ -68,6 +68,7 @@
     <script src="/Templates/{$Template}/js/toolkit.js"></script>
     <script type="text/javascript" src="/Templates/{$Template}/js/global.js"></script>
     <script type="text/javascript" src="/Templates/{$Template}/js/product.js"></script>
+    <script type="text/javascript" src="/Templates/{$Template}/js/purchase.js"></script>
     {/if}
     <script src="/Templates/{$Template}/js/navbar.js"></script>
     <div id="ajax-indicator" class="ajax-indicator"></div>

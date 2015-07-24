@@ -1445,13 +1445,16 @@ switch($_REQUEST['category'])
         else
         {
             $Category = explode('-', $_REQUEST['subcategory'])[0];
+            if(isset($_REQUEST['subcategory']))
+            {
+                $WhichItem = str_replace('complete-', '', str_replace('pay-', '', str_replace('buy-', '', str_replace('pet-', '', str_replace('mount-', '', $_REQUEST['subcategory'])))));
+                $ItemData = Shop::GetItemData($WhichItem);
+                $Smarty->assign('ItemData', $ItemData);
+            }
             switch($Category)
             {
                 case 'mount':
-                    $WhichMount = str_replace('mount-', '', $_REQUEST['subcategory']);
-                    $MountData = Shop::GetItemData($WhichMount);
-                    $Smarty->assign('ItemData', $MountData);
-                    $Smarty->assign('Page', Page::Info('shop-mount', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $MountData['item_name'].' - ')));
+                    $Smarty->assign('Page', Page::Info('shop-mount', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $ItemData['item_name'].' - ')));
                     $Smarty->display('shop/mount');
                 break;
 
@@ -1459,11 +1462,39 @@ switch($_REQUEST['category'])
                     if(Account::IsAuthorized($_SESSION['username'], 0))
                     {
                         $Smarty->assign('PurchaseCompleted', false);
-                        $WhichItem = str_replace('buy-', '', str_replace('pet-', '', str_replace('mount-', '', $_REQUEST['subcategory'])));
-                        $ItemData = Shop::GetItemData($WhichItem);
-                        $Smarty->assign('ItemData', $ItemData);
+                        $Smarty->assign('Accounts', Account::GetGameAccounts($_SESSION['username']));
                         $Smarty->assign('Page', Page::Info('shop-buy', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
                         $Smarty->display('shop/buy');
+                    }
+                    else
+                        header('Location: /account/login');
+                break;
+
+                case 'pay':
+                    if(Account::IsAuthorized($_SESSION['username'], 0))
+                    {
+                        $Smarty->assign('BuyingFor', $_REQUEST['gameAccountIds']);
+                        $Smarty->assign('PurchaseCompleted', false);
+                        $Smarty->assign('Page', Page::Info('shop-buy', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
+                        $Smarty->display('shop/pay');
+                    }
+                    else
+                        header('Location: /account/login');
+                break;
+
+                case 'complete':
+                    if(Account::IsAuthorized($_SESSION['username'], 0))
+                    {
+                        if($User['balance'] >= $ItemData['price'])
+                            $Smarty->assign('PurchaseCompleted', true);
+                        else
+                            header('Location: /shop/');
+                        $ActivationCode = Shop::GenerateItemCode();
+
+                        $Smarty->assign('ActivationCode', $ActivationCode);
+                        $Smarty->assign('BuyingFor', $_REQUEST['gameAccountIds']);
+                        $Smarty->assign('Page', Page::Info('shop-buy', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
+                        $Smarty->display('shop/complete');
                     }
                     else
                         header('Location: /account/login');

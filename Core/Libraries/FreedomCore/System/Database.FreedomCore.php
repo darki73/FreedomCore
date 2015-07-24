@@ -40,7 +40,11 @@ $InstallationIsInProgress = true;
 if(isset($FCCore['Database']['host']) && $FCCore['Database']['host'] != '')
 {
     if(!isset($_SESSION['installation_in_progress']))
+    {
+        $Session = new Session($Database);
+        Session::Start('FreedomCore', false);
         $InstallationIsInProgress = false;
+    }
     else
         $InstallationIsInProgress = true;
 }

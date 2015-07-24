@@ -2,11 +2,9 @@
 header('X-Frame-Options: SAMEORIGIN');
 require_once('Core/Classes/Autoloader.Class.php');
 Autoloader::Initialize();
-new ErrorHandler($Smarty);;
+new ErrorHandler($Smarty);
 if(!$InstallationIsInProgress)
 {
-    $Session = new Session($Database);
-    Session::Start('FreedomCore', false);
     Manager::LoadExtension('Account', array($Database, $Smarty));
     Manager::LoadExtension('Characters', array($Database, $Smarty));
     Manager::LoadExtension('Items', array($Database, $Smarty));

@@ -38,7 +38,57 @@
                 </div>
             </div>
             <div class="purchase-column grid-75 grid-parent">
-
+                <h1 class="heading-2">
+                    {#Shop_Available_Accounts#}
+                </h1>
+                <span id="NoAccountSelected" style="color: red"></span>
+                <form action="/shop/pay-{$ItemData.short_code}" method="post">
+                    <div class="purchase-selection">
+                        <br />
+                        <ul class="account-list unstyled" id="eligible-account-list">
+                            {foreach $Accounts as $Account}
+                                <li class="account">
+                                    <label class="radio-label">
+                                        <input type="radio" name="gameAccountIds" value="{$Account.id}"/>
+                                        <div class="summary">
+                                            <div class="heading heading-4">
+                                                <span class="game-label">WoW{$Account.id}</span>: <span class="game-box-level">{$Account.expansion_name}</span>
+                                            </div>
+                                            <div class="description">
+                                        <span class="last-played">
+                                        {#Shop_Last_Login#}
+                                            <time datetime="{$Account.last_login}" title="{$Account.last_login}">{$Account.last_login|relative_date}</time>
+                                        </span>
+                                            </div>
+                                        </div>
+                                        <div class="message"></div>
+                                    </label>
+                                </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                    <div class="purchase-actions account-selection-actions">
+                        <div class="grid-100 buttons">
+                            <button type="submit" class="btn btn-primary btn-wide" onclick="return CheckIfAccountSelected();" >{#Shop_Continue#}</button>
+                            <a class="cancel purchase-cancel btn" onclick="history.go(-1);" tabindex="1">
+                                {#Shop_Cancel#}
+                            </a>
+                        </div>
+                    </div>
+                    <script>
+                        function CheckIfAccountSelected()
+                        {
+                            if (!$("input[name='gameAccountIds']:checked").val())
+                            {
+                                $("#NoAccountSelected").empty();
+                                $("#NoAccountSelected").html('{#Shop_No_Account_Selected#}');
+                                return false;
+                            }
+                            else
+                                return true;
+                        }
+                    </script>
+                </form>
             </div>
         </div>
     </div>
