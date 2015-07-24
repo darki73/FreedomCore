@@ -24,6 +24,17 @@ $('#oldPassword').keydown(function(){
     clearTimeout(typingTimer);
 });
 
+function ReloadCaptcha()
+{
+    var CaptchaDiv = $('#captcha-image');
+    CaptchaDiv.empty();
+    $.ajax({
+       url: '/account/image'
+    });
+
+    return false;
+}
+
 function doneTyping () {
     $.ajax({
         url: '/account/management/settings/verify-old-password?username='+$('#Username').val()+'&oldPassword='+$('#oldPassword').val(),

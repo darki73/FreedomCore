@@ -1526,7 +1526,8 @@ switch($_REQUEST['category'])
             $AvailableLanguages = array('ru', 'it', 'pt', 'kr', 'de', 'es', 'fr', 'en');
             if(in_array($_REQUEST['subcategory'], $AvailableLanguages))
             {
-                Session::UpdateSession(array('preferredlanguage' => $_REQUEST['subcategory']));
+                $_SESSION['preferredlanguage'] = $_REQUEST['subcategory'];
+                Session::UpdateSession($_SESSION);
                 header('Location: /');
             }
             else

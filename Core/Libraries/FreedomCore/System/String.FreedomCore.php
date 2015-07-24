@@ -44,6 +44,7 @@ Class String
     {
         echo "<pre>";
         print_r($_REQUEST);
+        echo "</pre>";
     }
 
     public static function Match($ArgOne, $ArgTwo)
@@ -58,6 +59,7 @@ Class String
     {
         echo "<pre>";
         print_r($Array);
+        echo "</pre>";
     }
 
     public static function MassUnset($Array, $Unset)
@@ -200,7 +202,8 @@ Class String
 		$TextColor = ImageColorAllocate ($CreateBlankImage, 51, 51, 255);
 		ImageString($CreateBlankImage,5,50,25,$RandomString,$TextColor);
         ImagePng($CreateBlankImage);
-        Session::UpdateSession(array('generated_captcha' => $RandomString));
+        $_SESSION['generated_captcha'] = $RandomString;
+        Session::UpdateSession($_SESSION);
 	}
 }
 
