@@ -2061,7 +2061,7 @@ a{color:#00aeff;-webkit-transition:color,0.2s;transition:color .2s}
 a:focus,a:hover{color:#fff}
 a.inverse{color:rgba(255,255,255,0.7)}
 a.inverse:focus,a.inverse:hover{color:#fff}
-.logo{width:300px;height:70px;text-indent:-9999px;background:url("/Templates/FreedomCore/images/toolkit/defaults/logos/bnet/default.png") -5px 0;margin:0 auto}
+.logo{width:300px;height:70px;text-indent:-9999px;background:url("/Templates/FreedomCore/images/logos/bnet-default.png") -5px 0;margin:0 auto}
 :lang(zh-CN) .logo{background:url("/Templates/FreedomCore/images/toolkit/defaults/logos/bnet/china-default.png")}
 @media only screen and (-webkit-min-device-pixel-ratio:1.5),only screen and (-o-min-device-pixel-ratio:3/2),only screen and (min--moz-device-pixel-ratio:1.5),only screen and (min-device-pixel-ratio:1.5){.logo{background:url("/Templates/FreedomCore/images/toolkit/defaults/logos/bnet/default-2x.png");background-size:300px 70px}
     :lang(zh-CN) .logo{background:url("/Templates/FreedomCore/images/toolkit/defaults/logos/bnet/china-default-2x.png");background-size:300px 70px}

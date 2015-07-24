@@ -5,7 +5,7 @@
 		<title>{$Page.pagetitle} {$AppName}</title>
 		<link rel="shortcut icon" href="/Templates/{$Template}/images/meta/favicon.ico" />
 		<link rel="search" type="application/opensearchdescription+xml" href="http://{$smarty.server.HTTP_HOST}/data/opensearch" title="{#Head_Opensearch_Meta#} {$AppName}" />
-		<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/toolkit/wow-web.min.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/toolkit/freedomnet-web.min.css" />
 
 		<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/login/global.min.css" />
 		<script type="text/javascript" src="/Templates/{$Template}/js/third-party/jquery-1.11.0.min.js"></script>
@@ -13,9 +13,9 @@
 		<meta name="viewport" content="width=device-width" />
 
 	</head>
-	<body class="ru-ru login-template web wow {$ExpansionTemplate}" data-embedded-state="STATE_LOGIN">
+	<body class="{$Language} login-template web wow {$ExpansionTemplate}" data-embedded-state="STATE_LOGIN">
 		<div class="grid-container wrapper">
-			<h1 class="logo">{#Account_Login#}</h1>
+			<h1 class="logo" style="height:125px;">{#Account_Login#}</h1>
 
 			<div class="hide" id="info-wrapper">
 				<h2><strong class="info-title"></strong></h2>
