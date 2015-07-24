@@ -28,9 +28,13 @@ function ReloadCaptcha()
 {
     var CaptchaDiv = $('#captcha-image');
     CaptchaDiv.empty();
-    $.ajax({
-       url: '/account/image'
-    });
+    var Image = $('<img/>');
+    Image.attr('align', 'middle');
+    Image.attr('id', 'sec-string');
+    Image.attr('alt', 'Renew');
+    Image.attr('src', '/account/captcha.jpg');
+
+    CaptchaDiv.append(Image);
 
     return false;
 }

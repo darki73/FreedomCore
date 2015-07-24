@@ -142,5 +142,6 @@
 	<script type="text/javascript" src="/Templates/{$Template}/js/login/toolkit.min.js"></script>
 	<script type="text/javascript" src="/Templates/{$Template}/js/login/global.min.js"></script>
 	<script type="text/javascript" src="/Templates/{$Template}/js/login/login.min.js"></script>
+    <script type="text/javascript" src="/Templates/{$Template}/js/freedomcore.js"></script>
 	</body>
 </html>

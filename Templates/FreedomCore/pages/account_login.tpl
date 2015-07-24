@@ -53,9 +53,9 @@
 
                     <div class="control-group">
                         <div class="captcha">
-                            <a id="captcha-anchor" role="button" href="javascript:;">
+                            <a id="captcha-anchor" role="button" href="javascript:;" onclick=" return ReloadCaptcha();">
                                 <i class="icon-48-refresh"></i>
-                                <div class="captcha-image">
+                                <div class="captcha-image" id="captcha-image">
                                     <img id="sec-string" align="middle" src="/account/captcha.jpg" alt="{#Captcha_Renew#}" title="{#Captcha_Renew#}" />
                                 </div>
                             </a>
@@ -124,5 +124,6 @@
 	<script type="text/javascript" src="/Templates/{$Template}/js/login/toolkit.min.js"></script>
 	<script type="text/javascript" src="/Templates/{$Template}/js/login/global.min.js"></script>
 	<script type="text/javascript" src="/Templates/{$Template}/js/login/login.min.js"></script>
+    <script type="text/javascript" src="/Templates/{$Template}/js/freedomcore.js"></script>
 	</body>
 </html>
