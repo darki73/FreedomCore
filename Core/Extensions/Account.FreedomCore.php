@@ -8,6 +8,7 @@ Class Account
 	public static $UserID;
 	public static $Username;
 	public static $AuthStatus;
+    public static $VariablesArray;
 
     /**
      * This is a class constructor
@@ -17,6 +18,7 @@ Class Account
     {
         Account::$DBConnection = $VariablesArray[0]::$Connection;
         Account::$AuthConnection = $VariablesArray[0]::$AConnection;
+        Account::$VariablesArray = $VariablesArray;
         Account::$TM = $VariablesArray[1];
     }
 
@@ -421,9 +423,19 @@ Class Account
         foreach($Result as $Payment)
         {
             $Result[$ArrayIndex]['status'] = Account::PaymentStatusConverter($Payment['status']);
+            if(strlen($Payment['service']) > 3)
+                $Result[$ArrayIndex]['item_data'] = Account::GetItemDataByServiceName($Payment['service']);
+            $ArrayIndex++;
         }
 
         return $Result;
+    }
+
+    private static function GetItemDataByServiceName($ServiceName)
+    {
+        Manager::LoadExtension('Shop', Account::$VariablesArray);
+        $ItemData = Shop::GetItemData($ServiceName);
+        return $ItemData;
     }
 
     /**
@@ -442,6 +454,8 @@ Class Account
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         $Result['status'] = Account::PaymentStatusConverter($Result['status']);
+        if(strlen($Result['service']) > 3)
+            $Result['item_data'] = Account::GetItemDataByServiceName($Result['service']);
         return $Result;
     }
 

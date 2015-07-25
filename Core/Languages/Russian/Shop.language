@@ -33,3 +33,10 @@ Shop_Top_Up_First = <a href="/shop/balance" data-external="sso">Зачислит
 Shop_Congrats = Поздравляем с покупкой!
 Shop_Activation_Code = Код Активации
 Shop_Activation_Help = Это ваш код активации предмета.<br />Для получения %s вам необходимо перейти в  раздел <a href='/account/management/claim-code'> Активации Кодов </a>, выбрать персонажа и ввести данный код<br/><h2>Внимание</h2> Данный код показан вам в первый и последний раз. Сохраните его, поскольку восстановление кода невозможно.<br />Вы так же получите копию кода по E-Mail
+Shop_Thanks_For_Purchase = Благодарим Вас за покупку!
+Shop_Email_Item_Purchased = Вы приобрели %s в нашем магазине.
+Shop_Email_Activation_Code = Ваш код активации предмета:
+Shop_Email_Thank_You_Footer = Благодарим Вас за совершение покупки в нашем магазине<br />С уважением, команда
+Shop_Email_Use_Code = Активировать Код
+Shop_Button_ButtonNotWorking = Если по какой-то причине кнопка не работает, Вы можете воспользоваться этой ссылкой:
+Shop_Email_CodeOnlyFor = Данный код действителен только для учетной записи

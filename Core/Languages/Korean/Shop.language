@@ -33,3 +33,10 @@ Shop_Top_Up_First = <a href="/shop/balance" data-external="sso">Зачислит
 Shop_Congrats = 
 Shop_Activation_Code = 
 Shop_Activation_Help = <a href='/account/management/claim-code'> Активации Кодов </a>
+Shop_Thanks_For_Purchase =
+Shop_Email_Item_Purchased =
+Shop_Email_Activation_Code =
+Shop_Email_Thank_You_Footer =
+Shop_Email_Use_Code =
+Shop_Button_ButtonNotWorking =
+Shop_Email_CodeOnlyFor =

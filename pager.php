@@ -69,6 +69,17 @@ switch($_REQUEST['category'])
                                     $Smarty->display('account/account_dashboard');
                                 break;
 
+                                case 'claim-code':
+                                    if(!isset($_REQUEST['selectedAccount']))
+                                    {
+                                        String::PrettyPrint($_REQUEST);
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                break;
+
                                 case 'services':
                                     if(!String::IsNull($_REQUEST['datatype']))
                                     {
@@ -1490,11 +1501,23 @@ switch($_REQUEST['category'])
                         else
                             header('Location: /shop/');
                         $ActivationCode = Shop::GenerateItemCode();
-
+                        $Account = array(
+                            'id' => $_REQUEST['gameAccountIds'],
+                            'username' => $User['username'],
+                            'email' => $User['email'],
+                            'activation_code' => $ActivationCode
+                        );
+                        $Smarty->assign('Website', $_SERVER['HTTP_HOST']);
+                        $Smarty->assign('Account', $Account);
+                        Shop::InsertPurchaseData($ItemData['short_code'], $_REQUEST['gameAccountIds'], $ActivationCode);
+                        Account::InsertPaymentDetails($User['id'], $ItemData['short_code'], $ItemData['price']);
                         $Smarty->assign('ActivationCode', $ActivationCode);
+                        $EMailTemplate = $Smarty->fetch('shop/email_template.tpl');
+                        Shop::SendCodeEmail($_REQUEST['email'], $EMailTemplate);
                         $Smarty->assign('BuyingFor', $_REQUEST['gameAccountIds']);
                         $Smarty->assign('Page', Page::Info('shop-buy', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
                         $Smarty->display('shop/complete');
+
                     }
                     else
                         header('Location: /account/login');

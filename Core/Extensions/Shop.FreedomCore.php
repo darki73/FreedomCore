@@ -61,9 +61,30 @@ Class Shop
         return $Result;
     }
 
+    public static function InsertPurchaseData($Item, $Account, $Code)
+    {
+        $Date = time();
+        $Statement = Shop::$DBConnection->prepare('INSERT INTO shop_codes (purchased_item, purchase_code, purchase_date, purchased_for_account) VALUES (:item, :code, :pdate, :account)');
+        $Statement->bindParam(':item', $Item);
+        $Statement->bindParam(':code', $Code);
+        $Statement->bindParam(':pdate', $Date);
+        $Statement->bindParam(':account', $Account);
+        $Statement->execute();
+        return true;
+    }
+
+    public static function SendCodeEmail($Email, $HTMLCode)
+    {
+        $Subject = 'Store Purchase';
+        $Headers = 'From: noreply@'.$_SERVER['HTTP_HOST']."\r\n";
+        $Headers .= 'X-Mailer: FreedomCore Notification Service';
+        $Headers .= 'MIME-Version: 1.0'."\r\n";
+        $Headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
+        mail($Email, $Subject, $HTMLCode, $Headers);
+    }
+
     public static function GenerateItemCode()
     {
-
         $tokens = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $segment_chars = 7;
         $num_segments = 8;

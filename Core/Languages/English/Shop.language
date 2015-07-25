@@ -33,3 +33,10 @@ Shop_Top_Up_First = <a href="/shop/balance" data-external="sso">Purchase additio
 Shop_Congrats = Congratulations!
 Shop_Activation_Code = Activation Code
 Shop_Activation_Help = This is your activation code. <br /> To redeem %s you need to go to the <a href='/account/management/claim-code'> Claim Code </a> section, select a character and enter this code <br /><h2> Warning </h2> This code shown to you the first and last time. Save it, because it is impossible to restore the code. <br /> You will also receive a copy of the code by E-Mail
+Shop_Thanks_For_Purchase = Thank you for Purchase
+Shop_Email_Item_Purchased = You have purchased %s in our shop.
+Shop_Email_Activation_Code = Your activation code
+Shop_Email_Thank_You_Footer = Thank you for shopping in our Web Shop.<br /> Sincerely yours
+Shop_Email_Use_Code = Claim Code
+Shop_Button_ButtonNotWorking = If for some reason this button does not working, use this link:
+Shop_Email_CodeOnlyFor = This code is only valid for account
