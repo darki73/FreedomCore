@@ -150,8 +150,10 @@ Class Account
             $Statement->bindParam(':email', $Email);
             $Statement->bindParam(':registrationdate', $RegistrationDate);
             $Statement->bindParam(':code', $Code);
-            $Statement->execute();
-            return true;
+            if($Statement->execute())
+                return true;
+            else
+                return false;
         }
         else
             return false;

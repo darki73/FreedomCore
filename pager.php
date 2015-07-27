@@ -1507,6 +1507,8 @@ switch($_REQUEST['category'])
                             'email' => $User['email'],
                             'activation_code' => $ActivationCode
                         );
+                        $NewBalance = $User['balance'] - $ItemData['price'];
+                        Account::SetBalance($User['username'], $NewBalance);
                         $Smarty->assign('Website', $_SERVER['HTTP_HOST']);
                         $Smarty->assign('Account', $Account);
                         Shop::InsertPurchaseData($ItemData['short_code'], $_REQUEST['gameAccountIds'], $ActivationCode);
