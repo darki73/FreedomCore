@@ -50,4 +50,32 @@ Class Installer
 
         $Connection = null;
     }
+
+    public static function CheckPHPModules()
+    {
+        $ModulesArray = array(
+            array(
+                'name' => 'pdo_mysql',
+                'status' => extension_loaded('pdo_mysql')
+            ),
+            array(
+                'name' => 'curl',
+                'status' => extension_loaded('curl')
+            ),
+            array(
+                'name' => 'mysqli',
+                'status' => extension_loaded('mysqli')
+            ),
+            array(
+                'name' => 'soap',
+                'status' => extension_loaded('soap')
+            ),
+            array(
+                'name' => 'gd',
+                'status' => extension_loaded('gd')
+            ),
+        );
+
+        return $ModulesArray;
+    }
 }

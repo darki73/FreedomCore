@@ -117,6 +117,7 @@ switch($_REQUEST['category'])
         phpinfo(INFO_MODULES);
         $info = ob_get_contents();
         ob_end_clean();
+        Manager::LoadExtension('Installer', array($Database, $Smarty));
         $_SESSION['installation_in_progress'] = true;
         $info = stristr($info, 'Client API version');
         preg_match('/[1-9].[0-9].[1-9][0-9]/', $info, $match);
@@ -168,6 +169,7 @@ switch($_REQUEST['category'])
             'allow' => $AllowInstallation
         );
 
+        $Smarty->assign('LoadedModules', Installer::CheckPHPModules());
         $Smarty->assign('FilesToImport', File::GetDirectoryContent(getcwd().DS.'sql'.DS.'base', 'sql'));
         $Smarty->assign('Software', $InstalledSoftware);
         $Smarty->display('installation/main');

@@ -47,5 +47,25 @@
                 </div>
             </div>
         </div>
+        <div class="row-fluid">
+            {assign 'RowsCount' '0'}
+            {assign 'FilesPerBlock' '0'}
+            <div class="span4"></div>
+            {$FilesPerBlock = (($LoadedModules|count)/2)|ceil}
+            {foreach from=$LoadedModules item=Module key=i}
+                {if $RowsCount == 0}
+                    <div class="span4">
+                        {$Module.name} {if $Module.status}<img height='15px' width='15px' src='/Templates/FreedomCore/images/icons/arrow-done-plain.gif'>{else}<img height='15px' width='15px' src='/Templates/FreedomCore/images/icons/cross.png'>{/if}<br />
+                        {$RowsCount = $RowsCount +1}
+                {elseif $RowsCount == 2}
+                    </div>
+                    {$RowsCount = 0}
+                {else}
+                    {$Module.name} {if $Module.status}<img height='15px' width='15px' src='/Templates/FreedomCore/images/icons/arrow-done-plain.gif'>{else}<img height='15px' width='15px' src='/Templates/FreedomCore/images/icons/cross.png'>{/if}<br />
+                    {$RowsCount = $RowsCount +1}
+                {/if}
+            {/foreach}
+        </div>
     </div>
+    <br />
 </div>
