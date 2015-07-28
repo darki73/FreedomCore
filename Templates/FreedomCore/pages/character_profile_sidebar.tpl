@@ -19,7 +19,7 @@
                         <div class="under-name color-c{$Character.class}">
                             <a href="/game/race/{$Character.race_data.name}" class="race">{$Character.race_data.translation}</a>-<a href="/game/class/{$Character.class_data.name}" class="class">{$Character.class_data.translation}</a> (<a id="profile-info-spec" href="#talents" class="spec tip">
                                 {foreach $Specializations as $Spec}
-                                    {if $Spec.spec == $Spec.activespec}
+                                    {if $Spec.talentGroup == $Spec.activeTalentGroup}
                                         {$Spec.Description}
                                     {/if}
                                 {/foreach}

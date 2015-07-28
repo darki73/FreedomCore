@@ -74,6 +74,10 @@ Class Installer
                 'name' => 'gd',
                 'status' => extension_loaded('gd')
             ),
+            array(
+                'name' => 'soap',
+                'status' => extension_loaded('soap')
+            ),
         );
 
         return $ModulesArray;

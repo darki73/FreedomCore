@@ -56,6 +56,9 @@
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard_secondary.css" />
         {/if}
+        {if $Page.bodycss == 'claimcode'}
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/add-game.css" />
+        {/if}
         {if $Page.bodycss == 'servicespage'}
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/guild_services.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/payment_history.css" />

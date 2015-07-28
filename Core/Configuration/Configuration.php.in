@@ -12,6 +12,13 @@ $FCCore['Caching']						=	false;
 $FCCore['debug']						=	true;
 $FCCore['email']						=	"";	// Admin Email
 $FCCore['registration']					=	false;
+
+// Soap Configuration
+$FCCore['soap']['host']                 =   '127.0.0.1';
+$FCCore['soap']['port']                 =   '7878';
+$FCCore['soap']['sender_name']          =   '';
+$FCCore['soap']['sender_pass']          =   '';
+
 // Template Engine Configuration
 $FCCore['ApplicationName']				=	"FreedomCore";
 $FCCore['ApplicationDescription']		=	"FreedomCore Test Engine";

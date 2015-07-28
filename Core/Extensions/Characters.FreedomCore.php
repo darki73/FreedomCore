@@ -148,7 +148,7 @@ Class Characters
         foreach($Result as $Glyphs)
         {
             unset($Result[$ArrayIndex]['guid']);
-            unset($Result[$ArrayIndex]['spec']);
+            unset($Result[$ArrayIndex]['talentGroup']);
             $ArrayIndex++;
         }
         $ArrayIndex = 0;
@@ -948,8 +948,8 @@ Class Characters
             SELECT
                 lower(ftt.name_loc0) as name,
                 ftt.name_loc0 as Description,
-                ct.spec,
-                c.activespec
+                ct.talentGroup,
+                c.activeTalentGroup
             FROM
                 freedomcore_talent ft
             LEFT JOIN '.$FCCore['CharDB']['database'].'.character_talent ct ON
@@ -967,7 +967,7 @@ Class Characters
             JOIN '.$FCCore['CharDB']['database'].'.characters c ON
                 ct.guid = c.guid
             WHERE ct.guid = :guid
-            GROUP BY ct.spec;
+            GROUP BY ct.talentGroup;
         ');
         $Statement->bindParam(':guid', $CharacterGUID);
         $Statement->execute();

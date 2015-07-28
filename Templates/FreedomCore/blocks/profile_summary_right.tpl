@@ -7,12 +7,12 @@
         <div class="profile-box-simple">
             <div class="talent-specs" data-class-name="{$Character.class_data.name}">
                 {foreach $Specializations as $Spec}
-                            {if $Spec.spec == $Spec.activespec}
-                            <a data-spec-id="{$Spec.spec}" class="spec-button spec-{$Spec.spec} selected active" href="javascript:;" data-spec-name="{$Spec.name}" data-tooltip="">
+                            {if $Spec.talentGroup == $Spec.activeTalentGroup}
+                            <a data-spec-id="{$Spec.talentGroup}" class="spec-button spec-{$Spec.talentGroup} selected active" href="javascript:;" data-spec-name="{$Spec.name}" data-tooltip="">
                                     <span class="inner">
                                     <span class="checkmark"></span>
                             {else}
-                                <a data-spec-id="{$Spec.spec}" class="spec-button spec-{$Spec.spec}" href="javascript:;" data-spec-name="{$Spec.name}" data-tooltip="">
+                                <a data-spec-id="{$Spec.talentGroup}" class="spec-button spec-{$Spec.talentGroup}" href="javascript:;" data-spec-name="{$Spec.name}" data-tooltip="">
                                     <span class="inner">
                             {/if}
                             <span class="frame">

@@ -70,14 +70,54 @@ switch($_REQUEST['category'])
                                 break;
 
                                 case 'claim-code':
-                                    if(!isset($_REQUEST['selectedAccount']))
+                                    Manager::LoadExtension('Soap', $ClassConstructor);
+                                    if(!isset($_REQUEST['accountName']))
                                     {
-                                        String::PrettyPrint($_REQUEST);
+                                        //Soap::AddItemToList(49623, 1);
+                                        //Soap::SendItem('Ruspowa', 'Armored Bloodwing');
+
+                                        $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'servicespage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Claim_Code').' - ')));
+                                        $Smarty->display('account/claim_code');
                                     }
                                     else
                                     {
-
+                                        if(isset($_REQUEST['errorCode']))
+                                            $Smarty->assign('ErrorCode', $_REQUEST['errorCode']);
+                                        $Smarty->assign('QueryData', array('account' => $_REQUEST['accountName'], 'character' => $_REQUEST['character']));
+                                        $Smarty->assign('CSRFToken', Session::GenerateCSRFToken());
+                                        $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'claimcode', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Claim_Code').' - ')));
+                                        $Smarty->display('account/claim_code_step_one');
                                     }
+                                break;
+
+                                case 'claim-code-status':
+                                    if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
+                                    {
+                                        Manager::LoadExtension('Shop', $ClassConstructor);
+                                        Manager::LoadExtension('Soap', $ClassConstructor);
+                                        $ActivationStatus = Shop::CodeActivated($User['id'], $_REQUEST['key']);
+                                        if(!$ActivationStatus)
+                                            header('Location: /account/management/claim-code?accountName='.$_REQUEST['accountName'].'&character='.$_REQUEST['character'].'&errorCode=15012');
+                                        else
+                                            if($ActivationStatus['code_activated'] == 1)
+                                                header('Location: /account/management/claim-code?accountName='.$_REQUEST['accountName'].'&character='.$_REQUEST['character'].'&errorCode=15011');
+                                            else
+                                            {
+                                                $ItemData = Shop::GetItemData($ActivationStatus['purchased_item']);
+                                                Soap::AddItemToList($ItemData['item_id'], 1);
+                                                if(Soap::SendItem($_REQUEST['character'], $ItemData['item_name']))
+                                                {
+                                                    Shop::ChangeActivationState($User['id'], $_REQUEST['key']);
+                                                    $Smarty->assign('ItemData', $ItemData);
+                                                    $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'claimcode', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Claim_Code').' - ')));
+                                                    $Smarty->display('account/claim_code_complete');
+                                                }
+                                                else
+                                                    header('Location: /account/management/claim-code?accountName='.$_REQUEST['accountName'].'&character='.$_REQUEST['character'].'&errorCode=15015');
+                                            }
+                                    }
+                                    else
+                                        header('Location: /account/management/claim-code?accountName='.$_REQUEST['accountName'].'&character='.$_REQUEST['character'].'&errorCode=15010');
                                 break;
 
                                 case 'services':

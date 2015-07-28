@@ -83,6 +83,27 @@ Class Shop
         mail($Email, $Subject, $HTMLCode, $Headers);
     }
 
+    public static function CodeActivated($Account, $Code)
+    {
+        $Statement = Shop::$DBConnection->prepare('SELECT * FROM shop_codes WHERE purchased_for_account = :account AND purchase_code = :code');
+        $Statement->bindParam(':account', $Account);
+        $Statement->bindParam(':code', $Code);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if ($Statement->rowCount() > 0)
+            return $Result;
+        else
+            return false;
+    }
+
+    public static function ChangeActivationState($Account, $Code)
+    {
+        $Statement = Shop::$DBConnection->prepare('UPDATE shop_codes SET code_activated = 1 WHERE purchased_for_account = :account AND purchase_code = :code');
+        $Statement->bindParam(':account', $Account);
+        $Statement->bindParam(':code', $Code);
+        $Statement->execute();
+    }
+
     public static function GenerateItemCode()
     {
         $tokens = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';

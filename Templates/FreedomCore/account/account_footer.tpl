@@ -59,7 +59,9 @@
     {if $Page.bodycss == 'paymentpage'}
         <script type="text/javascript" src="/Templates/{$Template}/js/account/payment.js"></script>
     {/if}
-
+    {if $Page.bodycss == 'claimcode'}
+        <script type="text/javascript" src="/Templates/{$Template}/js/account/add-game.js"></script>
+    {/if}
     {if $Page.type == 'account_parameters'}
         <script type="text/javascript" src="/Templates/{$Template}/js/inputs.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/account/password.js"></script>
