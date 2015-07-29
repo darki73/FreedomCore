@@ -1175,6 +1175,18 @@ switch($_REQUEST['category'])
                     Manager::LoadExtension('Realms', $ClassConstructor);
                     $Smarty->assign('Realms', Realms::GetAllRealms());
                 break;
+
+                case 'debugger':
+                    $GitHead = getcwd().DS.'.git'.DS.'FETCH_HEAD';
+                    if(file_exists($GitHead))
+                    {
+                        $LocalVersion = file_get_contents(getcwd().DS.'.git'.DS.'FETCH_HEAD');
+                        list($LocalVersion, $ServiceInfo) = explode('branch', $LocalVersion);
+                    }
+                    else
+                        $LocalVersion = 'unknown';
+                    $Smarty->assign('FreedomNetRevision', $LocalVersion);
+                break;
             }
             $Smarty->display('sidebar/'.$_REQUEST['subcategory']);
         }

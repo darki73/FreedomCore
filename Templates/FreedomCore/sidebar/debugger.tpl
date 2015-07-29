@@ -5,6 +5,8 @@
 
     <div class="sidebar-content">
         {if !is_null($PageLoadTime)}  Page loaded in {$PageLoadTime} ms {/if}<br />
-        {if !is_null($MemoryUsage)}   Page used {$MemoryUsage} MB of memory{/if}
+        {if !is_null($MemoryUsage)}   Page used {$MemoryUsage} MB of memory{/if}<br />
+        <strong>Revision:</strong><br />
+        {$FreedomNetRevision}
     </div>
 </div>
