@@ -316,6 +316,8 @@ Class Characters
     {
         $Statement = Characters::$CharConnection->prepare('
             SELECT
+                atm.weekGames,
+                atm.weekWins,
                 atm.personalRating,
                 cat.type
             FROM

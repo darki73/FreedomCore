@@ -170,6 +170,9 @@
     {if $Page.bodycss == 'achievement_page'}
         <script type="text/javascript" src="/Templates/{$Template}/js/character/achievement.js"></script>
     {/if}
+    {if $Page.bodycss == 'character-pvp'}
+        <script type="text/javascript" src="/Templates/{$Template}/js/character/pvp.js"></script>
+    {/if}
     {if $Page.bodycss == 'reputation_page'}
         <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>
         <script type="text/javascript" src="/Templates/{$Template}/js/character/reputation.js"></script>

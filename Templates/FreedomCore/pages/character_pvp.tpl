@@ -19,8 +19,8 @@
                     </a>
                 </li>
                 <li class="last children" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-                    <a href="/character/{$Character.name}/reputation" rel="np" itemprop="url">
-                        <span class="breadcrumb-text" itemprop="name">{#Profile_Character_Reputation#}</span>
+                    <a href="/character/{$Character.name}/pvp" rel="np" itemprop="url">
+                        <span class="breadcrumb-text" itemprop="name">PvP</span>
                     </a>
                 </li>
             </ol>
@@ -65,7 +65,66 @@
                         <h3 class="category ">PvP</h3>
                     </div>
                     <div class="profile-section">
+                        <div id="pvp-tabs" class="pvp-tabs">
+                            <div class="tab" id="pvp-tab-bgs" data-id="bgs">
+                                <span class="type">{#PvP_Rated_Battlegrounds#}</span>
+                                <ul class="ratings">
+                                    <li>
+                                        <span class="value">0</span>
+                                        <span class="name">{#PvP_Rating#}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            {if empty($ArenaRating)}
+                                <div class="tab tab-disabled" id="pvp-tab-2v2" data-id="2v2">
+                                    <span class="type">2 {#PvP_VS#} 2</span>
+                                </div>
+                                <div class="tab tab-disabled" id="pvp-tab-3v3" data-id="3v3">
+                                    <span class="type">3 {#PvP_VS#} 3</span>
+                                </div>
+                                <div class="tab tab-disabled" id="pvp-tab-5v5" data-id="5v5">
+                                    <span class="type">5 {#PvP_VS#} 5</span>
+                                </div>
+                            {else}
+                                {assign 'BraketsPassed' ''}
+                                {$AvailableBrackets = [2, 3, 5]}
+                                {foreach from=$ArenaRating item=Rating key=i name=Rating}
+                                    <div class="tab" id="pvp-tab-{$Rating.type}v{$Rating.type}" data-id="{$Rating.type}v{$Rating.type}">
+                                        <span class="type">{$Rating.type} {#PvP_VS#} {$Rating.type}</span>
 
+                                        <ul class="ratings">
+                                            <li>
+                                            <span class="rank">
+                                                    <a href="/pvp/leaderboards/{$Rating.type}v{$Rating.type}">{#PvP_View_Rang#}</a>
+                                            </span>
+                                            </li>
+                                            <li>
+                                                <span class="arenateam-gameswon">{$Rating.weekWins}</span> –
+                                                <span class="arenateam-gameslost">{$Rating.weekGames - $Rating.weekWins}</span>
+                                                <span class="arenateam-percent">({(($Rating.weekWins/$Rating.weekGames)*100)|string_format:"%d"}%)</span>
+                                            </li>
+                                            <li>
+                                                <span class="value">{$Rating.personalRating}</span>
+                                                <span class="name">{#PvP_Rating#}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    {if !$smarty.foreach.Rating.last}
+                                        {$BraketsPassed = $BraketsPassed|cat:$Rating.type|cat:','}
+                                    {else}
+                                        {$BraketsPassed = $BraketsPassed|cat:$Rating.type}
+                                    {/if}
+                                {/foreach}
+                                {assign 'PassedArray' ','|explode:$BraketsPassed}
+                                {$Differences = array_diff($AvailableBrackets, $PassedArray)}
+                                {foreach $Differences as $Difference}
+                                    <div class="tab tab-disabled" id="pvp-tab-{$Difference}v{$Difference}" data-id="{$Difference}v{$Difference}">
+                                        <span class="type">{$Difference} {#PvP_VS#} {$Difference}</span>
+                                    </div>
+                                {/foreach}
+                            {/if}
+                            <span class="clear"></span>
+                        </div>
                     </div>
                     <script type="text/javascript">
                         //<![CDATA[

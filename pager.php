@@ -1029,6 +1029,12 @@ switch($_REQUEST['category'])
                             header('Location: '.$RedirectTo);
                         break;
 
+                        case 'pvp':
+                            $Smarty->assign('ArenaRating', Characters::GetPVPRaiting($CharacterData['guid']));
+                            $Smarty->assign('Page', Page::Info('community', array('bodycss' => 'character-pvp', 'pagetitle' => 'PvP - '.$Smarty->GetConfigVars('Menu_Community').' - ')));
+                            $Smarty->display('pages/character_pvp');
+                        break;
+
                         case 'advanced':
                             $Smarty->translate('Raids');
                             $Raids = array(
@@ -1624,10 +1630,10 @@ switch($_REQUEST['category'])
             {
                 $_SESSION['preferredlanguage'] = $_REQUEST['subcategory'];
                 Session::UpdateSession($_SESSION);
-                header('Location: /');
+                header('Location: '.$_SERVER['HTTP_REFERER']);
             }
             else
-                header('Location: /');
+                header('Location: '.$_SERVER['HTTP_REFERER']);
         }
         break;
 
@@ -1750,11 +1756,6 @@ switch($_REQUEST['category'])
                 }
             }
         }
-    break;
-
-    case 'pvp':
-        $Smarty->assign('Page', Page::Info('community', array('bodycss' => 'character-pvp', 'pagetitle' => 'PvP - '.$Smarty->GetConfigVars('Menu_Community').' - ')));
-        $Smarty->display('pages/character_pvp');
     break;
 
     case 'npc':

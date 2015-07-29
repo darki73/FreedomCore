@@ -1,14 +1,16 @@
-<li id="show3dmodel">
-    <a href="javascript:;" onclick="Load3DModel(true);">
-        {#Character_LoadTDModel#}
-    </a>
-</li>
+{if $Page.bodycss == 'profile_page'}
+    <li id="show3dmodel">
+        <a href="javascript:;" onclick="Load3DModel(true);">
+            {#Character_LoadTDModel#}
+        </a>
+    </li>
 
-<li id="hide3dmodel" style="display:none">
-    <a href="javascript:;" onclick="Load3DModel(false);">
-        {#Character_HideTDModel#}
-    </a>
-</li>
+    <li id="hide3dmodel" style="display:none">
+        <a href="javascript:;" onclick="Load3DModel(false);">
+            {#Character_HideTDModel#}
+        </a>
+    </li>
+{/if}
 
 <li {if $SelectedCategory == 'advanced'}class=" active"{/if}>
     <a href="/character/{$Character.name}/" class="" rel="np">

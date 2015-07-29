@@ -32,6 +32,11 @@ Players_Online = Игроков Онлайн
 Captcha_Code = Код
 Captcha_Renew = Обновить
 
+#PvP Pages
+PvP_Rated_Battlegrounds = Рейтинговые поля боя
+PvP_Rating = Рейтинг
+PvP_View_Rang = Показать ранг
+PvP_VS = на
 
 #Game Page
 Game_About_Exp = Все о дополнении

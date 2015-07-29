@@ -32,6 +32,12 @@ Players_Online = Giocatori Online
 Captcha_Code = Codice Captcha
 Captcha_Renew = Rinnova Captcha
 
+#PvP Pages
+PvP_Rated_Battlegrounds =
+PvP_Rating =
+PvP_View_Rang =
+PvP_VS =
+
 #Game Page
 Game_About_Exp = Scopri l’espansione
 Game_Guide = Guida al gioco
