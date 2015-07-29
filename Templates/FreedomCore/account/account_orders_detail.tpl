@@ -35,6 +35,17 @@
                             {$Payment.price|string_format:"%.2f"} USD
                         </td>
                     </tr>
+                    <tr class="item-info">
+                        {if $Payment.digital_key != null}
+                            <td class="align-left">
+                                <strong>Key:</strong>
+                            </td>
+                            <td class="align-left">
+                                {$Payment.digital_key}
+                            </td>
+                            <td class="align-right"></td>
+                        {/if}
+                    </tr>
                     </tbody>
                 </table>
                 <div class="invoice-box">

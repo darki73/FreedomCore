@@ -1495,6 +1495,9 @@ switch($_REQUEST['category'])
         Manager::LoadExtension('Shop', $ClassConstructor);
         if(String::IsNull($_REQUEST['subcategory']))
         {
+            if(isset($_REQUEST['categories']))
+                $Smarty->assign('DisplayCategory', $_REQUEST['categories']);
+
             $Smarty->assign('SidebarItems', Shop::GetSidebar());
             $Smarty->assign('Page', Page::Info('shop', array('bodycss' => 'browse-template product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
             $Smarty->display('shop');
@@ -1504,7 +1507,17 @@ switch($_REQUEST['category'])
             $Category = explode('-', $_REQUEST['subcategory'])[0];
             if(isset($_REQUEST['subcategory']))
             {
-                $WhichItem = str_replace('complete-', '', str_replace('pay-', '', str_replace('buy-', '', str_replace('pet-', '', str_replace('mount-', '', $_REQUEST['subcategory'])))));
+                $WhichItem = str_replace('item-', '',
+                    str_replace('complete-', '',
+                        str_replace('pay-', '',
+                            str_replace('buy-', '',
+                                str_replace('pet-', '',
+                                    str_replace('mount-', '', $_REQUEST['subcategory'])
+                                )
+                            )
+                        )
+                    )
+                );
                 $ItemData = Shop::GetItemData($WhichItem);
                 $Smarty->assign('ItemData', $ItemData);
             }
@@ -1513,6 +1526,11 @@ switch($_REQUEST['category'])
                 case 'mount':
                     $Smarty->assign('Page', Page::Info('shop-mount', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $ItemData['item_name'].' - ')));
                     $Smarty->display('shop/mount');
+                break;
+
+                case 'item':
+                    $Smarty->assign('Page', Page::Info('shop-item', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $ItemData['item_name'].' - ')));
+                    $Smarty->display('shop/item');
                 break;
 
                 case 'buy':
@@ -1558,10 +1576,10 @@ switch($_REQUEST['category'])
                         $Smarty->assign('Website', $_SERVER['HTTP_HOST']);
                         $Smarty->assign('Account', $Account);
                         Shop::InsertPurchaseData($ItemData['short_code'], $_REQUEST['gameAccountIds'], $ActivationCode);
-                        Account::InsertPaymentDetails($User['id'], $ItemData['short_code'], $ItemData['price']);
+                        Account::InsertPaymentDetails($User['id'], $ItemData['short_code'], $ItemData['price'], $ActivationCode);
                         $Smarty->assign('ActivationCode', $ActivationCode);
                         $EMailTemplate = $Smarty->fetch('shop/email_template.tpl');
-                        Shop::SendCodeEmail($_REQUEST['email'], $EMailTemplate);
+                        Shop::SendCodeEmail($User['email'], $EMailTemplate);
                         $Smarty->assign('BuyingFor', $_REQUEST['gameAccountIds']);
                         $Smarty->assign('Page', Page::Info('shop-buy', array('bodycss' => 'product-template video-enabled product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
                         $Smarty->display('shop/complete');

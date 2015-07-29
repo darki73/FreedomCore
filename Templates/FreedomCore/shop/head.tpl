@@ -150,6 +150,52 @@
             }
         </style>
     {/if}
+    {if $Page.type == 'shop-item'}
+        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/product.css" />
+        <style>
+            html {
+                height: auto;
+                min-width: 480px;
+            }
+            body {
+                height: 100%;
+            }
+            html,
+            body {
+                background: {$ItemData.item_background_color} url("/Templates/{$Template}/images/shop/items/{$ItemData.item_background}_1920.jpg") no-repeat center -200px !important;
+            }
+            .body-content {
+                background: none !important;
+            }
+            .navbar-static {
+                background: {$ItemData.item_background_color} url("/Templates/{$Template}/images/shop/items/{$ItemData.item_background}_1920.jpg") no-repeat center 0 !important;
+            }
+            @media (max-width: 1280px) {
+                html,
+                body {
+                    background: {$ItemData.item_background_color} url("/Templates/{$Template}/images/shop/items/{$ItemData.item_background}_1280.jpg") no-repeat center -200px !important;
+                }
+                .body-content {
+                    background: none !important;
+                }
+                .navbar-static {
+                    background: {$ItemData.item_background_color} url("/Templates/{$Template}/images/shop/items/{$ItemData.item_background}_1280.jpg") no-repeat center 0 !important;
+                }
+            }
+            @media (max-width: 1024px) {
+                html,
+                body {
+                    background: {$ItemData.item_background_color} url("/Templates/{$Template}/images/shop/items/{$ItemData.item_background}_1024.jpg") no-repeat center -200px !important;
+                }
+                .body-content {
+                    background: none !important;
+                }
+                .navbar-static {
+                    background: {$ItemData.item_background_color} url("/Templates/{$Template}/images/shop/items/{$ItemData.item_background}_1024.jpg") no-repeat center 0 !important;
+                }
+            }
+        </style>
+    {/if}
 
     <script src="/Templates/{$Template}/js/third-party/jquery-1.11.0.min.js"></script>
     <script src="/Templates/{$Template}/js/core.min.js"></script>

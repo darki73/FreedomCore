@@ -21,6 +21,7 @@ Class Shop
 
         $Sidebar['mounts'] = Shop::GetMounts();
         $Sidebar['pets'] = Shop::GetPets();
+        $Sidebar['items'] = Shop::GetItems();
 
         return $Sidebar;
     }
@@ -37,13 +38,20 @@ Class Shop
 
     }
 
+    private static function GetItems()
+    {
+        $Statement = Shop::$DBConnection->prepare('SELECT si.*, p.price FROM shop_items si LEFT JOIN prices p ON si.short_code = p.short_code  WHERE item_type = 2');
+        $Statement->execute();
+        return $Statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     private static function GetCategoryByID($CategoryID)
     {
         $Categories = array(
-            1 => array('name' => '', 'type' => 'World of Warcraft® In-Game: '),
-            2 => array('name' => '', 'type' => 'World of Warcraft® In-Game: '),
+            1 => array('name' => 'services', 'type' => 'World of Warcraft® In-Game Service: '),
+            2 => array('name' => 'items', 'type' => 'World of Warcraft® In-Game Item: '),
             3 => array('name' => 'mounts', 'type' => 'World of Warcraft® In-Game Mount: '),
-            4 => array('name' => '', 'type' => 'World of Warcraft® In-Game: '),
+            4 => array('name' => 'wallet', 'type' => 'World of Warcraft® Wallet: '),
             5 => array('name' => 'pets', 'type' => 'World of Warcraft® In-Game Pet: '),
         );
         return $Categories[$CategoryID];
