@@ -1,0 +1,1 @@
+INSERT INTO `prices` (`id`, `type`, `short_code`, `price`) VALUES (6, 3, 'celestial-steed', 25), (7, 3, 'armored-bloodwing', 30), (8, 2, 'shadowmourne', 50), (9, 2, 'dragonwrath-tarecgosas-rest', 50);
