@@ -157,8 +157,10 @@ Class Characters
             for($i = 1; $i < 7; $i++)
                 if($Glyph['glyph'.$i] != 0)
                 {
-                    $Result[$ArrayIndex]['glyph'.$i] = Spells::SpellInfo(Items::GetItemInfo($Glyph['glyph'.$i])['spellid_1']);
+                    $GlyphData = Spells::GetGlyphData($Glyph['glyph'.$i]);
+                    $Result[$ArrayIndex]['glyph'.$i] = Spells::SpellInfo($GlyphData['spellid']);
                     $Result[$ArrayIndex]['glyph'.$i]['Name'] = str_replace('Glyph of', '', str_replace('Glyph of the', '', $Result[$ArrayIndex]['glyph'.$i]['Name']));
+                    $Result[$ArrayIndex]['glyph'.$i]['icon'] = $GlyphData['icon'];
                 }
             $ArrayIndex++;
         }

@@ -245,8 +245,10 @@ Class Account
      *
      * @return bool
      */
-    public static function InsertPaymentDetails($UserID, $ServiceID, $Price, $ItemCode)
+    public static function InsertPaymentDetails($UserID, $ServiceID, $Price, $ItemCode = null)
     {
+        if($ItemCode == null)
+            $ItemCode = '';
         $Status = 1;
         $Date = date('Y-m-d H:i:s', time());
         $Statement = Account::$DBConnection->prepare('INSERT INTO users_payments_history (userid, service, price, date, digital_key, status) VALUES (:uid, :service, :price, :date, :code, :status)');

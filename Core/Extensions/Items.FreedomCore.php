@@ -1080,6 +1080,14 @@ Class Spells
         return $DescriptionString;
     }
 
+    public static function GetGlyphData($GlyphID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT gp.spellid, gp.iconid, LOWER(si.iconname) as icon  FROM freedomcore_glyphproperties gp LEFT JOIN freedomcore_spellicons si ON gp.iconid = si.id WHERE gp.id = :glyphid');
+        $Statement->bindParam(':glyphid', $GlyphID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
     private static function ParseSubSpells($SubSpells)
     {
         $SpellSplitter = array('r', 'z', 'c', 's', 'o', 't', 'm', 'x', 'q', 'a', 'h', 'f', 'n', 'd', 'i', 'e', 'v', 'u', 'b', 'l', 'g');
