@@ -1,5 +1,7 @@
 # FreedomCore (aka Freedom.Net)
 
+[![Donate](http://freedomcore.ru/paypal-donate-button.jpg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=apple%2ezhivolupov%40gmail%2ecom&lc=GB&item_name=FreedomCore&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
+
 FreedomCore is a replica of Battle.net website created by Blizzard.  
 My desire is full compliance between FreedomCore and Battle.net.  
   

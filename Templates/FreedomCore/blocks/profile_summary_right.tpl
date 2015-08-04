@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="talent-build selected" id="talent-build-1" style="display: none;">
+            <div class="talent-build" id="talent-build-1" style="display: none;">
                 <div class="talents">
 
                 </div>
