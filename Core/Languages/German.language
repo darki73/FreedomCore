@@ -269,6 +269,15 @@ Administrator_Localization = Sprachenmanagement
 Administrator_Localization_Installed = Installierte Sprachen
 Administrator_Localization_Edit = Sprache bearbeiten
 Administrator_Localization_MainFile = Sprachdatei
+Administrator_Shop =
+Administrator_Shop_Management =
+Administrator_Shop_AddItem =
+Administrator_Shop_DeleteItem =
+Administrator_Shop_EditItem =
+Administrator_Shop_Stats =
+Administrator_Shop_Revenue =
+Administrator_Shop_Items_Count =
+Administrator_Shop_Items_Price =
 
 Race_Human = Mensch
 Race_Orc = Ork

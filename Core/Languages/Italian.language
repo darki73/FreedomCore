@@ -267,6 +267,15 @@ Administrator_Localization = Management Lingua
 Administrator_Localization_Installed = lingue installate
 Administrator_Localization_Edit = Lingua
 Administrator_Localization_MainFile = file della lingua
+Administrator_Shop =
+Administrator_Shop_Management =
+Administrator_Shop_AddItem =
+Administrator_Shop_DeleteItem =
+Administrator_Shop_EditItem =
+Administrator_Shop_Stats =
+Administrator_Shop_Revenue =
+Administrator_Shop_Items_Count =
+Administrator_Shop_Items_Price =
 
 Race_Human = Umano
 Race_Orc = Orco
