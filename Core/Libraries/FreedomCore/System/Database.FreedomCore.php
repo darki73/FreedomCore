@@ -41,9 +41,13 @@ if(isset($FCCore['Database']['host']) && $FCCore['Database']['host'] != '')
 {
     if(!isset($_SESSION['installation_in_progress']))
     {
-        $Session = new Session($Database);
-        Session::Start('FreedomCore', false);
-        $InstallationIsInProgress = false;
+        if(session_status() == PHP_SESSION_NONE)
+        {
+            $Session = new Session($Database);
+            $InstallationIsInProgress = false;
+            if(isset($_COOKIE['FreedomCore']))
+                Session::Start('FreedomCore', false);
+        }
     }
     else
         $InstallationIsInProgress = true;

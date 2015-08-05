@@ -4,6 +4,8 @@ $ClassConstructor = array($Database, $Smarty);
 switch($_REQUEST['category'])
 {
 	case 'account':
+        if(!Session::SessionStatus())
+            Session::Start('FreedomCore', false);
 		if(!String::IsNull($_REQUEST['subcategory']))
 		{
             if(isset($User['id']))
@@ -38,7 +40,6 @@ switch($_REQUEST['category'])
                 case 'signout':
                     Session::Destroy(session_id());
                     session_destroy();
-                    setcookie("FreedomCoreLanguage", null, time()-3600);
                     header('Location: /');
                 break;
 
@@ -500,8 +501,6 @@ switch($_REQUEST['category'])
 
 				case 'captcha.jpg':
                     header("Content-Type:image/png");
-                    flush();
-                    ob_clean();
                     String::GenerateCaptcha();
 				break;
 

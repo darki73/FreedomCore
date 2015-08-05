@@ -11,7 +11,7 @@
                         <a id="nav-client-shop" class="nav-item nav-link" href="/shop" data-analytics="global-nav" data-analytics-placement="Nav - {#Menu_Shop#}">{#Menu_Shop#}</a>
                     </li>
                 </ul>
-                {if !$smarty.session.loggedin}
+                {if !isset($smarty.session.loggedin) || !$smarty.session.loggedin}
                 <ul class="nav-list nav-right" id="nav-client-account-menu">
                     <li>
                         <div id="username">
@@ -153,7 +153,7 @@
 						</a>
 					</li>
 				</ul>
-				{if !$smarty.session.loggedin}
+				{if !isset($smarty.session.loggedin) || !$smarty.session.loggedin}
                     <div class="user-plate">
                         <a href="/account/login" class="card-character plate-logged-out">
                             <span class="card-portrait"></span>

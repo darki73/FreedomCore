@@ -32,9 +32,18 @@ Class Session
 
 	public static function UpdateSession($Data)
 	{
-		foreach($Data as $key=>$value)
-			$_SESSION[$key] = $value;
+        if (session_status() != PHP_SESSION_NONE)
+            foreach($Data as $key=>$value)
+                $_SESSION[$key] = $value;
 	}
+
+    public static function SessionStatus()
+    {
+        if(session_status() == PHP_SESSION_NONE)
+            return false;
+        else
+            return true;
+    }
 
     private static function GenerateRandomSalt()
     {
@@ -146,6 +155,8 @@ Class Session
 		$Statement->bindParam(':sessionid', $SessionID);
 		$Statement->execute();
         Session::$SessionCreated = false;
+        setcookie("FreedomCoreLanguage", null, time()-3600);
+        setcookie("FreedomCore", null, time()-3600);
 		return true;
 	}
 

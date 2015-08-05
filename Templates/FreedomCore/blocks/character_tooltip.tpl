@@ -17,7 +17,7 @@
     <span class="clear"><!-- --></span>
 	<span class="character-spec">
         {foreach $Specializations as $Spec}
-            {if $Spec.spec == $Spec.activespec}
+            {if $Spec.talentGroup == $Spec.activeTalentGroup}
                 <span class="icon">
                     <span class="icon-frame frame-12 ">
                         <img src="/Templates/{$Template}/images/icons/medium/spec_{$Character.class_data.name}_{$Spec.name}.jpg" alt="" width="12" height="12" />
