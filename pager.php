@@ -609,9 +609,16 @@ switch($_REQUEST['category'])
                 switch($_REQUEST['subcategory'])
                 {
                     case 'dashboard':
-
+                        $Smarty->assign('ModulesStats', Account::GetRequiredModulesStatus());
                         $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Page_Title').' - ')));
                         $Smarty->display('admin/dashboard');
+                    break;
+
+                    case 'shop':
+                        Manager::LoadExtension('Shop', $ClassConstructor);
+                        $Smarty->assign('ShopData', Shop::GetAdministratorShopData());
+                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                        $Smarty->display('admin/shop');
                     break;
 
                     case 'security':

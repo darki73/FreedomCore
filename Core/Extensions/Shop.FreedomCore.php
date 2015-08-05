@@ -112,6 +112,23 @@ Class Shop
         $Statement->execute();
     }
 
+    public static function GetAdministratorShopData()
+    {
+        $ShopData = ['count' => 0, 'total' => 0, 'recentorder' => '', 'items' => []];
+        $Statement = Shop::$DBConnection->prepare('SELECT si.*, p.price FROM shop_items si LEFT JOIN prices p ON si.short_code = p.short_code');
+        $Statement->execute();
+        $Result = $Statement->fetchAll();
+        $TotalAmount = 0;
+        foreach($Result as $Item)
+        {
+            $ShopData['items'][] = $Item;
+            $TotalAmount = $TotalAmount + $Item['price'];
+        }
+        $ShopData['count'] = count($Result);
+        $ShopData['total'] = $TotalAmount;
+        return $ShopData;
+    }
+
     public static function GenerateItemCode()
     {
         $tokens = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';

@@ -904,6 +904,23 @@ Class Account
     {
         return hash($Algorithm, $String);
     }
+
+    /**
+     * Methods checks for loaded modules required to achieve maximum performance from website
+     *
+     * @return array
+     */
+    public static function GetRequiredModulesStatus()
+    {
+        $RequiredModules = ['mod_rewrite', 'mod_gzip', 'mod_expires'];
+        $LoadedModules = [];
+        foreach($RequiredModules as $Module)
+            if(in_array($Module, apache_get_modules()))
+                $LoadedModules[] = ['module' => $Module, 'status' => true];
+            else
+                $LoadedModules[] = ['module' => $Module, 'status' => false];
+        return $LoadedModules;
+    }
 }
 
 Class CurrencyConverter

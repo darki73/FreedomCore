@@ -53,6 +53,14 @@
                                     <span>{#Administrator_Localization#}</span>
                                 </a>
                             </li>
+                                <hr>
+                            <li>
+                                <a href="/admin/shop/" class="free-services-rewards-visa">
+                                    <span>
+                                        {#Administrator_Shop#}
+                                    </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div id="paid-services" class="services-column">
@@ -105,6 +113,18 @@
                                     </span>
                                 </a>
                             </li>
+                            <hr>
+                            {foreach $ModulesStats as $Module}
+                                {if !$Module.status}
+                                    <li>
+                                        <a class="free-services-item-restoration">
+                                            <span>
+                                                {$Module.module} not loaded!
+                                            </span>
+                                        </a>
+                                    </li>
+                                {/if}
+                            {/foreach}
                         </ul>
                     </div>
                 </div>
