@@ -159,6 +159,13 @@ Class String
         return sha1($MainString.mt_rand(10000,99999));
     }
 
+    public static function UnsetMany($Array, $UnsetArray)
+    {
+        foreach($UnsetArray as $Item)
+            unset($Array[$Item]);
+        return $Array;
+    }
+
     public static function UnsetAllBut($Save, $Array, $Dimensions = 1)
     {
         $FinalArray = array();

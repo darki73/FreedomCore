@@ -27,7 +27,7 @@ RewriteRule ^(quest)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?catego
 RewriteRule ^(data)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(zone)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(npc)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
-RewriteRule ^(api)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /api.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
+RewriteRule ^(api)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /api.php?category=$1&endpoint=$2&method=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(forum)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(install)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /install.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 
