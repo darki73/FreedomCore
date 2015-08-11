@@ -2,13 +2,7 @@
 
 Class DataAPI extends API
 {
-
-    public function __construct()
-    {
-        header('Content-Type: application/json');
-    }
-
-    public static function Races()
+    public static function CharacterRaces()
     {
         $Statement = parent::$DBConnection->prepare('SELECT race_id as id, race as name, can_join_alliance, can_join_horde FROM races');
         $Statement->execute();
@@ -29,10 +23,10 @@ Class DataAPI extends API
             unset($Result[$ArrayIndex]['can_join_horde']);
             $ArrayIndex++;
         }
-        echo json_encode(['races' => $Result]);
+        parent::Encode($Result, 'races');
     }
 
-    public static function Classes()
+    public static function CharacterClasses()
     {
         $Statement = parent::$DBConnection->prepare('SELECT class_id as id, class_name as name, LOWER(REPLACE(indicator_second_type, "Class_Indicator_", "")) as powerType FROM classes');
         $Statement->execute();
@@ -54,7 +48,29 @@ Class DataAPI extends API
             $Result[$ArrayIndex]['mask'] = DataAPI::ClassBitmastConverter($Class['id']);
             $ArrayIndex++;
         }
-        echo json_encode(['classes' => $Result]);
+        parent::Encode($Result, 'classes');
+    }
+
+    public static function ItemClasses()
+    {
+        $Result = Items::ItemSubClass(null, null, false, true);
+        $JSONArray = [];
+        foreach($Result as $Key => $Value)
+        {
+            $ClassArray = [];
+            $ClassArray['class'] = $Key;
+            $ClassArray['name'] = Items::ItemClass($Key)['translation'];
+            $ClassArray['subclasses'] = [];
+            foreach($Value as $SKey => $SValue)
+            {
+                $ClassArray['subclasses'][] = [
+                    'subclass' => $SValue['subclass'],
+                    "name" => $SValue['translation']
+                ];
+            }
+            $JSONArray[] = $ClassArray;
+        }
+        parent::Encode($JSONArray, 'classes');
     }
 
     private static function RacialBitmastConverter($RaceID)

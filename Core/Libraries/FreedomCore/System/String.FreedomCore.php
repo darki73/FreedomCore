@@ -166,6 +166,14 @@ Class String
         return $Array;
     }
 
+    public static function RemapArray($Array, $From, $To)
+    {
+        $NewArray = [];
+        foreach($From as $Key => $Value)
+            $NewArray[$To[$Key]] = $Array[$Value];
+        return $NewArray;
+    }
+
     public static function UnsetAllBut($Save, $Array, $Dimensions = 1)
     {
         $FinalArray = array();

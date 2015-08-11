@@ -3,6 +3,7 @@ require_once('Core/Core.php');
 
 $ClassConstructor = array($Database, $Smarty);
 Manager::LoadExtension('API', $ClassConstructor);
+API::VerifyRequestEligibility(5); // Allow 1 request every 5 seconds
 switch($_SERVER['REQUEST_METHOD'])
 {
     case 'POST':
@@ -57,22 +58,28 @@ switch($_SERVER['REQUEST_METHOD'])
                 break;
 
             case 'spell':
-
-                break;
+                API::EnableAPIExtension('Spell');
+                switch($_REQUEST['method'])
+                {
+                    case 'simple':
+                        SpellAPI::GetSimpleSpell($_REQUEST['datatype']);
+                    break;
+                }
+            break;
 
             case 'data':
-                API::EnableAPIExtension('Data', $ClassConstructor);
+                API::EnableAPIExtension('Data');
                 switch($_REQUEST['method'])
                 {
                     case 'character':
                         switch($_REQUEST['datatype'])
                         {
                             case 'races':
-                                DataAPI::Races();
+                                DataAPI::CharacterRaces();
                             break;
 
                             case 'classes':
-                                DataAPI::Classes();
+                                DataAPI::CharacterClasses();
                             break;
 
                             default:
@@ -82,11 +89,20 @@ switch($_SERVER['REQUEST_METHOD'])
                     break;
 
                     case 'item':
+                        switch($_REQUEST['datatype'])
+                        {
+                            case 'classes':
+                                DataAPI::ItemClasses();
+                            break;
 
+                            default:
+                                API::GenerateResponse(403, true);
+                            break;
+                        }
                     break;
 
                     default:
-
+                        API::GenerateResponse(403, true);
                     break;
                 }
 

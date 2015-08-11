@@ -13,10 +13,11 @@ Class API
         API::$CharConnection = $VariablesArray[0]::$CConnection;
         API::$WConnection = $VariablesArray[0]::$WConnection;
         API::$TM = $VariablesArray[1];
+        header('Content-Type: application/json; charset=utf-8');
     }
 
 
-    public static function EnableAPIExtension($ExtensionName, $ExtensionConstructor = null)
+    public static function EnableAPIExtension($ExtensionName)
     {
         if(file_exists(FREEDOMCORE_EXTENSIONS_DIR.'API'.DS.$ExtensionName.'.FreedomCoreAPI.php'))
         {
@@ -24,11 +25,17 @@ Class API
             require_once(FREEDOMCORE_EXTENSIONS_DIR.'API'.DS.$ExtensionName.'.FreedomCoreAPI.php');
             if(!class_exists($ClassName))
                 die("<strong>Loaded API Extension: </strong>".$ExtensionName."<br />Unable to locate Class named <strong>".$ClassName."</strong><br /> Class name should look like <strong>".$ClassName."</strong>");
-            if($ExtensionConstructor != null)
-                new $ClassName($ExtensionConstructor);
         }
         else
             die("<strong>Unable to Load API Extension: </strong>".$ExtensionName."<br />Check if this Extension actually exists");
+    }
+
+    public static function Encode($Array, $Parent = null)
+    {
+        if($Parent != null)
+            echo json_encode([''.$Parent.'' => $Array], JSON_UNESCAPED_UNICODE);
+        else
+            echo json_encode($Array, JSON_UNESCAPED_UNICODE);
     }
 
     public static function GenerateResponse($ResponseCode, $DisplayDetail = false, $Detail = null)
@@ -41,8 +48,25 @@ Class API
             $PlainResponse['detail'] = $CodeData['detail'];
         else
             $PlainResponse['detail'] = 'Unhandled Error Occurred';
-        header('Content-Type: application/json');
         echo json_encode($PlainResponse);
+        if(in_array($ResponseCode, [400,401,403,404,405,409,429,500,501,502,596]))
+            die();
+    }
+
+    public static function VerifyRequestEligibility($SecondsPerRequest)
+    {
+        if(!isset($_SESSION['last_request_time']))
+        {
+            $_SESSION['last_request_time'] = $SecondsPerRequest;
+            Session::UpdateSession($_SESSION);
+        }
+        if ($_SESSION['last_request_time'] && time() - $_SESSION['last_request_time'] > $SecondsPerRequest)
+        {
+            $_SESSION['last_request_time'] = time();
+            Session::UpdateSession($_SESSION);
+        }
+        else
+            API::GenerateResponse(429, true);
     }
 
     private static function ReponseCodeTranslator($CodeID)

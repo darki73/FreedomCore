@@ -844,7 +844,7 @@ Class Items
         return $LevelArray[$QuestLevel][$ExpID];
     }
 
-    public static function ItemSubClass($ClassID, $SubClassID, $Menu = false)
+    public static function ItemSubClass($ClassID, $SubClassID, $Menu = false, $API = false)
     {
         $SubClassesByClasses = array(
             '0' => array(
@@ -1005,15 +1005,18 @@ Class Items
             )
         );
 
-        if($Menu == false)
+        if($Menu == false && $API == false)
         {
             $SubClass = $SubClassesByClasses[$ClassID];
             return $SubClass[$SubClassID];
         }
-        else
+        elseif($Menu)
         {
             return $SubClassesByClasses[$ClassID];
         }
+        elseif($API)
+            return $SubClassesByClasses;
+
     }
 }
 
