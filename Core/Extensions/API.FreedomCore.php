@@ -23,11 +23,16 @@ Class API
         {
             $ClassName = $ExtensionName.'API';
             require_once(FREEDOMCORE_EXTENSIONS_DIR.'API'.DS.$ExtensionName.'.FreedomCoreAPI.php');
-            if(!class_exists($ClassName))
+            if(!class_exists($ClassName)) {
+                header('Content-Type: text/html; charset=utf-8');
                 die("<strong>Loaded API Extension: </strong>".$ExtensionName."<br />Unable to locate Class named <strong>".$ClassName."</strong><br /> Class name should look like <strong>".$ClassName."</strong>");
+            }
         }
         else
+        {
+            header('Content-Type: text/html; charset=utf-8');
             die("<strong>Unable to Load API Extension: </strong>".$ExtensionName."<br />Check if this Extension actually exists");
+        }
     }
 
     public static function Encode($Array, $Parent = null)

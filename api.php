@@ -22,40 +22,56 @@ switch($_SERVER['REQUEST_METHOD'])
         switch($_REQUEST['endpoint'])
         {
             case 'achievement':
-
-                break;
+                API::EnableAPIExtension('Achievement');
+                switch($_REQUEST['method'])
+                {
+                    case 'simple':
+                        AchievementAPI::GetSimpleAchievement($_REQUEST['datatype']);
+                    break;
+                }
+            break;
 
             case 'auction':
-
-                break;
+                API::GenerateResponse(501, true);
+            break;
 
             case 'character':
-
-                break;
+                API::GenerateResponse(501, true);
+            break;
 
             case 'item':
+                API::EnableAPIExtension('Item');
+                switch($_REQUEST['method'])
+                {
+                    case 'single':
+                        ItemAPI::GetSingleItem($_REQUEST['datatype']);
+                    break;
 
-                break;
+                    case 'set':
+                        ItemAPI::GetItemSet($_REQUEST['datatype']);
+                    break;
+                }
+            break;
 
             case 'guild':
-
-                break;
+                API::GenerateResponse(501, true);
+            break;
 
             case 'pvp':
-
-                break;
+                API::GenerateResponse(501, true);
+            break;
 
             case 'quest':
-
-                break;
+                API::GenerateResponse(501, true);
+            break;
 
             case 'realm':
-
-                break;
+                API::GenerateResponse(501, true);
+            break;
 
             case 'recipe':
-
-                break;
+                API::GenerateResponse(501, true);
+            break;
 
             case 'spell':
                 API::EnableAPIExtension('Spell');

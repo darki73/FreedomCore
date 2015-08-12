@@ -579,13 +579,13 @@ Class Items
         return $Result;
     }
 
-    private static function SocketDescription($SocketColorID)
+    public static function SocketDescription($SocketColorID)
     {
         $Sockets = array(
-            '1' => array('subclass' => '6', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Meta')),
-            '2' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Red')),
-            '4' => array('subclass' => '2', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Yellow')),
-            '8' => array('subclass' => '1', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Blue'))
+            '1' => array('subclass' => '6', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Meta'), 'type' => 'META'),
+            '2' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Red'), 'type' => 'RED'),
+            '4' => array('subclass' => '2', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Yellow'), 'type' => 'YELLOW'),
+            '8' => array('subclass' => '1', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Blue'), 'type' => 'BLUE')
         );
 
         return $Sockets[$SocketColorID];
@@ -1026,12 +1026,16 @@ Class Spells
     {
         $SpellArray = array();
         $SpellData = Spells::GetSpellByID($SpellID);
-        $SpellArray['SpellID'] = $SpellData['spellID'];
-        $SpellArray['Name'] = $SpellData['spellname_loc0'];
-        $SpellArray['Description'] = Spells::ParseDescription($SpellData, $SpellData['tooltip_loc0']);
-        $SpellArray['icon'] = $SpellData['icon'];
-
-        return $SpellArray;
+        if($SpellData)
+        {
+            $SpellArray['SpellID'] = $SpellData['spellID'];
+            $SpellArray['Name'] = $SpellData['spellname_loc0'];
+            $SpellArray['Description'] = Spells::ParseDescription($SpellData, $SpellData['tooltip_loc0']);
+            $SpellArray['icon'] = $SpellData['icon'];
+            return $SpellArray;
+        }
+        else
+            return false;
     }
 
     private static function ParseDescription($SpellData, $DescriptionString)
@@ -1165,7 +1169,11 @@ Class Spells
         $Statement = Items::$DBConnection->prepare('SELECT fs.*, LOWER(fsi.iconname) as icon FROM freedomcore_spell fs, freedomcore_spellicons fsi WHERE fs.spellID = :spellid AND fsi.id = fs.spellicon LIMIT 1');
         $Statement->bindParam(':spellid', $SpellID);
         $Statement->execute();
-        return $Statement->fetch(PDO::FETCH_ASSOC);
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if ($Statement->rowCount() > 0)
+            return $Result;
+        else
+            return false;
     }
 
     private static function GetSpellDurationBySpellID($SpellID)
