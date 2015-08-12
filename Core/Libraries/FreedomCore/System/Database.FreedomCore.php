@@ -43,10 +43,12 @@ if(isset($FCCore['Database']['host']) && $FCCore['Database']['host'] != '')
     {
         if(session_status() == PHP_SESSION_NONE)
         {
-            $Session = new Session($Database);
+//            $Session = new Session($Database);
+//            $InstallationIsInProgress = false;
+//            if(isset($_COOKIE['FreedomCore']))
+//                Session::Start('FreedomCore', false);
             $InstallationIsInProgress = false;
-            if(isset($_COOKIE['FreedomCore']))
-                Session::Start('FreedomCore', false);
+            Session::StartSimpleSession();
         }
     }
     else

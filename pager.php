@@ -38,8 +38,9 @@ switch($_REQUEST['category'])
 				break;
 
                 case 'signout':
-                    Session::Destroy(session_id());
-                    session_destroy();
+                    Session::DestroySimpleSession();
+                    //Session::Destroy(session_id());
+                    //session_destroy();
                     header('Location: /');
                 break;
 

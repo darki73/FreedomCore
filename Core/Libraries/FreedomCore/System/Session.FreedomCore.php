@@ -85,6 +85,12 @@ Class Session
 			unset($_SESSION[$Key]);
 	}
 
+    public static function StartSimpleSession()
+    {
+        session_start();
+        Session::$SessionCreated = true;
+    }
+
 	public static function Start($SessionName, $Secure)
 	{
 		$HTTPOnly = true;
@@ -148,6 +154,14 @@ Class Session
 		$Statement->execute();
 		return true;
 	}
+
+    public static function DestroySimpleSession()
+    {
+        Session::$SessionCreated = false;
+        setcookie("FreedomCoreLanguage", null, time()-3600);
+        setcookie("FreedomCore", null, time()-3600);
+        session_destroy();
+    }
 
 	static function Destroy($SessionID)
 	{
