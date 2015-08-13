@@ -43,6 +43,21 @@ Class API
             echo json_encode($Array, JSON_UNESCAPED_UNICODE);
     }
 
+    public static function VerifyIPKey($APIKey)
+    {
+        $Statement = API::$DBConnection->prepare('SELECT api_key FROM api_keys WHERE api_key = :apikey');
+        $Statement->bindParam(':apikey', $APIKey);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Statement->rowCount() > 0)
+        {
+            if($APIKey == $Result['api_key'])
+                return true;
+            else
+                return false;
+        }
+    }
+
     public static function GenerateResponse($ResponseCode, $DisplayDetail = false, $Detail = null)
     {
         $PlainResponse = [];

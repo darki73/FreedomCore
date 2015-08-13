@@ -709,6 +709,34 @@ Class Account
     }
 
     /**
+     * This method is used to get User API Key for Website APIs
+     *
+     * @param $Username
+     * @return bool
+     */
+    public static function GetAPIKey($Username)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT api_key FROM api_keys WHERE username = :username');
+        $Statement->bindParam(':username', $Username);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if($Statement->rowCount() > 0)
+            return $Result['api_key'];
+        else
+            return false;
+    }
+
+    public static function CreateAPIKey($Username)
+    {
+        $CreateAPIKey = substr( "abcdefghijklmnopqrstuvwxyz" ,mt_rand( 0 ,25 ) ,1 ) .substr( md5( time( ) ) ,1 );
+        $Statement = Account::$DBConnection->prepare('INSERT INTO api_keys (username, api_key) VALUES(:username, :apikey)');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':apikey', $CreateAPIKey);
+        $Statement->execute();
+        return $CreateAPIKey;
+    }
+
+    /**
      * This method is used to PIN Character for user userplate if he hasn't picked on yet
      *
      * @param $Username

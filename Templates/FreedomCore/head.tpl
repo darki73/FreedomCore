@@ -22,7 +22,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/forums/view-topic.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/forums/freedom-tracker.css" />
     {/if}
-    {if $Page.type == "community" && $Page.bodycss == 'community-home'}
+    {if $Page.type == "community" && $Page.bodycss == 'community-home' || $Page.type == 'dev'}
     <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/community.css" />
     {/if}
     {if $Page.bodycss|strstr:"item-"}
@@ -44,7 +44,7 @@
     {if $Page.bodycss == 'realm-status'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/realmstatus.css" />
     {/if}
-	{if $Page.type == "homepage" || $Page.type == "blog" || $Page.type == 'community' && $Page.bodycss == 'community-home'}
+	{if $Page.type == "homepage" || $Page.type == "blog" || $Page.type == 'community' && $Page.bodycss == 'community-home' || $Page.type == 'dev'}
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/build/cms.min.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/cms.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/sidebar.css" />

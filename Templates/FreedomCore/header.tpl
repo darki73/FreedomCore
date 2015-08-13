@@ -10,6 +10,9 @@
                     <li>
                         <a id="nav-client-shop" class="nav-item nav-link" href="/shop" data-analytics="global-nav" data-analytics-placement="Nav - {#Menu_Shop#}">{#Menu_Shop#}</a>
                     </li>
+                    <li>
+                        <a id="nav-client-api" class="nav-item nav-link" href="/api" data-analytics="global-nav" data-analytics-placement="Nav - API">API</a>
+                    </li>
                 </ul>
                 {if !isset($smarty.session.loggedin) || !$smarty.session.loggedin}
                 <ul class="nav-list nav-right" id="nav-client-account-menu">

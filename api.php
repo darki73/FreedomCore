@@ -3,10 +3,46 @@ require_once('Core/Core.php');
 
 $ClassConstructor = array($Database, $Smarty);
 Manager::LoadExtension('API', $ClassConstructor);
-API::VerifyRequestEligibility(5); // Allow 1 request every 5 seconds
+
+if(!String::IsNull($_REQUEST['endpoint']))
+{
+    API::VerifyRequestEligibility(5); // Allow 1 request every 5 seconds
+    if($_REQUEST['endpoint'] != 'key')
+        if(!isset($_REQUEST['key']))
+            API::GenerateResponse(403, true);
+        else
+        {
+            if(!API::VerifyIPKey($_REQUEST['key']))
+                API::GenerateResponse(403, true);
+        }
+}
+if(isset($_SESSION['username']) && $_SESSION['username'] != '')
+{
+    $UserAPIKey = Account::GetAPIKey($_SESSION['username']);
+    $Smarty->assign('UserAPIKey', $UserAPIKey);
+}
 switch($_SERVER['REQUEST_METHOD'])
 {
     case 'POST':
+        switch($_REQUEST['endpoint'])
+        {
+            case 'key':
+                switch ($_REQUEST['method']) {
+                    case 'generate':
+                        echo Account::CreateAPIKey($_REQUEST['username']);
+                        break;
+
+                    default:
+                        API::GenerateResponse(403, true);
+                        break;
+                }
+            break;
+            default:
+                unset($_POST);
+                API::GenerateResponse(596, true);
+            break;
+        }
+    break;
     case 'PUT':
     case 'DELETE':
         unset($_POST);
@@ -125,7 +161,10 @@ switch($_SERVER['REQUEST_METHOD'])
             break;
 
             default:
-                API::GenerateResponse(403, true);
+                header('Content-Type: text/html; charset=utf-8');
+                $Smarty->translate('Developer');
+                $Smarty->assign('Page', Page::Info('dev', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Developer_Page_Title').' - ')));
+                $Smarty->display('developer');
             break;
         }
     break;
