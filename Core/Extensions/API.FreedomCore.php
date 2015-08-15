@@ -60,9 +60,11 @@ Class API
 
     public static function GenerateResponse($ResponseCode, $DisplayDetail = false, $Detail = null)
     {
+        $CodeData = API::ReponseCodeTranslator($ResponseCode);
+        header('Status: '.$ResponseCode.' '.$CodeData['type']);
+        header('HTTP/1.0 '.$ResponseCode.' '.$CodeData['type']);
         $PlainResponse = [];
         $PlainResponse['code'] = $ResponseCode;
-        $CodeData = API::ReponseCodeTranslator($ResponseCode);
         $PlainResponse['type'] = $CodeData['type'];
         if($DisplayDetail)
             $PlainResponse['detail'] = $CodeData['detail'];

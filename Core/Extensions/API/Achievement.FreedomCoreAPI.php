@@ -13,10 +13,10 @@ Class AchievementAPI extends API
             $GetAchievementCriterias = AchievementAPI::GetAchievementCriteria($AchievementID);
             foreach($GetAchievementCriterias as $Criteria)
                 $Result['criteria'][] = $Criteria;
-            parent::Encode($Result);
+            return parent::Encode($Result);
         }
         else
-            parent::GenerateResponse(404, true);
+            return parent::GenerateResponse(404, true);
 
     }
 

@@ -26,13 +26,30 @@
                                 </h3>
                             </div>
                             <div class="sidebar-content">
-
+                                <ul style="margin-top:25px;">
+                                    {include file = 'developer/api_achievement.tpl'}
+                                    <br />
+                                    {include file = 'developer/api_item.tpl'}
+                                </ul>
                                 <span class="clear"></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $(".endpoint_accordion h3").click(function(){
+                        //slide up all the link lists
+                        $(".endpoint_accordion ul").slideUp();
+                        //slide down the link list below the h3 clicked - only if its closed
+                        if(!$(this).next().is(":visible"))
+                        {
+                            $(this).next().slideDown();
+                        }
+                    })
+                });
+            </script>
             <div id="right">
                 <div class="sidebar-module">
                     <div class="sidebar-title">

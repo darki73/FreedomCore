@@ -37,6 +37,7 @@ switch($_SERVER['REQUEST_METHOD'])
                         break;
                 }
             break;
+
             default:
                 unset($_POST);
                 API::GenerateResponse(596, true);

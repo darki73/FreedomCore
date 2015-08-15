@@ -183,6 +183,13 @@
         <script type="text/javascript" src="/Templates/{$Template}/js/dataset.js"></script>
     {/if}
 
+    {if $Page.type == 'dev'}
+        <script src="/Templates/{$Template}/js/developer/prettify.js" type="text/javascript"></script>
+        <script src="/Templates/{$Template}/js/developer/utilities.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/Templates/{$Template}/js/developer/developer.js"></script>
+        <script src="/Templates/{$Template}/js/developer/beautify.js" type="text/javascript"></script>
+    {/if}
+
     <script type="text/javascript" src="/Templates/{$Template}/js/cms.min.js"></script>
     <script type="text/javascript" src="/Templates/{$Template}/js/freedomcore.js"></script>
     </body>
