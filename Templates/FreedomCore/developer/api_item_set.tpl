@@ -6,7 +6,7 @@
     </h3>
     <ul>
         <li class="method get">
-            <form class="method_form" style="overflow: hidden; display: block;">
+            <form id="itemset_submission_form" class="method_form" style="overflow: hidden; display: block;">
                 <input name="dataName" id="dataName" type="hidden" value="itemset">
                 <input name="methodName" id="methodName" type="hidden" value="item">
                 <input name="httpMethod" id="httpMethod" type="hidden" value="GET">

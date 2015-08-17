@@ -30,7 +30,7 @@
                                     {include file = 'developer/api_achievement.tpl'}
                                     <br />
                                     {include file = 'developer/api_item.tpl'}
-                                </ul>
+                                </ul
                                 <span class="clear"></span>
                             </div>
                         </div>
@@ -39,10 +39,9 @@
             </div>
             <script type="text/javascript">
                 $(document).ready(function(){
-                    $(".endpoint_accordion h3").click(function(){
-                        //slide up all the link lists
+                    $(".endpoint_accordion h3").click(function()
+                    {
                         $(".endpoint_accordion ul").slideUp();
-                        //slide down the link list below the h3 clicked - only if its closed
                         if(!$(this).next().is(":visible"))
                         {
                             $(this).next().slideDown();
@@ -100,6 +99,7 @@
                                 {else}
                                     <center>
                                         {#Developer_Authorization_Needed#}
+                                        <input type="hidden" id="apikey" value="undefined" readonly>
                                     </center>
                                 {/if}
                         </div>

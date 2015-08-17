@@ -10,7 +10,7 @@
         </h3>
         <ul>
             <li class="method get">
-                <form class="method_form" style="overflow: hidden; display: block;">
+                <form id="achievement_simple_submission_form" class="method_form" style="overflow: hidden; display: block;">
                     <input name="dataName" id="dataName" type="hidden" value="achievement">
                     <input name="methodName" id="methodName" type="hidden" value="achievement">
                     <input name="httpMethod" id="httpMethod" type="hidden" value="GET">

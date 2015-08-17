@@ -2,7 +2,7 @@
 
 Class DataAPI extends API
 {
-    public static function CharacterRaces()
+    public static function CharacterRaces($JSONP)
     {
         $Statement = parent::$DBConnection->prepare('SELECT race_id as id, race as name, can_join_alliance, can_join_horde FROM races');
         $Statement->execute();
@@ -23,10 +23,10 @@ Class DataAPI extends API
             unset($Result[$ArrayIndex]['can_join_horde']);
             $ArrayIndex++;
         }
-        parent::Encode($Result, 'races');
+        parent::Encode($Result, $JSONP, 'races');
     }
 
-    public static function CharacterClasses()
+    public static function CharacterClasses($JSONP)
     {
         $Statement = parent::$DBConnection->prepare('SELECT class_id as id, class_name as name, LOWER(REPLACE(indicator_second_type, "Class_Indicator_", "")) as powerType FROM classes');
         $Statement->execute();
@@ -48,10 +48,10 @@ Class DataAPI extends API
             $Result[$ArrayIndex]['mask'] = DataAPI::ClassBitmastConverter($Class['id']);
             $ArrayIndex++;
         }
-        parent::Encode($Result, 'classes');
+        parent::Encode($Result, $JSONP, 'classes');
     }
 
-    public static function ItemClasses()
+    public static function ItemClasses($JSONP)
     {
         $Result = Items::ItemSubClass(null, null, false, true);
         $JSONArray = [];
@@ -70,7 +70,7 @@ Class DataAPI extends API
             }
             $JSONArray[] = $ClassArray;
         }
-        parent::Encode($JSONArray, 'classes');
+        parent::Encode($JSONArray, $JSONP, 'classes');
     }
 
     private static function RacialBitmastConverter($RaceID)

@@ -1,9 +1,9 @@
 function PerformJsonRequest(form)
 {
-    var FormData = form.form();
-    var ResponseBox = $('#'+FormData['dataName']+'_response');
+    var Form = '#'+$(form).attr('id');
+    var ResponseBox = $(Form).find('.request_result');
     ResponseBox.empty();
-    $('.clear-results').fadeIn();
+    $(Form).find('.clear-results').fadeIn();
     ResponseBox.css({
         display: 'none'
     });
@@ -11,7 +11,7 @@ function PerformJsonRequest(form)
         event.preventDefault();
         $(this).fadeOut();
         $(ResponseBox).slideUp(function () {
-            ResponseBox.innerHTML = '';
+            ResponseBox.empty();
         });
     });
 
@@ -41,12 +41,23 @@ function PerformJsonRequest(form)
         $('<pre class="response prettyprint" />'));
 
     // Add response box to form and show it
-    ResponseBox.appendTo(form).slideDown();
-    var APIUri = FormData['methodUri'].replace(':id', FormData['params[:id]'])+'?key='+$('#apikey').val();
+    ResponseBox.appendTo(Form).slideDown();
+    var IDData = $(Form).find('#id').val();
+    var LocaleData = $(Form).find('#locale').val();
+    var JSONPData = $(Form).find('#jsonp').val();
+    var MethodURI  = $(Form).find('#methodUri').val();
+    var APIUri = MethodURI.replace(':id', IDData)+'?locale='+LocaleData+'&jsonp='+JSONPData+'&key='+$('#apikey').val();
+    var DataType = '';
+    if(JSONPData == '')
+        DataType = 'json';
+    else
+        DataType = 'jsonp';
     $.ajax({
         type: 'GET',
         url: APIUri,
-        data: form.serialize(),
+        data: {},
+        cache: false,
+        dataType: DataType,
         beforeSend: function(){
             ResponseBox.children('pre').text('Loading...').removeClass('error');
         },
@@ -58,37 +69,10 @@ function PerformJsonRequest(form)
             ResponseBox.find('pre.responseStatus').text(request.status + ' ' + statusText).toggleClass('error', statusText !== 'success');
             ResponseBox.find('.responseStatus').toggle((request.status > 0 || statusText) ? true : false);
             ResponseBox.find('pre.headers').text(Headers).toggleClass('error', data.statusText !== 'success');
-            switch (HeadersArray['Content-Type'].split(';')[0]) {
-                // Parse types as JSON
-                case 'application/javascript':
-                case 'application/json':
-                case 'application/x-javascript':
-                case 'application/x-json':
-                case 'text/javascript':
-                case 'text/json':
-                case 'text/x-javascript':
-                case 'text/x-json':
-                    try {
-                        formattedText = js_beautify(formattedText, { 'preserve_newlines': false });
-                    } catch (err) {
-                        formattedText = JSON.stringify(data, null, 2);
-                    }
-                    break;
-
-                // Parse types as XHTML
-                case 'application/xml':
-                case 'text/xml':
-                case 'text/html':
-                case 'text/xhtml':
-                    formattedText = formatXML(formattedText) || '';
-                    break;
-                default:
-                    break;
-            }
+            var formattedText = JSON.stringify(data, null, 2);
             ResponseBox.find('pre.response').text(formattedText).toggleClass('error', data.statusText !== 'success');
         },
-        error: function(request, statusText, errorThrown)
-        {
+        error: function(request, statusText, errorThrown){
             var Headers = request.getAllResponseHeaders();
             var HeadersArray = parseResponseHeaders(Headers);
             ResponseBox.find('pre.call').text(APIUri);

@@ -63,7 +63,7 @@ switch($_SERVER['REQUEST_METHOD'])
                 switch($_REQUEST['method'])
                 {
                     case 'simple':
-                        AchievementAPI::GetSimpleAchievement($_REQUEST['datatype']);
+                        AchievementAPI::GetSimpleAchievement($_REQUEST['datatype'], $_REQUEST['jsonp']);
                     break;
                 }
             break;
@@ -81,11 +81,11 @@ switch($_SERVER['REQUEST_METHOD'])
                 switch($_REQUEST['method'])
                 {
                     case 'single':
-                        ItemAPI::GetSingleItem($_REQUEST['datatype']);
+                        ItemAPI::GetSingleItem($_REQUEST['datatype'], $_REQUEST['jsonp']);
                     break;
 
                     case 'set':
-                        ItemAPI::GetItemSet($_REQUEST['datatype']);
+                        ItemAPI::GetItemSet($_REQUEST['datatype'], $_REQUEST['jsonp']);
                     break;
                 }
             break;
@@ -115,7 +115,7 @@ switch($_SERVER['REQUEST_METHOD'])
                 switch($_REQUEST['method'])
                 {
                     case 'simple':
-                        SpellAPI::GetSimpleSpell($_REQUEST['datatype']);
+                        SpellAPI::GetSimpleSpell($_REQUEST['datatype'], $_REQUEST['jsonp']);
                     break;
                 }
             break;
@@ -128,11 +128,11 @@ switch($_SERVER['REQUEST_METHOD'])
                         switch($_REQUEST['datatype'])
                         {
                             case 'races':
-                                DataAPI::CharacterRaces();
+                                DataAPI::CharacterRaces($_REQUEST['jsonp']);
                             break;
 
                             case 'classes':
-                                DataAPI::CharacterClasses();
+                                DataAPI::CharacterClasses($_REQUEST['jsonp']);
                             break;
 
                             default:
@@ -145,7 +145,7 @@ switch($_SERVER['REQUEST_METHOD'])
                         switch($_REQUEST['datatype'])
                         {
                             case 'classes':
-                                DataAPI::ItemClasses();
+                                DataAPI::ItemClasses($_REQUEST['jsonp']);
                             break;
 
                             default:

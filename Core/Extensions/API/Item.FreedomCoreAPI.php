@@ -2,7 +2,7 @@
 
 Class ItemAPI extends API
 {
-    public static function GetSingleItem($ItemID)
+    public static function GetSingleItem($ItemID, $JSONP)
     {
         $NewArray = [];
         $Item = Items::GetItemInfo($ItemID);
@@ -88,13 +88,13 @@ Class ItemAPI extends API
                 $NewArray['hasSockets'] = false;
             $NewArray['displayInfoId'] = $Item['displayid'];
 
-            return parent::Encode($NewArray);
+            return parent::Encode($NewArray, $JSONP);
         }
         else
             return parent::GenerateResponse(404, true);
     }
 
-    public static function GetItemSet($SetID)
+    public static function GetItemSet($SetID, $JSONP)
     {
         $Statement = parent::$DBConnection->prepare('SELECT * FROM freedomcore_itemset WHERE itemsetID = :setid');
         $Statement->bindParam(':setid', $SetID);
@@ -118,7 +118,7 @@ Class ItemAPI extends API
                     $SetItems[] = $Result['item' . $i];
 
             $FinalArray['items'] = $SetItems;
-            parent::Encode($FinalArray);
+            parent::Encode($FinalArray, $JSONP);
         }
         else
             parent::GenerateResponse(404, true);

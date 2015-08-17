@@ -35,12 +35,18 @@ Class API
         }
     }
 
-    public static function Encode($Array, $Parent = null)
+    public static function Encode($Array, $JSONP, $Parent = null)
     {
+        $EncodedJSON = '';
         if($Parent != null)
-            echo json_encode([''.$Parent.'' => $Array], JSON_UNESCAPED_UNICODE);
+            $EncodedJSON = json_encode([''.$Parent.'' => $Array], JSON_UNESCAPED_UNICODE);
         else
-            echo json_encode($Array, JSON_UNESCAPED_UNICODE);
+            $EncodedJSON = json_encode($Array, JSON_UNESCAPED_UNICODE);
+
+        if(String::IsNull($JSONP))
+            echo $EncodedJSON;
+        else
+            echo $JSONP.'('.$EncodedJSON.')';
     }
 
     public static function VerifyIPKey($APIKey)

@@ -2,7 +2,7 @@
 
 Class AchievementAPI extends API
 {
-    public static function GetSimpleAchievement($AchievementID)
+    public static function GetSimpleAchievement($AchievementID, $JSONP)
     {
         $Statement = parent::$DBConnection->prepare('SELECT a.id, a.faction as factionID, a.name_loc0 as title, a.description_loc0 as description, a.points, a.reward_loc0 as reward, LOWER(si.iconname) as icon FROM freedomcore_achievement a LEFT JOIN freedomcore_spellicons si ON a.icon = si.id WHERE a.id = :aid');
         $Statement->bindParam(':aid', $AchievementID);
@@ -13,7 +13,7 @@ Class AchievementAPI extends API
             $GetAchievementCriterias = AchievementAPI::GetAchievementCriteria($AchievementID);
             foreach($GetAchievementCriterias as $Criteria)
                 $Result['criteria'][] = $Criteria;
-            return parent::Encode($Result);
+            return parent::Encode($Result, $JSONP);
         }
         else
             return parent::GenerateResponse(404, true);
