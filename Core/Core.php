@@ -8,7 +8,7 @@ if(!$InstallationIsInProgress)
     Manager::LoadExtension('Account', array($Database, $Smarty));
     Manager::LoadExtension('Characters', array($Database, $Smarty));
     Manager::LoadExtension('Items', array($Database, $Smarty));
-    if(isset($_SESSION['username']) && !String::IsNull($_SESSION['username']))
+    if(isset($_SESSION['username']) && !Text::IsNull($_SESSION['username']))
     {
         $User = Account::Get($_SESSION['username']);
         $Characters = Characters::GetCharacters($User['id']);

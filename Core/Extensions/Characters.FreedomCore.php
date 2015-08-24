@@ -666,7 +666,7 @@ Class Characters
             array('lowest' => $ReputationRangs[6], 'highest' => $ReputationRangs[6]+20999), // Revered
             array('lowest' => $ReputationRangs[7], 'highest' => $ReputationRangs[7]+999) // Exalted
         );
-        $RankID = String::FindClosestKey($Reputation, $ReputationValue);
+        $RankID = Text::FindClosestKey($Reputation, $ReputationValue);
         return Characters::DataByReputationRankID($RankID);
     }
 
@@ -1015,13 +1015,13 @@ Class Raids
         {
             $ParametersIDs = ':id_'.implode(',:id_', array_keys($Criteria));
             $IDsAndValues = array_combine(explode(",", $ParametersIDs), $Criteria);
-            $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+            $IDsAndValues = Text::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
         }
         else
         {
             $ParametersIDs = $Criteria;
             $IDsAndValues = array();;
-            $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+            $IDsAndValues = Text::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
         }
         $HTML = "";
         $RaidData = array();
@@ -1065,7 +1065,7 @@ Class Raids
         global $FCCore;
         $ParametersIDs = ':id_'.implode(',:id_', array_keys($Criteria));
         $IDsAndValues = array_combine(explode(",", $ParametersIDs), $Criteria);
-        $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+        $IDsAndValues = Text::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
         $HTML = "";
         $RaidData = array();
         $CharactersSQL = "SELECT cap.*, fa.value1 as bossid FROM character_achievement_progress cap LEFT JOIN ".$FCCore['Database']['database'].".freedomcore_achievementcriteria fa ON cap.criteria = fa.id WHERE guid = :guid AND criteria IN (".$ParametersIDs.")";

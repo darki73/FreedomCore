@@ -844,7 +844,7 @@ Class Account
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         if(!is_null($Result['username']))
         {
-            if($Result['pinned_character'] == null || String::IsNull($Result['pinned_character']))
+            if($Result['pinned_character'] == null || Text::IsNull($Result['pinned_character']))
             {
                 $CharID = Characters::PickRandomChar($Result['id']);
                 if($CharID != false)

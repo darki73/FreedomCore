@@ -7,7 +7,7 @@ Class SpellAPI extends API
         $SpellInfo = Spells::SpellInfo($SpellID);
         if($SpellInfo)
         {
-            $SpellData = String::RemapArray($SpellInfo, ['SpellID', 'Name', 'Description', 'icon'], ['id', 'name', 'description', 'icon']);
+            $SpellData = Text::RemapArray($SpellInfo, ['SpellID', 'Name', 'Description', 'icon'], ['id', 'name', 'description', 'icon']);
             parent::Encode($SpellData, $JSONP);
         }
         else

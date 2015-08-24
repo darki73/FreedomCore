@@ -4,7 +4,7 @@ require_once('Core/Core.php');
 $ClassConstructor = array($Database, $Smarty);
 Manager::LoadExtension('API', $ClassConstructor);
 
-if(!String::IsNull($_REQUEST['endpoint']))
+if(!Text::IsNull($_REQUEST['endpoint']))
 {
     API::VerifyRequestEligibility(5); // Allow 1 request every 5 seconds
     if($_REQUEST['endpoint'] != 'key')
@@ -58,6 +58,20 @@ switch($_SERVER['REQUEST_METHOD'])
     case 'GET':
         switch($_REQUEST['endpoint'])
         {
+            case 'account':
+                API::EnableAPIExtension('Account');
+                switch($_REQUEST['method'])
+                {
+                    case 'authorize':
+                        AccountAPI::Authorize($_REQUEST['username'], $_REQUEST['password']);
+                    break;
+
+                    case 'deauthorize':
+                        AccountAPI::Deauthorize($_REQUEST['username'], $_REQUEST['password']);
+                    break;
+                }
+            break;
+
             case 'achievement':
                 API::EnableAPIExtension('Achievement');
                 switch($_REQUEST['method'])

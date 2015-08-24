@@ -74,8 +74,8 @@ Class Items
         {
             $Result['subclass'] = Items::ItemSubClass($Result['class'], $Result['subclass']);
             $Result['class'] = Items::ItemClass($Result['class']);
-            $Result['BuyPrice'] = String::MoneyToCoins($Result['BuyPrice']);
-            $Result['SellPrice'] = String::MoneyToCoins($Result['SellPrice']);
+            $Result['BuyPrice'] = Text::MoneyToCoins($Result['BuyPrice']);
+            $Result['SellPrice'] = Text::MoneyToCoins($Result['SellPrice']);
             $Result['bond_translation'] = Items::BondTranslation($Result['bonding']);
             $Result['it_translation'] = Items::InventoryTypeTranslation($Result['InventoryType']);
             if($Result['RequiredSkill'] != 0)
@@ -675,7 +675,7 @@ Class Items
             }
         }
         $Result['XPReward'] = Items::QuestXP($Result['QuestLevel'], $Result['RewardXPId']);
-        $Result['MoneyReward'] = String::MoneyToCoins($Result['RewardOrRequiredMoney']);
+        $Result['MoneyReward'] = Text::MoneyToCoins($Result['RewardOrRequiredMoney']);
         return $Result;
     }
 

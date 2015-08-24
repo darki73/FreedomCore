@@ -43,7 +43,7 @@ Class API
         else
             $EncodedJSON = json_encode($Array, JSON_UNESCAPED_UNICODE);
 
-        if(String::IsNull($JSONP))
+        if(Text::IsNull($JSONP))
             echo $EncodedJSON;
         else
             echo $JSONP.'('.$EncodedJSON.')';

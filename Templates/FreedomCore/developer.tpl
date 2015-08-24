@@ -27,6 +27,8 @@
                             </div>
                             <div class="sidebar-content">
                                 <ul style="margin-top:25px;">
+                                    {include file = 'developer/api_account.tpl'}
+                                    <br />
                                     {include file = 'developer/api_achievement.tpl'}
                                     <br />
                                     {include file = 'developer/api_item.tpl'}

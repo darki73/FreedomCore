@@ -137,7 +137,7 @@ Class Forums
             $Result[$ArrayIndex]['post_message'] = Forums::ParseBBCode($Reply['post_message']);
             $ArrayIndex++;
         }
-        $TopicData['replies'] = String::MassUnset($Result, array('forum_type', 'forum_type_name', 'forum_id', 'forum_name', 'topic', 'topic_id'));
+        $TopicData['replies'] = Text::MassUnset($Result, array('forum_type', 'forum_type_name', 'forum_id', 'forum_name', 'topic', 'topic_id'));
 
         return $TopicData;
     }

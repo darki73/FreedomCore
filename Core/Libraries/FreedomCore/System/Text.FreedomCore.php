@@ -1,6 +1,6 @@
 <?php
 
-Class String
+Class Text
 {
     public static function GetTextBetween($String, $First, $Last)
     {

@@ -6,7 +6,7 @@ switch($_REQUEST['category'])
 	case 'account':
         if(!Session::SessionStatus())
             Session::Start('FreedomCore', false);
-		if(!String::IsNull($_REQUEST['subcategory']))
+		if(!Text::IsNull($_REQUEST['subcategory']))
 		{
             if(isset($User['id']))
             {
@@ -48,7 +48,7 @@ switch($_REQUEST['category'])
                     if($_SESSION['loggedin'] != true)
                         header('Location: /account/login');
                     $Smarty->translate('Account');
-                    if(String::IsNull($_REQUEST['lastcategory']))
+                    if(Text::IsNull($_REQUEST['lastcategory']))
                     {
                         $Smarty->assign('User', $User);
                         $Smarty->assign('Accounts', Account::GetGameAccounts($User['username']));
@@ -123,12 +123,12 @@ switch($_REQUEST['category'])
                                 break;
 
                                 case 'services':
-                                    if(!String::IsNull($_REQUEST['datatype']))
+                                    if(!Text::IsNull($_REQUEST['datatype']))
                                     {
                                         switch($_REQUEST['datatype'])
                                         {
                                             case 'character-services':
-                                                if(!String::IsNull($_REQUEST['service']))
+                                                if(!Text::IsNull($_REQUEST['service']))
                                                     switch($_REQUEST['service'])
                                                     {
                                                         case 'PCT':
@@ -212,7 +212,7 @@ switch($_REQUEST['category'])
                                             break;
 
                                             case 'referrals':
-                                                if(!String::IsNull($_REQUEST['service']))
+                                                if(!Text::IsNull($_REQUEST['service']))
                                                 {
                                                     $Service = array(
                                                         'name' => strtolower($_REQUEST['service']),
@@ -268,7 +268,7 @@ switch($_REQUEST['category'])
                                 break;
 
                                 case 'payment':
-                                    if(String::IsNull($_REQUEST['datatype']))
+                                    if(Text::IsNull($_REQUEST['datatype']))
                                         header('Location: /account/management');
                                     else
                                     {
@@ -334,7 +334,7 @@ switch($_REQUEST['category'])
                                 break;
 
                                 case 'orders':
-                                    if(String::IsNull($_REQUEST['datatype']))
+                                    if(Text::IsNull($_REQUEST['datatype']))
                                     {
                                         $Smarty->assign('Payments', Account::GetPaymentHistory($User['id']));
                                         $Smarty->assign('Page', Page::Info('account_operations', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Orders_History').' - ')));
@@ -354,7 +354,7 @@ switch($_REQUEST['category'])
                                 break;
 
                                 case 'settings':
-                                    if(String::IsNull($_REQUEST['datatype']))
+                                    if(Text::IsNull($_REQUEST['datatype']))
                                         header('Location: /account/management');
                                     else
                                     {
@@ -502,11 +502,11 @@ switch($_REQUEST['category'])
 
 				case 'captcha.jpg':
                     header("Content-Type:image/png");
-                    String::GenerateCaptcha();
+                    Text::GenerateCaptcha();
 				break;
 
 				case 'performlogin':
-                    if(!String::IsNull($_REQUEST['accountName']) && !String::IsNull($_REQUEST['password']) && !String::IsNull($_REQUEST['persistLogin']) && !String::IsNull($_REQUEST['csrftoken']) && !String::IsNull($_REQUEST['captchaInput']))
+                    if(!Text::IsNull($_REQUEST['accountName']) && !Text::IsNull($_REQUEST['password']) && !Text::IsNull($_REQUEST['persistLogin']) && !Text::IsNull($_REQUEST['csrftoken']) && !Text::IsNull($_REQUEST['captchaInput']))
                     {
                         if($_SESSION['generated_captcha'] == $_REQUEST['captchaInput'])
                         {
@@ -576,7 +576,7 @@ switch($_REQUEST['category'])
 	break;
 
     case 'data':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
         {
@@ -599,7 +599,7 @@ switch($_REQUEST['category'])
     break;
 
     case 'admin':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
         {
@@ -630,7 +630,7 @@ switch($_REQUEST['category'])
 
                     case 'localization':
                         //print_r(File::DirectoryContent(getcwd().DS.'Core'.DS.'Languages'.DS, Utilities::GetLanguage()));
-                        if(String::IsNull($_REQUEST['lastcategory']))
+                        if(Text::IsNull($_REQUEST['lastcategory']))
                         {
                             $InstalledLanguages = File::GetSubDirectories(getcwd().DS.'Core'.DS.'Languages'.DS);
                             $Smarty->assign('InstalledLanguages', $InstalledLanguages);
@@ -639,7 +639,7 @@ switch($_REQUEST['category'])
                         }
                         else
                         {
-                            if(String::IsNull($_REQUEST['datatype']))
+                            if(Text::IsNull($_REQUEST['datatype']))
                             {
                                 $Language = array(
                                     'LanguageName' => ucfirst($_REQUEST['lastcategory']),
@@ -735,7 +735,7 @@ switch($_REQUEST['category'])
     break;
 
     case 'achievement':
-        if(!String::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
+        if(!Text::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
         {
             $Headers = apache_request_headers();
             $IsAjax = (isset($Headers['X-Requested-With']) && $Headers['X-Requested-With'] == 'XMLHttpRequest');
@@ -753,7 +753,7 @@ switch($_REQUEST['category'])
     break;
 
     case 'item':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
         {
             $DisplayPageElements = 50;
             if(isset($_REQUEST['classId']))
@@ -839,7 +839,7 @@ switch($_REQUEST['category'])
         }
         else
         {
-            if(String::IsNull($_REQUEST['lastcategory']))
+            if(Text::IsNull($_REQUEST['lastcategory']))
             {
                 $Item = Items::GetItemInfo($_REQUEST['subcategory']);
                 $ItemRelation = Items::GetItemRelatedInfo($_REQUEST['subcategory']);
@@ -907,13 +907,13 @@ switch($_REQUEST['category'])
     break;
 
     case 'character':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             Page::GenerateErrorPage($Smarty, 404);
         else
         {
             if(Characters::CheckCharacter($_REQUEST['subcategory']))
             {
-                if(!String::IsNull($_REQUEST['lastcategory']))
+                if(!Text::IsNull($_REQUEST['lastcategory']))
                 {
                     $CharacterData = Characters::GetCharacterData($_REQUEST['subcategory']);
                     $Smarty->assign('Character', $CharacterData);
@@ -921,7 +921,7 @@ switch($_REQUEST['category'])
                     switch($_REQUEST['lastcategory'])
                     {
                         case 'achievement':
-                            if(String::IsNull($_REQUEST['datatype']))
+                            if(Text::IsNull($_REQUEST['datatype']))
                             {
                                 Manager::LoadExtension('Achievements', $ClassConstructor);
                                 $Smarty->assign('AStatus', Achievements::GetAchievementsStats());
@@ -937,7 +937,7 @@ switch($_REQUEST['category'])
                                 $AllCategorues = Achievements::GetCategories();
                                 $AInCat = Achievements::GetAchievementsInCategory($_REQUEST['datatype']);
                                 $CompletedAchievements = Characters::GetCompletedAchievements($CharacterData['guid']);
-                                $WorkingWith = $AllCategorues[String::MASearch($AllCategorues, 'id', $_REQUEST['datatype'])];
+                                $WorkingWith = $AllCategorues[Text::MASearch($AllCategorues, 'id', $_REQUEST['datatype'])];
                                 $CA = array();
                                 foreach($CompletedAchievements as $Achievement)
                                     if($Achievement['category'] == $WorkingWith['id'])
@@ -965,7 +965,7 @@ switch($_REQUEST['category'])
 
                         case 'profession':
                             $Professions = Characters::GetCharacterProfessions($CharacterData['guid']);
-                            if(String::IsNull($_REQUEST['datatype']))
+                            if(Text::IsNull($_REQUEST['datatype']))
                             {
                                 if(empty($Professions))
                                 {
@@ -1002,13 +1002,13 @@ switch($_REQUEST['category'])
                                 }
                                 if(in_array($_REQUEST['datatype'], $CharProfessions))
                                 {
-                                    $ProfessionInfo = $Professions[String::MASearch($Professions, 'name', $_REQUEST['datatype'])];
+                                    $ProfessionInfo = $Professions[Text::MASearch($Professions, 'name', $_REQUEST['datatype'])];
                                     $AllRecipes = Characters::GetRecipesForProfession($ProfessionInfo['id']);
                                     $LearnedRecipes = Characters::GetLearnedRecipesForProfession($ProfessionInfo['id'], $CharacterData['guid']);
                                     $UnlearnedArray = array();
                                     foreach($AllRecipes as $All)
                                     {
-                                        $Searcher = String::MASearch($LearnedRecipes, 'spell', $All['spellID']);
+                                        $Searcher = Text::MASearch($LearnedRecipes, 'spell', $All['spellID']);
                                         if(!$Searcher)
                                             $UnlearnedArray[] = $All;
                                     }
@@ -1077,11 +1077,11 @@ switch($_REQUEST['category'])
     break;
 
     case 'spell':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             Page::GenerateErrorPage($Smarty, 404);
         else
         {
-            if (!String::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
+            if (!Text::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
             {
                 $Smarty->assign('Spell', Spells::SpellInfo($_REQUEST['subcategory']));
                 $Smarty->display('blocks/spell_tooltip');
@@ -1092,11 +1092,11 @@ switch($_REQUEST['category'])
     break;
 
     case 'quest':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             Page::GenerateErrorPage($Smarty, 404);
         else
         {
-            if (!String::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
+            if (!Text::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
             {
                 $Smarty->assign('Quest', Items::QuestInfo($_REQUEST['subcategory']));
                 $Smarty->display('blocks/quest_tooltip');
@@ -1107,13 +1107,13 @@ switch($_REQUEST['category'])
     break;
 
     case 'guild':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             Page::GenerateErrorPage($Smarty, 404);
         else
         {
             if(Characters::CheckGuild($_REQUEST['subcategory']))
             {
-                if (!String::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
+                if (!Text::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
                 {
                     $Smarty->assign('Guild', Characters::GetGuildData($_REQUEST['subcategory']));
                     $Smarty->display('blocks/guild_tooltip');
@@ -1121,7 +1121,7 @@ switch($_REQUEST['category'])
                 else
                 {
                     Manager::LoadExtension('Guild', $ClassConstructor);
-                    if(String::IsNull($_REQUEST['lastcategory']))
+                    if(Text::IsNull($_REQUEST['lastcategory']))
                     {
                         $GuildData = Guild::GetGuildData($_REQUEST['subcategory']);
                         if(!$GuildData)
@@ -1172,7 +1172,7 @@ switch($_REQUEST['category'])
     break;
 
     case 'sidebar':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
         {
@@ -1216,14 +1216,14 @@ switch($_REQUEST['category'])
             echo ModelViewer::GetCharacterHtml();
         }
 
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
         {
             switch($_REQUEST['subcategory'])
             {
                 case 'dynamic':
-                    if(String::IsNull($_REQUEST['lastcategory']))
+                    if(Text::IsNull($_REQUEST['lastcategory']))
                         header('Location: /');
                     else
                     {
@@ -1254,7 +1254,7 @@ switch($_REQUEST['category'])
                 break;
 
                 case 'static':
-                    if(String::IsNull($_REQUEST['lastcategory']))
+                    if(Text::IsNull($_REQUEST['lastcategory']))
                         header('Location: /');
                     else
                     {
@@ -1293,14 +1293,14 @@ switch($_REQUEST['category'])
 			$Smarty->translate('Classes');
 		Manager::LoadExtension("Races", $ClassConstructor);
 		Manager::LoadExtension("Classes", $ClassConstructor);
-		if(String::IsNull($_REQUEST['subcategory']))
+		if(Text::IsNull($_REQUEST['subcategory']))
 		{
 			$Smarty->assign('Page', Page::Info('game', array('bodycss' => 'game-index', 'pagetitle' => $Smarty->GetConfigVars('Menu_Game').' - ')));
 			$Smarty->display('game');
 		}
-		elseif(!String::IsNull($_REQUEST['subcategory']))
+		elseif(!Text::IsNull($_REQUEST['subcategory']))
 		{
-			if(String::IsNull($_REQUEST['lastcategory']))
+			if(Text::IsNull($_REQUEST['lastcategory']))
 			{
 				switch($_REQUEST['subcategory'])
 				{
@@ -1339,7 +1339,7 @@ switch($_REQUEST['category'])
 				if($_REQUEST['subcategory'] == 'race')
 				{
                     $Races = array_merge(Races::GetAlliance(), Races::GetHorde());
-                    $ExistingRaces = String::UnsetAllBut('race_link', $Races, 2);
+                    $ExistingRaces = Text::UnsetAllBut('race_link', $Races, 2);
                     if(!in_array($_REQUEST['lastcategory'], $ExistingRaces))
                         header('Location: /game/race');
 
@@ -1352,7 +1352,7 @@ switch($_REQUEST['category'])
 				elseif($_REQUEST['subcategory'] == 'class')
 				{
                     $Classes = Classes::GetAll();
-                    $ExistingClasses = String::UnsetAllBut('class_name', $Classes, 2);
+                    $ExistingClasses = Text::UnsetAllBut('class_name', $Classes, 2);
                     if(!in_array($_REQUEST['lastcategory'], $ExistingClasses))
                         header('Location: /game/class');
 					$Class = Classes::GetClass($_REQUEST['lastcategory']);
@@ -1365,7 +1365,7 @@ switch($_REQUEST['category'])
                 {
                     Manager::LoadExtension('Professions', $ClassConstructor);
                     $Professions = Professions::GetProfessionsList();
-                    $ExistingProfessions = String::UnsetAllBut('profession_name', $Professions, 2);
+                    $ExistingProfessions = Text::UnsetAllBut('profession_name', $Professions, 2);
                     if(!in_array($_REQUEST['lastcategory'], $ExistingProfessions))
                         header('Location: /game/profession');
                     $Profession = Professions::GetProfession($_REQUEST['lastcategory']);
@@ -1379,7 +1379,7 @@ switch($_REQUEST['category'])
 	break;
 
     case 'blog':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
         {
@@ -1398,7 +1398,7 @@ switch($_REQUEST['category'])
         break;
 
 	case 'community':
-		if(String::IsNull($_REQUEST['subcategory']))
+		if(Text::IsNull($_REQUEST['subcategory']))
 		{
 			$Smarty->assign('Page', Page::Info('community', array('bodycss' => 'community-home', 'pagetitle' => $Smarty->GetConfigVars('Menu_Community').' - ')));
 			$Smarty->display('community');
@@ -1419,7 +1419,7 @@ switch($_REQUEST['category'])
 
     case 'discussion':
         Manager::LoadExtension('News', $ClassConstructor);
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
         {
@@ -1431,7 +1431,7 @@ switch($_REQUEST['category'])
             switch($Category)
             {
                 case 'item':
-                    if(String::IsNull($_REQUEST['lastcategory']))
+                    if(Text::IsNull($_REQUEST['lastcategory']))
                         header('Location: /');
                     else
                     {
@@ -1459,7 +1459,7 @@ switch($_REQUEST['category'])
                 break;
 
                 case 'blog':
-                    if(String::IsNull($_REQUEST['lastcategory']))
+                    if(Text::IsNull($_REQUEST['lastcategory']))
                         header('Location: /');
                     else
                     {
@@ -1502,7 +1502,7 @@ switch($_REQUEST['category'])
 
 	case 'media':
         header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
-//		if(String::IsNull($_REQUEST['subcategory']))
+//		if(Text::IsNull($_REQUEST['subcategory']))
 //		{
 //			$Smarty->assign('Page', Page::Info('media', array('bodycss' => '')));
 //			$Smarty->display('media');
@@ -1512,7 +1512,7 @@ switch($_REQUEST['category'])
     case 'shop':
         $Smarty->translate('Shop');
         Manager::LoadExtension('Shop', $ClassConstructor);
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
         {
             if(isset($_REQUEST['categories']))
                 $Smarty->assign('DisplayCategory', $_REQUEST['categories']);
@@ -1609,7 +1609,7 @@ switch($_REQUEST['category'])
                 break;
 
                 case 'pet':
-                    String::PrettyPrint($_REQUEST);
+                    Text::PrettyPrint($_REQUEST);
                 break;
 
                 default:
@@ -1658,7 +1658,7 @@ switch($_REQUEST['category'])
         break;
 
     case 'changelanguage':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
         {
@@ -1675,7 +1675,7 @@ switch($_REQUEST['category'])
         break;
 
     case 'error':
-        if(String::IsNull($_REQUEST['category']))
+        if(Text::IsNull($_REQUEST['category']))
             header('Location: /');
         else
         {
@@ -1689,7 +1689,7 @@ switch($_REQUEST['category'])
     case 'zone':
         Manager::LoadExtension('Zones', $ClassConstructor);
         $Smarty->translate('Raids');
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
         {
             $Smarty->assign('Instances', Zones::GetZonesForLandingPage());
             $Smarty->assign('Page', Page::Info('zone', array('bodycss' => 'zone-index expansion-0', 'pagetitle' => $Smarty->GetConfigVars('Zones_InstancesRaidsCMs').' - ')));
@@ -1711,7 +1711,7 @@ switch($_REQUEST['category'])
             else
             {
                 $ZoneInfo = Zones::GetZoneInfoByName($_REQUEST['subcategory']);
-                if(String::IsNull($_REQUEST['lastcategory']))
+                if(Text::IsNull($_REQUEST['lastcategory']))
                 {
                     $ChosenLang = Utilities::BlizzardLanguageFormat(Utilities::GetLanguage(true));
                     Zones::DownloadScreenshots($ZoneInfo, $ChosenLang);
@@ -1728,11 +1728,11 @@ switch($_REQUEST['category'])
                     foreach($ZoneInfo['bosses'] as $Boss)
                         $BossesArray[] = $Boss['boss_link'];
 
-                    $BossInfo = $ZoneInfo['bosses'][String::MASearch($ZoneInfo['bosses'], 'boss_link', $_REQUEST['lastcategory'])];
+                    $BossInfo = $ZoneInfo['bosses'][Text::MASearch($ZoneInfo['bosses'], 'boss_link', $_REQUEST['lastcategory'])];
 
                     if(in_array($_REQUEST['lastcategory'], $BossesArray))
                     {
-                        if(String::IsNull($_REQUEST['datatype']))
+                        if(Text::IsNull($_REQUEST['datatype']))
                         {
                             $StorageDir = str_replace('/', DS, getcwd()).DS.'Uploads'.DS.'Core'.DS.'NPC'.DS.'ModelViewer'.DS;
                             $ItemName = 'creature'.$BossInfo['entry'].'.jpg';
@@ -1796,7 +1796,7 @@ switch($_REQUEST['category'])
     break;
 
     case 'npc':
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
             Page::GenerateErrorPage($Smarty, 404);
         else
         {
@@ -1815,7 +1815,7 @@ switch($_REQUEST['category'])
     case 'forum':
         $Smarty->translate('Forums');
         Manager::LoadExtension('Forums', $ClassConstructor);
-        if(String::IsNull($_REQUEST['subcategory']))
+        if(Text::IsNull($_REQUEST['subcategory']))
         {
             $Smarty->assign('Forums', Forums::GetForums());
             $Smarty->assign('Page', Page::Info('forum', array('bodycss' => 'forums forums-home', 'pagetitle' => $Smarty->GetConfigVars('Forum_Page_Title').' - ')));
@@ -1827,22 +1827,22 @@ switch($_REQUEST['category'])
             {
                 if(Forums::CheckForumExistance($_REQUEST['subcategory']))
                 {
-                    if(String::IsNull($_REQUEST['lastcategory']))
+                    if(Text::IsNull($_REQUEST['lastcategory']))
                     {
                         $Topics = Forums::GetTopics($_REQUEST['subcategory']);
-                        if(String::Match($Topics['topics'][0]['id'], ''))
+                        if(Text::Match($Topics['topics'][0]['id'], ''))
                             $Topics['topics'] = array();
                         $Smarty->assign('Forum', $Topics);
                         $Smarty->assign('Page', Page::Info('forum', array('bodycss' => 'forums view-forum', 'pagetitle' => $Topics['forum_name'].' - ')));
                         $Smarty->display('pages/forums_list_topics');
                     }
                     else
-                        if(String::IsNull($_REQUEST['datatype']))
+                        if(Text::IsNull($_REQUEST['datatype']))
                         {
-                            if(String::Match($_REQUEST['lastcategory'], 'topic'))
+                            if(Text::Match($_REQUEST['lastcategory'], 'topic'))
                             {
                                 $Topics = Forums::GetTopics($_REQUEST['subcategory']);
-                                if(String::Match($Topics['topics'][0]['id'], ''))
+                                if(Text::Match($Topics['topics'][0]['id'], ''))
                                     $Topics['topics'] = array();
                                 $Smarty->assign('CSRFToken', Session::GenerateCSRFToken());
                                 $Smarty->assign('Forum', $Topics);
@@ -1854,7 +1854,7 @@ switch($_REQUEST['category'])
                         }
                         else
                         {
-                            if(String::Match($_REQUEST['datatype'], 'post'))
+                            if(Text::Match($_REQUEST['datatype'], 'post'))
                             {
                                 if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
                                 {
@@ -1872,9 +1872,9 @@ switch($_REQUEST['category'])
                     Page::GenerateErrorPage($Smarty, 404);
             }
             else
-                if(String::Match($_REQUEST['subcategory'], 'topic'))
+                if(Text::Match($_REQUEST['subcategory'], 'topic'))
                 {
-                    if(String::IsNull($_REQUEST['datatype']))
+                    if(Text::IsNull($_REQUEST['datatype']))
                     {
                         $TopicData = Forums::GetTopicData($_REQUEST['lastcategory']);
                         Forums::UpdateTopicViews($TopicData['category']['id'], $TopicData['topic']['id']);
@@ -1890,21 +1890,21 @@ switch($_REQUEST['category'])
                             case 'post':
                                 if(Session::ValidateCSRFToken($_REQUEST['csrftoken']))
                                 {
-                                    String::Request();
+                                    Text::Request();
                                 }
                                 break;
 
                             case 'up':
-                                    String::Request();
+                                    Text::Request();
                                 break;
 
                             case 'report':
-                                    String::Request();
+                                    Text::Request();
                                 break;
                         }
                     }
                 }
-                elseif(String::Match($_REQUEST['subcategory'], 'quote'))
+                elseif(Text::Match($_REQUEST['subcategory'], 'quote'))
                     echo Forums::QuotePost($_REQUEST['forumID'], $_REQUEST['topicID'], $_REQUEST['postID']);
                 else
                     Page::GenerateErrorPage($Smarty, 404);

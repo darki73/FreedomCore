@@ -37,7 +37,7 @@ Class News
         $Statement->bindParam(':articleid', $ArticleID);
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
-        if(String::IsNull($Result['id']))
+        if(Text::IsNull($Result['id']))
             return null;
         else
             return $Result;

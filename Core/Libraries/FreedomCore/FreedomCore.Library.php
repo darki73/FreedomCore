@@ -99,7 +99,7 @@ Class FreedomCore
         Manager::LoadSystemExtension("Database");
         Manager::LoadSystemExtension("Utilities");
         Manager::LoadSystemExtension("Page");
-        Manager::LoadSystemExtension("String");
+        Manager::LoadSystemExtension("Text");
         Manager::LoadSystemExtension("File");
     }
 

@@ -4,10 +4,10 @@ global $FreedomCore, $Directory, $FCCore, $Smarty;
 $Directory = str_replace("\\", "/", getcwd());
 Class Smarty_FreedomCore extends Smarty
 {
-	function Smarty_FreedomCore()
+	function __construct($Template)
 	{
-		global $FreedomCore, $Directory, $FCCore, $Functions;
-		$this->__construct();
+		global $FreedomCore, $Directory, $FCCore;
+		parent::__construct();
 		$this->template_dir = $Directory.'/Templates/'.$FCCore['Template'].'/';
 		$this->compile_dir = $Directory.'/Cache/Compile/Templates/'.$FCCore['Template'].'/';
 		$this->config_dir = $FreedomCore->getLanguageDir();

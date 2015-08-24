@@ -1,5 +1,7 @@
-function PerformJsonRequest(form)
+function PerformJsonRequest(form, account)
 {
+    if (typeof account === 'undefined')
+        account = null;
     var Form = '#'+$(form).attr('id');
     var ResponseBox = $(Form).find('.request_result');
     ResponseBox.empty();
@@ -42,11 +44,20 @@ function PerformJsonRequest(form)
 
     // Add response box to form and show it
     ResponseBox.appendTo(Form).slideDown();
-    var IDData = $(Form).find('#id').val();
+    if(account == null)
+        var IDData = $(Form).find('#id').val();
+    else
+    {
+        var Username = $(Form).find('#username').val();
+        var Password = $(Form).find('#password').val();
+    }
     var LocaleData = $(Form).find('#locale').val();
     var JSONPData = $(Form).find('#jsonp').val();
     var MethodURI  = $(Form).find('#methodUri').val();
-    var APIUri = MethodURI.replace(':id', IDData)+'?locale='+LocaleData+'&jsonp='+JSONPData+'&key='+$('#apikey').val();
+    if(account == null)
+        var APIUri = MethodURI.replace(':id', IDData)+'?locale='+LocaleData+'&jsonp='+JSONPData+'&key='+$('#apikey').val();
+    else
+        var APIUri = MethodURI+'?username='+Username+'&password='+Password+'&locale='+LocaleData+'&jsonp='+JSONPData+'&key='+$('#apikey').val();
     var DataType = '';
     if(JSONPData == '')
         DataType = 'json';
