@@ -11,3 +11,6 @@ Developer_Form_TryIt = Try It!
 Developer_Form_Reset = Clear Data
 Developer_Data_JSONP = Request data to be returned as a JsonP callback
 Developer_Data_Locale = Request Language
+Developer_Description_Username = Username
+Developer_Description_Password = Password
+Developer_Description_AndroidAPI = With this API Request you will be able to get auto-generated FreedomCore Armory settings for Android App

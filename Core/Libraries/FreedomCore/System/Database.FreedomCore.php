@@ -31,6 +31,14 @@ Class Database
                 die();
             }
 	}
+
+    public static function IsEmpty($Statement)
+    {
+        if($Statement->rowCount() > 0)
+            return false;
+        else
+            return true;
+    }
 }
 
 global $FCCore, $Database, $InstallationIsInProgress;

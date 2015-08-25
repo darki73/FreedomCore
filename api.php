@@ -63,11 +63,15 @@ switch($_SERVER['REQUEST_METHOD'])
                 switch($_REQUEST['method'])
                 {
                     case 'authorize':
-                        AccountAPI::Authorize($_REQUEST['username'], $_REQUEST['password']);
+                        AccountAPI::Authorize($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['jsonp']);
+                    break;
+
+                    case 'android':
+                        AccountAPI::Android($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['jsonp']);
                     break;
 
                     case 'deauthorize':
-                        AccountAPI::Deauthorize($_REQUEST['username'], $_REQUEST['password']);
+                        AccountAPI::Deauthorize($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['jsonp']);
                     break;
                 }
             break;

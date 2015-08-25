@@ -1,16 +1,17 @@
-<div id="accountauthorize_accordion" class="endpoint_accordion">
+<div id="accountandroid_accordion" class="endpoint_accordion">
     <h3>
         <span class="method_type">GET</span>
         <span class="endpoint_name">ACCOUNT</span>
-        <span class="method_uri">/API/ACCOUNT/AUTHORIZE/</span>
+        <span class="method_uri">/API/ACCOUNT/ANDROID/</span>
     </h3>
     <ul>
         <li class="method get">
-            <form id="accountauthorize_submission_form" class="method_form" style="overflow: hidden; display: block;">
-                <input name="dataName" id="dataName" type="hidden" value="accountauthorize">
+            <p style="margin: 10px;text-align: center;">{#Developer_Description_AndroidAPI#}</p>
+            <form id="accountandroid_submission_form" class="method_form" style="overflow: hidden; display: block;">
+                <input name="dataName" id="dataName" type="hidden" value="accountandroid">
                 <input name="methodName" id="methodName" type="hidden" value="account">
                 <input name="httpMethod" id="httpMethod" type="hidden" value="GET">
-                <input name="methodUri" id="methodUri" type="hidden" value="/api/account/authorize/">
+                <input name="methodUri" id="methodUri" type="hidden" value="/api/account/android/">
                 <table class="method_table_parameters" style="margin: 10px;">
                     <thead style="text-align: left;">
                     <tr>
@@ -82,7 +83,7 @@
                 <button class="get-results" style="margin: 10px;" type="submit" onclick="return PerformJsonRequest($(this).parent('form'), true);">{#Developer_Form_TryIt#}</button>
                 <button class="clear-results" style="margin: 10px; display: none;" type="submit">{#Developer_Form_Reset#}</button>
 
-                <div class="request_result" id="accountauthorize_response">
+                <div class="request_result" id="accountandroid_response">
 
                 </div>
             </form>

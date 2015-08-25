@@ -587,6 +587,47 @@ switch($_REQUEST['category'])
                     echo Menu::GenerateMenu();
                 break;
 
+                case 'armory':
+                    switch($_REQUEST['lastcategory'])
+                    {
+                        case 'android':
+                            if(isset($_REQUEST['username']) && isset($_REQUEST['password']) && isset($_REQUEST['downloadkey']))
+                            {
+                                if(Account::VerifyAndroidArmoryKey($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['downloadkey']))
+                                {
+                                    $ArmoryContent = [
+                                        'armory_server' => 'http://'.$_SERVER['HTTP_HOST'],
+                                        'armory_user' => [
+                                            'username' => $_REQUEST['username'],
+                                            'password' => $_REQUEST['password']
+                                        ]
+                                    ];
+                                    $ArmoryContent = json_encode($ArmoryContent, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+                                    $Length = strlen($ArmoryContent);
+                                    header("Cache-Control: public");
+                                    header("Content-Description: File Transfer");
+                                    header("Content-Length: ".$Length.";");
+                                    header("Content-Disposition: attachment; filename=armory-settings.json");
+                                    header("Content-Type: application/json;");
+                                    echo $ArmoryContent;
+                                }
+                                else
+                                    echo 0;
+                            }
+                            else
+                                echo -1;
+                        break;
+
+                        case 'ios':
+
+                        break;
+
+                        default:
+                            Page::GenerateErrorPage($Smarty, 404);
+                        break;
+                    }
+                break;
+
                 case 'refresh-balance':
                     echo Account::GetBalance($User['username'], true);
                 break;

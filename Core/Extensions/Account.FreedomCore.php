@@ -928,7 +928,7 @@ Class Account
      *
      * @return string
      */
-    private static function HashPassword($Algorithm, $String)
+    public static function HashPassword($Algorithm, $String)
     {
         return hash($Algorithm, $String);
     }
@@ -948,6 +948,29 @@ Class Account
             else
                 $LoadedModules[] = ['module' => $Module, 'status' => false];
         return $LoadedModules;
+    }
+
+    /**
+     * This method checks for existing Armory Key for specified user
+     *
+     * @param $Username - Users Username
+     * @param $Password - Users Password
+     * @param $ArmoryKey - Personal Armory Key
+     * @return bool
+     */
+    public static function VerifyAndroidArmoryKey($Username, $Password, $ArmoryKey)
+    {
+        $StringToHash = $Username.':'.$Password;
+        $HashedPassword = Account::HashPassword('sha1', $StringToHash);
+        $Statement = Account::$DBConnection->prepare('SELECT armory_key FROM api_android_armory WHERE username = :username AND password = :password AND armory_key = :akey');
+        $Statement->bindParam(':username', $Username);
+        $Statement->bindParam(':password', $HashedPassword);
+        $Statement->bindParam(':akey', $ArmoryKey);
+        $Statement->execute();
+        if(Database::IsEmpty($Statement))
+            return false;
+        else
+            return true;
     }
 }
 
