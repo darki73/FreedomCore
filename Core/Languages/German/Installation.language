@@ -1,35 +1,36 @@
-Installation_Main = 
-Installation_SysReq = 
-Installation_SysReq_Desc = 
-Installation_SoftInstalled = 
-Installation_Allowed = 
-Installation_Allowed_Desc = 
-Installation_Installation = 
-Installation_Check_Failed = 
-Installation_Check_Failed_Desc = 
+Installation_Main = Startseite
+Installation_SysReq = Anforderungen
+Installation_SysReq_Desc = F?r den stabilen Betrieb empfehlen wir die folgenden Software-Versionen
+Installation_SoftInstalled = Installiert
+Installation_Allowed = Alle Komponenten wurden getestet, k?nnen Sie mit der Installation fortfahren!
+Installation_Allowed_Desc = Um die Installation abzuschlie?en, f?llen Sie folgende Felder
+Installation_Installation = Installierte Version
+Installation_Check_Failed = Eine Komponente ist fehlgeschlagen Scheck
+Installation_Check_Failed_Desc = Um fortzufahren, m?ssen Sie die Komponente auf die gew?nschte Version zu aktualisieren
 
-Installation_MySQL_Settings = 
-Installation_MySQL_Host = 
-Installation_MySQL_DB = 
-Installation_MySQL_User = 
-Installation_MySQL_Password = 
-Installation_MySQL_Encoding = 
+Installation_MySQL_Settings = MySQL-Optionen
+Installation_MySQL_Host = Host
+Installation_MySQL_DB = Datenbankname
+Installation_MySQL_User = Benutzer
+Installation_MySQL_Password = Passwort
+Installation_MySQL_Encoding = Encoding
 
-Installation_Perform_Not_Checking = 
-Installation_Perform_Installation = 
+Installation_Perform_Not_Checking = Wir werden nicht f?r die Richtigkeit der eingegebenen Daten zu ?berpr?fen, ?berpr?fen Sie sie heraus wieder!
+Installation_Perform_Installation = Installieren!
 
-Installation_Manager = 
-Installation_WorksOnAllDevices = 
-Installation_WorksOnAllDevices_Description = 
-Installation_Optimization_Header = 
-Installation_Optimization_Description = 
-Installation_OS_Header = 
-Installation_OS_Description =
+Installation_Manager = Installation Manager
+Installation_WorksOnAllDevices = Funktioniert auf allen Ger?ten
+Installation_WorksOnAllDevices_Description = unser CMS funktioniert auf allen Ger?ten! <br /> Ob es ein iPhone, iPad, Android, PC oder Mac, werden Ihre Benutzer in der Lage sein, ihren Aufenthalt auf Ihrer Seite zu nutzen
+Installation_Optimization_Header = High Level-Optimierung
+Installation_Optimization_Description = Unabh?ngig von dem Internet, werden die Benutzer in der Lage, eine umfassende Beurteilung der Systemleistung
+Installation_OS_Header = Unwichtig, Linux / Windows oder Mac
+Installation_OS_Description = unser CMS kann auf allen Arten von OS zu arbeiten! <br /> Es spielt keine Rolle, wenn der Web-Server auf Linux / Windows oder Mac installiert
 
-Installation_FilesToImport_Header =
-Installation_FileToImport_Desc =
-Installation_Attention =
-Installation_Manual_Import =
 
-Installation_HowToImport =
-Installation_Finish = <a href="/install?category=finish" style="color: #0088cc"></a>
+Installation_FilesToImport_Header = Diese Dateien zur Datenbank importiert werden m?ssen
+Installation_FileToImport_Desc = Um Seiten Datenbank vorzubereiten, wir brauchen, um diese Dateien zu importieren
+Installation_Attention = Achtung!
+Installation_Manual_Import = Aufgrund der gro?en Gr??e der zus?tzlichen Datenbank, die Sie haben, um es manuell zu importieren. <br /> Um dies zu, ?ber Kopf zu <strong> SQL / Basis tun </ strong> Ordner und Importgehalt der freedomcore.7z Datei in Webseiten-Datenbank
+
+Installation_HowToImport = Um Dateien auf DB zu importieren, klicken Sie einfach auf sie. Fortschritt wird angezeigt
+Installation_Finish = Nachdem Sie alle Dateien importiert haben, k?nnen Sie <a href="/install?category=finish" style="color: #0088cc"> Fertig Installations </a>
