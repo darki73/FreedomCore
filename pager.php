@@ -618,6 +618,10 @@ switch($_REQUEST['category'])
                                 echo -1;
                         break;
 
+                        case 'verify':
+                            echo "OK";
+                        break;
+
                         case 'ios':
 
                         break;
