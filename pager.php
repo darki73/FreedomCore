@@ -597,9 +597,11 @@ switch($_REQUEST['category'])
                                 {
                                     $ArmoryContent = [
                                         'armory_server' => 'http://'.$_SERVER['HTTP_HOST'],
+                                        'armory_key' => $_REQUEST['downloadkey'],
                                         'armory_user' => [
                                             'username' => $_REQUEST['username'],
-                                            'password' => $_REQUEST['password']
+                                            'password' => $_REQUEST['password'],
+                                            'api_key' => Account::GetUserAPIKey($_REQUEST['username'])
                                         ]
                                     ];
                                     $ArmoryContent = json_encode($ArmoryContent, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

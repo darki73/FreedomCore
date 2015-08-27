@@ -972,6 +972,15 @@ Class Account
         else
             return true;
     }
+
+    public static function GetUserAPIKey($Username)
+    {
+        $Statement = Account::$DBConnection->prepare('SELECT api_key FROM api_keys WHERE username = :username');
+        $Statement->bindParam(':username', $Username);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        return $Result['api_key'];
+    }
 }
 
 Class CurrencyConverter
