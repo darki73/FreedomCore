@@ -596,6 +596,7 @@ switch($_REQUEST['category'])
                                 if(Account::VerifyAndroidArmoryKey($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['downloadkey']))
                                 {
                                     $ArmoryContent = [
+                                        'file_version' => '1.1',
                                         'armory_server' => 'http://'.$_SERVER['HTTP_HOST'],
                                         'armory_key' => $_REQUEST['downloadkey'],
                                         'armory_user' => [
