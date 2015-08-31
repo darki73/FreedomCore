@@ -2,6 +2,7 @@
 
 Class API
 {
+    public static $AConnection;
     public static $DBConnection;
     public static $CharConnection;
     public static $WConnection;
@@ -9,6 +10,7 @@ Class API
 
     public function __construct($VariablesArray)
     {
+        API::$AConnection = $VariablesArray[0]::$AConnection;
         API::$DBConnection = $VariablesArray[0]::$Connection;
         API::$CharConnection = $VariablesArray[0]::$CConnection;
         API::$WConnection = $VariablesArray[0]::$WConnection;

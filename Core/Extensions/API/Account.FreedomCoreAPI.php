@@ -76,9 +76,55 @@ Class AccountAPI extends API
             return $Result['armory_key'];
     }
 
+    private static function GetUserBasicData($Username, $Password)
+    {
+        $AuthorizationStatus = AccountAPI::Authorize($Username, $Password, null, true);
+        if($AuthorizationStatus)
+        {
+            $UUP = strtoupper($Username);
+            $Statement = parent::$AConnection->prepare('SELECT id, username FROM account WHERE username = :usernamelower OR username = :usernameupper');
+            $Statement->bindParam(':usernamelower', $Username);
+            $Statement->bindParam(':usernameupper', $UUP);
+            $Statement->execute();
+            return $Statement->fetch(PDO::FETCH_ASSOC);
+        }
+        else
+        {
+            $Result = ['code' => 403, 'response' => 'Incorrect Login Details'];
+            return $Result;
+        }
+    }
+
     public static function Deauthorize($Username, $Password)
     {
 
+    }
+
+    public static function GetCharacters($Username, $Password, $JSONP)
+    {
+        $GameData = AccountAPI::GetUserBasicData($Username, $Password);
+        if(isset($GameData['code']))
+        {
+            return parent::Encode($GameData, $JSONP);
+        }
+        else
+        {
+            $Statement = parent::$CharConnection->prepare('SELECT name, race, class, gender, level, money FROM characters WHERE account = :accountid');
+            $Statement->bindParam(":accountid", $GameData['id']);
+            $Statement->execute();
+            $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+            $ArrayIndex = 0;
+            foreach($Result as $Character)
+            {
+                $Result[$ArrayIndex]['race'] = Characters::GetRaceByID($Character['race']);
+                $Result[$ArrayIndex]['class'] = Characters::GetClassByID($Character['class']);
+                $Result[$ArrayIndex]['class'] = Characters::GetClassByID($Character['class']);
+                $Result[$ArrayIndex]['money'] = Text::MoneyToCoins($Character['money']);
+                $ArrayIndex++;
+            }
+
+            return parent::Encode($Result, $JSONP);
+        }
     }
 }
 

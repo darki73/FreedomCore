@@ -73,6 +73,10 @@ switch($_SERVER['REQUEST_METHOD'])
                     case 'deauthorize':
                         AccountAPI::Deauthorize($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['jsonp']);
                     break;
+
+                    case 'characters':
+                        AccountAPI::GetCharacters($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['jsonp']);
+                    break;
                 }
             break;
 

@@ -7,4 +7,6 @@
     {include file='developer/api_account_deauthorize.tpl'}
     <br />
     {include file='developer/api_account_android.tpl'}
+    <br />
+    {include file='developer/api_account_characters.tpl'}
 </li>
