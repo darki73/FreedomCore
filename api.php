@@ -4,6 +4,9 @@ require_once('Core/Core.php');
 $ClassConstructor = array($Database, $Smarty);
 Manager::LoadExtension('API', $ClassConstructor);
 
+if(!isset($_REQUEST['jsonp']))
+    $_REQUEST['jsonp'] = "";
+
 if(!Text::IsNull($_REQUEST['endpoint']))
 {
     API::VerifyRequestEligibility(5); // Allow 1 request every 5 seconds
@@ -86,6 +89,15 @@ switch($_SERVER['REQUEST_METHOD'])
                 {
                     case 'simple':
                         AchievementAPI::GetSimpleAchievement($_REQUEST['datatype'], $_REQUEST['jsonp']);
+                    break;
+                }
+            break;
+
+            case 'armory':
+                API::EnableAPIExtension('Armory');
+                switch($_REQUEST['method']){
+                    case 'wsrt':
+                        ArmoryAPI::GetResetStatus($_REQUEST['jsonp']);
                     break;
                 }
             break;

@@ -79,7 +79,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <button class="get-results" style="margin: 10px;" type="submit" onclick="return PerformJsonRequest($(this).parent('form'), true);">{#Developer_Form_TryIt#}</button>
+                <button class="get-results" style="margin: 10px;" type="submit" onclick="return PerformJsonRequest($(this).parent('form'), 'account');">{#Developer_Form_TryIt#}</button>
                 <button class="clear-results" style="margin: 10px; display: none;" type="submit">{#Developer_Form_Reset#}</button>
 
                 <div class="request_result" id="accountdeauthorize_response">

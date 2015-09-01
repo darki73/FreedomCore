@@ -1,7 +1,7 @@
-function PerformJsonRequest(form, account)
+function PerformJsonRequest(form, endpoint)
 {
-    if (typeof account === 'undefined')
-        account = null;
+    if (typeof endpoint === 'undefined')
+        endpoint = null;
     var Form = '#'+$(form).attr('id');
     var ResponseBox = $(Form).find('.request_result');
     ResponseBox.empty();
@@ -44,9 +44,9 @@ function PerformJsonRequest(form, account)
 
     // Add response box to form and show it
     ResponseBox.appendTo(Form).slideDown();
-    if(account == null)
+    if(endpoint == null)
         var IDData = $(Form).find('#id').val();
-    else
+    else if(endpoint == 'account')
     {
         var Username = $(Form).find('#username').val();
         var Password = $(Form).find('#password').val();
@@ -54,9 +54,11 @@ function PerformJsonRequest(form, account)
     var LocaleData = $(Form).find('#locale').val();
     var JSONPData = $(Form).find('#jsonp').val();
     var MethodURI  = $(Form).find('#methodUri').val();
-    if(account == null)
+    if(endpoint == null)
         var APIUri = MethodURI.replace(':id', IDData)+'?locale='+LocaleData+'&jsonp='+JSONPData+'&key='+$('#apikey').val();
-    else
+    else if(endpoint == 'armory')
+        var APIUri = MethodURI+'?locale='+LocaleData+'&jsonp='+JSONPData+'&key='+$('#apikey').val();
+    else if(endpoint == 'account')
         var APIUri = MethodURI+'?username='+Username+'&password='+Password+'&locale='+LocaleData+'&jsonp='+JSONPData+'&key='+$('#apikey').val();
     var DataType = '';
     if(JSONPData == '')
@@ -79,9 +81,9 @@ function PerformJsonRequest(form, account)
 
             ResponseBox.find('pre.responseStatus').text(request.status + ' ' + statusText).toggleClass('error', statusText !== 'success');
             ResponseBox.find('.responseStatus').toggle((request.status > 0 || statusText) ? true : false);
-            ResponseBox.find('pre.headers').text(Headers).toggleClass('error', data.statusText !== 'success');
+            ResponseBox.find('pre.headers').text(Headers).toggleClass('error', statusText !== 'success');
             var formattedText = JSON.stringify(data, null, 2);
-            ResponseBox.find('pre.response').text(formattedText).toggleClass('error', data.statusText !== 'success');
+            ResponseBox.find('pre.response').text(formattedText).toggleClass('error', statusText !== 'success');
         },
         error: function(request, statusText, errorThrown){
             var Headers = request.getAllResponseHeaders();

@@ -123,7 +123,7 @@ Class AccountAPI extends API
                 $ArrayIndex++;
             }
 
-            return parent::Encode($Result, $JSONP);
+            return parent::Encode($Result, $JSONP, "characters");
         }
     }
 }

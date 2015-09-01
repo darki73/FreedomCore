@@ -1,17 +1,16 @@
-<div id="accountandroid_accordion" class="endpoint_accordion">
+<div id="armoryresponse_accordion" class="endpoint_accordion">
     <h3>
         <span class="method_type">GET</span>
-        <span class="endpoint_name">ACCOUNT</span>
-        <span class="method_uri">/API/ACCOUNT/ANDROID/</span>
+        <span class="endpoint_name">ARMORY</span>
+        <span class="method_uri">/API/ARMORY/WSRT/</span>
     </h3>
     <ul>
         <li class="method get">
-            <p style="margin: 10px;text-align: center;">{#Developer_Description_AndroidAPI#}</p>
-            <form id="accountandroid_submission_form" class="method_form" style="overflow: hidden; display: block;">
-                <input name="dataName" id="dataName" type="hidden" value="accountandroid">
-                <input name="methodName" id="methodName" type="hidden" value="account">
+            <form id="armoryreset_submission_form" class="method_form" style="overflow: hidden; display: block;">
+                <input name="dataName" id="dataName" type="hidden" value="armory">
+                <input name="methodName" id="methodName" type="hidden" value="reset">
                 <input name="httpMethod" id="httpMethod" type="hidden" value="GET">
-                <input name="methodUri" id="methodUri" type="hidden" value="/api/account/android/">
+                <input name="methodUri" id="methodUri" type="hidden" value="/api/armory/wsrt/">
                 <table class="method_table_parameters" style="margin: 10px;">
                     <thead style="text-align: left;">
                     <tr>
@@ -21,28 +20,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="type-pathReplace required ">
-                        <td class="name">
-                            :username
-                        </td>
-                        <td class="parameter">
-                            <input type="text" name="params[:username]" id="username" class="input" placeholder="required" required>
-                        </td>
-                        <td class="description">
-                            <p>{#Developer_Description_Username#}</p>
-                        </td>
-                    </tr>
-                    <tr class="type-pathReplace required ">
-                        <td class="name">
-                            :password
-                        </td>
-                        <td class="parameter">
-                            <input type="password" name="params[:password]" id="password" value="" class="input" placeholder="required" required>
-                        </td>
-                        <td class="description">
-                            <p>{#Developer_Description_Password#}</p>
-                        </td>
-                    </tr>
                     <tr class="type-query  ">
                         <td class="name">
                             locale
@@ -80,10 +57,10 @@
                     </tr>
                     </tbody>
                 </table>
-                <button class="get-results" style="margin: 10px;" type="submit" onclick="return PerformJsonRequest($(this).parent('form'), 'account');">{#Developer_Form_TryIt#}</button>
+                <button class="get-results" style="margin: 10px;" type="submit" onclick="return PerformJsonRequest($(this).parent('form'), 'armory');">{#Developer_Form_TryIt#}</button>
                 <button class="clear-results" style="margin: 10px; display: none;" type="submit">{#Developer_Form_Reset#}</button>
 
-                <div class="request_result" id="accountandroid_response">
+                <div class="request_result" id="armoryresponse_response">
 
                 </div>
             </form>
