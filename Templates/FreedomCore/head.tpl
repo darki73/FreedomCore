@@ -119,6 +119,11 @@
 	
 	<script type="text/javascript" src="/Templates/{$Template}/js/third-party.js"></script>
 	<script type="text/javascript" src="/Templates/{$Template}/js/common-game-site.js"></script>
+    {if $https}
+        {$Proto = "https"}
+    {else}
+        {$Proto = "http"}
+    {/if}
 	<meta name="description" content="{$AppDescription}" />
 	<script type="text/javascript">
 	//<![CDATA[
@@ -126,7 +131,7 @@
 		Login = Login || {};
 		Core.staticUrl = '/Templates/{$Template}';
 		Core.sharedStaticUrl = '/Templates/{$Template}';
-		Core.baseUrl = 'http://{$smarty.server.HTTP_HOST}';
+		Core.baseUrl = '{$Proto}://{$smarty.server.HTTP_HOST}';
 		Core.projectUrl = '/';
 		Core.cdnUrl = '/';
 		Core.supportUrl = '';

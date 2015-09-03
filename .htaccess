@@ -2,6 +2,10 @@ Options -Indexes
 Options +FollowSymLinks
 ServerSignature Off
 RewriteEngine On
+<IfModule mod_ssl.c>
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</IfModule>
 AddDefaultCharset utf-8
 
 

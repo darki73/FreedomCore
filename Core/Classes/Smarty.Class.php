@@ -15,6 +15,7 @@ Class Smarty_FreedomCore extends Smarty
 		$this->configLoad($FreedomCore->loadLanguage());
 		// Debug Mode
 		$this->debugging = $FCCore['SmartyDebug'];
+		$this->assign('https', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 
 		// Template Vars
 		$this->left_delimiter = '{';

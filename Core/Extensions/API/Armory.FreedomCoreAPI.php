@@ -10,7 +10,9 @@ Class ArmoryAPI extends API
         $Statement->execute();
         $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
         if(Database::IsEmpty($Statement)){
-
+            foreach($WorldStates as $ID){
+                $Response[] = [ArmoryAPI::GetWorldstateByID($ID) => '0'];
+            }
         }
         else{
             foreach($Result as $WS){
