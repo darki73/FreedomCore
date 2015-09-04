@@ -1,0 +1,61 @@
+parsererror { position:absolute; }
+html { min-width: 1006px; }
+
+
+body {
+	background:#000 50% 45px no-repeat;
+	-webkit-background-size: auto; color: #efc9a0; font: normal 12px/1.5 Arial, Verdana, sans-serif;
+	z-index: 0;
+}
+.video_header video {
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	/* The following will size the video to fit the full container. Not necessary, just nice.*/
+	min-width: 100%;
+	min-height: 100%;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	z-index: -100;
+}
+
+.video_footer{
+	background: rgba(3,3,3,0);
+-moz-linear-gradient(top, rgba(3,3,3,0) 0%, rgba(15,15,15,1) 100%);
+-webkit-gradient(left top, left bottom, color-stop(0%, rgba(3,3,3,0)), color-stop(100%, rgba(15,15,15,1)));
+-webkit-linear-gradient(top, rgba(3,3,3,0) 0%, rgba(15,15,15,1) 100%);
+-o-linear-gradient(top, rgba(3,3,3,0) 0%, rgba(15,15,15,1) 100%);
+-ms-linear-gradient(top, rgba(3,3,3,0) 0%, rgba(15,15,15,1) 100%);
+	background: linear-gradient(to bottom, rgba(3,3,3,0) 0%, rgb(0, 0, 0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#030303', endColorstr='#0f0f0f', GradientType=0 );
+	height: 1000px;
+	left: 50%;
+	margin-left: -1280px;
+	position: absolute;
+	width: 2560px;
+	z-index: 2;
+}
+
+#menu {
+	width: 651px!important;
+	height: 87px!important;
+	margin-left: -13px;
+	margin-top: -10px;
+	position: absolute;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	background-image: url(/Templates/FreedomCore/images/layout/bg/TBC/menu-tab-baked.jpg)!important;
+	background-position: left;
+}
+
+#menu .menu-home{
+	margin-left: 13px;
+}
+
+#menu li a span {
+	margin-left: 13px;
+	margin-top: 10px;
+}}

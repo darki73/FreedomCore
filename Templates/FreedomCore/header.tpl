@@ -1,5 +1,14 @@
 {include file="head.tpl"}
 <body class="{$Language} {$Page.bodycss}">
+    {if $ExpansionTemplate == "TBC"}
+        <div class="tbc_video_background">
+            <div class="body_bg"></div>
+            <div class="video_header">
+                <video loop="loop" src="/Templates/{$Template}/images/backgrounds/header-illidan.webm" autoplay></video>
+            </div>
+            <div class="video_footer"></div>
+        </div>
+    {/if}
     <div id="nav-client-header" class="nav-client compact">
         <div id="nav-client-bar">
             <div class="grid-container nav-header-content">
