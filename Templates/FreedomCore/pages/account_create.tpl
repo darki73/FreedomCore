@@ -3,13 +3,13 @@
 		<meta http-equiv="imagetoolbar" content="false" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<title>{$Page.pagetitle} {$AppName}</title>
-		<link rel="shortcut icon" href="/Templates/{$Template}/images/meta/favicon.ico" />
-		<link rel="search" type="application/opensearchdescription+xml" href="http://{$smarty.server.HTTP_HOST}/data/opensearch" title="{#Head_Opensearch_Meta#} {$AppName}" />
-        <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/toolkit/freedomnet-web.min.css" />
+		<link rel="shortcut icon" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/images/meta/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="//{$smarty.server.HTTP_HOST}/data/opensearch" title="{#Head_Opensearch_Meta#} {$AppName}" />
+        <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/toolkit/freedomnet-web.min.css" />
 
-		<link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/login/global.min.css" />
-		<script type="text/javascript" src="/Templates/{$Template}/js/third-party/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" src="/Templates/{$Template}/js/core.min.js"></script>
+		<link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/login/global.min.css" />
+		<script type="text/javascript" src="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/js/third-party/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/js/core.min.js"></script>
 		<meta name="viewport" content="width=device-width" />
 
 	</head>
@@ -138,10 +138,10 @@
 				</div>
 			</footer>
 		</div>
-	<script type="text/javascript" src="/Templates/{$Template}/js/embed-0.1.5.min.js"></script>
-	<script type="text/javascript" src="/Templates/{$Template}/js/login/toolkit.min.js"></script>
-	<script type="text/javascript" src="/Templates/{$Template}/js/login/global.min.js"></script>
-	<script type="text/javascript" src="/Templates/{$Template}/js/login/login.min.js"></script>
-    <script type="text/javascript" src="/Templates/{$Template}/js/freedomcore.js"></script>
+	<script type="text/javascript" src="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/js/embed-0.1.5.min.js"></script>
+	<script type="text/javascript" src="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/js/login/toolkit.min.js"></script>
+	<script type="text/javascript" src="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/js/login/global.min.js"></script>
+	<script type="text/javascript" src="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/js/login/login.min.js"></script>
+    <script type="text/javascript" src="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/js/freedomcore.js"></script>
 	</body>
 </html>
