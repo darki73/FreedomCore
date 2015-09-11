@@ -902,7 +902,7 @@ switch($_REQUEST['category'])
                             $StorageDir = str_replace('/', DS, getcwd()).DS.'Uploads'.DS.'Core'.DS.'Items'.DS.'Cache'.DS.'ModelViewer'.DS;
                             $ItemName = 'item'.$Item['entry'].'.jpg';
                             if(!File::Exists($StorageDir.$ItemName))
-                                File::Download('http://media.blizzard.com/wow/renders/items/item'.$Item['entry'].'.jpg', $StorageDir.$ItemName);
+                                File::Download('//media.blizzard.com/wow/renders/items/item'.$Item['entry'].'.jpg', $StorageDir.$ItemName);
                         }
                         elseif($Item['class']['class'] == 15 && $Item['subclass']['subclass'] == 5)
                         {
@@ -913,7 +913,7 @@ switch($_REQUEST['category'])
                                 {
                                     $ItemName = 'creature'.$Item['spell_data'.$i]['SearchForCreature'].'.jpg';
                                     if(!File::Exists($StorageDir.$ItemName))
-                                        File::Download('http://media.blizzard.com/wow/renders/npcs/rotate/creature'.$Item['spell_data'.$i]['SearchForCreature'].'.jpg', $StorageDir.$ItemName);
+                                        File::Download('//media.blizzard.com/wow/renders/npcs/rotate/creature'.$Item['spell_data'.$i]['SearchForCreature'].'.jpg', $StorageDir.$ItemName);
                                 }
                             }
                         }
@@ -1038,7 +1038,7 @@ switch($_REQUEST['category'])
                                             $Smarty->display('pages/character_no_professions');
                                         }
                                     }
-                                    header('Location: http://'.$_SERVER[HTTP_HOST].str_replace('//', '/',$_SERVER['REQUEST_URI'].$RedirectTo));
+                                    header('Location: //'.$_SERVER[HTTP_HOST].str_replace('//', '/',$_SERVER['REQUEST_URI'].$RedirectTo));
                                 }
                             }
                             else
@@ -1070,7 +1070,7 @@ switch($_REQUEST['category'])
                                     $Smarty->display('pages/character_professions');
                                 }
                                 else
-                                    header('Location: http://'.$_SERVER[HTTP_HOST].str_replace($_REQUEST['datatype'], '', $_SERVER['REQUEST_URI']));
+                                    header('Location: //'.$_SERVER[HTTP_HOST].str_replace($_REQUEST['datatype'], '', $_SERVER['REQUEST_URI']));
                             }
                         break;
 
@@ -1785,7 +1785,7 @@ switch($_REQUEST['category'])
                             $StorageDir = str_replace('/', DS, getcwd()).DS.'Uploads'.DS.'Core'.DS.'NPC'.DS.'ModelViewer'.DS;
                             $ItemName = 'creature'.$BossInfo['entry'].'.jpg';
                             if(!File::Exists($StorageDir.$ItemName))
-                                File::Download('http://media.blizzard.com/wow/renders/npcs/rotate/creature'.$BossInfo['entry'].'.jpg', $StorageDir.$ItemName);
+                                File::Download('//media.blizzard.com/wow/renders/npcs/rotate/creature'.$BossInfo['entry'].'.jpg', $StorageDir.$ItemName);
                             $NPCInfo = Zones::GetNPCInfo($BossInfo['entry']);
                             $Smarty->assign('NPC', $NPCInfo);
                             $Smarty->assign('ZoneInfo', $ZoneInfo);
