@@ -85,7 +85,7 @@
 						<a onclick="return Core.open(this);" href="/about/infringementnotice" tabindex="100" data-action="Footer - Copyright Infringement">{#Footer_Copyright#}</a>
 						<a target="_blank" href="/about/contact" tabindex="100">{#Footer_Contacts#}</a>
 					</span>
-					© {$AppName}, 2015 г. {#Footer_Rights#}
+					© {$AppName}, 2015 г.
 				</div>
 				<div id="international"></div>
 				<div id="legal">

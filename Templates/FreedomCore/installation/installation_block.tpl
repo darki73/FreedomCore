@@ -14,7 +14,7 @@
                         <input class="span12" type="text" id="auth_host" name="auth_host" placeholder="{#Installation_MySQL_Host#}">
                         <input class="span12" type="text" id="auth_db" name="auth_db" placeholder="{#Installation_MySQL_DB#}">
                         <input class="span12" type="text" id="auth_user" name="auth_user" placeholder="{#Installation_MySQL_User#}">
-                        <input class="span12" type="text" id="auth_password" name="auth_password" placeholder="{#Installation_MySQL_Password#}">
+                        <input class="span12" type="password" id="auth_password" name="auth_password" placeholder="{#Installation_MySQL_Password#}">
                         <input class="span12" type="text" id="auth_encoding" name="auth_encoding" value="UTF8" placeholder="{#Installation_MySQL_Encoding#}">
                     </div>
                     <div class="span4">
@@ -22,7 +22,7 @@
                         <input class="span12" type="text" id="characters_host" name="characters_host" placeholder="{#Installation_MySQL_Host#}">
                         <input class="span12" type="text" id="characters_db" name="characters_db" placeholder="{#Installation_MySQL_DB#}">
                         <input class="span12" type="text" id="characters_user" name="characters_user" placeholder="{#Installation_MySQL_User#}">
-                        <input class="span12" type="text" id="characters_password" name="characters_password" placeholder="{#Installation_MySQL_Password#}">
+                        <input class="span12" type="password" id="characters_password" name="characters_password" placeholder="{#Installation_MySQL_Password#}">
                         <input class="span12" type="text" id="characters_encoding" name="characters_encoding" value="UTF8" placeholder="{#Installation_MySQL_Encoding#}">
                     </div>
                     <div class="span4">
@@ -30,7 +30,7 @@
                         <input class="span12" type="text" id="world_host" name="world_host" placeholder="{#Installation_MySQL_Host#}">
                         <input class="span12" type="text" id="world_db" name="world_db" placeholder="{#Installation_MySQL_DB#}">
                         <input class="span12" type="text" id="world_user" name="world_user" placeholder="{#Installation_MySQL_User#}">
-                        <input class="span12" type="text" id="world_password" name="world_password" placeholder="{#Installation_MySQL_Password#}">
+                        <input class="span12" type="password" id="world_password" name="world_password" placeholder="{#Installation_MySQL_Password#}">
                         <input class="span12" type="text" id="world_encoding" name="world_encoding" value="UTF8" placeholder="{#Installation_MySQL_Encoding#}">
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         <input class="span12" type="text" id="website_host" name="website_host" placeholder="{#Installation_MySQL_Host#}">
                         <input class="span12" type="text" id="website_db" name="website_db" placeholder="{#Installation_MySQL_DB#}">
                         <input class="span12" type="text" id="website_user" name="website_user" placeholder="{#Installation_MySQL_User#}">
-                        <input class="span12" type="text" id="website_password" name="website_password" placeholder="{#Installation_MySQL_Password#}">
+                        <input class="span12" type="password" id="website_password" name="website_password" placeholder="{#Installation_MySQL_Password#}">
                         <input class="span12" type="text" id="website_encoding" name="website_encoding" value="UTF8" placeholder="{#Installation_MySQL_Encoding#}">
                     </div>
                     <div class="span4"></div>
