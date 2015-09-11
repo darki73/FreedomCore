@@ -131,7 +131,7 @@
 		Login = Login || {};
 		Core.staticUrl = '/Templates/{$Template}';
 		Core.sharedStaticUrl = '/Templates/{$Template}';
-		Core.baseUrl = '{$Proto}://{$smarty.server.HTTP_HOST}';
+		Core.baseUrl = '//{$smarty.server.HTTP_HOST}';
 		Core.projectUrl = '/';
 		Core.cdnUrl = '/';
 		Core.supportUrl = '';
