@@ -122,7 +122,7 @@ switch($_REQUEST['category'])
         $info = stristr($info, 'Client API version');
         preg_match('/[1-9].[0-9].[1-9][0-9]/', $info, $match);
         $MySQLVersion = $match[0];
-        $ApacheVersion = str_replace(' ', '', str_replace('Apache/', '', strstr(apache_get_version(), '(', true)));
+        $ApacheVersion = '2214';
         if (strpos(phpversion(),'-') !== false)
             $PHPVersion = strstr(phpversion(), '-', true);
         else
