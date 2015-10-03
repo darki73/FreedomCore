@@ -1,3 +1,0 @@
-CREATE TABLE IF NOT EXISTS `shop_items` (`id` int(11) NOT NULL, `short_code` varchar(45) DEFAULT NULL, `item_id` varchar(45) DEFAULT NULL, `item_name` varchar(45) DEFAULT NULL, `item_type` int(11) DEFAULT NULL, `item_shop_icon` varchar(45) DEFAULT NULL, `item_background` varchar(45) DEFAULT NULL, `item_background_color` varchar(45) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE `shop_items` ADD PRIMARY KEY (`id`);
-ALTER TABLE `shop_items` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

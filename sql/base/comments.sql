@@ -1,3 +1,0 @@
-CREATE TABLE IF NOT EXISTS `comments` (`id` int(11) NOT NULL, `article_id` int(11) DEFAULT NULL, `comment_by` varchar(45) DEFAULT NULL, `comment_text` varchar(800) DEFAULT NULL, `comment_date` datetime DEFAULT NULL, `replied_to` int(11) DEFAULT NULL, `votes_up` int(11) DEFAULT '0', `votes_down` int(11) DEFAULT '0') ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-ALTER TABLE `comments` ADD PRIMARY KEY (`id`);
-ALTER TABLE `comments` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;

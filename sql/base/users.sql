@@ -1,3 +1,0 @@
-CREATE TABLE IF NOT EXISTS `users` (`id` int(11) NOT NULL, `username` varchar(45) DEFAULT NULL, `password` varchar(50) DEFAULT NULL, `email` varchar(45) DEFAULT NULL, `registration_date` datetime DEFAULT NULL, `pinned_character` int(11) DEFAULT NULL, `freedomtag_name` varchar(45) DEFAULT NULL, `freedomtag_id` int(11) DEFAULT NULL, `balance` float DEFAULT '0', `selected_currency` varchar(6) DEFAULT 'USD', `access_level` int(11) NOT NULL DEFAULT '0') ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-ALTER TABLE `users` ADD PRIMARY KEY (`id`);
-ALTER TABLE `users` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;

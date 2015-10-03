@@ -1,2 +1,0 @@
-CREATE TABLE IF NOT EXISTS `sessions` ( `id` varchar(128) NOT NULL, `set_time` varchar(45) DEFAULT NULL, `data` varchar(600) DEFAULT NULL, `session_key` varchar(128) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE `sessions` ADD PRIMARY KEY (`id`);
