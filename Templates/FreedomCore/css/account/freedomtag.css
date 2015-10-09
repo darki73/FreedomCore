@@ -1,0 +1,90 @@
+/* layout change to freedomTag */
+html,
+body { background: #040404 url("/Templates/FreedomCore/images/freedomtag/bg-spotlight.jpg") 50% 0 no-repeat; color: #4a4a4a; font: normal 12px/1.25 "Trebuchet MS", Arial, sans-serif; min-width: 990px; }
+
+#layout-top,
+#layout-middle,
+#layout-bottom { background-image: url(""); background-color: transparent; border: 0;}
+a { color: #00adeb; }
+a:hover { color: #fff; }
+
+
+.headline { color: #fff; letter-spacing: -.04em; font: normal 40px/1.25 "Trebuchet MS", Arial, sans-serif; text-align: center;}
+.headline.subpage { font-size: 24px;}
+#page-header { padding-bottom: 10px; margin-bottom: 10px; border-bottom: 0; }
+.page-content { min-height: 400px; text-align: center;}
+.page-content form { margin: 0; padding: 20px 0 0; }
+.page-content form .freedomtag-field { position: relative; }
+.page-content form .freedomtag-field .alert { position: absolute; left: 50%; top: 70px; margin: 0 0 0 -187px; padding: 8px 0 0; width: 366px; color: #fff; font-size: 14px; line-height: 20px; text-align: left; background: url('/Templates/FreedomCore/images/freedomtag/red-arrow.png') no-repeat center 0;}
+.page-content form .freedomtag-field .alert .alert-message { padding: 15px; background-image: url(''); }
+.page-content form .freedomtag-field .alert .alert-message .title { padding: 0 20px; background: url('/Templates/FreedomCore/images/freedomtag/cross.png') no-repeat 0 -17px;}
+.page-content form .submit-field { padding: 12px 0 0; }
+.page-content form .submit-field .submit-cancel { margin: 0; padding: 30px 0; }
+.page-content form .submit-field .submit-cancel a#skipBtag { padding: 0 20px; font-size: 14px; font-weight: bold; line-height: 16px; background: url('/Templates/FreedomCore/images/freedomtag/cross.png') no-repeat 0 3px;}
+.page-content form .submit-field .submit-cancel a#skipBtag:hover { background-position: 0 -17px; }
+.input-text input#freedomTag { height: 60px; font-size: 24px; font-weight: bold; text-align: center; }
+.input-text .inline-message { min-height: 16px; padding: 5px 0; display: inline-block; font: 14px/16px "Trebuchet MS", Arial, sans-serif; color: #62737e; }
+
+.black-note { margin: 30px 0 20px; padding: 21px 0; background: url('/Templates/FreedomCore/images/freedomtag/grey-arrow.png') no-repeat center 0; }
+.black-note-content { padding: 23px; min-height: 200px; background: #111214 url('/Templates/FreedomCore/images/freedomtag/grey-gradient.png') repeat-x 0 0; text-align: left; overflow: auto;}
+.black-note-content h6.title { color: #fff; font-size: 18px; font-weight: bold; line-height: 24px; }
+.black-note-content p.desc { color: #62737e; font-size: 14px; line-height: 24px; }
+.black-note-content p.desc strong { color: #fff; }
+.black-note-content .content-main { float: left; padding: 0 14px 0 0; width: 100%; }
+
+
+.identity-content p.desc { font-size: 13px; }
+.identity-content .old-price { text-decoration: line-through; color: #8d8d8d; }
+.identity-content #battlenetIdForm .inline-message { display: none;}
+
+.note-freedomtag-d3 { padding: 20px 0; background: url('/Templates/FreedomCore/images/freedomtag/background-d3.gif') no-repeat 0 0; }
+.note-freedomtag-d3 h6{ font-size: 16px; font-weight: bold; line-height: 22px;}
+.note-freedomtag-d3 p{ padding: 10px 0 0; font-size: 13px; }
+
+.identity-note-left { float: right; padding: 10px 0 0 16px; width: 520px; background: url('/Templates/FreedomCore/images/icons/note-arrow-left.gif') no-repeat 0 65px;}
+.identity-note-contents { padding: 30px; width: 460px; background-color: #bfbeba; font-size: 13px; }
+
+.full-freedomtag { margin: 25px 0 0; padding: 0; font-size: 50px; color: #fff; }
+.full-freedomtag .freedomtag-name { text-shadow: rgba(0,126,177,.50) 0 0 7px;}
+.full-freedomtag .freedomtag-number { color: #62737e; text-shadow: rgba(93,122,141,.25) 0 0 7px;}
+
+.black-line-note { position: relative; margin: 30px 0 20px; padding: 0 0 21px;  }
+.black-line-note-arrow {  position: absolute; left: 50%; top: -20px; margin: 0 0 0 -20px; width: 41px; height: 21px; background: url('/Templates/FreedomCore/images/freedomtag/black-line-arrow-up.gif') no-repeat center 0; }
+.black-line-note-content { margin: 0 auto; padding: 20px; width: 700px; text-align: left; overflow: auto; background-color: #1c2023; border:1px solid #2c3237; font-size: 14px; line-height: 24px; color: #62737e;}
+.black-line-note-content p.desc { margin: 0; padding: 0; }
+
+#freedomTag-message { opacity: 0.0; }
+#freedomTag-Alert, #freedomTag-profanityAlert{ display: none; }
+#freedomTag-Alert .error-desc,
+#freedomTag-Alert .error-desc .language { display: none; }
+
+/* images slider */
+#images-slider .images-screen { position: relative; padding: 5px;width: 390px; height: 290px; overflow: hidden;}
+#images-slider .images-screen ul li { display: none; }
+#images-slider .images-screen ul li.selected { display: block; }
+#images-slider .images-screen ul li img { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 0 5px #444444; -webkit-box-shadow: #444444 0 0 5px; box-shadow: #444444 0 0 5px; }
+
+#images-slider .images-screen .images-button { position: absolute; left: 0; top: 0; width: 390px; height: 290px; overflow: hidden;}
+#images-slider .images-screen .images-button .button-div { margin: 5px 4px; width: 88px; height: 280px; background-color: #000;}
+#images-slider .images-screen .images-button .button-div.button-prev { position: absolute; left: 0; top: 0; -moz-border-radius: 5px 0 0 5px; -webkit-border-radius: 5px 0 0 5px; border-radius: 5px 0 0 5px; -moz-box-shadow: 0 0 5px #444444; -webkit-box-shadow: #444444 0 0 5px; box-shadow: #444444 0 0 5px; }
+#images-slider .images-screen .images-button .button-div.button-next { position: absolute; right: 0; top: 0; -moz-border-radius: 0 5px 5px 0; -webkit-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; -moz-box-shadow: 0 0 5px #444444; -webkit-box-shadow: #444444 0 0 5px; box-shadow: #444444 0 0 5px; }
+#images-slider .images-screen .images-button .button-div.cursor-default a{ cursor: default; }
+#images-slider .images-screen .images-button .button-div a { display: block; width: 88px; height: 280px; text-indent: -1000em;}
+#images-slider .images-screen .images-button .button-div.button-prev a { background: url('/Templates/FreedomCore/images/icons/arrow_prev8.png') no-repeat center center;}
+#images-slider .images-screen .images-button .button-div.button-next a { background: url('/Templates/FreedomCore/images/icons/arrow_next8.png') no-repeat center center;}
+
+#images-slider .images-thumb { padding:10px 0; width: 100%; }
+#images-slider .images-thumb ul { display: block; margin: 0 auto; height: 13px; text-align:center; overflow: hidden; }
+#images-slider .images-thumb ul li { display: block; float: left; margin: 0 4px; width: 13px; height: 13px; }
+#images-slider .images-thumb ul li a { display: block; width: 13px; height: 13px; background: url('/Templates/FreedomCore/images/freedomtag/nav.png') no-repeat 0 0; text-indent: -1000em; }
+#images-slider .images-thumb ul li a:hover { background-position: 0 -13px; }
+#images-slider .images-thumb ul li.selected a,
+#images-slider .images-thumb ul li.selected a:hover { background-position: 0 -26px; }
+
+#images-slider .images-text { padding: 10px 0; margin: 0 auto; width: 280px; font-size: 13px; color: #4a4a4a; }
+#images-slider .images-text ul li { display: none; text-align: center;}
+#images-slider .images-text ul li.selected { display: block; }
+
+
+.randomize-freedomTag { padding-left: 200px; }
+.randomize-freedomTag a.dice { display: inline-block; width: 200px; line-height: 60px; text-align: left; }

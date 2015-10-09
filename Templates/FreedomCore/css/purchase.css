@@ -1,0 +1,424 @@
+/* В©2013 Blizzard Entertainment, Inc. All rights reserved. */
+/*! Lodestone v2.0.1 | MIT License | http://scobo.github.io/lodestone/ */
+.affix {
+    position:fixed
+}
+
+.clear {
+    clear:both;
+    display:block;
+    overflow:hidden;
+    visibility:hidden;
+    width:0;
+    height:0
+}
+
+.clearfix:before,.clearfix:after {
+    content:".";
+    font-size:0;
+    line-height:0;
+    display:block;
+    overflow:hidden;
+    visibility:hidden;
+    width:0;
+    height:0
+}
+
+.clearfix:after {
+    clear:both
+}
+
+.pull-right {
+    float:right
+}
+
+.pull-left {
+    float:left
+}
+
+.icon-spacer {
+    background-image:none!important
+}
+
+body .body-content {
+    -webkit-transition:opacity,0.4s;
+    transition:opacity .4s
+}
+
+body.preload .body-content {
+    opacity:0
+}
+
+.fade {
+    opacity:0;
+    -webkit-transition:opacity,0.2s;
+    transition:opacity .2s
+}
+
+.fade.in {
+    opacity:1
+}
+
+.collapse {
+    position:relative;
+    height:0;
+    overflow:hidden;
+    -webkit-transition:height,0.4s;
+    transition:height .4s
+}
+
+.collapse.in {
+    height:auto
+}
+
+.invisible {
+    visibility:hidden!important
+}
+
+.hide {
+    display:none!important
+}
+
+.show {
+    display:block!important
+}
+
+.modal-background-properties {
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center bottom,center top,center -100px;
+    background-image:url(/Templates/FreedomCore/images/toolkit/defaults/modals/modal-gradient.png),-webkit-linear-gradient(top,#263145 0,#1d222c 70%),-webkit-radial-gradient(50% 100px,closest-side,#263145,#1d222c);
+    background-image:url(/Templates/FreedomCore/images/toolkit/defaults/modals/modal-gradient.png),-moz-linear-gradient(top,#263145 0,#1d222c 70%),-moz-radial-gradient(50% 100px,closest-side,#263145,#1d222c);
+    background-image:url(/Templates/FreedomCore/images/toolkit/defaults/modals/modal-gradient.png),linear-gradient(top,#263145 0,#1d222c 70%),radial-gradient(50% 100px,closest-side,#263145,#1d222c);
+    background-clip:padding-box
+}
+
+.purchase-content {
+    padding-top:40px!important
+}
+
+.heading-1 .subheading {
+    color:rgba(255,255,255,0.3);
+    display:inline-block;
+    text-transform:uppercase;
+    font-size:16px
+}
+
+.heading-1 .subheading [class^="icon-"],.heading-1 .subheading [class*=" icon-"] {
+    opacity:.3
+}
+
+.purchase-container {
+    width:100%
+}
+
+.purchase-container .purchase-column:first-child {
+    width:25%;
+    min-width:250px
+}
+
+.purchase-container .purchase-column+.purchase-column {
+    width:75%
+}
+
+.purchase-heading>i {
+    vertical-align:bottom;
+    margin-left:-4px
+}
+
+.purchase-sidebar {
+    width:86%
+}
+
+.purchase-sidebar div.thumbnail>img {
+    width:100%;
+    height:auto
+}
+
+.accepted-payment-icons:before,.accepted-payment-icons:after {
+    content:".";
+    font-size:0;
+    line-height:0;
+    display:block;
+    overflow:hidden;
+    visibility:hidden;
+    width:0;
+    height:0
+}
+
+.accepted-payment-icons:after {
+    clear:both
+}
+
+.accepted-payment-icons [class^="icon-24-payment-"],.accepted-payment-icons [class*=" icon-24-payment-"] {
+    margin-top:8px;
+    float:left;
+    margin-right:5px
+}
+
+.csc-image {
+    display:block;
+    margin:0 auto 20px
+}
+
+.saved-payment-info {
+    height:auto
+}
+
+.checkout-total .total-cost {
+    font-size:49px;
+    line-height:50px
+}
+
+.checkout-total .total-cost .currency-code {
+    font-size:29px;
+    line-height:30px
+}
+
+.checkout-total .checkout-total-balance-applied {
+    margin-top:-10px;
+    overflow:hidden;
+    -webkit-transition:max-height,0.4s,ease-in-out;
+    transition:max-height .4s ease-in-out;
+    max-height:100px
+}
+
+.checkout-total .checkout-total-balance-applied .total-heading {
+    margin-bottom:0
+}
+
+.checkout-total .checkout-total-balance-applied.hide {
+    display:block!important;
+    max-height:0
+}
+
+.checkout-total .total-cost-before-partial {
+    margin-bottom:0
+}
+
+.checkout-total .total-cost-partial-applied {
+    margin-bottom:20px;
+    color:#6ad401
+}
+
+.purchase-help-text i[class^="icon"],.checkbox-label i[class^="icon"],.system-requirements i[class^="icon"] {
+    vertical-align:text-bottom
+}
+
+.system-requirements i[class^="icon"] {
+    margin:0
+}
+
+.purchase-form-actions {
+    margin-bottom:0
+}
+
+#kt-rsk {
+    margin:0;
+    padding:0;
+    width:1px;
+    height:1px
+}
+
+#verification-code-label {
+    cursor:help
+}
+
+.risk-challenge-actions>* {
+    margin-right:10px!important
+}
+
+.mandate-box {
+    color:#fff
+}
+
+.mandate-box .heading-3 {
+    margin:0;
+    font-weight:700;
+    font-size:15px
+}
+
+.mandate-box p {
+    margin-bottom:15px
+}
+
+.mandate-box dl {
+    margin-bottom:20px
+}
+
+.mandate-box dl dt {
+    margin:0;
+    width:50%;
+    font-size:15px;
+    line-height:20px;
+    letter-spacing:normal;
+    text-transform:none;
+    color:#fff;
+    clear:left;
+    float:left
+}
+
+.mandate-box dl dd {
+    width:50%;
+    margin:0;
+    float:left
+}
+
+.success-list+.next-steps {
+    margin-top:80px
+}
+
+ul.icons li span i[class^="icon-"] {
+    position:static
+}
+
+#success-page .code {
+    color:#6ad401
+}
+
+.offsite-status-refresh {
+    margin-top:33px
+}
+
+.account-selection .btn:not(:last-child),.account-completion .btn:not(:last-child) {
+    margin-right:10px;
+    float:left
+}
+
+.account-list .account {
+    margin-bottom:25px
+}
+
+.account-list .account:last-of-type {
+    margin-bottom:0
+}
+
+.account-list .account .radio-label {
+    margin-bottom:0
+}
+
+.account-list .account .radio {
+    display:inline-block
+}
+
+.account-list .account .heading {
+    margin:0;
+    padding:0;
+    color:rgba(255,255,255,0.7)
+}
+
+.account-list .account .summary {
+    color:rgba(255,255,255,0.5)
+}
+
+.account-list .account .summary .description {
+    font-size:13px;
+    line-height:20px
+}
+
+.account-list .account .summary .description .game-time {
+    margin-right:1em
+}
+
+.account-list .account .summary .description .game-time b {
+    color:rgba(255,255,255,0.7)
+}
+
+.account-list .account .summary .message {
+    font-size:13px;
+    line-height:20px
+}
+
+.account-list .account .message {
+    color:rgba(255,255,255,0.5)
+}
+
+.ineligible-account-list {
+    margin-bottom:0
+}
+
+.account-selection-actions {
+    margin-top:40px
+}
+
+.account-selection-actions .btn {
+    white-space:nowrap
+}
+
+.account-selection-actions a:not(:last-child) {
+    margin-right:10px
+}
+
+.account-selection-actions+.heading-2 {
+    margin-top:80px
+}
+
+.purchase-actions {
+    margin-top:40px
+}
+
+.no-eligible-accounts .reason,.no-eligible-upgrades .reason,.purchase-unavailable .reason {
+    padding-left:26px;
+    position:relative
+}
+
+.no-eligible-accounts .reason [class^="icon-"],.no-eligible-upgrades .reason [class^="icon-"],.purchase-unavailable .reason [class^="icon-"],.no-eligible-accounts .reason [class*=" icon-"],.no-eligible-upgrades .reason [class*=" icon-"],.purchase-unavailable .reason [class*=" icon-"] {
+    position:absolute;
+    left:0
+}
+
+.no-eligible-accounts .reasons li,.no-eligible-upgrades .reasons li,.purchase-unavailable .reasons li,.no-eligible-accounts .alternatives li,.no-eligible-upgrades .alternatives li,.purchase-unavailable .alternatives li {
+    padding-left:3px
+}
+
+@media screen and (max-width:979px) {
+    .purchase-template.app #checkout-payment-icons {
+        left:0;
+        margin-left:0
+    }
+
+    .purchase-template.app #checkout-pay-with {
+        clear:left;
+        left:0;
+        margin-top:30px
+    }
+
+    .purchase-template.app .form-actions .btn {
+        height:auto
+    }
+
+    .purchase-template.app .account-selection-actions .btn:not(:only-of-type),.purchase-template.app .form-actions .btn:not(:only-of-type) {
+        width:100%
+    }
+
+    .purchase-template.app .account-selection-actions .btn:not(:only-of-type)+.btn,.purchase-template.app .form-actions .btn:not(:only-of-type)+.btn {
+        margin-top:10px;
+        margin-left:0
+    }
+
+    .purchase-template.app .form-actions button.btn:not(:only-child) {
+        width:100%
+    }
+
+    .purchase-template.app .form-actions button.btn:not(:only-child)+a.btn {
+        width:100%;
+        margin-top:10px;
+        margin-left:0
+    }
+
+    .purchase-template.app .purchase-column .app-grid-100 {
+        width:100%
+    }
+
+    .purchase-template.app .purchase-column .app-grid-70 {
+        width:70%
+    }
+
+    .purchase-template.app .purchase-column .app-pull-0,.purchase-template.app .purchase-column .app-push-0 {
+        left:0
+    }
+
+    .purchase-template.app .purchase-column .app-suffix-0 {
+        margin-right:0
+    }
+}

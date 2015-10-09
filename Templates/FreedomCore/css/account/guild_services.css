@@ -1,0 +1,306 @@
+.float-right { float:right; }
+.not-shown { display:none; }
+.margin-top-20 { margin-top:20px; }
+.dashboard .header { width:940px; }
+.green {color:#4a8432;}
+.full-width { width:100%; }
+.italic { font-style:italic; }
+.red-error { color:#8e484a;  }
+#PGNCIncluded { color:#4a8432; font-weight:bold; }
+.margin-top-6 { margin-top:6px; }
+
+.dashboard.service .primary { background:none repeat scroll 0 0 transparent; }
+.service-wrapper { clear:both; margin:15px 0; }
+
+p.service-nav { margin: 0 0 15px 0;  }
+p.service-nav a { margin-right:8px; background-color:#565d67; padding: 4px 8px; color: #FFFFFF; display: inline-block; zoom: 1; text-decoration: none; font-weight: bold; font-size: 12px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+p.service-nav a:hover,
+p.service-nav a:focus,
+p.service-nav a:active { background: #FFFFFF; color: #565d67; }
+p.service-nav a.active,
+p.service-nav a.active:hover,
+p.service-nav a.active:focus,
+p.service-nav a.active:active { color: #565d67; background: #FFFFFF; text-decoration: none; }
+
+.service-info { float:left; width:330px; }
+.service-tag { padding: 0 30px 0 0; margin: 0 0 15px 0; background: url('/Templates/FreedomCore/images/services/service-tag-arrow.png') no-repeat right center; }
+.service-tag-contents { background: #e4e3e1; padding: 10px; }
+.service-tag-description { width: 186px; float: left; padding-left: 10px; }
+.service-tag-description .caption { color:#393939; font-weight:bold; font-style:italic; height:64px; }
+.service-tag-description .character-message { height: 64px; font-style: italic; }
+.service-tag-description .character-name { font-size: 20px; font-style:normal; }
+.service-tag-description .character-class,
+.service-tag-description .character-realm { display: block; line-height: 1.5; }
+.service-tag-description .character-code { font-size: 12px; color: #808080; }
+.service-tag-description .character-guild { font-weight:bold; }
+
+.eligibility-check {padding-left:20px; background:url('/Templates/FreedomCore/images/icons/loading-light-small.gif') 0% 50% no-repeat; color:#707070; margin:10px 0px 10px 90px; position:absolute;}
+
+.service-info .selected-service-info { padding:0 30px 0 0; }
+.selected-service-info .service-caption { text-transform:uppercase; font-size:12px; border-bottom:1px solid #b4b3af; display:none; }
+.selected-service-info .service-details { border-bottom:1px solid #b4b3af; background-color:#e0dfdd; padding:8px; font-size:12px; display:none;}
+.selected-service-info .service-details strong { display:none; }
+
+.service-info .selected-service-total { padding:0 36px 0 0; font-size:16px; font-weight:bold; margin:8px 0px 30px 0px; display:none; }
+
+.service-tag-contents .character-icon { width: 64px; height: 64px; overflow: hidden; float: left; background-color: #444; }
+.service-tag-contents .character-icon.no-character { background-image: url('/Templates/FreedomCore/images/services/no-character-84.png'); }
+.character-description { float: left; padding-left: 10px; }
+.character-description .character-name { font-size: 15px; color: #4a4a4a; }
+.character-description .character-class { display: block; line-height: 1.5; }
+
+.service-form-full { }
+.service-form { float:right; width:660px; }
+.service-form fieldset.ui-controls.section-stacked { margin-bottom:0px; }
+.service-interior { background-color:#e0dfdd; padding:20px 20px 20px 20px; position:relative;}
+.service-interior.alt { padding:0px; }
+.service-interior.alt .ui-controls { padding: 20px; }
+.service-interior.alt .open-blade .button1.disabled span { background:none repeat scroll 0 0 #b0afac;}
+.service-interior .services-subheader { font-size:20px; font-weight:bold; border-bottom:1px solid #b4b3b1; margin-bottom:20px; padding: 0 0 3px; }
+.service-interior .services-subheader.alt { font-size:16px; border:none; padding:15px 0px 15px 15px; margin:0px; }
+.service-interior .services-subheader-alt { font-size:20px; font-weight:bold; border-bottom:1px solid #b4b3b1; margin-bottom:4px; margin-top: 32px; text-transform: uppercase; }
+.service-interior .guild-master-subheader { display: inline-block; vertical-align: top; background: #009d0b; font-size: 11px; padding: 2px 8px; margin-left: 4px; color: #fff; }
+.service-interior .guild-member-subheader { display: inline-block; vertical-align: top; background: #9d0000; font-size: 11px; padding: 2px 8px; margin-left: 4px; color: #fff; }
+.service-interior .subform-subheader { font-size:14px; font-weight:bold; border-bottom:1px solid #b4b3b1; margin-top:50px; line-height:20px; }
+.service-interior .subform-subheader span { font-size:10px; color:#FFFFFF; padding:2px 4px 2px 4px; background-color:#b6b6b4; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; position:relative; top:-2px; }
+
+.service-selector { position:relative; padding:8px 8px 0px 0px; border:1px solid #e0dfdd; margin-bottom:30px; }
+.service-selector.error { background-color:#edc1ba; border:1px solid #944a4a; margin-bottom:10px; }
+.service-selector label { position:relative; top:10px; cursor:pointer; display:block; }
+.service-selector label input {position:absolute; left:-9999px; }
+.service-selector label .chkbox { background:url("/Templates/FreedomCore/images/icons/sprite.png"); height:32px; width:32px; display:inline-block; cursor:pointer; background-position:0px -192px; }
+.service-selector label .chkbox.checked { background-position:0px -224px;}
+.service-selector label .icon { background: url("/Templates/FreedomCore/images/dashboard/wow/buttons/services.png") no-repeat scroll 0 0 transparent; display:inline-block; height:31px; width:31px; position:relative; margin:0px 10px;}
+.service-selector label .icon.gfc { background-position: 0 -62px; }
+.service-selector label .icon.gnc { background-position: 0 -31px; }
+.service-selector strong { position:relative; top:-20px; font-weight:bold; font-size:14px; }
+.service-selector strong em {font-weight:normal; font-size:12px; color:#4a8432;}
+.service-selector strong img { position:relative; top:2px; }
+.service-selector .description { display:block; position:absolute; top:15px; left:90px;}
+.service-selector .error-container { margin:20px 0 10px 90px }
+.service-selector .error-container .caption { font-size:14px; color:#8e484a; font-weight:bold; }
+.service-selector .error-container ul { list-style:none outside none; margin:10px 0 0; padding:0; }
+.service-selector .error-container ul li { background:url("/Templates/FreedomCore/images/icons/arrows.gif") no-repeat scroll 0 -100px transparent; margin:5px 0; padding:0 0 0 20px; }
+
+
+.service-form .form-row-stacked input { width:50%; }
+.service-form .form-row-stacked select { width: 52.4%; }
+
+.misc-info { display:inline-block; font-weight:normal; font-size:16px; line-height:32px; vertical-align:top; width:360px; }
+.misc-info-small { display:inline-block; font-weight:normal; font-size:14px; line-height:14px; vertical-align:top; width:360px; padding-top:8px; }
+
+#service-details { margin-top:50px; }
+
+/* character list */
+.character-list { margin-bottom: 6px; }
+
+.character-list .realm { color: #b0afac; display: block; height: 22px; line-height: 22px; padding: 0 0 0 30px; color: #b0afac; text-transform: uppercase; overflow: hidden; -moz-user-select: none; -webkit-user-select: none; user-select: none; overflow: hidden; }
+.character-list .realm-name { float: left; }
+.character-list .character-count { display: block; height: 22px; padding-right: 22px; line-height: 22px; float: right; background: url("/Templates/FreedomCore/images/account/lobby/titlebar-character.png") no-repeat right 0;  }
+.character-list .realm.opened { background: #6a6e73 url("/Templates/FreedomCore/images/account/lobby/game-titlebar.png") left 0 no-repeat; }
+.character-list .realm.closed { background: #797e84 url("/Templates/FreedomCore/images/account/lobby/game-titlebar.png") left -22px no-repeat; }
+.character-list .realm.opened:hover,
+.character-list .realm.opened:focus { color: #fff; background: #6a6e73 url("/Templates/FreedomCore/images/account/lobby/game-titlebar.png") left -44px no-repeat; }
+.character-list .realm.closed:hover,
+.character-list .realm.closed:focus { color: #fff; background: #797e84 url("/Templates/FreedomCore/images/account/lobby/game-titlebar.png") left -66px no-repeat; }
+.character-list .realm.opened:hover .character-count,
+.character-list .realm.opened:focus .character-count,
+.character-list .realm.closed:hover .character-count,
+.character-list .realm.closed:focus .character-count { background-position: right -22px; }
+
+.character-list li { margin-top: 6px; cursor: pointer; padding: 13px; height: 64px; overflow: hidden; clear: both; background: #ededeb url("/Templates/FreedomCore/images/account/lobby/character-arrow.gif") no-repeat right 0; }
+.character-list li:hover { background-color: #f4f4f4; background-position: right -90px; }
+.character-list li.pending { background-color: #e0dfdd; background-position: right -180px; cursor: default; }
+.character-list li.pending:hover { background-color: #e4e3e1; background-position: right -270px; }
+.character-list li.error { background-color: #e0dfdd; background-position: right -360px; cursor: default; }
+.character-list li.error:hover { background-color: #e4e3e1; background-position: right -450px; }
+.character-list li.complete { background-position: right -540px; cursor: default; }
+.character-list li.complete:hover { background-position: right -630px; }
+.character-list li.loading { background-color: #e0dfdd; background-position: right -720px; cursor: default; cursor: progress; }
+.character-list li.loading:hover { background-color: #e4e3e1; background-position: right -810px; }
+
+.character-list .character-link,
+.character-list .character-link:hover,
+.character-list .character-link:focus { color: #4a4a4a; }
+
+.character-icon { width: 64px; height: 64px; overflow: hidden; float: left; background-color: #444; }
+.character-icon.no-character { background-image: url('/Templates/FreedomCore/images/services/no-character-64.png'); }
+.character-description { float: left; padding-left: 10px; width:300px; }
+.character-description .character-name { font-size: 15px; color: #4a4a4a; }
+.character-description .character-class { display: block; line-height: 1.5; }
+
+.character-list .character-status { float: right; padding-right: 46px; text-align: right; }
+.character-list .character-status .status-pending { color: #b9801d; font-size:14px; }
+.character-list .character-status .status-pending strong { text-transform: uppercase; color: #b9801d; }
+.character-list .character-status .status-error { color: #944a4a; font-size:14px; }
+.character-list .character-status .status-error strong { text-transform: uppercase; color: #944a4a; }
+.character-list .character-status .status-complete { color: #4a8432; font-size:14px; }
+.character-list .character-status .status-complete strong { text-transform: uppercase; color: #4a8432; }
+.character-list .character-status .status-loading { color: #888; line-height: 64px; font-size:14px; }
+.character-list .character-status .status-loading strong { color: #888; text-transform: uppercase; }
+.character-list .character-status .status-options { margin: .25em 0; text-transform: uppercase; }
+.character-list .character-status .status-options a { display: inline-block; height: 20px; line-height: 20px; }
+.character-list .character-status .status-options .small-cancel span { padding-right: 0; }
+
+/* service errors */
+.service-error { padding: 30px 20px; text-align: center; font-size: 16px; font-weight: bold; background: #e4e3e1; }
+.service-error p { margin: 1em 0; }
+
+.tos-left { float:left; width:350px; }
+.tos-left.full-width { width:100%; }
+.tos-left ul li { background: url("/Templates/FreedomCore/images/services/wow/small-arrow.gif") no-repeat scroll 0 2px transparent; font-size:12px; margin-bottom:12px; padding-left:12px; }
+.tos-right { float:right; width:220px; }
+.tos-right h3 { font-size:16px; font-weight:bold; margin-bottom:12px; }
+.tos-right .includes { margin-bottom:20px; }
+.tos-right .includes li { background:url("/Templates/FreedomCore/images/services/wow/small-tick.gif") no-repeat scroll 0 2px transparent; font-size:12px; font-weight:bold; margin-bottom:4px; margin-left:4px; padding-left:20px;}
+.tos-right .not-includes li { background:url("/Templates/FreedomCore/images/services/wow/small-cross.gif") no-repeat scroll 0 2px transparent; font-size:12px; font-weight:bold; margin-bottom:4px; margin-left:4px; padding-left:20px;}
+
+#guildmembers-table { width:100%; margin-bottom:10px; border-bottom:1px solid #C1BFBC;}
+#guildmembers-table .guid { display:none; }
+#guildmembers-table .header { text-align:left; font-weight:normal; padding:10px; text-transform:uppercase; background:url("/Templates/FreedomCore/images/layout/shadow-small-top-light-bg.gif") repeat-x scroll 0 100% transparent;}
+#guildmembers-table td { border-top:1px solid #C1BFBC; cursor:pointer; padding:10px; }
+#guildmembers-table tr:hover { background-color:#FFFFFF; }
+#realm-table { width:100%; margin-bottom:10px; border-bottom:1px solid #C1BFBC;}
+#realm-table .guid { display:none; }
+#realm-table .header { text-align:left; font-weight:normal; padding:10px; text-transform:uppercase; background:url("/Templates/FreedomCore/images/layout/shadow-small-top-light-bg.gif") repeat-x scroll 0 100% transparent;}
+#realm-table td { border-top:1px solid #C1BFBC; cursor:pointer; padding:10px; }
+#realm-table tr:hover { background-color:#FFFFFF; }
+.table-options .option { text-align:right; }
+.table-options .position { margin:6px 0px 6px 0px; font-style:italic; position:relative; top:-18px; }
+.name-label {position:absolute;top:4px;left:0px;}
+.level-label {position:absolute;top:4px; left:162px; }
+.realm-type-label {position:absolute;top:4px;left:122px;}
+.realm-locale-label {position:absolute;top:4px;left:226px;}
+.filter-controls { margin:8px 0px 12px 0px; padding-top:20px;position:relative;border-bottom:1px solid #C1BFBC;padding-bottom:14px;}
+.filter-controls input { background:url("/Templates/FreedomCore/images/form/input-bg.gif") repeat-x scroll 0 0 #FFFFFF; border:1px solid #C0C0C0; color:#5A5A5A; font:14px/26px "Lucida Sans Unicode","Lucida Grande","Arial",sans-serif; height:26px; outline:medium none; padding:2px 7px;}
+.filter-controls #name-filter { width:100px; }
+.filter-controls #realm-type-filter { width:100px; }
+.filter-controls #realm-locale-filter { width:150px; }
+.filter-controls #level-filter-low { width:20px; margin-left:40px;margin-right:10px;}
+.filter-controls #level-filter-high { width:20px; margin-left:10px;}
+.filter-controls .button-container { position:relative; left: 0; top:-2px; }
+
+.small-button { position:relative; background-color:#007aad; -moz-border-radius:3px 3px 3px 3px; border-radius:3px 3px 3px 3px; padding:4px 8px 4px 8px;  color:white; margin-left:12px; cursor:pointer; display:inline-block; font-style:normal;}
+.small-button:hover { background-color:#2294C5; color:#FFFFFF;}
+.small-button.no-margin { margin:0px;}
+.reset-link { margin-left:10px; border-left:1px solid #C1BFBC;padding-left:10px; cursor:pointer;}
+.reset-link:hover { color:#007aad; }
+
+/* type ahead */
+.ui-typeahead { position: absolute; opacity: 0.99; white-space: nowrap; overflow: hidden; border:1px solid #b0b0b0;}
+.ui-typeahead .group-list a { display: block; padding: 4px 8px; }
+.ui-typeahead .group-list a:hover,
+.ui-typeahead .group-list a.item-active { color: #000; }
+.ui-typeahead .group-list a em { font-style: normal; border-bottom: 1px dotted; }
+.ui-typeahead .group-list a .desc { font-size: 11px; }
+.ui-typeahead .group-title { display: block; font-weight: bold; padding: 4px 8px; }
+.ui-typeahead-ghost .input { position: absolute; top: 0; left: 0; }
+.ui-typeahead-ghost .input-ghost { color: #a0a0a0; }
+
+.group-realm { background-color:white; cursor:pointer; }
+.combobox-link { margin-top:40px; cursor:pointer; }
+.open-blade #realm-type-ahead { width:250px; }
+.open-blade #newGuildName { width:250px; }
+.open-blade #stubGuildName { width:250px; }
+.open-blade .input-ghost { width:250px; }
+
+/* history */
+#service-history-toggleservice { height: 24px }
+#service-history-toggleservice a { display: block; float: right }
+#service-history { width: 100%; border-collapse: collapse; }
+#service-history th,
+#service-history td { vertical-align: top }
+#service-history thead th { text-transform: uppercase; text-align: left; padding: 10px; font-weight: normal; background: url("/Templates/FreedomCore/images/layout/shadow-small-top.gif") 0 100% repeat-x; }
+#service-history tbody td,
+#service-history tbody th { padding: 10px; border-top: 1px solid #c1bfbc; font-weight: normal; text-align: left }
+#service-history .alt-row td { background: #d6d4d1; }
+#service-history .child-row td { border: none; }
+#service-history tr:hover { background: #e1e0de; }
+#service-history .service-history-col-date { width: 90px }
+#service-history .service-history-col-orderid { width: 100px }
+#service-history .service-history-col-service { width: 200px }
+#service-history .service-history-col-status { width: 300px }
+#service-history p { margin: 0 }
+#service-history .service-history-destination span { display: inline-block }
+#service-history .service-history-destination-label { display: block; float: left; width: 80px; color: #5d5d5d }
+#service-history .service-history-status span { display: block; float: left; padding-right: .5em }
+#service-history .service-history-status dl { display: inline-block }
+#service-history .service-history-status dt a { padding: 0 16px 0 0; background: url("/Templates/FreedomCore/images/icons/arrows.gif") no-repeat 100% -60px }
+#service-history .service-history-status dl.off dt a { background-position: 100% -28px }
+#service-history .service-history-status dl.on dd { display: block }
+#service-history .service-history-status dl.off dd { display: none }
+#service-history .service-history-complete { color: #4c7141 }
+#service-history .service-history-pending { color: #efa800 }
+#service-history .service-history-failed,
+#service-history .service-history-unknown { color: #742e03 }
+#service-history .service-history-pending,
+#service-history .service-history-failed { cursor: pointer }
+#service-history .empty-history { padding: 50px; text-align: center; font-size: 18px; font-weight: bold; }
+
+#service-history tfoot td { height: 25px; padding: 20px; background: url("/Templates/FreedomCore/images/layout/shadow-large-bot.gif") 0 0 repeat-x; }
+#service-history tfoot li { float: left; padding-right: 1em }
+
+#service-history .cancel-form {display:inline-block; }
+
+/* Main form */
+.open-blade { position:relative; background:#c1c0be url("/Templates/FreedomCore/images/services/wow/gvas/select_bottom.png") 50% 100% no-repeat; border-top:1px solid #d9d7d4; color:#4a4a4a;}
+.open-blade .top { position:absolute;width:99%; height:32px; background:url("/Templates/FreedomCore/images/services/wow/gvas/select_top.png") 50% 0% no-repeat; }
+.open-blade .illo-transfer { position:absolute; width:231px; height:120px; bottom:0px; right:0px; background:url("/Templates/FreedomCore/images/services/wow/gvas/transfer.png") no-repeat; }
+.open-blade .illo-namechange { position:absolute; width:238px; height:127px; bottom:0px; right:0px; background:url("/Templates/FreedomCore/images/services/wow/gvas/name.png") no-repeat; }
+.open-blade .illo-gm { position:absolute; width:185px; height:116px; bottom:0px; right:0px; background:url("/Templates/FreedomCore/images/services/wow/gvas/guildmaster.png") no-repeat; }
+.open-blade .step-no { font-size:40px; position:absolute; top:0px; left:0px; margin-left:16px; margin-top:10px; font-weight:bold; }
+.open-blade .title { position:absolute; font-size: 16px; font-weight:bold; left:50px; top:16px; }
+.open-blade .content { margin-top:56px; margin-left:50px; padding-bottom:20px; color:#4a4a4a; clear:both; }
+.open-blade .content .input-wrapper { margin:10px 0px 10px 0px; position:relative; }
+.open-blade .content .input-wrapper p { width:300px; }
+.open-blade .check {padding-left:20px; background:url('/Templates/FreedomCore/images/icons/loading-light-small.gif') 0% 50% no-repeat; color:#707070; margin-bottom:10px;}
+.open-blade.error-border { border:2px solid #8e484a; }
+.open-blade .error { color:#8e484a; padding-top:10px; width:320px; }
+.open-blade .error input { width:250px; }
+.open-blade .error strong { font-size:14px; color:#8e484a; font-weight:bold; }
+.open-blade .generic-error { margin-bottom:10px; color:#8e484a;}
+.open-blade .generic-error strong { font-size:14px; font-weight:bold; }
+.open-blade .generic-error ul { list-style:none outside none; margin:10px 0 0; padding:0; }
+.open-blade .generic-error ul li { background:url("/Templates/FreedomCore/images/icons/arrows.gif") no-repeat scroll 0 -100px transparent; margin:5px 0; padding:0 0 0 20px; }
+.open-blade .na-error { margin-bottom:10px; color:#8e484a;}
+.open-blade .na-error strong { font-size:14px; font-weight:bold; }
+
+.closed-blade { position:relative; background:#e0dfdd url("/Templates/FreedomCore/images/services/wow/gvas/blade_bottom.png") 50% 100% no-repeat; border-top:1px solid #ededeb; height:80px; }
+.closed-blade .illo-transfer { position:absolute; width:175px; height:60px; bottom:0px; right:0px; background:url("/Templates/FreedomCore/images/services/wow/gvas/transfer_small.png") no-repeat; }
+.closed-blade .illo-gm { position:absolute; width:152px; height:60px; bottom:0px; right:0px; background:url("/Templates/FreedomCore/images/services/wow/gvas/guildmaster_small.png") no-repeat; }
+.closed-blade .step-no { font-size:40px; color:#afaead; position:absolute; top:0px; left:0px; margin-left:16px; margin-top:10px; font-weight:bold; }
+.closed-blade .title { position:absolute; font-size: 16px; font-weight:bold; left:50px; top:16px; color:#afaead;}
+
+.complete-blade { position:relative; background:#e0dfdd url("/Templates/FreedomCore/images/services/wow/gvas/blade_bottom.png") 50% 100% no-repeat; border-top:1px solid #ededeb; height:80px; }
+.complete-blade .illo-transfer { position:absolute; width:175px; height:60px; bottom:0px; right:0px; background:url("/Templates/FreedomCore/images/services/wow/gvas/transfer_small.png") no-repeat; }
+.complete-blade .illo-namechange { position:absolute; width:181px; height:47px; bottom:0px; right:0px; background:url("/Templates/FreedomCore/images/services/wow/gvas/name_small.png") no-repeat; }
+.complete-blade .illo-gm { position:absolute; width:152px; height:60px; bottom:0px; right:0px; background:url("/Templates/FreedomCore/images/services/wow/gvas/guildmaster_small.png") no-repeat; }
+.complete-blade .step-no { font-size:40px; color:#458030; position:absolute; top:0px; left:0px; margin-left:16px; margin-top:10px; font-weight:bold; }
+.complete-blade .tick { display:block; width:37px; height:37px; position:absolute; right:-8px; top:10px; background:url("/Templates/FreedomCore/images/icons/arrow-done-plain.gif") no-repeat; }
+.complete-blade .title { position:absolute; font-size: 16px; font-weight:bold; left:50px; top:12px; color:#458030; width:430px;}
+.complete-blade .title .edit { background:#b4b3b2 url("/Templates/FreedomCore/images/icons/white-edit.png") 50% 50% no-repeat; width:20px; height:20px; display:inline-block; cursor:pointer; -moz-border-radius:3px 3px 3px 3px; border-radius:3px 3px 3px 3px;margin-left:10px; position:relative; top:4px; }
+.complete-blade .title .edit:hover { background-color:#908f8e; }
+.complete-blade .title div { font-size:16px; }
+
+.instructions .caption { font-size:20px; }
+.instructions .margin-bottom { margin-bottom:40px; }
+.instructions .diagram { background:url('/Templates/FreedomCore/images/services/wow/gvas/diagram.jpg') no-repeat; padding-top:180px; }
+.instructions .container-left { float:left; width:460px; position:relative; }
+.instructions .left { border-radius:5px; background-color:#c6c5c2; padding:10px; font-size:16px;  }
+.instructions .left .number { font-size:50px; position:absolute; top:0px; color:#94969a; }
+.instructions .left .intro { padding-left:40px; font-weight:bold; }
+.instructions .left .intro em { text-decoration:underline; }
+.instructions .left .describe { padding-left:40px; font-size:12px; margin-top:10px; line-height:1.5em; display:none; }
+
+.instructions .container-right { float:right; width:460px; position:relative; }
+.instructions .right { border-radius:5px; background-color:#c6c5c2; padding:10px; font-size:16px;  }
+.instructions .right .number { font-size:50px; position:absolute; top:0px; color:#94969a; }
+.instructions .right .intro { padding-left:40px; font-weight:bold; }
+.instructions .right .intro em { text-decoration:underline; }
+.instructions .right .describe { padding-left:40px; font-size:12px; margin-top:10px; line-height:1.5em; display:none; }
+
+.instructions .more-info { float:right; display:block; color:#0072A3; padding-left:16px; background:url('/Templates/FreedomCore/images/icons/arrows.png') no-repeat; font-size:12px; margin-top:16px; cursor:pointer; background-position:0px 2px;}
+.instructions .more-info:hover { color:#014663;}
+.instructions .more-info.flipped { background-position:0px -30px;}
+
+.instructions .button-container { background:url("/Templates/FreedomCore/images/services/wow/bg.jpg") no-repeat scroll 50% 0 transparent; margin-bottom:12px; min-height:200px; padding-top:20px; text-align:center; width:990px; margin-top:50px;}

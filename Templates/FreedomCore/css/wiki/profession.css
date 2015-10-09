@@ -1,0 +1,63 @@
+body.profession-page #content .content-top { background: url(/Templates/FreedomCore/images/wiki/profession/detail-bg.jpg) 0 0 no-repeat; }
+body.profession-index #content .content-top { background: url(/Templates/FreedomCore/images/wiki/profession/index-bg.jpg) 0 0 no-repeat; }
+
+/* wiki */
+.wiki.directory .title { padding-bottom: 30px; }
+
+.wiki .grid { background: #211309 url(/Templates/FreedomCore/images/wiki/profession/index-thumbs.jpg) 0 0 no-repeat; }
+.wiki .grid:hover { background-color: #2e1a0c; }
+.wiki .grid.alchemy { background-position: 0 -15px; }
+.wiki .grid.blacksmithing { background-position: 0 -180px; }
+.wiki .grid.enchanting { background-position: 0 -360px; }
+.wiki .grid.engineering { background-position: 0 -540px; }
+.wiki .grid.herbalism { background-position: 0 -720px; }
+.wiki .grid.inscription { background-position: 0 -900px; }
+.wiki .grid.jewelcrafting { background-position: 0 -1095px; }
+.wiki .grid.leatherworking { background-position: 0 -1260px; }
+.wiki .grid.mining { background-position: 0 -1455px; }
+.wiki .grid.skinning { background-position: 0 -1620px; }
+.wiki .grid.tailoring { background-position: 0 -1800px; }
+.wiki .grid.archaeology { background-position: 0 -1980px; }
+.wiki .grid.cooking { background-position: 0 -2160px; }
+.wiki .grid.first-aid { background-position: 0 -2340px; }
+.wiki .grid.fishing { background-position: 0 -2520px; }
+.wiki .grid.alchemy:hover { background-position: -460px -15px; }
+.wiki .grid.blacksmithing:hover { background-position: -460px -180px; }
+.wiki .grid.enchanting:hover { background-position: -460px -360px; }
+.wiki .grid.engineering:hover { background-position: -460px -540px; }
+.wiki .grid.herbalism:hover { background-position: -460px -720px; }
+.wiki .grid.inscription:hover { background-position: -460px -900px; }
+.wiki .grid.jewelcrafting:hover { background-position: -460px -1095px; }
+.wiki .grid.leatherworking:hover { background-position: -460px -1260px; }
+.wiki .grid.mining:hover { background-position: -460px -1455px; }
+.wiki .grid.skinning:hover { background-position: -460px -1620px; }
+.wiki .grid.tailoring:hover { background-position: -460px -1800px; }
+.wiki .grid.archaeology:hover { background-position: -460px -1980px; }
+.wiki .grid.cooking:hover { background-position: -460px -2160px; }
+.wiki .grid.first-aid:hover { background-position: -460px -2340px; }
+.wiki .grid.fishing:hover { background-position: -460px -2520px; }
+
+.wiki .title h2 { position: relative; display: inline-block; }
+.wiki .title h2 .icon-frame { position: absolute; bottom: -10px; right: -80px; }
+.wiki .expansion-name { display: block; }
+
+/* perks */
+.wiki .perks li { margin-bottom: 15px; position: relative; padding-left: 20px; color: #b79855; }
+.wiki .perks li strong { display: block; color: #EFE3D2; }
+.wiki .perks li .frame-14 { position: absolute; left: -7px; top: 1px; }
+
+/* related profession */
+.related-professions a { display: block; margin-top: 30px; padding-left: 75px; position: relative; }
+.related-professions a:first-child { margin-top: 15px; }
+.related-professions a strong { display: block; }
+.related-professions a span { color: #B79855; }
+.related-professions a .frame-56 { position: absolute; top: 0; left: 0; }
+
+/* how to craft */
+.how-to li { padding-top: 20px; }
+.how-to li strong { color: #EFE3D2; }
+.how-to li .thumbnail { float: left; margin-right: 15px; border: 1px solid #6a3c24; }
+.how-to li .thumbnail img { vertical-align: top; }
+
+.recipe-multiskillup { float: right; cursor: help; color: #FF8040; }
+.recipe-multiskillup .icon { padding-left: 10px; background: url(/Templates/FreedomCore/images/icons/skillup.gif) no-repeat -20px center; margin-left: 5px; }

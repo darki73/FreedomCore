@@ -1,0 +1,208 @@
+Warrior_Description_Classes  = 
+Warrior_Description_Personal_Header  = 
+Warrior_Description_Personal_Top  = 
+Warrior_Description_Personal  = 
+Warrior_First_Spec_Title  = 
+Warrior_Second_Spec_Title  = 
+Warrior_Third_Spec_Title  = 
+
+
+Paladin_Description_Classes  = 
+Paladin_Description_Personal_Header  = 
+Paladin_Description_Personal_Top  = 
+Paladin_Description_Personal  = 
+Paladin_First_Spec_Title  = 
+Paladin_Second_Spec_Title  = 
+Paladin_Third_Spec_Title  = 
+
+Hunter_Description_Classes  = 
+Hunter_Description_Personal_Header  = 
+Hunter_Description_Personal_Top  = 
+Hunter_Description_Personal  = 
+Hunter_First_Spec_Title  = 
+Hunter_Second_Spec_Title  = 
+Hunter_Third_Spec_Title  = 
+
+Rogue_Description_Classes  = 
+Rogue_Description_Personal_Header  = 
+Rogue_Description_Personal_Top  = 
+Rogue_Description_Personal  = 
+Rogue_First_Spec_Title  = 
+Rogue_Second_Spec_Title  = 
+Rogue_Third_Spec_Title  = 
+
+Priest_Description_Classes  = 
+Priest_Description_Personal_Header  = 
+Priest_Description_Personal_Top  = 
+Priest_Description_Personal  = 
+Priest_First_Spec_Title  = 
+Priest_Second_Spec_Title  = 
+Priest_Third_Spec_Title  = 
+
+Death_knight_Description_Classes  = 
+Death_knight_Description_Personal_Header  = 
+Death_knight_Description_Personal_Top  = 
+Death_knight_Description_Personal  = 
+Death_Knight_First_Spec_Title  = 
+Death_Knight_Second_Spec_Title  = 
+Death_Knight_Third_Spec_Title  = 
+
+Shaman_Description_Classes  = 
+Shaman_Description_Personal_Header  = 
+Shaman_Description_Personal_Top  = 
+Shaman_Description_Personal  = 
+Shaman_First_Spec_Title  = 
+Shaman_Second_Spec_Title  = 
+Shaman_Third_Spec_Title  = 
+
+Mage_Description_Classes  = 
+Mage_Description_Personal_Header  = 
+Mage_Description_Personal_Top  = 
+Mage_Description_Personal  = 
+Mage_First_Spec_Title  = 
+Mage_Second_Spec_Title  = 
+Mage_Third_Spec_Title  = 
+
+Warlock_Description_Classes  = 
+Warlock_Description_Personal_Header  = 
+Warlock_Description_Personal_Top  = 
+Warlock_Description_Personal  = 
+Warlock_First_Spec_Title  = 
+Warlock_Second_Spec_Title  = 
+Warlock_Third_Spec_Title  = 
+
+Monk_Description_Classes  = 
+Monk_Description_Personal_Header  = 
+Monk_Description_Personal_Top  = 
+Monk_Description_Personal  = 
+Monk_First_Spec_Title  = 
+Monk_Second_Spec_Title  = 
+Monk_Third_Spec_Title  = 
+
+Druid_Description_Classes  = 
+Druid_Description_Personal_Header  = 
+Druid_Description_Personal_Top  = 
+Druid_Description_Personal  = 
+Druid_First_Spec_Title  = 
+Druid_Second_Spec_Title  = 
+Druid_Third_Spec_Title  = 
+Druid_Forth_Spec_Title  = 
+
+
+Damage_Type_Melee  = 
+Damage_Type_Ranged_Physical  = 
+Damage_Type_Ranged_Arcane  = 
+
+Class_Role_Tank  = 
+Class_Role_Healer  = 
+Class_Role_DPS  = 
+Class_Indicator_Health  = 
+Class_Indicator_Mana  = 
+Class_Indicator_Rage  = 
+Class_Indicator_Concentration  = 
+Class_Indicator_Energy  = 
+Class_Indicator_Runes  = 
+Class_Indicator_Monk  = 
+Class_Indicator_Druid  = 
+Class_Talent_Specialization  = 
+
+#Abilities
+
+Warrior_First_Ability_Title  = 
+Warrior_First_Ability_Description  = 
+Warrior_Second_Ability_Title  = 
+Warrior_Second_Ability_Description  = 
+Warrior_Third_Ability_Title  = 
+Warrior_Third_Ability_Description  = 
+Warrior_Forth_Ability_Title  = 
+Warrior_Forth_Ability_Description  = 
+
+Paladin_First_Ability_Title  = 
+Paladin_First_Ability_Description  = 
+Paladin_Second_Ability_Title  = 
+Paladin_Second_Ability_Description  = 
+Paladin_Third_Ability_Title  = 
+Paladin_Third_Ability_Description  = 
+Paladin_Forth_Ability_Title  = 
+Paladin_Forth_Ability_Description  = 
+
+Hunter_First_Ability_Title  = 
+Hunter_First_Ability_Description  = 
+Hunter_Second_Ability_Title  = 
+Hunter_Second_Ability_Description  = 
+Hunter_Third_Ability_Title  = 
+Hunter_Third_Ability_Description  = 
+Hunter_Forth_Ability_Title  = 
+Hunter_Forth_Ability_Description  = 
+
+Rogue_First_Ability_Title  = 
+Rogue_First_Ability_Description  = 
+Rogue_Second_Ability_Title  = 
+Rogue_Second_Ability_Description  = 
+Rogue_Third_Ability_Title  = 
+Rogue_Third_Ability_Description  = 
+Rogue_Forth_Ability_Title  = 
+Rogue_Forth_Ability_Description  = 
+
+Priest_First_Ability_Title  = 
+Priest_First_Ability_Description  = 
+Priest_Second_Ability_Title  = 
+Priest_Second_Ability_Description  = 
+Priest_Third_Ability_Title  = 
+Priest_Third_Ability_Description  = 
+Priest_Forth_Ability_Title  = 
+Priest_Forth_Ability_Description  = 
+
+Death_Knight_First_Ability_Title  = 
+Death_Knight_First_Ability_Description  = 
+Death_Knight_Second_Ability_Title  = 
+Death_Knight_Second_Ability_Description  = 
+Death_Knight_Third_Ability_Title  = 
+Death_Knight_Third_Ability_Description  = 
+Death_Knight_Forth_Ability_Title  = 
+Death_Knight_Forth_Ability_Description  = 
+
+Shaman_First_Ability_Title  = 
+Shaman_First_Ability_Description  = 
+Shaman_Second_Ability_Title  = 
+Shaman_Second_Ability_Description  = 
+Shaman_Third_Ability_Title  = 
+Shaman_Third_Ability_Description  = 
+Shaman_Forth_Ability_Title  = 
+Shaman_Forth_Ability_Description  = 
+
+Mage_First_Ability_Title  = 
+Mage_First_Ability_Description  = 
+Mage_Second_Ability_Title  = 
+Mage_Second_Ability_Description  = 
+Mage_Third_Ability_Title  = 
+Mage_Third_Ability_Description  = 
+Mage_Forth_Ability_Title  = 
+Mage_Forth_Ability_Description  = 
+
+Warlock_First_Ability_Title  = 
+Warlock_First_Ability_Description  = 
+Warlock_Second_Ability_Title  = 
+Warlock_Second_Ability_Description  = 
+Warlock_Third_Ability_Title  = 
+Warlock_Third_Ability_Description  = 
+Warlock_Forth_Ability_Title  = 
+Warlock_Forth_Ability_Description  = 
+
+Monk_First_Ability_Title  = 
+Monk_First_Ability_Description  = 
+Monk_Second_Ability_Title  = 
+Monk_Second_Ability_Description  = 
+Monk_Third_Ability_Title  = 
+Monk_Third_Ability_Description  = 
+Monk_Forth_Ability_Title  = 
+Monk_Forth_Ability_Description  = 
+
+Druid_First_Ability_Title  = 
+Druid_First_Ability_Description  = 
+Druid_Second_Ability_Title  = 
+Druid_Second_Ability_Description  = 
+Druid_Third_Ability_Title  = 
+Druid_Third_Ability_Description  = 
+Druid_Forth_Ability_Title  = 
+Druid_Forth_Ability_Description  = 

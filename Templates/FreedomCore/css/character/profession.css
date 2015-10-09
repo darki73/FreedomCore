@@ -1,0 +1,37 @@
+.profile-section,
+.profile-contents { padding: 0; }
+.profile-section { background-image: url(/Templates/FreedomCore/images/profile/section-bg-tabs.png); }
+.profile-filters .tabs { padding: 0; }
+.profile-filters { padding: 15px; width: 730px; }
+
+#professions { display: none; }
+#profession-loading { height: 200px; background: url(/Templates/FreedomCore/images/loaders/canvas-loader.gif) no-repeat center center; }
+
+.profession-rank { float: right; color: #fff; margin-right: 5px; }
+.profession-rank,
+.profession-rank .profession-details { width: 250px; }
+.profession-rank .icon { margin: 3px 0 0 4px; }
+.profession-rank .name { font-size: 11px; margin-left: 5px; }
+.profession-rank .value { padding-right: 6px; font-family:"Arial Black", Arial, sans-serif; font-weight:900; float: right !important; }
+.profession-rank .profile-progress { background: url(/Templates/FreedomCore/images/character/summary/professions-bar-bg.png) repeat-x scroll 0 0 #462414; }
+.profession-rank .profession-details { text-shadow: 1px 1px 1px #000000; }
+.profession-rank .profession-details span { float: left; color: #fff; }
+
+.data-options.table-top { background: none; }
+.data-options.table-top .ui-pagination a { background: #170b07; }
+.data-options.table-top .ui-pagination a:hover { background: #4e2f1b; }
+.data-options.table-top .ui-pagination li.current a { background: #FFAE00; }
+
+.no-profession { text-align: center; color: #b79855; padding: 75px 100px; font-size: 16px; background: url(/Templates/FreedomCore/images/character/auction/bg-error.jpg) 0 0 no-repeat; }
+.no-profession h2 { color: #fff1af; font: normal 80px Palatino, Georgia, Times, serif; }
+.no-profession p { margin: 25px 0; }
+
+.recipe-skill { margin: 0 15px; } /* room for skill up chance square */
+.recipe-skillup { float: right; position: relative; width: 1px; height: 1px; zoom: 1; }
+.recipe-skillup .square { display: inline-block; width: 9px; height: 9px; position: absolute; right: 3px; top: 5px; cursor: help;
+	-moz-border-radius: 1px; -webkit-border-radius: 1px; border-radius: 1px; }
+
+.ie6 .recipe-skillup .square { overflow: hidden; }
+.ie6 .no-profession { height: 500px; }
+.ie6 #professions .fansite-link { display: none; }
+.ie67 .recipe-multiskillup .icon { zoom: 1; }

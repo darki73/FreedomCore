@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+#navigation #page-menu h2 { font-size: 18px; letter-spacing: -1px; line-height: 30px; margin-top: 7px;}
+#navigation #page-menu li { margin-right: 6px; }
+#navigation #page-menu li a { padding: 10px 10px; }
+#navigation #page-menu li .menu-arrow { background-position: 100% 0px; }
+#navigation #page-menu li .menu-arrow:hover { background-position: 100% -41px; }
+/*lobby*/
+#game-list-wow #freeWow .account-link { width:200px; padding-top:0 }
+
+.button-container { position:absolute; width:350px; height:32px; top:835px; left:281px}
+
+#age-gate-select .ui-button span { padding: 0 0 0 14px; }
+#age-gate-select .ui-button span span { padding: 0 14px 0 0; }
+
+.security-details .authenticator { height: 280px; }
+
+.mop-pending { height:auto; line-height:16px; }
+
+.dashboard .account-management { min-height:438px; }
+.hs .account-management { min-height: 0; }
+
+.item-price { width:70px; }
+
+#add-game { font-size:14px; }
+
+.dashboard.hots .account-management { min-height: 460px; }
+
+/* payment success page */
+.product-action-description { width: 320px; }
+
+/* transaction history */
+#order-history td { padding: 10px 5px; }
+
+/* fcm realm-selection */
+.service-interior .form-row label.label-full { width: 50%; }
+
+/* wallet */
+.wallet-container .info-section dt { line-height: 12px; }
+
+/* support */
+.cant-login-options li a span { text-transform: none; font-size: 16px; }
+.form-row label.sms-number { letter-spacing: -.5px; font-size: 13px; }

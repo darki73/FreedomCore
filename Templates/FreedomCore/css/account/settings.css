@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+/* two-column layout */
+.settings-content { margin: 30px 0 0 0; padding: 8px 0; min-height: 280px; background: url('/Templates/FreedomCore/images/layout/bg-columns-2-1.png') no-repeat 658px 0; background-size: 313px 100%; }
+
+/* settings form overrides */
+.page-content form { margin: 0; }
+.input-row-note,
+.input-row-note-top { margin-left: 240px; }
+.input-note-arrow-submit { left: 8px; }
+.payment-note { padding-left: 192px; }
+.input-left,
+.form-row.alt-captcha label { width: 240px; }
+.input-right { width: 370px; max-width: 370px; }
+.form-row.alt-captcha .form-right { width: 330px; }
+.input-row-radio .label-text,
+.input-row-checkbox .label-text { max-width: 330px; }
+.input-row-text .label-text { max-width: 220px; }
+
+/* change e-mail */
+.settings-content .email-entry { padding: 0 30px 0 0; }
+
+.settings-content .email-information { padding-left: 30px; }
+.settings-content .email-information .caption { margin: 0 0 1em 0; line-height: 1.25; }
+
+/* change password */
+.settings-content .password-entry { padding: 0 30px 0 0; }
+
+.settings-content .password-requirements { padding-left: 30px; }
+.settings-content .password-requirements .caption { margin: 0 0 1em 0; line-height: 1.25; }
+.settings-content .password-requirements .password-level { margin: 0 0 1em 0; }
+
+.settings-content .password-result { display: block; font: normal 12px/16px "Lucida Sans Unicode","Lucida Grande", "Arial", sans-serif; }
+.settings-content .password-rating { display: block; height: 10px; margin: 6px 0 0 0; background: #bfbfbf; }
+.settings-content .password-rating .rating { display: block; height: 10px; width: 0; }
+.settings-content .password-rating .rating-default { width: 0; }
+.settings-content .password-rating .rating-short { width: 25%; background: #8c8c8c; }
+.settings-content .password-rating .rating-weak { width: 50%; background: #ff0000; }
+.settings-content .password-rating .rating-fair { width: 75%; background: #ffc000; }
+.settings-content .password-rating .rating-strong { width: 100%; background: #00b050; }
+
+.settings-content .password-level { line-height: 16px; margin: 0 0 2px 0; font-size: 11px; }
+.settings-content .password-level .icon-16 { background-position: -160px -96px; vertical-align: top; }
+.settings-content .password-level li.pass .icon-16 { background-position: -176px -96px; }
+.settings-content .password-level li.fail .icon-16 { background-position: -160px -112px; }
+.settings-content .password-level li .icon-16-label { width: 270px; padding-left: 4px;  }
+.settings-content .password-level li.fail .icon-16-label { color: #730202; }
+.settings-content .password-result strong.fail { color: #730202; }
+
+/* legacy */
+
+p.info-message { padding-left: 36px; padding-top: 6px; font-size: 11px; }
+p.info-message.disabled { color: #80807f; }
+.section-box .disabled,
+.section-box .disabled .caption { color: #80807f; }

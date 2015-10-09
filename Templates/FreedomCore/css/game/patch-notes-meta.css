@@ -1,0 +1,104 @@
+/* Patch Page Meta Styles (menus, backgrounds, etc) */
+.ui-breadcrumb { position: absolute; z-index: 5; }
+
+.patch-main-menu { float:left; width:225px; margin-bottom:60px; }
+.patch-main-menu .wrapper { width:232px; min-height:904px; }
+.patch-main-menu .wrapper #patchlist { width:232px; padding-top:34px; }
+.patch-main-menu .wrapper #patchlist ul { width:204px; margin:0 auto; }
+.patch-main-menu .wrapper #patchlist ul li { clear:both; }
+.patch-main-menu .wrapper #patchlist ul li a { display:block; width:204px; padding:13px 0; }
+.patch-main-menu .wrapper #patchlist ul li a span { display:block; }
+.patch-main-menu .wrapper #patchlist ul li a span span { margin-top:8px; text-transform:none; }
+.patch-main-menu .wrapper #patchlist .patch-thumb { float:left; width:45px; height:45px; margin:0 11px 0 10px; }
+.patch-main-menu .wrapper #patchlist .patch-version { font-size:11px; padding-right: 5px; line-height:13px; text-transform:uppercase; margin-top:0px; float:right; width:130px; }
+.patch-main-menu .wrapper #patchlist .patch-title { font-size:13px; line-height:18px; }
+
+.patch-contents {float:left; width:738px; margin-left:24px; }
+h2.patch-title { position: relative; z-index: 5; margin-top:40px; display:block; }
+.ko-kr .patch-title { font-family: Kodia; }
+.patch-sub-title { position: relative; z-index: 5; margin: 10px 0 40px 0; display: block; font-size: 20px; }
+.subpatches-nav { min-height:25px; margin:44px 25px 25px 0; padding:7px;}
+.subpatches-nav li { display:inline-block; height:25px; }
+.subpatches-nav a { line-height:25px; height:25px; font-size:12px; padding:0 14px; display:block; float:left; }
+.subpatches-nav a.current-view { font-weight: bold; }
+
+/* Patch Contents Styles (overviews, bullets, etc) */
+.patch-overview { margin: 0 25px 80px 0; }
+.patch-overview .subpatch-title { position: relative; z-index: 5; font-weight: normal; font-size:24px; display:block; margin-top:45px;}
+.patch-overview .subpatch-title em { display:inline-block; margin-left:11px; }
+.patch-overview .patch-desc { margin-top: 25px; font-size:12px; line-height:22px; }
+.patch-overview .patch-desc p { margin-bottom: 20px; } 
+.patch-media { max-width:280px; float:right;  margin-left: 10px; margin-top: 25px; }
+.patch-media .media-div { width: 241px; float:right; }
+.patch-contents .join-ptr-box { margin: 0 0 20px 20px; }
+.patch-contents .join-ptr-box .join-ptr-title { padding: 15px 15px 5px 15px; font-size: 13px; text-transform: uppercase; }
+.patch-contents .join-ptr-box .join-ptr-message { padding: 0 15px ;  margin: 10px 0; }
+.patch-contents .join-ptr-box .patch-notes-link { display: block; text-transform: uppercase; font-size: 11px; margin-top: 5px; padding: 10px 10px; }
+.patch-contents #under-dev-ptr { margin: 8px auto 15px auto; }
+
+/* Media blocks (content) */
+.media-link {display:block; width:240px; font-size:12px; line-height:25px; height:20px; margin-bottom:49px; padding-left:27px; }
+.media-thumbnail, .media-thumbnail span { width:220px; height:129px; display:block; }
+
+/* Table of Contents */
+.table-of-contents { padding: 15px 20px; clear: both; margin: 8px 20px 10px 0; width: 150px; float: left; }
+.table-of-contents .toc-header { font-size: 13px; text-transform: uppercase; margin-bottom: 15px; }
+.table-of-contents .toc-link { display: block; margin: 7px 0 }
+
+/* Feeature blocks (content) */
+.patch-feature  { margin: 30px 0; }
+.patch-feature .feature-main-title { margin-bottom:38px; display:block; }
+.patch-feature .feature-block { width:710px; clear:both; margin:0 auto; padding-bottom:35px; }
+.patch-feature .feature-block .feature-title { font-size:17px; line-height:19px; width:437px; height:30px; display:inline-block; }
+.patch-feature .feature-block .feature-desc { font-size:12px; line-height:22px; }
+.patch-feature .feature-block .feature-desc p { margin: 0 0 10px 0; position: relative; z-index: 5; }
+.patch-feature .left-txt .feature-title, 
+.patch-feature .left-txt .feature-desc {float:left;}
+.patch-feature .left-txt .media-frame { float: right; }
+.patch-feature .right-txt .feature-title, 
+.patch-feature .right-txt .feature-desc {float:right;}
+.patch-feature .right-txt .media-frame { float: left; }
+.patch-feature .no-thumbnail .feature-title, .patch-feature .no-thumbnail .feature-desc {width:100%;}
+.patch-feature .feature-block { overflow: hidden; padding: 0 28px 50px 0; margin-top: 0px; }
+.patch-feature .feature-block ul  { margin: 10px 25px; }
+.patch-feature .feature-block ul li { padding-left: 15px; }
+.patch-feature .feature-block h3 { position: relative; z-index: 2; padding-bottom: 10px; margin-bottom: 15px; font-size: 18px; font-weight: normal; }
+.patch-feature .feature-block h3 .top-link { right: 0; position: absolute; font-size: 11px; margin-top: 7px; background: url(/Templates/FreedomCore/images/icons/flyout-arrows.gif) no-repeat 0 -54px; padding-left: 18px;}
+.patch-feature .feature-block h4 { font-weight: normal; margin: 20px 0 0 0; }
+.patch-feature .feature-block .feature-background { width: 300px; height: 375px; float: right; }
+.patch-feature .feature-links { width: 450px; font-size: 12px; margin-top: 20px; }
+.patch-feature .feature-links h6 { font-weight: normal; text-transform: uppercase; font-size: 11px; }
+.patch-feature .feature-links ul { margin: 0; }
+.patch-feature .feature-links ul li { margin: 1px 0; padding-left: 15px; }
+.patch-feature .feature-block .feature-image { position: relative; z-index: 7; }
+.patch-feature .feature-block .feature-image.gallery:hover { cursor: pointer; }
+.patch-feature .feature-block .feature-image.float-left { margin: 5px 20px 5px 0; }
+.patch-feature .feature-block .feature-image.float-right { margin: 5px 0 5px 20px; }
+.patch-feature .feature-block .feature-thumbnail { display:block; width: 220px; height: 129px;}
+.patch-feature .feature-block .feature-thumbnail .view { display: block; height: 40px; width: 60px; position: relative; top: -16px; float:right; margin-right: -10px; }
+
+/* Sub-Patchnote content (like 1.6.2, a non-overview) */
+.sub-patchnotes { clear: both; width:713px; }
+.sub-patchnotes .sub-patches { padding: 15px 20px; }
+.sub-patchnotes .sub-patches .subpatch-title { font-size:24px; display:inline-block; margin:8px 0px 15px 0; font-weight: normal; }
+.sub-patchnotes .sub-patches .subpatch-title em { font:normal 12px Arial, Serif; display:inline-block; margin-left: 11px; }
+.sub-patchnotes .sub-patches p { margin:0 0 30px 0; }
+.sub-patchnotes .sub-patches strong, .sub-patchnotes .sub-patches b { text-transform: uppercase; font-size: 14px; display: block; }
+.sub-patchnotes .sub-patches ul strong, .sub-patchnotes .sub-patches ul b { text-transform:none; display:inline; font-size:12px; }
+.sub-patchnotes .sub-patches a, .sub-patchnotes .sub-patches u { text-decoration:none; }
+.sub-patchnotes .sub-patches ul { list-style-type:disc; margin:10px 0 10px 25px; }
+.sub-patchnotes .sub-patches ul li { font-size:12px; line-height:22px;}
+.sub-patchnotes .sub-patches ul li  ul li { padding-left:0; }
+.game-patchnotes-ptr .sub-patchnotes .sub-patches { padding: 0; }
+
+/* Preview Page Styles */
+.preview-name { margin-top:155px; font:normal 42px/45px Palatino Linotype,Sans-serif; letter-spacing:-1px; display:block }
+
+/* Custom patch note pages styles */
+.preview-page .feature-block .description { font-size: 16px; line-height: 28px; }
+.preview-page .feature-block { margin: auto; }
+.preview-page .feature-block label { text-transform: uppercase; font-size: 11px; }
+.preview-page .feature-box { overflow: hidden; margin: 10px 20px 10px 0; padding: 15px; width: 395px; }
+.feature-box em { font-style: normal; }
+.preview-page .feature-box ul { margin: 0 0 0 2px; }
+.preview-page .feature-box .feature-image .float-left { margin-right: 0; }

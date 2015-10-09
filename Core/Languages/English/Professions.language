@@ -1,0 +1,50 @@
+Game_Professions_Header_Description = Crafters who set out to master a profession discover skills every bit as valuable as swordplay or spellcraft. They can create weapons, tools and magic potions, bandage wounds, harvest precious materials, inscribe ancient runes of power, and more. Of course, truly canny professionals think bigger than outfitting themselves. When they’re not supplementing their own arsenal, they’ll be making a profit supplementing someone else’s.
+Game_Professions_Alchemy_Description = Alchemists use herbs to create strange, magical brews that heal, empower, and produce a variety of positive effects - invisibility, elemental resistance, mana restoration, and much, much more.
+Game_Professions_Mining_Description = Miners pursue valuable and useful ores, extracting them straight from the earth with their picks.
+Game_Professions_Engineering_Description = Engineers take advantage of their inventiveness to create an immense (and occasionally random) variety of helpful items.
+Game_Professions_Leatherworking_Description = Leatherworkers take the rough, spiny or sturdy hides of beasts everywhere and turn them into useful products.
+Game_Professions_Blacksmithing_Description = Blacksmiths utilize their expertise with hammer and anvil to craft deadly weapons, heavy suits of mail and plate armor, and other, more specialized items.
+Game_Professions_Enchanting_Description = Enchanters disenchant surplus magical items - and use the residue to permanently augment equipment of their choosing.
+Game_Professions_Inscription_Description = Scribes weave words of power into glyphs that can improve heroes' skills and abilities, and add special effects not possible by normal means.
+Game_Professions_Tailoring_Description = Tailors take simple cloth and weave wonders out of it; cloth armor and robes, shirts, bags and other creations are the purview of the tailor.
+Game_Professions_Skinning_Description = Skinners ensure that nothing goes to waste by removing the hides of dead beasts and amassing piles of fur and leather.
+Game_Professions_Herbalism_Description = Herbalists carefully harvest the helpful and potent herbs found throughout the world.
+Game_Professions_Jewelcrafting_Description = Jewelcrafters unlock the surprising power in precious stones, creating potent jewelry and trinkets.
+Game_Professions_Archaeology_Description = Archaeologists search the world - and places beyond - for mysterious remnants of the past.
+Game_Professions_Cooking_Description = Cooks experiment with strange and wondrous ingredients gathered from the far corners of Azeroth.
+Game_Professions_First_Aid_Description = Physicians save lives in the dangerous world of Azeroth by using bandages and antidotes to heal injuries and remove poisons.
+Game_Professions_Fishing_Description = Fishers relax and feed themselves by catching the bounty of Azeroth's lakes and seas.
+
+Game_Professions_Alchemy_Description_Full = Alchemists use herbs to create strange, magical brews that heal, empower, and produce a variety of positive effects - invisibility, elemental resistance, mana restoration, and much, much more. They can also transmute mystic materials into rare and exotic new forms. With their power to create valuable consumables (one-use items), Alchemists are highly useful to groups and raids. By creating rare materials, Alchemists can make a great deal of money, enable the creation of powerful weapons and armor, and even influence the economy of Azeroth!
+
+Game_Professions_Mining_Description_Full = Miners pursue valuable and useful ores, extracting them straight from the earth with their picks. Their familiarity with the land gives them a strong notion of where rich veins of gold, silver or even more precious metals can be found, and they retrieve and smelt these minerals for profit, or for use in metalworking of all types.
+
+Game_Professions_Engineering_Description_Full = Enchanters disenchant surplus magical items - and use the residue to permanently augment equipment of their choosing. With the right incantations and materials, an enchanter can add bonuses to their armor or weapons, making them stronger, faster, or more resilient (among a host of other mystic powers). Canny enchanters sell their unique services to other heroes, and command prices commensurate with the rarity of the work they produce.
+
+Game_Professions_Leatherworking_Description_Full = Leatherworkers take the rough, spiny or sturdy hides of beasts everywhere and turn them into useful products. First and foremost among these creations are lighter armors - leather and mail - as well as cloaks, bags, and unique patches and stitching that improve the defensive values of armor. The craft of Leatherworking is useful to those who want to outfit themselves and others with suitable armors, as well as those who want to proft from selling their rare creations.
+
+Game_Professions_Blacksmithing_Description_Full = Blacksmiths utilize their expertise with hammer and anvil to craft deadly weapons, heavy suits of mail and plate armor, and other, more specialized items. Talented Blacksmiths can also modify their own equipment by adding sockets for magical gems. The gear that they make allows Blacksmiths (particularly those that equip heavy armor) to outfit themselves, equip party members or guildmates, and sell their craftsmanship via the auction house.
+
+Game_Professions_Enchanting_Description_Full = Enchanters disenchant surplus magical items - and use the residue to permanently augment equipment of their choosing. With the right incantations and materials, an enchanter can add bonuses to their armor or weapons, making them stronger, faster, or more resilient (among a host of other mystic powers). Canny enchanters sell their unique services to other heroes, and command prices commensurate with the rarity of the work they produce.
+
+Game_Professions_Inscription_Description_Full = Scribes weave words of power into glyphs that can improve heroes' skills and abilities, and add special effects not possible by normal means. By transferring their powers into ink, scribes can also create consumable scrolls, mystic tomes, and pieces of vellum that allow enchantments to be passed between adventurers. Like Enchanting, Inscription can help veteran adventurers further improve themselves - but inscriptions focus on augmenting class powers, not equipment.
+
+Game_Professions_Tailoring_Description_Full = Tailors take simple cloth and weave wonders out of it; cloth armor and robes, shirts, bags and other creations are the purview of the tailor. The benefits are diverse - lightly armored classes can wear mystic robes, all types of heroes can benefit from a variety of bags, and everyone can appreciate the decorative shirts and outfits springing from the tailor's loom.
+
+Game_Professions_Skinning_Description_Full = Skinners ensure that nothing goes to waste by removing the hides of dead beasts and amassing piles of fur and leather. Skinning is a straightforward, convenient profession for those already engaged in hunting animals, but it's highly useful, too. Exotic leathers (such as dragonskin) can command high prices, and they are critical to leatherworking plans, as well as some of the recipes of other professions.
+
+Game_Professions_Herbalism_Description_Full = Herbalists carefully harvest the helpful and potent herbs found throughout the world. As they travel, herbalists use their keen senses to seek out the rarest and most precious flora, which can be transformed by other professions' mystic recipes. Herbalists can supply themselves (or their guilds or groups) with an abundant quantity of reagents to aid in their crafting, or they can sell or trade bundles of herbs for a profit.
+
+Game_Professions_Jewelcrafting_Description_Full = Jewelcrafters unlock the surprising power in precious stones, creating potent jewelry and trinkets. They craft rings, amulets, and other objects of known mystical power, but they also cut gems to fit in socketed items like weapons and pieces of armor, granting those pieces of equipment unique properties. A talented Jewelcrafter can count on a demand for their services in crafting special items, improving equipment, and shaping rare gems.
+
+Game_Professions_Archaeology_Description_Full = Archaeologists search the world - and places beyond - for mysterious remnants of the past. Their digs unearth all manner of artifacts, and a persistent archaeologist will research commonplace historical items alongside rare and powerful relics.
+
+Game_Professions_Cooking_Description_Full = Cooks experiment with strange and wondrous ingredients gathered from the far corners of Azeroth. A dedicated chef is able to turn mundane ingredients, recently caught fish or leftover animal meat into a delectable and nutritious meal. Ambitious cooks can even create massive feasts to sate the hunger of entire adventuring parties. Food made with cooking speeds health recovery, and some foods provide long-term buffs to heroes with full bellies.
+
+Game_Professions_First_Aid_Description_Full = Physicians save lives in the dangerous world of Azeroth by using bandages and antidotes to heal injuries and remove poisons. By turning cloth of varying quality into potent medical supplies, they can quickly get wounded heroes back into a fight, supplementing (but not replacing) magical means of healing.
+
+Game_Professions_Fishing_Description_Full = Fishers relax and feed themselves by catching the bounty of Azeroth's lakes and seas. Careful bait selection and patience can result in some truly rewarding hauls, from seafaring delicacies that restore heroes' health or enhance their attributes to waterlogged flotsam like cases and trunks. Fishing can even yield rare reagents and items lost at the bottom of the ocean or swallowed up by sea creatures!
+
+Game_Professions_Primary = Primary
+Game_Professions_Secondary = Secondary
+Game_Professions_ =

@@ -1,0 +1,88 @@
+
+#order-history { width: 100%; border-collapse: collapse; }
+#order-history-notover { width: 100%; border-collapse: collapse; }
+#order-history th,#order-history-notover th { text-transform: uppercase; padding: 10px; font-weight: normal; background: url("/Templates/FreedomCore/images/layout/shadow-small-top.gif") 0 100% repeat-x; }
+#order-history td { padding: 10px; border-top: 1px solid #c1bfbc; cursor: pointer; }
+#order-history tr.non-pointer td { cursor: default; }
+#order-history-notover td { padding: 10px; border-top: 1px solid #c1bfbc; }
+#order-history .alt-row td,#order-history-notover { background: #d6d4d1; }
+#order-history .child-row td, #order-history-notover .child-row td { border: none; }
+#order-history .parent-row:hover td,
+#order-history .parent-row:hover td,
+#order-history .row-hover td { background: #e1e0de; }
+#order-history .row-hover.chargeback td,
+#order-history .chargeback:hover td { background: #c5b3b1; }
+
+#order-history .chargeback td { color: #944a4a; }
+#order-history .empty-history, #order-history-notover .empty-history { padding: 50px; text-align: center; font-size: 18px; font-weight: bold; }
+
+#order-paging { height: 25px; padding: 20px; text-align: right; background: url("/Templates/FreedomCore/images/layout/shadow-large-bot.gif") 0 0 repeat-x; }
+#order-paging ul { float: right; }
+
+#order-history .help-link-right{padding-left:0;}
+.invoice-box .help-link-right{padding-left:0;}
+.invoice-box .chargeback{color:#944A4A;}
+
+.service-nav div.number{display:inline; margin:0 4px; padding:0 4px; background:#92300f; color:#ebd6ce; font-size:11px; line-height:14px;}
+
+.order-controls { margin-top:0; padding-bottom: 40px; }
+.order-date { float: left; }
+.order-date .inline-message { display: none; }
+.order-date input,
+.order-date select { vertical-align: middle; }
+.flex-range { font-size: 14px; font-weight: bold; color: #0072a3; height: 34px; line-height: 34px; }
+.flex-range #dateRangeCal { display: inline-block; height: 34px; line-height: 34px; }
+.flex-range .disabled { color: #A4A4A4; }
+.flex-range input { padding: 0; height: 16px; }
+.flex-range .input-text { padding: 0 4px; }
+.order-date #fromShow,
+.order-date #toShow { padding-right: 10px; width: 94px; height: 32px; font-size: 14px; color: #0072a3; line-height: 32px; border: 0; text-align: center; box-shadow: 0 0 0 #d2d1cd; cursor: pointer; background: #d2d1cd url("/Templates/FreedomCore/images/icons/calendar.2LR5n.gif") right center no-repeat; }
+.order-region { float: right; }
+
+.order-region label { float: left; display: block; margin: 0 10px; font-weight: bold; padding-top: 7px; }
+
+#invoice-meta { border-top: 1px solid #c1bfbc; padding: 10px 0; }
+.flex-range { margin: 0 10px 0 0; }
+
+.invoice { width: 100%; border-collapse: collapse; }
+.invoice th { text-transform: uppercase; padding: 10px; font-weight: normal; background: url("/Templates/FreedomCore/images/layout/shadow-small-top.gif") 0 100% repeat-x; }
+.invoice th.invoice-type { font-weight: bold; padding: 0 10px; font-size: 16px; text-align: left; color: #363636; }
+.invoice .item-info td { padding: 10px; border-top: 1px solid #c1bfbc; background: #e1e0de; }
+.invoice .invoice-info td { padding: 10px; }
+.invoice .cancelled-item td { background: #ffd87c; }
+
+.invoice-box { padding: 10px; float: left; width: 300px; }
+.invoice-box table { width: 100%; }
+.invoice-help { padding-right: 20px; cursor: help; background: url("/Templates/FreedomCore/images/icons/tooltip-help.gif") 100% 50% no-repeat; }
+
+.physical-goods { padding: 5px 5px 5px 30px; background: url("/Templates/FreedomCore/images/icons/order-physical.gif") 0 50% no-repeat; }
+.digital-goods { padding: 5px 5px 5px 30px; background: url("/Templates/FreedomCore/images/icons/order-digital.gif") 0 50% no-repeat; }
+.ticket-goods { padding: 5px 5px 5px 30px; background: url("/Templates/FreedomCore/images/icons/order-tickets.gif") 0 50% no-repeat; }
+.virtual-goods { padding: 5px 5px 5px 30px; background: url("/Templates/FreedomCore/images/icons/order-virtual.gif") 0 50% no-repeat; }
+
+.ui-datepicker-calendar .ui-state-hover { color: #CBD6DD !important; }
+a.mini-button-blue { background-color:#0076a8; padding: 2px 8px; color: #fff; display: inline-block; zoom: 1; text-decoration: none; font-weight: bold; font-size: 12px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+a.mini-button-blue.disabled { background-color:#bdbcb9; color: #fff; cursor:default;}
+a.mini-button-blue:hover,
+a.mini-button-blue:focus,
+a.mini-button-blue:active { background: #FFFFFF; color: #565d67; }
+a.mini-button-blue.active,
+a.mini-button-blue.active:hover,
+a.mini-button-blue.active:focus,
+a.mini-button-blue.active:active { color: #565d67; background: #FFFFFF; text-decoration: none; }
+a.mini-button-blue.disabled,
+a.mini-button-blue.disabled:hover,
+a.mini-button-blue.disabled:focus,
+a.mini-button-blue.disabled:active { color: #fff; background: #bdbcb9; text-decoration: none; }
+
+.balance-pending-tip { padding-top: 36px; }
+.balance-pending-tip .text-orange { font-size: 13px; font-weight: bold; }
+
+.balance-limit-info { margin: 12px auto 40px 0; padding: 16px; background: #e0dfdd; width: 600px; }
+.balance-limit-info p { margin: 0; }
+.balance-limit-info .charge-up-info,
+.balance-limit-info .spending-info { float: left; padding: 0 16px; width: 280px; }
+.balance-limit-info .charge-up-info { padding-left: 0; }
+.balance-limit-info .spending-info { padding-right: 0; border-left: 1px solid #a4a4a4; }
+
+.transaction-footnote { padding: 40px 350px 20px 0; }

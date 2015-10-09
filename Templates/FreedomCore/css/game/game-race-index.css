@@ -1,0 +1,225 @@
+.game-race-index #content .content-top { background: url(/Templates/FreedomCore/images/game/race/bg-home-top.jpg) 0 0 no-repeat }
+.game-race-index #content .content-bot { padding: 0 25px 80px 25px }
+
+.section-title { margin: 25px 0; margin-top: 35px; }
+.main-header-desc { margin: 0 0 50px 0; width: 50%; color: #a4704e; }
+
+.racegroup { width: 420px; float: left }
+.racegroup .race-title { font:normal 18px/83px Palatino Linotype, Sans-serif; color: #f3ecc7; text-transform: uppercase; letter-spacing: 2px }
+.zh-tw .racegroup .race-title { font:bold 18px/83px Palatino Linotype, Sans-serif; display:inline-block; margin-top:30px; }
+.racegroup.alliance { float: left; margin-left: 20px }
+.racegroup.horde { float: right; margin-right: 20px }
+
+
+.flag-card { width: 420px; height: 163px; margin-bottom: 27px; box-shadow: 0 0 6px #000; -moz-box-shadow: 0 0 6px #000; -webkit-box-shadow: 0 0 6px #000 }
+.flag-card .class-name { font-size: 18px; line-height: 19px; display: block; padding-top: 15px; margin-left: 188px }
+.flag-card .class-req { margin-left: 188px; font-size: 11px; line-height: 12px }
+.flag-card .class-req.cataclysm { color: #DD6800 }
+.flag-card .class-req.bc { color: #5b9b17 }
+.flag-card .class-desc { color: #b79855; font-size: 11px; line-height: 14px; display: block; margin: 8px 25px 0 188px }
+.flag-card a { width: 420px; height: 163px; display: block; background: url(/Templates/FreedomCore/images/game/race/flag-cards.jpg) no-repeat }
+
+.flag-card.worgen a { background-position: 0 -173px }
+.flag-card.goblin a { background-position: -429px -173px }
+.flag-card.draenei a { background-position: 0 -346px }
+.flag-card.blood-elf a { background-position: -429px -346px }
+.flag-card.dwarf a { background-position: 0 -519px }
+.flag-card.orc a { background-position: -429px -519px }
+.flag-card.gnome a { background-position: 0 -692px }
+.flag-card.tauren a { background-position: -429px -692px }
+.flag-card.human a { background-position: 0 -865px }
+.flag-card.troll a { background-position: -429px -865px }
+.flag-card.night-elf a { background-position: 0 -1038px }
+.flag-card.undead a { background-position: -429px -1038px }
+
+.flag-card.worgen a:hover { background-position: 0 -1374px }
+.flag-card.goblin a:hover { background-position: -429px -1374px }
+.flag-card.draenei a:hover { background-position: 0 -1547px }
+.flag-card.blood-elf a:hover { background-position: -429px -1547px }
+.flag-card.dwarf a:hover { background-position: 0 -1720px }
+.flag-card.orc a:hover { background-position: -429px -1720px }
+.flag-card.gnome a:hover { background-position: 0 -1893px }
+.flag-card.tauren a:hover { background-position: -429px -1893px }
+.flag-card.human a:hover { background-position: 0 -2066px }
+.flag-card.troll a:hover { background-position: -429px -2066px }
+.flag-card.night-elf a:hover { background-position: 0 -2239px }
+.flag-card.undead a:hover { background-position: -429px -2239px }
+
+.alliance .flag-card.pandaren a { background-position: 0 0 }
+.horde .flag-card.pandaren a { background-position: -429px 0 }
+.alliance .flag-card.pandaren a:hover { background-position: 0 -1201px }
+.horde .flag-card.pandaren a:hover { background-position: -429px -1201px }
+
+/* previous/next buttons */
+.next-race { float:right; margin:26px 0 10px 0 }
+.previous-race { float:left; margin: 26px 0 10px 0; text-transform:none }
+.next-race span, .previous-race span { text-transform:none }
+
+
+/* Race pages */
+#content .content-top { background-position: 0 0; background-repeat: no-repeat }
+.race-draenei #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/draenei/bg.jpg) }
+.race-dwarf #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/dwarf/bg.jpg) }
+.race-gnome #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/gnome/bg.jpg) }
+.race-human #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/human/bg.jpg) }
+.race-night-elf #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/night-elf/bg.jpg) }
+.race-night-elf #content .content-top .story-highlight p { width:368px }
+.race-blood-elf #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/blood-elf/bg.jpg) }
+.race-orc #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/orc/bg.jpg) }
+.race-tauren #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/tauren/bg.jpg) }
+.race-troll #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/troll/bg.jpg) }
+.race-undead #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/undead/bg.jpg) }
+.race-goblin #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/goblin/bg.jpg) }
+.race-worgen #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/worgen/bg.jpg) }
+.race-pandaren #content .content-top { background-image: url(/Templates/FreedomCore/images/game/race/pandaren/bg.jpg) }
+
+#content .content-bot .media-frame { float: right; margin: 0 50px 37px 0 }
+#content .content-bot .left-col { float: left; width: 590px }
+#content .content-bot .right-col { float: right; width: 402px }
+#content .content-bot #content-subheader { margin-left: 50px; margin-top:0 }
+#content .content-bot #content-subheader .race-parent { margin-top:63px; display:block; float:left }
+
+.story-highlight { min-height:364px; }
+.story-highlight p { color: #b79855; font: normal 16px/30px Arial, Sans-serif; width: 320px; margin: 26px 0 0 50px; padding-bottom:65px;}
+.story-main { width: 548px }
+.story-main p { font: normal 13px/19px Arial, Sans-serif; margin: 0 0 24px 48px }
+.story-main .story-illustration { width: 503px; height: 193px; margin: 0 0 35px 48px; background-repeat: no-repeat; padding-top:16px; background-position:0 16px }
+#content .content-bot .basic-info-box-list { margin-left: 50px }
+#content .content-bot .right-col .basic-info-box-list { width:349px; float:right; margin:0 50px 47px 0 }
+#content .content-bot .right-col .basic-info-box-list .fansite-group { margin-left:23px }
+
+
+.race-draenei .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/draenei/lore-box.jpg) }
+.race-dwarf .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/dwarf/lore-box.jpg) }
+.race-gnome .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/gnome/lore-box.jpg) }
+.race-human .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/human/lore-box.jpg) }
+.race-night-elf .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/night-elf/lore-box.jpg) }
+.race-blood-elf .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/blood-elf/lore-box.jpg) }
+.race-orc .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/orc/lore-box.jpg) }
+.race-tauren .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/tauren/lore-box.jpg) }
+.race-troll .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/troll/lore-box.jpg) }
+.race-undead .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/undead/lore-box.jpg) }
+.race-goblin .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/goblin/lore-box.jpg) }
+.race-worgen .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/worgen/lore-box.jpg) }
+.race-pandaren .story-main .story-illustration { background-image: url(/Templates/FreedomCore/images/game/race/pandaren/lore-box.jpg) }
+
+
+.tbd-box { width: 343px; height: 222px; background-color: #000; float: right; margin: 0 50px 47px 0; font: bold 20px/222px Arial, Sans-serif; color: #fff; text-align: center }
+
+
+.basic-info-box-list .basic-info-box-list-title span { background: url(/Templates/FreedomCore/images/game/race/race-icons-sprite.gif) no-repeat 21px -163px; display: block; padding-left: 59px }
+
+
+/* race basics */
+.race-basic { background-repeat: no-repeat; width:590px; }
+.race-basic .basic-header { color: #FFF; font-size: 16px; font-weight: normal; width:351px }
+.race-basic .basic-header span { color: #FFA800; padding-left: 5px }
+.race-basic .basic-story { color: #967648; margin: 9px 0 0; font-size: 12px; width:310px }
+
+.race-basic .basic-header .overview-icon { display:block; float:left; width:26px; height:24px; background: url(/Templates/FreedomCore/images/game/race/race-icons-sprite.gif) no-repeat; }
+
+
+.start-location { float: left; padding:44px 0 0 }
+.start-location .basic-header .overview-icon { background-position: 0 0 }
+.start-location .basic-header,
+.start-location .basic-story { margin-left:225px }
+
+.home-city { padding: 60px 0 0 }
+.home-city .basic-header .overview-icon { background-position: 0 -47px }
+.home-city .basic-header,
+.home-city .basic-story { margin-left:48px; margin-right:172px }
+
+.racial-mount { float: right; padding:60px 0 0 }
+.racial-mount .basic-header .overview-icon { background-position: 0 -96px }
+.racial-mount .basic-header,
+.racial-mount .basic-story { margin-left:225px; margin-right:0 }
+
+.leader { padding: 60px 0 0 }
+.zh-tw .leader { padding-top: 90px }
+.zh-cn .leader { padding-top: 120px }
+.leader .basic-header .overview-icon,
+.leader-horde .basic-header .overview-icon,
+.leader-alliance .basic-header .overview-icon { background-position: 0 -142px }
+.leader .basic-header,
+.leader .basic-story { margin-left:48px; margin-right:172px }
+.race-orc .leader.leader-none { min-height: 150px; background: none; }
+
+/* specific adjustments */
+.race-blood-elf .start-location { min-height:357px; background-position: 0 -20px }
+.race-blood-elf .home-city { min-height:360px; background-position: 104% -36px }
+.race-blood-elf .racial-mount { min-height:259px; background-position: 0 42px }
+.race-blood-elf .leader { min-height:350px; background-position: 105% 45px }
+
+.race-draenei .start-location { min-height:522px; background-position: 0 -50px }
+.race-draenei .home-city { min-height:362px; background-position: 105% 0 }
+.race-draenei .racial-mount { min-height:237px; background-position: 11px 42px }
+.race-draenei .leader { min-height:530px; background-position: 105% 35px }
+
+.race-dwarf .start-location { min-height:367px; background-position: 0 -10px }
+.race-dwarf .home-city { min-height:358px; background-position: 105% -16px }
+.race-dwarf .racial-mount { min-height:230px; background-position: 5px 42px }
+.race-dwarf .leader { min-height:335px; background-position: 105% 5px }
+
+.race-gnome .start-location { min-height:371px; background-position: 0 -20px }
+.race-gnome .home-city { min-height:343px; background-position: 105% -16px }
+.race-gnome .racial-mount { min-height:262px; background-position: 0 45px }
+.race-gnome .leader { min-height:450px; background-position: 105% -10px }
+
+.race-goblin .start-location { min-height:418px; background-position: 0 -20px }
+.race-goblin .home-city { min-height:451px; background-position: 105% -36px }
+.race-goblin .racial-mount { min-height:190px; background-position: 0 42px }
+.race-goblin .leader { min-height:400px; background-position: 100% -30px }
+
+.race-human .start-location { min-height:422px; background-position: 0 -20px }
+.race-human .home-city { min-height:404px; background-position: 105% -16px }
+.race-human .racial-mount { min-height:271px; background-position: 0 22px }
+.race-human .leader { min-height:353px; background-position: 105% 25px }
+
+.race-night-elf .start-location { min-height:461px; background-position: 0 0 }
+.race-night-elf .home-city { min-height:435px; background-position: 105% 0 }
+.race-night-elf .racial-mount { min-height:220px; background-position: 0 48px }
+.race-night-elf .leader { min-height:460px; background-position: 105% 50px }
+
+.race-orc .start-location { min-height:428px; background-position: 0 -25px }
+.race-orc .home-city { min-height:407px; background-position: 104% 0 }
+.race-orc .racial-mount { min-height:240px; background-position: 0 42px }
+.race-orc .leader { min-height:363px; background-position: 103% -10px }
+
+.race-tauren .start-location { min-height:429px; background-position: 0 -20px }
+.race-tauren .home-city { min-height:449px; background-position: 105% 34px }
+.race-tauren .racial-mount { min-height:204px; background-position:0 62px }
+.race-tauren .leader { min-height:401px; background-position: 100% 25px }
+
+.race-troll .start-location { min-height:424px; background-position: 0 -20px }
+.race-troll .home-city { min-height:291px; background-position: 105% 0 }
+.race-troll .racial-mount { min-height:245px; background-position: 0 32px }
+.race-troll .leader { min-height:283px; background-position: 105% 0 }
+
+.race-undead .start-location { min-height:428px; background-position: 0 -20px }
+.race-undead .home-city { min-height:422px; background-position: 104% 0 }
+.race-undead .racial-mount { min-height:257px; background-position: 0 62px }
+.race-undead .leader { min-height:560px; background-position: 102% 45px }
+
+.race-worgen .home-city { min-height:422px; background-position: 0 40px }
+.race-worgen .home-city .basic-header,
+.race-worgen .home-city .basic-story { margin-left:195px; margin-right:0 }
+.race-worgen .racial-mount { min-height:272px; background-position: 100% 42px }
+.race-worgen .racial-mount .basic-header,
+.race-worgen .racial-mount .basic-story { margin-left:50px; margin-right:172px }
+.race-worgen .leader { min-height:390px; background-position: 0 0 }
+.race-worgen .leader .basic-header,
+.race-worgen .leader .basic-story { margin-left:195px; margin-right:0 }
+
+.race-pandaren .start-location { background-position: -20px 70px  }
+.race-pandaren .home-city { background-position: 105% 80px }
+.race-pandaren .home-city .basic-story { width:290px }
+.race-pandaren .racial-mount { background-position: -15px 60px }
+.race-pandaren .racial-mount .basic-header,
+.race-pandaren .racial-mount .basic-story { margin-left:240px }
+
+.race-pandaren .leader-alliance { background-position:280px 30px; padding:60px 0 30px }
+.race-pandaren .leader-horde { background-position:280px 0; padding:30px 0 60px }
+.race-pandaren .leader-alliance .basic-header,
+.race-pandaren .leader-horde .basic-header {  margin-left:50px; margin-right:0; width:500px }
+.race-pandaren .leader-alliance .basic-story { margin-left:50px; margin-right:0; min-height:175px }
+.race-pandaren .leader-horde .basic-story { margin-left:50px; margin-right:0; min-height:175px }

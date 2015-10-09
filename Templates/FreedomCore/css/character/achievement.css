@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+.profile-section { background-image: url(/Templates/FreedomCore/images/profile/section-bg-tabs.png); }
+
+.achievement-points-anchor { float: right; padding: 8px }
+.achievement-points-anchor .achievement-points { background: url(/Templates/FreedomCore/images/icons/achievements.gif) no-repeat right 8px; padding-right: 11px; font-size: 22px; font-family:"Arial Black", Arial, sans-serif; font-weight:900; color: white; line-height: normal; }
+
+/* Achievements list (in content part) */
+#achievements-list.loading { background: url(/Templates/FreedomCore/images/character/achievement/ajax-loader.gif) no-repeat 50% 120px; min-height: 300px; }
+.achievements-list ul { margin: 0 -15px; }
+.achievements-list .container { display: none; }
+.achievements-list .container h3 { border-bottom: 2px solid #542406; margin-bottom: 1em; padding-bottom: 6px;}
+.achievements-list .achievement { background: #341a0f url(/Templates/FreedomCore/images/character/achievement/bg-achievement.gif) no-repeat 0 0; padding: 0; display: block; border-bottom: 1px solid #000; position: relative; min-height: 105px; cursor: pointer;  }  
+.achievements-list .achievement.showing { background: #4a2715 url(/Templates/FreedomCore/images/character/achievement/bg-achievement.gif) no-repeat 0 -400px; }
+.achievements-list .icon-frame { position: absolute; left: 20px; top: 18px; display: block; }
+.achievements-list .points-big { background-color: rgba(0, 0, 0, 0.25); width: 72px; height: 60px; position: absolute; right: 15px; top: 13px; text-align: center; }
+.achievements-list .points-big strong { font-size: 33px; color: #fff; position: relative; top: -3px;left: -2px; font-family:Arial, sans-serif; letter-spacing: -0.05em; }
+.achievements-list .points-big .date { color: #71401F; font-size: 10px; display: block; font-weight: normal; line-height: 12px; position: relative; top: -9px; letter-spacing: 0; }
+.achievements-list .feats .points-big { height: 21px; }
+.achievements-list .feats .points-big strong { display: none; }
+.achievements-list .feats .points-big .date { top: 4px; }
+.achievements-list .icon-expandable { width: 14px; width: 14px; background: url(/Templates/FreedomCore/images/character/achievement/icon-expandable.gif) no-repeat 0 0; position: absolute; left: 19px; top: 85px; height: 14px; z-index: 1; }
+.achievements-list .reward { position: relative; background: url(/Templates/FreedomCore/images/character/achievement/title-bar.gif) no-repeat 0 -48px; text-align: center; color: #FEF092;/*#C09A67*/ font-size: 12px; height: 24px; line-height: 24px; margin: 2px auto 0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding:0 42px }
+.achievements-list .reward .icon-expandable { width: 14px; width: 14px; background: url(/Templates/FreedomCore/images/character/achievement/icon-expandable.gif) no-repeat 0 0; position:absolute; top: 5px; left: 19px; height: 14px; margin: 0; }
+.achievements-list .showing .icon-expandable { background-position: 0 -14px; }
+.achievements-list .showing .reward { overflow:visible; white-space:normal; height:auto; background:#532c18 }
+/* Progress bar */
+.profile-progress { clear: both; background: rgba(255, 255, 255, 0.1); margin: 0; text-align: center; height: 22px; }
+.profile-progress .bar { height: 26px; position: absolute; }
+.profile-progress .bar-contents { line-height: 25px; }
+.locked .profile-progress .bar { background-position: 0 -80px; }
+
+/* Single achievement container */
+.achievement p {color: #F5EBD1; width: 73%; margin: 0 auto; padding: 15px 0 20px; display: block; position: static;}
+.achievement p strong { color: #fab000; font-size: 16px; display: block; position:relative;  }
+
+/* Account wide achievement title */
+.achievement.account p strong { color: #00aeff; }
+
+.achievement .progress  { width: 75%; }
+.achievement span.highlight  { background-color: #fff; }
+
+/* "Achievement locked" styles*/
+.achievements-list .profile-progress { margin: 0 auto 20px auto; width: 90%; height: 26px; line-height: 26px !important; }
+
+.meta-achievements .profile-progress { width: 73%; }
+
+.achievements-list .achievement.locked,
+.achievement.locked.showing { background-image: none; background-color: #231914; }
+
+.achievements-list .locked .points-big,
+.achievements-list .locked .frame-wrapper,
+.achievements-list .locked .icon-expandable,
+.achievements-list .locked .icon-frame,
+.achievements-list .locked .reward,
+.achievements-list .showing.locked .reward, 
+.achievement.locked .progress { opacity: 0.4; } 
+
+.achievements-list .locked .reward .icon-expandable {opacity: 1}
+
+.achievements-list .locked .date { color: #816b5e; }
+
+.achievements-list .locked p,
+.locked .meta-achievements li,
+.locked .sub-achievements .points { color: #948b87; }
+.achievements-list .locked p strong { color: #78664b; }
+.achievements-list .locked.account p strong { color: #455359; }
+
+.achievements-list .locked .reward,
+.achievements-list .showing.locked .reward { border-color: #2d221d; background:#291f19 }
+
+/* Meta achievements */
+.meta-achievements { display: none; margin: 5px 0 0; }
+.meta-achievements ul { list-style-type:none; margin-left:100px; padding-bottom:15px; width:620px; }
+.meta-achievements ul:after { content: "."; display: block; height: 0; clear: both; visibility: hidden;  }
+.meta-achievements .linked a {color: #ada4a2; font-weight: normal;}
+.meta-achievements .linked a:hover { color: #e9e6e6 }
+.meta-achievements .unlocked { color: #F5EBD1; background: url(/Templates/FreedomCore/images/character/achievement/arrow-unlocked.gif) no-repeat 0 3px; }
+.meta-achievements .unlocked.linked a { color: #FFB100 }
+.meta-achievements .unlocked.linked a:hover { color: #fff }
+.meta-achievements .linked a:hover { color: #e9e6e6 }
+.achievements-list .showing .meta-achievements { display: block; }
+.meta-achievements li {display: block; margin:0 0 3px;  float: left; width: 250px; color: #d68e6f; padding-left: 48px; position:relative; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 23px;}
+.meta-achievements .icon-frame { top: 0; left: 20px; }
+
+ul.sub-achievements {text-align:center; width: 520px; padding-bottom: 0;}
+.sub-achievements li { display:inline-block; float:none; height:58px; margin-bottom:5px; position:relative; width:60px; padding-left: 0;}
+.sub-achievements .points {font-size: 12px; font-family:"Arial Black", Arial, sans-serif; font-weight:900; right: 18px; top: 27px; position:absolute; color: #fff; font-weight:bold; text-shadow: 0 0 8px black; }
+.meta-achievements .sub-achievements .icon-frame {top:7px; left:7px; }
+
+/* Summary */
+#cat-summary .desc { display: block; }
+#cat-summary .entry { float: left; width: 33.3333%; padding-left: 0; color: #C09A67; }
+#cat-summary .entry-inner { margin-right: 15px; padding: 5px; }
+#cat-summary .entry-inner-right { margin-right: 0; }
+
+.achievements-total { clear: both; margin-bottom: 30px; }
+.achievements-total .desc { font-weight: normal; padding-bottom: 4px; }
+.achievements-total .profile-box-full { padding-bottom: 5px; }
+.achievements-total .profile-progress { margin: 0 auto; margin-bottom: 20px;}
+.achievements-total .profile-progress, .achievements-total .profile-progress .bar { height: 23px;  }
+.achievements-total .bar-contents { line-height: 23px; font-size: 12px; font-weight: normal;}
+
+.achievements-total-completed { padding: 15px; padding-top: 10px; background-color: rgba(0, 0, 0, 0.3); -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; margin-bottom: 10px; }
+.achievements-total-completed .desc { color: #FEF092; font-weight: bold; padding-bottom: 6px; }
+.achievements-total-completed .profile-progress { margin-bottom: 0; }
+.achievements-total-completed .profile-progress, .achievements-total-completed .profile-progress .bar { height: 26px; }
+.achievements-total-completed .bar-contents { line-height: 25px; }
+
+.achievements-categories-total .active-category { cursor:pointer }
+.achievements-categories-total .active-category:hover .profile-progress .hover { background-position:0 0; }
+
+.profile-progress .bar-contents { text-shadow: 1px 1px 1px black; }
+
+.achievements-recent li { border-bottom: 1px solid #331509; }
+.achievements-recent li.last { border-bottom: 0; }
+.achievements-recent a { display: block; padding: 6px 4px; }
+.achievements-recent .float-right { display:block }
+.achievements-recent .icon { float: left; margin-right: 5px; height: 22px; }
+.achievements-recent .info { float: left; width: 490px; display: block; line-height: 21px; }
+.achievements-recent .title { padding-right: 6px; }
+.achievements-recent .account .title { color: #00aeff;  }
+.achievements-recent .description { color: #C09A67;}
+.achievements-recent .points { padding-right: 11px; background: url(/Templates/FreedomCore/images/icons/achievements.gif) no-repeat right center; line-height: 21px; color: #F5EBD1; margin-right: 20px; display:inline-block; }
+.achievements-recent .date { color: #71401F; display: inline-block; font-size: 11px; line-height: 21px; text-align: right; width: 60px; }
+.achievements-recent a:hover { background-color: #2B1507; }
+
+/* search */
+.search-container { float: right; margin-bottom:-28px; display: none; }
+.search-container .input { color: #707070; width: 175px; padding-right: 25px; }
+.search-container .active { color: #000;}
+#search-container.searching #symbol-cross { display: block;}
+.search-container #symbol-cross { background:url(/Templates/FreedomCore/images/icons/cross.png) no-repeat scroll center center transparent; border:medium none; height:33px; outline:medium none; position:absolute; right:-6px; top:-4px; width:33px; z-index:7; display: none; cursor: pointer}
+
+.search-container form { margin-bottom:-28px; position:relative }
+#search-error { text-align: center; width: 500px; margin: 0 auto; position: relative; top: 140px; display: none; }
+
+/* fansite */
+.achievement .fansite-link { position: absolute; top: 15px; right: 100px; display: none; }
+.achievement.locked .fansite-link { opacity: .5; }
+.achievement.fansite-hover .fansite-link,
+.achievement:hover .fansite-link,
+.achievements-list .showing .fansite-link { display: block; }

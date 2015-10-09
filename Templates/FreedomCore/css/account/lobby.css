@@ -1,0 +1,202 @@
+
+.page-content { overflow: hidden; }
+
+#lobby .lobby-box { margin-bottom: 2em; }
+#lobby .unavailable .subcategory { color: #5d0a01; }
+#lobby .section-title { margin-bottom: 6px; }
+
+#lobby-account { width: 360px; float: left; }
+#lobby-games { margin-bottom: 3em; padding-left: 16px; width: 596px; float: right; }
+#lobby-games .section-title { border: 0; margin: 0; padding: 0; }
+#lobby-games .section-title .game-count { font-weight: normal; }
+
+#lobby-account .lobby-box { min-height: 32px; }
+#lobby-account .lobby-box.disabled { opacity: .4; }
+#lobby-account .lobby-box.loading { background: url(/Templates/FreedomCore/images/icons/loading-light-large.gif) no-repeat center center; }
+#lobby-account .lobby-box.unavailable { background: url(/Templates/FreedomCore/images/icons/unavailable.png) no-repeat 0 0; padding-left: 32px; color: #5d0a01; }
+#lobby-account .lobby-box p { font-size: 13px; }
+#lobby-account .lobby-box p.has-authenticator-has-active { padding-left: 18px; background: url(/Templates/FreedomCore/images/icons/on-off.png) no-repeat 0 0; line-height: 16px; }
+#lobby-account .lobby-box p.has-pl-authenticator-has-active { padding-left: 18px; line-height: 16px; position: relative; }
+#lobby-account .lobby-box p.has-pl-authenticator-has-active .icon { background: url(/Templates/FreedomCore/images/icons/on-off.png) no-repeat 0 0; position: absolute; top: 0; left: 0; width: 18px; height: 18px; }
+#lobby-account .lobby-box p.has-authenticator-none-active { padding-left: 18px; background: url(/Templates/FreedomCore/images/icons/on-off.png) no-repeat 0 -64px; line-height: 16px; }
+#lobby-account .lobby-box p.none-authenticator { padding-left: 18px; background: url(/Templates/FreedomCore/images/icons/on-off.png) no-repeat 0 -32px; line-height: 16px; }
+#lobby-account .lobby-box p.security, #lobby-account .lobby-box p.e-bank-recharge { font-size: 11px; line-height: 1.5; }
+#lobby-account .lobby-box p.security a { display: inline-block; padding-left: 16px; background: url(/Templates/FreedomCore/images/icons/account-icons.gif) no-repeat 0 -202px; }
+#lobby-account .lobby-box p.e-bank-recharge a { display: inline-block; padding-left: 16px; background: url(/Templates/FreedomCore/images/icons/e-bank-recharge.gif) no-repeat 0 0; }
+#lobby-account .lobby-box p em { font-size: 11px; }
+#lobby-account .lobby-box p span.additional-info { display: block; }
+#lobby-account .lobby-box p span.edit { margin-left: .25em; font-size: 11px; -moz-user-select: none; -webkit-user-select: none; user-select: none; }
+#lobby-account .lobby-box p span.edit.edit-block { margin-left: 0; margin-top: .5em; display: block; }
+
+#lobby-account .help-link-right { margin: 0; padding-left: 0; }
+
+#not-verified { margin-top: 20px; color: #343434; padding: 14px 14px; background: #ededeb; font-style: italic; }
+#not-verified p, #not-verified span { font-size: 11px; }
+#not-verified strong { font-size: 16px; letter-spacing: -1px; }
+#not-verified strong em { color: #a64d38; }
+
+#games-list { float: left; width: 400px; }
+#games-list li { margin-top: 6px; cursor: pointer; padding: 6px 40px 6px 6px; height: 48px; line-height: 16px; font-size: 11px; background: #ededeb; color: #343434; overflow: hidden; clear: both; }
+#games-list li.classic { line-height: 48px; }
+#games-list li { background: #ededeb url(/Templates/FreedomCore/images/account/lobby/game-arrow.png) no-repeat 376px center; }
+#games-list li.account-hover,
+#games-list li:hover { background-color: #f4f4f4; }
+#games-list li.account-hover a,
+#games-list li:hover a { color: #014663; }
+#games-list li.info:hover a,
+#games-list li.cta:hover a { color: #0072a3; }
+#games-list li.info:hover a:hover,
+#games-list li.cta:hover a:hover,
+#games-list li.info:hover a:focus,
+#games-list li.cta:hover a:focus { color: #014663; }
+#games-list li.trial,
+#games-list li.info,
+#games-list li.cta { background-image: none; padding-right: 14px; }
+#games-list li.info { padding-left: 14px; font-style: italic; cursor: inherit; }
+#games-list li.cta { padding: 14px; cursor: inherit; height: auto; font-size: 14px; font-weight: bold; }
+#games-list li.no-games { font-weight: normal; font-size: 11px; }
+#games-list li.cta a { font-size: 14px; font-weight: bold; }
+#games-list li.purchase-promotion,
+#games-list li.upgrade-promotion,
+#games-list li.promotion-target { border: 1px solid #4d9400; padding: 5px 39px 5px 5px; background-color: #fafafa; }
+#games-list li.purchase-promotion:hover,
+#games-list li.upgrade-promotion:hover,
+#games-list li.promotion-target:hover { border-color: #6cc801; background-color: #fff; }
+#games-list .account-info { display: inline-block; float: left; width: 310px; }
+#games-list .promo-info { display: inline-block; float: left; width: 310px; font-size: 14px; padding-top: 8px; font-weight: bold; }
+#games-list li.new-trial { background:url(/Templates/FreedomCore/images/account/lobby/trial-background.gif) repeat-x scroll 0 0 #4A8102; border:1px solid #627742; -moz-box-shadow:0 0 7px #c3d9a3; display:none; }
+#games-list li.trial .account-info { width: 200px; }
+#games-list li.pending .account-info { width: 330px; }
+#games-list li.cta .account-info { width: 330px; }
+#games-list .account-link { font-size: 12px; }
+#games-list .account-link a { font-weight: bold; }
+#games-list .account-link strong { color: #0072a3; }
+#games-list li:hover .account-link strong { color: #014663; }
+#games-list li.trial .account-link,
+#games-list li.purchase-promotion .account-link,
+#games-list li.double-line .account-link,
+#games-list li.upgrade-promotion .account-link { display: inline-block; float: left; padding-top: 8px; width: 100%; }
+#games-list li.double-line .account-link .account-status { margin-top: -8px; }
+#games-list .account-id { display: block; color: #000; }
+#games-list .account-id.chargeback { color: #c00; }
+#games-list .new-account { font-size: 13px; padding-top: 16px; }
+#games-list .account-edition { color: #8d8d8d; }
+#games-list .account-region { display: block; color: #8d8d8d; }
+#games-list .unlockablelock { font-weight:bold;color:#7c3839; }
+#games-list .action { display: inline-block; text-align: right; padding-left: 16px; float: right; }
+#games-list .merge-account { line-height: 48px; color: #4d9400; font-weight: bold; font-size: 12px; background: url(/Templates/FreedomCore/images/icons/account-icons.gif) no-repeat 0 -104px; }
+#games-list .add-trial { line-height: 48px; color: #4d9400; font-weight: bold; font-size: 12px; background: url(/Templates/FreedomCore/images/icons/account-icons.gif) no-repeat 0 -341px; }
+#games-list .new-trial .add-trial { background: url(/Templates/FreedomCore/images/account/lobby/add-game-button.png) repeat-x scroll 0 0 #4A8102; height: 25px; width: auto; margin-top: 10px; color: #fff; line-height: 28px; text-align: center; padding: 0 12px; -moz-box-shadow: 0 0 5px #888; font-size: 12px; font-weight: bold }
+#games-list .add-trial:hover { color: #65b300; }
+#games-list .new-trial .add-trial:hover { color:#fff; background-position: bottom 0 }
+#games-list em { font-style: normal; display: block; }
+#games-tools { float: right; width: 180px; }
+#games-tools p { margin: 0 0 12px 0; padding: 0 0 0 12px; }
+#games-tools p a { display: inline-block; }
+#games-tools p .icon-16 { vertical-align: top; }
+#games-tools p .icon-16-label { max-width: 140px; vertical-align: top; }
+#games-tools p .icon-16-label .promo { color: #f00; }
+#games-tools p .menu-icon-new { display: inline-block; background: url(/Templates/FreedomCore/images/layout/new.gif) no-repeat 0 0; width: 26px; height: 12px; }
+#games-tools a.disabled { color: #4a4a4a; cursor: not-allowed; }
+* html #games-tools p .icon-16-label { width: 140px; margin-left: 2px; }
+
+#games-list .games-title { margin-top: 6px; color: #b0afac; display: block; height: 22px; line-height: 22px; padding: 0 0 0 30px; color: #b0afac; text-transform: uppercase; overflow: hidden; -moz-user-select: none; -webkit-user-select: none; user-select: none; }
+#games-list .games-title.opened { background: #6a6e73 url(/Templates/FreedomCore/images/account/lobby/game-titlebar.png) left 0 no-repeat; }
+#games-list .games-title.closed { background: #797e84 url(/Templates/FreedomCore/images/account/lobby/game-titlebar.png) left -22px no-repeat; }
+#games-list .games-title.opened:hover,
+#games-list .games-title.opened:focus { color: #fff; background: #6a6e73 url(/Templates/FreedomCore/images/account/lobby/game-titlebar.png) left -44px no-repeat; }
+#games-list .games-title.closed:hover,
+#games-list .games-title.closed:focus { color: #fff; background: #797e84 url(/Templates/FreedomCore/images/account/lobby/game-titlebar.png) left -66px no-repeat; }
+
+#games-list .game-icon { float: left; width: 32px; height: 32px; margin-right: 10px; top: 8px; position: relative; }
+#games-list .game-icon .flag { display: block; width: 18px; height: 18px; overflow: hidden; position: absolute; top: 21px; left: 21px; background: url(/Templates/FreedomCore/images/icons/trial-upgrade.png) no-repeat 0 0; }
+#games-list .game-icon .flag.upgrade { background-position: 0 -18px; }
+#games-list .game-icon .flag.chargeback { background-position: 0 -36px; }
+#games-list .chargeback .game-icon .flag { background-position: 0 -36px; }
+
+#games-list li.disabled { opacity: .4; }
+#games-list li.unloaded { cursor: pointer; }
+#games-list li.loading { cursor: default; background-image: url(/Templates/FreedomCore/images/icons/loading-light2.gif); background-position: 368px center; }
+#games-list li.unavailable { cursor: default; background-image: url(/Templates/FreedomCore/images/icons/unavailable.png); background-position: 368px center; }
+#games-list li.pending { cursor: default; }
+#games-list li.pending .account-link strong { color: #343434; }
+#games-list li.trial { background-color: #e0dfdd; background-color: rgba(255,255,255,.3); }
+#games-list li.trial .account-link,
+#games-list li.trial .account-id,
+#games-list li.trial em,
+#games-list li.trial .game-icon { opacity: .4; }
+#games-list li.new-trial .game-icon,
+#games-list li.new-trial .account-link { opacity: 1 }
+#games-list li .max-gametitle { display: block; float: left; width: 310px; color: #4D9400; }
+#games-list li.lock { background-color:#c1c2c4; }
+
+#add-game, #add-time { margin-top: 6px; height: 40px; margin-bottom: 20px; display: block; text-align: center; line-height: 40px; color: #fff; font-size: 18px; font-weight: bold; letter-spacing: -0.04em; background: #4a8102 url(/Templates/FreedomCore/images/account/lobby/add-game-button.png) repeat-x 0 0; -moz-box-shadow: #888 0 0 10px; -webkit-box-shadow: #888 0 0 10px; box-shadow: #888 0 0px 10px; -moz-user-select: none; -webkit-user-select: none; user-select: none; }
+#add-game:hover,
+#add-game:focus,
+#add-time:hover,
+#add-time:focus { background-color: #69ba02; background-position: 0 -40px; }
+#add-time { font-size: 16px; }
+
+.zh-tw #add-time,.zh-cn #add-time { font-size: 14px; }
+/* beta opt-in */
+.system-specs dt { color: #727272; }
+.system-specs dd { color: #343434; margin: 0 0 1em 0; }
+.optins .caption,
+.system-specs .caption { text-transform: uppercase; margin: 1em 0 1.5em 0; }
+
+.optin { cursor: pointer; float: left; width: 419px; height: 64px; margin: 10px 20px 10px 0; line-height: 64px; padding: 0 5px; color: #0072A3; font-weight: bold; font-size: 14px; background-image: url(/Templates/FreedomCore/images/account/beta-opt-in.jpg); background-repeat: no-repeat; }
+.optin:hover { color:#014663 }
+.diablo { background-position: 0 -128px; }
+.warcraft { background-position: 0 -256px; }
+.starcraft { background-position: 0 -192px; }
+.hearth { background-position: 0 -64px; }
+.heroes { background-position: 0 0; }
+.future-games { background-position: 0 -320px; }
+.overwatch { background-position: 0 -384px; }
+.optin:hover.diablo { background-position: 0 -576px; }
+.optin:hover.warcraft { background-position: 0 -704px; }
+.optin:hover.starcraft { background-position: 0 -640px; }
+.optin:hover.hearth { background-position: 0 -512px; }
+.optin:hover.heroes { background-position: 0 -448px; }
+.optin:hover.future-games { background-position: 0 -768px; }
+.optin:hover.overwatch { background-position: 0 -832px; }
+
+.optin-need-game {
+    color: #c4d2db;
+    background: #4d606d;
+    width: 404px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: #b2b2b2 0 0 5px;
+    -webkit-box-shadow: #b2b2b2 0 0 5px;
+    box-shadow: #b2b2b2 0 0 5px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.optin-disabled { opacity: .3; filter: alpha(opacity=30); }
+
+.optins .button1 { padding: 0; }
+
+.optin-os { float: left; display: block; padding: 0 0 0 35px; margin-right: 15px; line-height: 32px; }
+.optin-os.win { background: url(/Templates/FreedomCore/images/icons/os-small.png) 0 -43px no-repeat; }
+.optin-os.mac { background: url(/Templates/FreedomCore/images/icons/os-small.png) 0 -87px no-repeat; }
+.optin-os.reset { background: url(/Templates/FreedomCore/images/icons/os-small.png) 0 0 no-repeat; }
+
+.help-note { position: relative; top: 4px; }
+
+/*free wow promotion*/
+#freeWowInfo .alert-message { font-size:12px; }
+
+/* Status display */
+.account-status { font-weight:bold; float:right;}
+.account-status.BANNED, .account-status.FROZEN, .account-status.CANCELLED, .account-status.LOCKED { color:#990000; }
+.account-status.ACTIVE { color:#009900; }
+
+.account-status.VETERAN {
+    color: #009900;
+}
+
+.account-status.FROZENIGR { color: #cd6001; }

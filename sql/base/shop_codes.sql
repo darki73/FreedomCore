@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS `shop_codes` (`id` int(11) NOT NULL, `purchased_item` varchar(45) DEFAULT NULL, `purchase_code` varchar(100) DEFAULT NULL, `purchase_date` varchar(45) DEFAULT NULL, `purchased_for_account` int(11) DEFAULT NULL, `code_activated` int(11) DEFAULT '0') ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `shop_codes` ADD PRIMARY KEY (`id`);
+ALTER TABLE `shop_codes` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

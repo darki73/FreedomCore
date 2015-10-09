@@ -1,0 +1,209 @@
+Warrior_Description_Classes  = Desde los inicios de las guerras, los héroes de cada raza han tratado de cultivarse en las artes de la batalla. Los guerreros combinan fuerza, liderazgo, y un amplio conocimiento sobre la manipulación de armas y armaduras para hacer estragos en el glorioso combate.
+Warrior_Description_Personal_Header  = Mientras ha durado la guerra, los héroes de cada raza han intentado dominar el arte de la batalla. Los guerreros combinan fuerza, liderazgo y un amplio conocimiento de armas y armaduras para crear el caos durante el glorioso combate. Algunos protegen desde las primeras líneas con escudos, bloqueando a los enemigos mientras los aliados apoyan a los guerreros desde detrás con hechizos y arcos. Otros renuncian al escudo y desatan su ira contra la amenaza más próxima con una variedad de armas mortales
+Warrior_Description_Personal_Top  = Los gritos de guerra de los guerreros envalentonan a los aliados y hacen que los enemigos se encojan aterrorizados. Con precisión legendaria, los guerreros apuntan hacia las rajas más pequeñas en la armadura y cortan tendones con una ráfaga de acero.
+Warrior_Description_Personal  =  Los guerreros se equipan con cuidado para el combate y se enfrentan a sus enemigos de frente, dejando que los ataques resbalen contra su pesada armadura. Usan diversas tácticas de combate y una gran variedad de tipos de armas para proteger a los combatientes menos hábiles. Los guerreros deben controlar cuidadosamente su ira (el poder detrás de sus ataques más fuertes) para maximizar su efectividad en el combate.
+Warrior_First_Spec_Title  = Armas
+Warrior_Second_Spec_Title  = Furia
+Warrior_Third_Spec_Title  = Protección
+
+
+Paladin_Description_Classes  = La promesa de los paladines dice: para proteger a los débiles, traer justicia a los injustos, y aniquilar la vileza de los rincones más oscuros del mundo.
+Paladin_Description_Personal_Header  = Esta es la llamada del paladín: proteger a los débiles, llevar la justicia a los injustos y eliminar el mal de los rincones más oscuros del mundo. Estos guerreros sagrados van equipados con armadura de placas para poder enfrentarse a los enemigos más duros y la bendición de la Luz les permite sanar heridas y, en algunos casos, incluso devolver la vida a los muertos.
+Paladin_Description_Personal_Top  = Listos para servir, los paladines pueden defender a sus aliados con espada y escudo, o pueden blandir enormes armas a dos manos contra sus enemigos. La Luz otorga a los paladines poder adicional contra los no-muertos y demonios, asegurando que estos seres profanos dejen de corromper el mundo.
+Paladin_Description_Personal  = Los paladines se colocan justo delante de sus enemigos, confiando en su pesada armadura y la sanación para poder sobrevivir a una lluvia de ataques. Ya sea con enormes escudos o con aplastantes armas a dos manos, los paladines pueden aguantar zarpas y espadas de sus compañeros más débiles, pero deben usar la magia sanadora con cuidado para asegurarse de que se mantienen en pie.
+Paladin_First_Spec_Title  = Sagrado
+Paladin_Second_Spec_Title  = Protección
+Paladin_Third_Spec_Title  = Reprensión
+
+Hunter_Description_Classes = Algunos aventureros reciben la llamada de la naturaleza desde una temprana edad, abandonando la comodidad de sus hogares y adentrándose en un mundo primal. Aquellos que sobreviven se convierten en cazadores.
+Hunter_Description_Personal_Header = Desde temprana edad, la llamada de la naturaleza atrae a algunos aventureros desde la comodidad de sus hogares hacia el implacable mundo primario. Aquellos que aguantan se convierten en cazadores. Maestros de su entorno, son capaces de escabullirse como fantasmas entre los árboles y poner trampas en el camino de sus enemigos.
+Hunter_Description_Personal_Top = El arte de la supervivencia es esencial para la aislada vida de un cazador. Los cazadores pueden rastrear a bestias con facilidad y mejorar sus propias facultades entrando en sintonía con los aspectos ferales de varías criaturas. Los cazadores son conocidos por los vínculos de por vida que forman con animales salvajes, entrenado a magníficos halcones, felinos, osos y otras bestias para que luchen junto a ellos.
+Hunter_Description_Personal = Los cazadores luchan contra sus enemigos a distancia, ordenando a sus mascotas que ataquen mientras preparan sus flechas y recargan sus pistolas. Si bien sus armas de misiles son devastadoras a corta y larga distancia, los cazadores son también extremadamente ágiles. Son capaces de evitar o ralentizar a sus enemigos para recuperar su ventaja en la batalla.
+Hunter_First_Spec_Title = Bestias
+Hunter_Second_Spec_Title = Puntería
+Hunter_Third_Spec_Title = Sobrevivencia
+
+Rogue_Description_Classes = Para los pícaros, su único código es el contrato, y su honor tiene precio en oro. Libres de remordimientos, estos mercenarios dependen de tácticas brutas y eficientes.
+Rogue_Description_Personal_Header = Para los pícaros el único código es el contrato y su honor se compra con oro. Libres de las limitaciones de una conciencia, estos mercenarios se apoyan en tácticas brutales y eficientes. Asesinos letales y maestros del sigilo, se acercan a sus objetivos por detrás, perforando un órgano vital y desapareciendo entre las sombras antes de que la víctima caíga al suelo.
+Rogue_Description_Personal_Top = Los pícaros pueden untar toxinas paralizantes en sus armas que hacen que los enemigos no puedan defenderse. Estos acechadores silencioso llevan armaduras de cuero para poder moverse sin estorbos, asegurando que asesten el primer golpe.
+Rogue_Description_Personal = Los pícaros a menudo inician sus batallas entre las sombras, comenzando con sanguinarios golpes cuerpo a cuerpo. En batallas largas, usan ataques sucesivos, cuidadosamente seleccionados para preparar al enemigo para el golpe final. Los pícaros deben tener especial cuidado al seleccionar a sus objetivos para no malgastar sus ataques de combo y deben saber cuándo esconderse o huir si la batalla se vuelve contra ellos.
+Rogue_First_Spec_Title = Asesinato
+Rogue_Second_Spec_Title = Combate
+Rogue_Third_Spec_Title = Sutileza
+
+Priest_Description_Classes = Los sacerdotes son devotos espirituales, que expresan su fe sirviendo a la gente. Hace mucho que abandonaron los confines de sus cómodos templos para ayudar a sus aliados en un mundo roto por la guerra.
+Priest_Description_Personal_Header = Los sacerdotes están entregados a lo espiritual y expresan su inquebrantable fe sirviendo a la gente. Durante milenios han dejado atrás los confines de sus templos y la comodidad de sus santuarios para apoyar a sus aliados en las tierras destrozadas por la guerra. En medio del terrible conflicto, ningún héroe cuestiona el valor de las órdenes de un sacerdote.
+Priest_Description_Personal_Top = Ya que la luz no puede existir sin la oscuridad, ni la oscuridad sin la luz; algunos sacerdotes usan las sombras para comprender mejor sus propias facultades, además de las facultades de quienes les amenazan.
+Priest_Description_Personal = Los sacerdotes usan poderosa magia de sanación para asegurarse de que tanto ellos como sus compañeros no son derribados. También controlan poderosos hechizos ofensivos a distancia, pero pueden verse sobrepasados por los enemigos debido a su fragilidad física y a su ligera armadura. Los sacerdotes más experimentados combinan el uso de sus hechizos ofensivos y de control con la importancia de mantener vivo al resto del grupo.
+Priest_First_Spec_Title = Disciplina
+Priest_Second_Spec_Title = Sagrado
+Priest_Third_Spec_Title = Sombra
+
+Death_knight_Description_Classes = Al romperse el control del Rey Exánime sobre sus caballeros de la Muerte, sus campeones buscaron venganza por los horrores que fueron obligados a cometer bajo su mando.
+Death_knight_Description_Personal_Header = Cuando el Rey Exánime perdió el control sobre sus caballeros de la Muerte, sus otrora campeones buscaron venganza contra los horrores cometidos bajo sus órdenes. Cuando obtuvieron su venganza, los caballeros de la Muerte se encontraron sin causa y sin hogar. Uno a uno fueron al mundo de los vivos en busca de un nuevo propósito.
+Death_knight_Description_Personal_Top = La escarcha agudiza sus ataques, la sangre fortifica sus cuerpos y la no-muerte les permite bullir con ira profana en el calor de la batalla. Miles de atrocidades están grabadas en los ojos de cada caballero de la Muerte y los enemigos que los miren durante demasiado tiempo sentirán como el calor se escapa de sus cuerpos para ser reemplazado por el frío acero.
+Death_knight_Description_Personal = Los caballeros de la Muerte se enfrentan a sus enemigos de cerca, asestando golpes con su armas con magia oscura que vuelve a los enemigos vulnerables o les inflige daño con poder oscuro. Arrastran a los enemigos a enfrentamientos uno contra uno, obligándoles a concentrar sus ataques lejos de sus compañeros más débiles. Para evitar que sus enemigos escapen de sus garras, los caballeros de la Muerte deben ser conscientes del poder que invocan de las runas y controlar sus ataques de forma apropiada.
+Death_Knight_First_Spec_Title = Sangre
+Death_Knight_Second_Spec_Title = Escarcha
+Death_Knight_Third_Spec_Title = Profano
+
+Shaman_Description_Classes = Los chamanes son líderes espirituales de sus clanes y tribus. Maestros de los elementos, usan hechizos y tótems para sanar o mejorar sus habilidades en la batalla mientras desatan la furia de los elementos sobre sus enemigos.
+Shaman_Description_Personal_Header = Los chamanes son guías espirituales y practicantes no de lo divino, sino de los propios elementales. Al contrario que otros místicos, los chamanes comulgan con fuerzas que no son estrictamente benévolas. Los elementos son caóticos y si los dejan a su aire, luchan entre sí con una furia primaria sin fin. La labor del chamán es equilibrar ese caos. Actuando como moderadores entre la tierra, el fuego, el agua y el aire, los chamanes invocan tótems que concentran a los elementos para apoyar a los aliados del chamán o para castigar a quienes los amenazan.
+Shaman_Description_Personal_Top = Un chamán experimentado equilibra el amplio espectro de estas fuerzas primordiales dentro de una serie de facultades diversas, haciendo de los chamanes versátiles héroes y valiosos miembros de cualquier grupo.
+Shaman_Description_Personal = Durante el combate, el chamán coloca totems de control y daño en el suelo para maximizar su efectividad y ponerle las cosas más difíciles a los enemigos Los chamanes son lo suficientemente versátiles para luchar contra los enemigos de cerca o a distancia, pero los chamanes sabios eligen su camino de ataque basado en los puntos fuertes y débiles de sus enemigos.
+Shaman_First_Spec_Title = Elemental
+Shaman_Second_Spec_Title = Mejora
+Shaman_Third_Spec_Title = Restauración
+
+Mage_Description_Classes = Los estudiantes más inteligentes y disciplinados suelen adentrarse en las sendas de la magia. La magia arcana, disponible para los magi, es tan fascinante como peligrosa por lo que solo es enseñada a los más devotos alumnos.
+Mage_Description_Personal_Header = Los estudiantes dotados de un agudo intelecto y una disciplina férrea pueden recorrer el camino del mago. La magia arcana disponible para los magos es tanto magnífica como peligrosa y, por tanto, solo se les revela a los más devotos practicantes. Para evitar las interferencias con sus lanzamientos de hechizos, los magos solo llevan armaduras de tela, pero los escudos arcanos y los encantamientos les proporcionan protección adicional. Para mantener a los enemigos a raya, los magos pueden invocar ráfagas de fuego para incinerar a objetivos distantes y hacer que zonas enteras entren en erupción, prendiendo fuego a grupos de enemigos.
+Mage_Description_Personal_Top = Maestros del hielo pueden ordenar a ventiscas que dañen la carne y limiten el movimiento. Si los enemigos consiguen sobrevivir a este asalto, los magos pueden convertirlos en inofensivas ovejas en un abrir y cerrar de ojos.
+Mage_Description_Personal = Los magos destruyen a sus enemigos con encantamientos arcanos. Aunque controlan poderosos hechizos ofensivos, los magos son frágiles y su armadura es ligera, lo que los hace particularmente vulnerables a los ataques a corta distancia. Los magos sabios usan sus hechizos con cuidado para mantener a sus enemigos a distancia o retenerlos en el lugar.
+Mage_First_Spec_Title = Arcano
+Mage_Second_Spec_Title = Fuego
+Mage_Third_Spec_Title = Escarcha
+
+Warlock_Description_Classes = Frente al poder demoniaco, la mayoría de los héroes ven su muerte. Los brujos ven oportunidad. Su objetivo es el dominio, y han encontrado la forma de llevarlo a cabo mediante artes negras. Estos voraces lanzadores de hechizos invocan vasallos demoniacos para luchar a su lado.
+Warlock_Description_Personal_Header = En el rostro del poder demoníaco, la mayoría de los héroes ven muerte. Los brujos solo ven oportunidad. La dominación es su objetivo y han encontrado un camino hacia él en las artes oscuras. Estos voraces hechiceros invocan esbirros demoníacos para que luchen a su lado. Al principio, solo controlan a los diablillos, pero a medida que el conocimiento del brujo se amplía, seductores súcubos, leales abisarios, y temibles manáfagos se unen a las filas de los hechiceros oscuros para causar estragos contra cualquiera que se interponga en el camino de su amo.
+Warlock_Description_Personal_Top = Estos practicantes de los profano son temidos en todo Azeroth y muchos que han sentido su cólera prefieren luchar junto a un brujo antes que contra él.
+Warlock_Description_Personal = Los brujos incineran y destruyen a los enemigos debilitados con una combinación de atroces enfermedades y magia oscura. Mientras que sus mascotas les protegen y mejoran, los brujos golpean a los enemigos desde la distancia. Ya que son taumaturgos físicamente débiles desprovistos de una poderosa armadura, los brujos astutos dejan que sus esbirros se lleven el grueso de los ataques enemigos para salvar su propio pellejo.
+Warlock_First_Spec_Title = Aflicción
+Warlock_Second_Spec_Title = Demonologia
+Warlock_Third_Spec_Title = Destrucción
+
+Monk_Description_Classes = Los monjes, maestros del estilo de combate sin armas nacido en la ancentral Pandaria, son tan diversos como la energía que los rodea. Pueden realizar ataques letales a través de la bruma formada por sus propios brebajes, sanar flujos de chi bloqueados y derrotar a sus enemimos con sus movimientos rápidos como el viento.
+Monk_Description_Personal_Header = Cuando, hace siglos, los pandaren sufrían bajo el yugo de los mogu, fueron los monjes quienes trajeron la esperanza a lo que parecía inevitablemente un futuro aciago. Debido a la prohibición del uso de armas impuesta por sus amos, estos pandaren eligieron centrarse en aprovechar su chi y aprender a combatir sin el concurso de armas. Cuando llegó la oportunidad de desencadenar una revolución, estaban suficientemente bien entrenados para sacudirse el yugo de la opresión.
+Monk_Description_Personal_Top = Siendo como son maestros en el arte del combate con puños desnudos, los monjes nunca confían únicamente en blandir un arma para defenderse de sus enemigos. Aunque se los conoce principalmente por sus tremendos puñetazos y patadas voladoras, rechazan limitar su estilo de combate a un único método. Muchos monjes, por ejemplo, prefieren "absorber como una esponja", y parecen disfrutar del embriagador efecto de recibir un golpe tras otro mientras sus compañeros llevan a cabo la ofensiva. Otros monjes se especializan en invocar los poderes restauradores de la niebla para equilibrar las buenas y malas energías en el interior de las criaturas y conseguir transformarlas en buena salud y fortuna.
+Monk_Description_Personal = Sea cual sea el papel que desempeñen en el combate, los monjes suelen centrarse en sus pies y manos para las acciones principales, mientras que su fuerte conexión con su chi interno les vale para potenciar sus facultades. Facultades como Expulsar daño y Ola de chi sanan a sus aliados al tiempo que infligen daño a sus enemigos.
+Monk_First_Spec_Title = Maestro cervecero
+Monk_Second_Spec_Title = Tejedor de niebla
+Monk_Third_Spec_Title = Viajero del viento
+
+Druid_Description_Classes = Los druidas manipulan vastos poderes de la naturaleza para preservar el balance y proteger la vida. Como maestros cambiaformas, los druidas pueden adoptar la forma oso, felino, cuervo de tormenta y león marino.
+Druid_Description_Personal_Header = Los druidas controlan los enormes poderes de la naturaleza para mantener el equilibrio y proteger la vida. Con experiencia, los druidas pueden desatar la energía bruta de la naturaleza contra sus enemigos, lanzando una furia celestial sobre ellos desde muy lejos, atrapándolos con vides encantadas o frenándolos con ciclones implacables.
+Druid_Description_Personal_Top = Como maestros en cambio de formas, los druidas pueden adoptar el aspecto de varias bestias, convirtiéndose en oso, felino, gato, cuervo de tormenta o león marino con facilidad. Esta flexibilidad les permite desarrollar distintos papeles durante sus aventuras, haciendo trizas a los enemigos en un momento y vigilando el campo de batalla desde el aire al siguiente. Estos guardianes del orden natural se encuentran entre los héroes más versátiles de Azeroth y deben estar preparados para adaptarse a nuevos retos en cualquier momento.
+Druid_Description_Personal = Los druidas poseen una gran variedad de estilos de combate. Pueden llevar a cabo todos los roles: sanación, tanqueo, daño cuerpo a cuerpo y daño a distancia, pero deben ser igual de conscientes sobre las exigencias de cada uno de ellos. Incluso más que para las otras clases, es vital que los druidas adopten la forma adecuada para cada situación ya que cada forma conlleva un propósito diferente.
+Druid_First_Spec_Title = Equilibrio
+Druid_Second_Spec_Title = Combate Feral
+Druid_Third_Spec_Title = Guardián
+Druid_Forth_Spec_Title = Restauración
+
+
+
+Damage_Type_Melee = Cuerpo a Cuerpo
+Damage_Type_Ranged_Physical = Fisico a distancia
+Damage_Type_Ranged_Arcane = mágico a distancia
+
+Class_Role_Tank = Tanque
+Class_Role_Healer = Sanador
+Class_Role_DPS = DPS
+Class_Indicator_Health = Salud
+Class_Indicator_Mana = Mana
+Class_Indicator_Rage = Ira
+Class_Indicator_Concentration = Concentración
+Class_Indicator_Energy = Energia
+Class_Indicator_Runes = Runas
+Class_Indicator_Monk = Chi, Energia, Maná
+Class_Indicator_Druid = Mana, Ira, Energia
+Class_Talent_Specialization = Especialización de talentos
+
+#Abilities
+
+Warrior_First_Ability_Title  = Defensa
+Warrior_First_Ability_Description  = Los poderosos guerreros dependen de su pesada armadura, escudos y astucia en la batalla para defenderse y asegurarse de que los enemigos no van a por sus aliados más débiles
+Warrior_Second_Ability_Title  = Daño Cuerpo a Cuerpo
+Warrior_Second_Ability_Description  = La maestría en armas es un punto básico del entrenamiento de los guerreros; son capaces de infligir grandes cantidades de daño con enormes armas a dos manos o con ataques usando dos armas de una mano.
+Warrior_Third_Ability_Title  = Ira
+Warrior_Third_Ability_Description  = A medida que los guerreros infligen o reciben daño, su ira aumenta, lo que les permite lanzar ataques realmente demoledores en el fragor de la batalla.
+Warrior_Forth_Ability_Title  = Actitudes
+Warrior_Forth_Ability_Description  = Al cambiar su actitud durante la batalla, los guerreros pueden ajustar su enfoque en el combate, infligiendo más daño, defendiendo con más cuidado contra los ataques enemigos o buscando un equilibrio.
+
+Paladin_First_Ability_Title  = Defensa
+Paladin_First_Ability_Description  = Los fieles paladines están entrenados para usar las armaduras y escudos más pesados y pueden usar sus habilidades para asegurarse de que los enemigos se centran en ellos, defendiendo a los miembros más débiles del grupo.
+Paladin_Second_Ability_Title  = Daño cuerpo a cuerpo
+Paladin_Second_Ability_Description  = Los paladines cargan su armas con poder sagrado, lo que les permite infligir daño consistente con sus golpes.
+Paladin_Third_Ability_Title  = Bendiciones y sellos
+Paladin_Third_Ability_Description  = Como defensores del orden, los paladines son extremadamente poderosos en un grupo: sus bendiciones y sellos pueden aumentar su daño y su capacidad de supervivencia y la del grupo
+Paladin_Forth_Ability_Title  = Sanación
+Paladin_Forth_Ability_Description  = Cuando ellos o sus compañeros están heridos, las potentes facultades de sanación de los paladines pueden asegurar que se mantengan en la lucha.
+
+Hunter_First_Ability_Title = Mascotas
+Hunter_First_Ability_Description = Los cazadores doman a las bestias salvajes y, a cambio, esas bestias les sirven atacando a sus enemigos y protegiéndolos del daño con sus cuerpos.
+Hunter_Second_Ability_Title = Daño a distancia
+Hunter_Second_Ability_Description = Ya sean arcos, pistolas o ballestas, los cazadores son mortíferos con armas a distancia. Son capaces de asestar daño elevado consistente.
+Hunter_Third_Ability_Title = Trampas
+Hunter_Third_Ability_Description = Los cazadores son supervivientes consumados capaces de poner trampas para quemar, congelar y dejar inválida a la presa potencial.
+Hunter_Forth_Ability_Title = En solitario
+Hunter_Forth_Ability_Description = Gracias a sus mascotas y al daño que infligen, los cazadores son muy efectivos completando misiones y subiendo de nivel rápidamente cuando están solos.
+
+Rogue_First_Ability_Title = Sigilo
+Rogue_First_Ability_Description = Los pícaros se mueven a hurtadillas por el campo de batalla, escondiéndose de los enemigos y asestando golpes por sorpresa a los desprevenidos cuando ven una oportunidad.
+Rogue_Second_Ability_Title = Daño cuerpo a cuerpo
+Rogue_Second_Ability_Description = Al untar sus armas con venenos mortíferos, los pícaros pueden infligir un daño enorme a sus objetivos.
+Rogue_Third_Ability_Title = Evasión
+Rogue_Third_Ability_Description = Cuando están en peligro, los pícaros tienen muchas herramientas a su disposición para evitar la vista de sus enemigos y, si fuera necesario, sus ataques.
+Rogue_Forth_Ability_Title = Combos
+Rogue_Forth_Ability_Description = Al planear y combinar sucesivos ataques cuerpo a cuerpo, los pícaros pueden acumular puntos de combo que les permiten asestar golpes de gracia devastadores en combate.
+
+Priest_First_Ability_Title = Sanación
+Priest_First_Ability_Description = Los sacerdotes utilizan sus inmensos poderes sagrados para restaurar rápidamente su salud y la de sus compañeros.
+Priest_Second_Ability_Title = Daño a distancia
+Priest_Second_Ability_Description = Los hechizos de sombras que emplean los sacerdotes pueden general altos niveles de daño inmediato o terribles dolores que destruyen a los enemigos durante períodos de tiempo mayores.
+Priest_Third_Ability_Title = Palabras de poder
+Priest_Third_Ability_Description = Invocando un escudo místico y un empoderamientos sagrado, los sacerdotes pueden evitar el daño y mejorar sus defensas y las de sus compañeros de grupo.
+Priest_Forth_Ability_Title = Control mental
+Priest_Forth_Ability_Description = Control mental – La conexión de los sacerdotes con las mentes y espíritus de los seres vivos les permiten controlarlas y manipular sus cuerpos y facultades..
+
+Death_Knight_First_Ability_Title = DEFENSA
+Death_Knight_First_Ability_Description = Para protegerse a sí mismos y a sus compañeros de la muerte en la batalla, los caballeros de la Muerte se visten con armaduras pesadas y paran ataques con sus espadas.
+Death_Knight_Second_Ability_Title = DAÑO CUERPO A CUERPO
+Death_Knight_Second_Ability_Description = Las hojarrunas de los caballeros de la Muerte están empoderadas con magia oscura; pueden gastar el poder de sus runas en ataques despiadados.
+Death_Knight_Third_Ability_Title = UTILIDAD
+Death_Knight_Third_Ability_Description = Como antiguos campeones del Rey Exánime, los caballeros de la Muerte pueden dirigir a los esbirros muertos, congelar a sus enemigos con hielo e infligir enfermedades debilitadoras.
+Death_Knight_Forth_Ability_Title = FORJA DE RUNAS
+Death_Knight_Forth_Ability_Description = Los caballeros de la Muerte tienen una conexión personal con sus espadas y pueden forjar runas en ellas para aumentar su poder.
+
+Shaman_First_Ability_Title = SANACIÓN
+Shaman_First_Ability_Description = Invocando su poder espiritual, el chamán puede restaurar la salud a los aliados heridos.
+Shaman_Second_Ability_Title = DAÑO CUERPO A CUERPO
+Shaman_Second_Ability_Description = El chamán mejora sus armas con efectos elementales, lo que les hace quemar, congelar o producir otros efectos al golpear.
+Shaman_Third_Ability_Title = DAÑO A DISTANCIA
+Shaman_Third_Ability_Description = La fuerza elemental del chamán puede usarse para dañar a los enemigos desde lejos con golpes de rayos, terremotos o ráfagas de lava.
+Shaman_Forth_Ability_Title = TOTEMS
+Shaman_Forth_Ability_Description = Los totems que deja un chamán concentran una serie de efectos positivos, incluidos restauración mejorada, daño aumentado, ataques más rápidos y más
+
+Mage_First_Ability_Title = DAÑO A DISTANCIA
+Mage_First_Ability_Description = Los magos pueden gastar maná para infligir grandes cantidades de daño muy deprisa, aunque tienen que tener cuidado de no agotarse.
+Mage_Second_Ability_Title = HECHIZOS DE ÁREA DE EFECTO
+Mage_Second_Ability_Description = Invocando láminas de hielo, columnas de llamas y olas de poder arcano, los magos pueden destruir de forma efectiva a varios enemigos al mismo tiempo.
+Mage_Third_Ability_Title = CONTROL
+Mage_Third_Ability_Description = Un mago al que han pillado distraído tienen muchas opciones para controlar el campo de batalla, desde congelar enemigos hasta convertirlos en desvalidas alimañas.
+Mage_Forth_Ability_Title = TELETRASPORTE
+Mage_Forth_Ability_Description = Los magos poseen la facultad de transportarse entre ciudades e invocar comida y agua en cualquier parte del mundo.
+
+Warlock_First_Ability_Title = MASCOTAS
+Warlock_First_Ability_Description = Los brujos vinculan demonios a su voluntad, estos habitantes infernales defenderán a sus maestros con sus vidas o harán que llueva muerte sobre sus enemigos.
+Warlock_Second_Ability_Title = INVOCACIÓN
+Warlock_Second_Ability_Description = Los brujos son expertos en invocar a sus aliados ante sí, ya sean dichos aliados otros héroes o demonios sanguinarios.
+Warlock_Third_Ability_Title = DAÑO A DISTANCIA
+Warlock_Third_Ability_Description = Los brujos lanzan fuego infernal y daño de sombras con sus hechizos, y pueden herir a los demás de forma instantánea o con aflicciones persistentes.
+Warlock_Forth_Ability_Title = RECURSOS DEMONÍACOS
+Warlock_Forth_Ability_Description = Los brujos utilizan ascuas ardientes, furia demoníaca o fragmentos de alma para potenciar sus propios hechizos y hacer que sean más rápidos o más letales.
+
+Monk_First_Ability_Title = CHI
+Monk_First_Ability_Description = Todos los monjes utilizan su potente energía "chi" para mejorar sus facultades o llevar a cabo devastadores ataques contra sus enemigos.
+Monk_Second_Ability_Title = ENERGÍA O MANÁ
+Monk_Second_Ability_Description = Tanto el resistente maestro cervecero como el fiero viajero del viento utilizan energía como su recurso primario, mientras que el inmutable tejedor de niebla confía en el uso del maná.
+Monk_Third_Ability_Title = ESTILO DE LUCHA
+Monk_Third_Ability_Description = Cambiando el tipo de arma que lleva, el monje modifica el comportamiento de ciertos ataques, lo que puede aumentar su velocidad o el daño que infligen.
+Monk_Forth_Ability_Title = VERSATILIDAD
+Monk_Forth_Ability_Description = Los monjes son una clase verdaderamente híbrida, capaz de actuar como tanque, sanador o DPS cuerpo a cuerpo.
+
+Druid_First_Ability_Title = VERSATILIDAD
+Druid_First_Ability_Description = Las formas cambiantes de los druidas les permiten desempeñar diferentes papeles y concentrarse en ser el tanque, sanar o infligir daño. También pueden cambiar de forma para viajar más deprisa por tierra, mar o aire.
+Druid_Second_Ability_Title = SANAR
+Druid_Second_Ability_Description = Invocando los poderes de la naturaleza, los druidas pueden restaurar rápidamente la salud de quienes hayan resultado heridos en combate.
+Druid_Third_Ability_Title = DEFENSA
+Druid_Third_Ability_Description = En forma de oso, los druidas tienen una gruesa piel y una presencia imponente que los convierte en los protectores de primera línea ideales para los miembro más débiles del grupo.
+Druid_Forth_Ability_Title = DAÑO CUERPO A CUERPO Y A DISTANCIA
+Druid_Forth_Ability_Description = Los druidas pueden adoptar la forma de felinos salvajes para atacar con su zarpa y morder a sus enemigos próximos, o la forma de un lechúcico salvaje para acabar con los enemigos desde lejos.
