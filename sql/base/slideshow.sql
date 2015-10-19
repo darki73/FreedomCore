@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS `slideshow` (`id` int(11) NOT NULL,`title` varchar(45) DEFAULT NULL,`description` varchar(200) DEFAULT NULL,`url` varchar(200) DEFAULT NULL,`image` varchar(200) DEFAULT NULL,`duration` int(11) DEFAULT NULL,`enabled` int(11) DEFAULT '1') ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+ALTER TABLE `slideshow` ADD PRIMARY KEY (`id`);

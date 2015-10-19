@@ -31,6 +31,10 @@ Status = Состояние
 Players_Online = Игроков Онлайн
 Captcha_Code = Код
 Captcha_Renew = Обновить
+Change = Изменить
+Today = Сегодня
+Tomorrow = Завтра
+Soon = Скоро
 
 #PvP Pages
 PvP_Rated_Battlegrounds = Рейтинговые поля боя

@@ -4,9 +4,43 @@
     </div>
 
     <div class="sidebar-content">
-        {if !is_null($PageLoadTime)}  Page loaded in {$PageLoadTime} ms {/if}<br />
-        {if !is_null($MemoryUsage)}   Page used {$MemoryUsage} MB of memory{/if}<br />
-        <strong>Revision:</strong><br />
-        <a href='https://github.com/darki73/FreedomCore/commit/{$FreedomNetRevision}' target="_blank">{$FreedomNetRevision}</a>
+        <table width="100%" style="margin-top: 10px; font-size: 13px;">
+            {if !is_null($PageLoadTime)}
+                <tr>
+                    <td>
+                        <strong>Page load time:</strong>
+                    </td>
+                    <td>
+                        {$PageLoadTime} ms
+                    </td>
+                </tr>
+            {/if}
+            {if !is_null($MemoryUsage)}
+                <tr>
+                    <td>
+                        <strong>Memory used:</strong>
+                    </td>
+                    <td>
+                        {$MemoryUsage} MB
+                    </td>
+                </tr>
+            {/if}
+            <tr>
+                <td>
+                    <strong>Smarty: </strong>
+                </td>
+                <td>
+                    {$smarty.version}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Revision: </strong>
+                </td>
+                <td>
+                    <a href='https://github.com/darki73/FreedomCore/commit/{$FreedomNetRevision}' target="_blank">{$FreedomNetRevision|truncate:10}</a>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>

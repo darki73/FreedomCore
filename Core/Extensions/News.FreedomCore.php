@@ -13,6 +13,14 @@ Class News
         News::$TM = $VariablesArray[1];
     }
 
+    public static function GetSlideshowItems()
+    {
+        $Statement = News::$DBConnection->prepare('SELECT * FROM slideshow WHERE enabled = 1 ORDER BY ID DESC');
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        return $Result;
+    }
+
     public static function GetAllNews()
     {
         $Statement = News::$DBConnection->prepare('SELECT * FROM news ORDER BY post_date DESC');

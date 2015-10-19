@@ -89,6 +89,8 @@ crashlytics-build.properties
 /Uploads/Core/Items/Cache/ModelViewer/*.jpg
 /Uploads/Core/NPC/Cache/*.jpg
 /Uploads/Core/NPC/ModelViewer/*.jpg
+/Uploads/Core/Slideshow/*.png
+/Uploads/Core/Slideshow/*.jpg
 /Templates/FreedomCore/images/dungeon-maps/*
 /Templates/FreedomCore/images/wiki/zone/*
 !/Templates/FreedomCore/images/wiki/zone/bgs

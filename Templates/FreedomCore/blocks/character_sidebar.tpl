@@ -21,6 +21,15 @@
         </span>
     </a>
 </li>
+<li {if $SelectedCategory == 'events'}class=" active"{/if}>
+    <a href="/character/{$Character.name}/events" class="" rel="np">
+        <span class="arrow">
+            <span class="icon">
+                {#Game_Events#}
+            </span>
+        </span>
+    </a>
+</li>
 <li {if $SelectedCategory == 'achievement'}class=" active"{/if}>
     <a href="/character/{$Character.name}/achievement" class="has-submenu" rel="np">
         <span class="arrow">

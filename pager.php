@@ -663,6 +663,11 @@ switch($_REQUEST['category'])
                         $Smarty->display('admin/dashboard');
                     break;
 
+                    case 'articles':
+                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('MSG_Search_article').' - ')));
+                        $Smarty->display('admin/articles');
+                    break;
+
                     case 'shop':
                         Manager::LoadExtension('Shop', $ClassConstructor);
                         $Smarty->assign('ShopData', Shop::GetAdministratorShopData());
@@ -1005,6 +1010,13 @@ switch($_REQUEST['category'])
                             }
                         break;
 
+                        case 'events':
+                            Manager::LoadExtension('Events', $ClassConstructor);
+                            $Smarty->assign('Events', Events::ClosestEvents());
+                            $Smarty->assign('Page', Page::Info('community', array('bodycss' => 'events_page', 'pagetitle' => $Smarty->GetConfigVars('Game_Events').' - '.$Smarty->GetConfigVars('Menu_Community').' - ')));
+                            $Smarty->display('pages/game_events');
+                        break;
+
                         case 'reputation':
                             $Smarty->assign('Reputations', Characters::GetReputation($CharacterData['guid']));
                             $Smarty->assign('Page', Page::Info('community', array('bodycss' => 'reputation_page', 'pagetitle' => $Smarty->GetConfigVars('Profile_Character_Reputation').' - '.$Smarty->GetConfigVars('Menu_Community').' - ')));
@@ -1231,6 +1243,11 @@ switch($_REQUEST['category'])
                     $Smarty->assign('Realms', Realms::GetAllRealms());
                 break;
 
+                case 'events':
+                    Manager::LoadExtension('Events', $ClassConstructor);
+                    $Smarty->assign('Events', Events::CurrentEvents());
+                break;
+
                 case 'debugger':
                     $GitHead = getcwd().DS.'.git'.DS.'FETCH_HEAD';
                     if(file_exists($GitHead))
@@ -1421,6 +1438,13 @@ switch($_REQUEST['category'])
                     $Smarty->assign('Navigation', Professions::GetNavigation($Profession['id']));
                     $Smarty->assign('Page', Page::Info('profession', array('bodycss' => 'profession-page profession-'.$_REQUEST['lastcategory'].'', 'pagetitle' => $Profession['profession_translation'].' - '.$Smarty->GetConfigVars('Menu_Game').' - ')));
                     $Smarty->display('pages/game_profession');
+                }
+                elseif($_REQUEST['subcategory'] == 'events'){
+                    if(!Text::IsNull($_REQUEST['lastcategory'])){
+                        switch($_REQUEST['lastcategory']){
+
+                        }
+                    }
                 }
 			}
 		}

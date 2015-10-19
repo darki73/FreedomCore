@@ -14,11 +14,44 @@
             <div id="slideshow" class="ui-slideshow">
                 <div class="slideshow">
 
+                    {for $i = 0; $i < count($Slideshow); $i++}
+                        <div class="slide" id="slide-{$i}" style="background-image: url('/Uploads/Core/Slideshow/{$Slideshow.$i.image}'); {if $i != 0} display: none;{/if}"></div>
+                    {/for}
+                </div>
+
+                <div class="paging">
+                    <a href="javascript:;" class="prev" onclick="Slideshow.prev();"></a>
+                    <a href="javascript:;" class="next" onclick="Slideshow.next();"></a>
+                </div>
+
+                <div class="caption">
+                    <h3><a href="javascript:;" class="link"></a></h3>
+
                 </div>
 
                 <div class="preview"></div>
                 <div class="mask"></div>
             </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                $(function() {
+                    Slideshow.initialize('#slideshow', [
+                        {for $i = 0; $i < count($Slideshow); $i++}
+                        {ldelim}
+                            image: "/Uploads/Core/Slideshow/{$Slideshow.$i.image}",
+                            desc: "{$Slideshow.$i.description}",
+                            title: "{$Slideshow.$i.title}",
+                            url: "{$Slideshow.$i.url}",
+                            id: "{$Slideshow.$i.id}",
+                            duration: {$Slideshow.$i.duration}
+                            {rdelim},
+                        {/for}
+                    ]);
+
+                });
+                //]]>
+            </script>
+
             <div class="right-sidebar" >
                 <div class="sidebar" id="sidebar">
                     <div class="sidebar-top">
@@ -35,6 +68,7 @@
                     $(function() {
                         Sidebar.sidebar([
                             { "type": "realm-status", "query": "" },
+                            { "type": "events", "query": "" },
                             { "type": "under-dev", "query": "" },
                             {if $Debug}
                             { "type": "debugger", "query": "" },

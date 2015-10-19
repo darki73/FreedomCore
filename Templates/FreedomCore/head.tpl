@@ -109,6 +109,10 @@
         <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/guild/guild.css" />
         <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/guild/summary.css" />
     {/if}
+    {if $Page.bodycss == 'events_page'}
+        <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/profile.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/character/events.css" />
+    {/if}
     {if $Page.bodycss == 'reputation_page'}
         <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/profile.css" />
         <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/character/reputation.css" />

@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/* event list */
+.event-list { width: 340px; float: left; }
+.event-list .event-category.category-primary .category { color: #fef092; }
+.event-list .event-category.category-secondary .category { }
+.event-list .event-category.category-tertiary .category { font-size: 18px; }
+.event-list .event-category { margin: 0 0 2em 0; }
+.event-list .profile-box-simple { padding: 0; }
+.event-list li.empty { padding-top: 5px; }
+.event-list .shortened .name{ display: inline; font-size: 12px;  }
+.event-summary { padding: 8px; }
+li.event-summary:hover { background-color: rgba(0, 0, 0, 0.3); }
+li.event-summary:hover h4 { color: white; }
+.event-summary .description { display: none;}
+.event-summary .subheader { letter-spacing: normal; }
+
+/* event block */
+.event-header .event-header-text { float: left; width: 278px; }
+.event-header:after, .actions:after, .event-summary:after { content: ""; display: block; height: 0; clear: both; visibility: hidden }
+.event-header .icon-frame { margin: 0 10px 0 0;	float: left; }
+.event-details .event-header .icon-frame { float: left; margin: 0 10px 10px 0;}
+
+/* remove event button */
+.event-remove { clear: both; font-size: 11px; height: 20px; }
+.event-remove a { clear: both; display: block; margin-top: 10px; text-align: right; float: right;}
+
+/* event details */
+.event-details { padding: 15px; width: 350px; float: right; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; line-height:1.25;}
+.event-details-active { background: rgba(0, 0, 0, 0.35); cursor: inherit}
+.event-details h4.name { font-size: 20px; margin: 0; color: #fff; letter-spacing: -0.05em; padding-bottom: 3px; width: 280px; overflow: hidden; text-overflow: ellipsis; }
+.event-details.loading { background: url(../../images/character/achievement/ajax-loader.gif) no-repeat 50% 120px; min-height: 300px; }
+.event-summary.continued-event:after { clear:both; }
+.event-summary.continued-event .time,
+.event-summary.continued-event .icon-frame { display: none; }
+.event-summary.continued-event .event-header { float: left; }
+.event-summary.continued-event .event-header-text { width: auto;}
+.event-summary.continued-event .subheader { margin: 0 4px;}
+.event-summary .status { font-size: 10px;}
+.event-summary .time-relative { display: none;}
+.system-event .event-header .icon-frame img { width: 32px;height: 32px;}
+
+/* event invitations (right column) */
+.event-invitation { line-height: 1.25; margin: 0 0 2em 0; }
+.event-invitation .event-header { min-height: 66px; }
+.event-invitation .attendees { color: #8e4328; font-size: 11px; margin: 0 0 .1em 0; }
+.event-invitation strong { font-weight: normal; }
+.event-invitation .actions { margin: 1em 0 0; clear: both;}
+
+/* event invites */
+.invitation-list { font-size: 11px; line-height: 20px; }
+.invitation-list li { padding: 0 5px; margin: 0 0 3px; clear:both;}
+.invitation-list a { float: left; padding-right: 25px; background-repeat: no-repeat; background-position: 100% 2px}
+.invitation-list .leader a { background-image: url("../../images/character/events/icon-attendees.gif"); }
+.invitation-list .admin a { background-image: url("../../images/character/events/icon-attendees.gif"); background-position: 100% -18px; }
+.invitation-list .name { font-weight: normal; font-size: 11px; }
+.invitation-list .icon-frame { position: relative; top: 3px;}
+
+.events .response { display: block; text-align: right; color: #71401F; font-size: 10px; }
+.event-attendees { margin: 15px 0 5px; padding-bottom: 8px; }
+.event-attendees .subheader { border-bottom: 1px solid #46230E; color:#7E3406; font-size:14px; letter-spacing: -0.05em; margin-bottom:0.5em; padding-bottom:4px; }
+.event-attendees .subheader span { font-size:11px; color: #ae5016; letter-spacing: 0.03em; padding-left: 5px; }
+.attendee-summary { margin-bottom: .5em; padding-bottom: .5em; text-align: center;}
+.attendee-summary .player-class { padding-left: 10px; margin-right: 10px; display: inline-block; height: 16px; line-height: 16px; font-size: 11px;  }
+
+.events .confirmed, .events .available, .events .accepted, .events .signedUp { color: #0ad71a; }
+.events .tentative { color: #d66225; }
+.events .invited, .events .notSignedUp { color: yellow; }
+.events .declined { color: #ff1815; }
+.details-wrapper .time, .details-wrapper .time-relative { color: #ae5016; font-size: 12px; margin: 0 0 .1em 0; float: left; }
+.details-wrapper .time { display: none; }
+.event-invitation .time {display: block}
+
+.details-wrapper .description { color: #e9bd7f; clear: both; display: block; clear: both;}
+
+/* event removed styles */
+li.removed-event { opacity: .5 }
+li.removed-event { cursor:default; }
+li.removed-event:hover { background: none; }
+li.removed-event .name, li.removed-event:hover .name { color: #C09A67;  }

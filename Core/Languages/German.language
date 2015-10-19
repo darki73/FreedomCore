@@ -32,6 +32,10 @@ Status = Status
 Players_Online = Spieler Online
 Captcha_Code = Captcha
 Captcha_Renew = Neuer Captcha
+Change =
+Today =
+Tomorrow =
+Soon =
 
 #PvP Pages
 PvP_Rated_Battlegrounds =
