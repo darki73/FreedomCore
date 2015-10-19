@@ -59,7 +59,11 @@ Class Smarty_FreedomCore extends Smarty
         }
         else
             $this->assign('Debug', false);
-		Smarty::Display($template.".tpl");
+		try {
+			Smarty::Display($template.".tpl");
+		} catch (Exception $e) {
+			Debugger::ReportError(3, 1, $template.".tpl");
+		}
 	}
 
 	function translate($TranslationFile)

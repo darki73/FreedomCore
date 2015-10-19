@@ -1,4 +1,4 @@
-{if isset($smarty.session.loggedin) || $smarty.session.loggedin}
+{if isset($smarty.session.loggedin) && $smarty.session.loggedin}
 <div  class="sidebar-module " id="sidebar-events">
     <div class="sidebar-title">
         <h3 class="header-3 title-events">

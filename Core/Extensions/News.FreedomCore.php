@@ -34,6 +34,7 @@ Class News
             $CountStatement->execute();
             $CountResult = $CountStatement->fetch(PDO::FETCH_ASSOC);
             $Result[$Index]['comments_count'] = $CountResult['count'];
+            $Result[$Index]['slugged_url']  =   Text::GenerateSlug($Article['title'], ['transliterate' => true]);
             $Index++;
         }
         return $Result;

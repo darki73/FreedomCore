@@ -15,7 +15,7 @@ Class Debugger extends FreedomCore
           $DefinedCategories = array(
           '1' => 'FS Error',
           '2' => 'License Error',
-          '3' => '',
+          '3' => 'Template Engine Error',
           '4' => '',
           '5' => '',
           );
@@ -51,7 +51,7 @@ Class Debugger extends FreedomCore
           elseif($Category == 3)
           {
                $ErrorsID = array(
-               ''
+               '1' => 'Unable to find template'
                );
           }
           elseif($Category == 4)

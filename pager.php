@@ -670,9 +670,30 @@ switch($_REQUEST['category'])
 
                     case 'shop':
                         Manager::LoadExtension('Shop', $ClassConstructor);
-                        $Smarty->assign('ShopData', Shop::GetAdministratorShopData());
-                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop').' - ')));
-                        $Smarty->display('admin/shop');
+                        $Smarty->translate('Shop');
+                        if(Text::IsNull($_REQUEST['lastcategory'])){
+                            $Smarty->assign('ShopData', Shop::GetAdministratorShopData());
+                            $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                            $Smarty->display('admin/shop');
+                        } else {
+                            switch($_REQUEST['lastcategory']){
+
+                                case 'add-item':
+                                    $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_AddItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                                    $Smarty->display('admin/shop_additem');
+                                break;
+
+                                case 'delete-item':
+                                    $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_DeleteItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                                    $Smarty->display('admin/shop_deleteitem');
+                                break;
+
+                                case 'edit-item':
+                                    $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_EditItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                                    $Smarty->display('admin/shop_edititem');
+                                break;
+                            }
+                        }
                     break;
 
                     case 'security':

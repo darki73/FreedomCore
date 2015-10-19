@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" id="nav-client-footer" class="nav-client">
+<div id="nav-client-footer" class="nav-client">
     <div class="footer-content footer-desktop grid-container"> <div class="nav-section support-feedback">
             <div class="nav-left">
                 <div id="nav-feedback">
@@ -41,7 +41,7 @@
                                     <div class="dropdown-section nav-column-container">
                                         <div class="nav-column-50">
                                             <div id="select-regions" class="nav-box regions">
-                                                <h3>Регион</h3>
+                                                <h3>{#Item_Seller_Zone#}</h3>
                                                 <ul class="region-ul">
                                                     <li class="region active current"><a class="nav-item select-region" href="javascript:;" data-target="world">World</a></li>
                                                 </ul>
@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="nav-column-50">
                                             <div id="select-language" class="nav-box languages">
-                                                <h3>Язык</h3>
+                                                <h3>{#Community_Realms_Language#}</h3>
                                                 <div class="region region-languages active current" data-region="eu">
                                                     <ul class="region-ul">
                                                         <li class="{if $Language == 'de'}active current{/if}">

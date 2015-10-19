@@ -67,6 +67,7 @@
                     //<![CDATA[
                     $(function() {
                         Sidebar.sidebar([
+                            { "type": "client", "query": "" },
                             { "type": "realm-status", "query": "" },
                             { "type": "events", "query": "" },
                             { "type": "under-dev", "query": "" },
@@ -85,7 +86,7 @@
                             {foreach $News as $Article}
                                 <li>
                                     <div class="article-wrapper">
-                                        <a href="/blog/{$Article.id}" class="featured-news-link" data-category="wow" data-action="Blog_Click-Throughs" data-label="home ">
+                                        <a href="/blog/{$Article.id}/{$Article.slugged_url}" class="featured-news-link" data-category="wow" data-action="Blog_Click-Throughs" data-label="home ">
                                             <div class="article-image" style="background-image:url(/Uploads/{$Article.post_miniature})">
                                                 <div class="article-image-frame"></div>
                                             </div>
@@ -106,7 +107,7 @@
                     <div id="blog-articles" class="blog-articles" itemscope="itemscope" itemtype="http://schema.org/Blog">
                         {foreach $News as $Article}
                             <div class="article-wrapper" >
-                                <a href="/blog/{$Article.id}">
+                                <a href="/blog/{$Article.id}/{$Article.slugged_url}">
                                     <div class="article-image" style="background-image:url(/Uploads/{$Article.post_miniature})">
                                         <div class="article-image-frame"></div>
                                     </div>

@@ -17,16 +17,7 @@
         </div>
         <div class="content-bot clear">
             <div class="right-sidebar" >
-                <div id="sidebar-marketing" class="sidebar-module">
-                    <div class="bnet-offer">
-                        <div class="bnet-offer-bg">
-                            <a href="" class="bnet-offer-image">
-                                <img src="" width="300" height="250" alt="" />
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
+                {include file = 'sidebar/client.tpl'}
                 <div class="sidebar" id="sidebar">
                     <div class="sidebar-top">
                         <div class="sidebar-bot">

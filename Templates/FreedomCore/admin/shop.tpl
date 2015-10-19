@@ -31,7 +31,7 @@
 
                         <ul>
                             <li>
-                                <a href="/admin/shop/additem" class="free-service-additem">
+                                <a href="/admin/shop/add-item" class="free-service-additem">
                                     <span>
                                         {#Administrator_Shop_AddItem#}
                                     </span>
@@ -39,7 +39,7 @@
                             </li>
 
                             <li>
-                                <a href="/admin/shop/deleteitem" class="free-service-database">
+                                <a href="/admin/shop/delete-item" class="free-service-database">
                                     <span>
                                         {#Administrator_Shop_DeleteItem#}
                                     </span>
@@ -47,7 +47,7 @@
                             </li>
 
                             <li>
-                                <a href="/admin/shop/edititem" class="free-service-edititem">
+                                <a href="/admin/shop/edit-item" class="free-service-edititem">
                                     <span>
                                         {#Administrator_Shop_EditItem#}
                                     </span>
