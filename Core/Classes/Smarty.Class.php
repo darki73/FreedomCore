@@ -8,6 +8,20 @@ Class Smarty_FreedomCore extends Smarty
 	{
 		global $FreedomCore, $Directory, $FCCore;
 		parent::__construct();
+
+		if(isset($_ENV['installation_in_progress'])){
+			$FCCore = [
+				'Template'					=>	'FreedomCore',
+				'ApplicationName'			=>	'FreedomCore',
+				'ApplicationDescription'	=>	'FreedomCore CMS',
+				'ApplicationKeywords'		=>	'FreedomCore, Darki73, FreedomCMS, FreedomCore CMS',
+				'ExpansionTemplate'			=>	'WoD',
+				'SmartyDebug'				=>	false,
+				'SmartyCaching'				=>	false,
+				'debug'						=>	false,
+			];
+		}
+
 		$this->template_dir = $Directory.'/Templates/'.$FCCore['Template'].'/';
 		$this->compile_dir = $Directory.'/Cache/Compile/Templates/'.$FCCore['Template'].'/';
 		$this->config_dir = $FreedomCore->getLanguageDir();
@@ -36,17 +50,19 @@ Class Smarty_FreedomCore extends Smarty
 		$this->assign('Template', $FCCore['Template']);
 		$this->assign('ExpansionTemplate', $FCCore['ExpansionTemplate']);
 
-		// Social Links
-		$this->assign('SLFacebook', $FCCore['Social']['Facebook']);
-		$this->assign('SLTwitter', $FCCore['Social']['Twitter']);
-		$this->assign('SLTwitter', $FCCore['Social']['Vkontakte']);
-		$this->assign('SLSkype', $FCCore['Social']['Skype']);
-		$this->assign('SLYoutube', $FCCore['Social']['Youtube']);
-		$this->assign('FacebookAdmins', $FCCore['Facebook']['admins']);
-		$this->assign('FacebookPage', $FCCore['Facebook']['pageid']);
+		if(!isset($_ENV['installation_in_progress'])) {
+			// Social Links
+			$this->assign('SLFacebook', $FCCore['Social']['Facebook']);
+			$this->assign('SLTwitter', $FCCore['Social']['Twitter']);
+			$this->assign('SLTwitter', $FCCore['Social']['Vkontakte']);
+			$this->assign('SLSkype', $FCCore['Social']['Skype']);
+			$this->assign('SLYoutube', $FCCore['Social']['Youtube']);
+			$this->assign('FacebookAdmins', $FCCore['Facebook']['admins']);
+			$this->assign('FacebookPage', $FCCore['Facebook']['pageid']);
 
-		// Google Analytics
-		$this->assign('GoogleAnalytics', array('Account' => $FCCore['GoogleAnalytics']['Account'], 'Domain' => $FCCore['GoogleAnalytics']['Domain']));
+			// Google Analytics
+			$this->assign('GoogleAnalytics', array('Account' => $FCCore['GoogleAnalytics']['Account'], 'Domain' => $FCCore['GoogleAnalytics']['Domain']));
+		}
 	}
 	function display($template = NULL, $cache_id = NULL, $compile_id = NULL, $parent = NULL)
 	{

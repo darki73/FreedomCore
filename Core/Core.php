@@ -1,7 +1,10 @@
 <?php
 header('X-Frame-Options: SAMEORIGIN');
 require_once('Core/Classes/Autoloader.Class.php');
-Autoloader::Initialize();
+if(isset($_ENV['installation_in_progress']))
+    Autoloader::Initialize(false);
+else
+    Autoloader::Initialize();
 new ErrorHandler($Smarty);
 if(!$InstallationIsInProgress)
 {

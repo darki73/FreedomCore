@@ -4,9 +4,10 @@ Class Autoloader
     private static $IsDebugEnabled = false;
     public static $PageLoadTime;
 
-    public static function Initialize()
+    public static function Initialize($WithConfig = true)
     {
-        Autoloader::LoadConfig();
+        if($WithConfig)
+            Autoloader::LoadConfig();
         Autoloader::LoadComponents();
         if(Autoloader::$IsDebugEnabled)
             Autoloader::$PageLoadTime = Utilities::PageLoadTime(true);
@@ -22,8 +23,7 @@ Class Autoloader
         }
         else
         {
-            copy(getcwd().DIRECTORY_SEPARATOR.'Core'.DIRECTORY_SEPARATOR.'Configuration'.DIRECTORY_SEPARATOR.'Configuration.php.in', getcwd().DIRECTORY_SEPARATOR.'Core'.DIRECTORY_SEPARATOR.'Configuration'.DIRECTORY_SEPARATOR.'Configuration.php');
-            header('Location: /');
+            header('Location: /Install');
         }
     }
 

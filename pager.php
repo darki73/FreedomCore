@@ -642,6 +642,17 @@ switch($_REQUEST['category'])
                 case 'set-account-cookie':
 
                 break;
+
+                case 'ifandrename':
+                    $FolderNewName = md5(uniqid(rand(), true));
+
+                    $OldFolder = getcwd().DS.'Install';
+                    $NewFolder = getcwd().DS.$FolderNewName;
+
+                    rename($OldFolder, $NewFolder);
+
+                    header('Location: /');
+                break;
             }
         }
     break;

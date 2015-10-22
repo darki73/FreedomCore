@@ -26,16 +26,30 @@ Either specify all those who participated in the development, or just say nothin
  - TrinityCore 6.x (Not supported, there is no table called **item_template** - so cant really get items info)  
 
 ### Installation
+
+#### Windows
+If you are using Windows, then all you have to do is clone repo and point Apache to that folder.
+
+#### Linux
 ```sh
 $ git clone https://github.com/darki73/FreedomCore.git .
-$ mv Core/Configuration/Configuration.php.in mv Core/Configuration/Configuration.php
 $ chmod 755 -R Cache
+$ chmod 755 -R Uploads
 ```
 
+After you've cloned repo and set permissions (Linux only), you need to access website using Address or IP you've given to ip.
+
+For Example
+```
+http://net.freedomcore.ru  
+http://localhost
+http://127.0.0.1
+```   
+
+Browser will be redirected to the installation page. Just fill in the data it asks you to fill in and you are good to go.
+
 ###Importing Database
-- Create Database for Website (Name it as you want, but dont forget to change config)
-- Import SQL from Installation/SQL folder in root folder of project
-- You should import **only latest** SQL file (file name format **day-month-year-hour-minutes.sql**)
+- There is a **.7z** file in **Install/sql** folder which you need to **extract** and import to **Website database** in order to have icons, etc.
 
 ### Generating Icons for Webiste
 - Icons are not provided with clean installation with FreedomCore

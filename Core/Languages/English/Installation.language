@@ -1,36 +1,61 @@
-Installation_Main = Home
-Installation_SysReq = Requirements
-Installation_SysReq_Desc = For the stable operation we recommend using the following software versions
-Installation_SoftInstalled = Installs
-Installation_Allowed = All components have been tested, you can proceed with the installation!
-Installation_Allowed_Desc = To complete the installation, complete the following fields
-Installation_Installation = Installed Version
-Installation_Check_Failed = One component failed check
-Installation_Check_Failed_Desc = To continue, you must upgrade the component to the required version
-
-Installation_MySQL_Settings = MySQL Options
-Installation_MySQL_Host = Host
-Installation_MySQL_DB = Database Name
-Installation_MySQL_User = User
-Installation_MySQL_Password = Password
-Installation_MySQL_Encoding = Encoding
-
-Installation_Perform_Not_Checking = We will not check the correctness of the entered data, check them out again!
+Installation_Manager = Installation Manager
+Installation_LatestVersion = Latest Version
+Installation_InstalledVersion = Installed Version
+Installation_Main = Main
+Installation_SysReq = System Requirements
+Installation_Module = Module
+Installation_Module_Required = Required Version
+Installation_Module_Installed = Installed Version
+Installation_Documentation = Documentation
+Installation_BeginInstall = Begin Installation
 Installation_Perform_Installation = Install!
 
-Installation_Manager = Installation Manager
-Installation_WorksOnAllDevices = Works on all devices
-Installation_WorksOnAllDevices_Description = Our CMS works on all devices! <br /> Whether it is an iPhone, iPad, Android, PC or Mac,your users will be able to fully enjoy their stay on your site
-Installation_Optimization_Header = High level optimization
-Installation_Optimization_Description = Regardless of the Internet, your users will be able to fully assess system performance
-Installation_OS_Header = Doesn't matter, Linux / Windows or Mac
-Installation_OS_Description = Our CMS can work on all types of OS! <br /> It does not matter if the web server installed on Linux / Windows or Mac
+Installation_Setup_Database = Configure Database Connection
+Installation_Setup_HO = Initial Website Configuration
+Installation_Setup_HC = Finalizing Installation
+Installation_Setup_HCF = Installation of FreedomCore CMS is almost finished. There a few more steps to be made by script
+Installation_Allowed = All requirements are met. You can continue with installation
+Installation_Finalizing = Give us a minute... or Two....
+Installation_Module_OS = Operating System
+Installation_Module_Apache = Apache Server Version
+Installation_Module_Nginx = Nginx Server Version
+Installation_Module_IIS = IIS Server Version
+Installation_Module_MySQL = MySQL API Version
+Installation_Module_PHP = PHP Version
+Installation_Module_Status = Status
+Installation_Module_Si = Installed
+Installation_Module_No = Not Installed
+
+Installation_MySQL_Website = Website Database Configuration
+Installation_MySQL_Auth = Auth Database Configuration
+Installation_MySQL_Characters = Characters Database Configuration
+Installation_MySQL_World = World Database Configuration
+Installation_SOAP_Header = SOAP Protocol Configuration
+Installation_SOAP_IP = Soap IP
+Installation_SOAP_Port = Soap Port
+Installation_SOAP_Account = Soap Account
+Installation_SOAP_Password = Soap Password
+Installation_Site_Data = Website Configuration
+Installation_Site_Title = Website Title
+Installation_Site_Description = Website Description
+Installation_Site_Keywords = Website Keywords
+Installation_Site_Template = Website Template
+Installation_Finalize_Install = Install FreedomCore CMS
+Installation_Site_Cancel = Cancel Installation
+
+Installation_MySQL_Settings = MySQL Settings
+Installation_MySQL_Host = Host
+Installation_MySQL_DB = Database
+Installation_MySQL_User = Username
+Installation_MySQL_Password = Password
+Installation_MySQL_Encoding = Encoding
+Installation_MySQL_Port = Port
 
 
-Installation_FilesToImport_Header = These files need to be imported to database
-Installation_FileToImport_Desc = In order to prepare Website database, we need to import these files
-Installation_Attention = Attention!
-Installation_Manual_Import = Due to large size of additional database you will have to import it manually.<br /> To do this, head over to <strong>sql/base</strong> folder and import content of freedomcore.7z file into Website database
-
-Installation_HowToImport = To import files to DB, just click on them. Progress will be displayed
-Installation_Finish = After you've imported all the files, you can <a href="/install?category=finish" style="color: #0088cc">Finish Installation</a>
+Installation_Final_Please_Wait = Please Wait...
+Installation_Final_Success = Success!
+Installation_Final_Failed = Failed!
+Installation_Final_Config_Creation = Trying to create configuration file...
+Installation_Final_Database_Connection = Trying to connect to Database...
+Installation_Final_Database_Import = Importing main SQL files...
+Installation_Final_Complete = Complete Installation!

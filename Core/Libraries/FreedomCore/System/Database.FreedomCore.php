@@ -39,6 +39,18 @@ Class Database
         else
             return true;
     }
+
+    public static function ClientVersion()
+    {
+        ob_start();
+        phpinfo(INFO_MODULES);
+        $Info = ob_get_contents();
+        ob_end_clean();
+        $Info = stristr($Info, 'Client API version');
+        preg_match('/[1-9].[0-9].[1-9][0-9]/', $Info, $Match);
+        $Client = $Match[0];
+        return $Client;
+    }
 }
 
 global $FCCore, $Database, $InstallationIsInProgress;
@@ -67,7 +79,7 @@ else
     session_start();
     $_SESSION['preferredlanguage'] = '';
     $_SESSION['installation_in_progress'] = true;
-    if(strpos($_SERVER['REQUEST_URI'], '/install') === false)
-        header('Location: /install');
+    if(strpos($_SERVER['REQUEST_URI'], '/Install') === false)
+        header('Location: /Install');
 }
 ?>
