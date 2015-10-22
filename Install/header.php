@@ -11,6 +11,6 @@ require_once('Core'.IDS.'Core.php');
 Manager::LoadExtension('Installer', [$Database, $Smarty]);
 
 
-$Smarty->translate('installation');
+$Smarty->translate('Installation');
 
 ?>
