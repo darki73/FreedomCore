@@ -18,7 +18,7 @@ switch($_REQUEST['action']){
 
         $NewFiles = File::GetDirectoryContent($SQLFolder, 'sql');
         $OldFiles = File::GetDirectoryContent($ImportFolder, 'sql');
-
+        sort($NewFiles);
         $ArrayIndex = 0;
         foreach($NewFiles as $File){
             if(strstr($File['FileLink'], $ImportFolder))
