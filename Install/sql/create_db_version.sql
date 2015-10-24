@@ -1,0 +1,2 @@
+CREATE TABLE `db_version` (`id` INT NOT NULL COMMENT '',`database_version` VARCHAR(128) NULL COMMENT '',`update_date` VARCHAR(45) NULL COMMENT '',`install_date` VARCHAR(45) NULL COMMENT '', PRIMARY KEY (`id`)  COMMENT '');
+INSERT INTO `db_version` (`id`, `database_version`, `update_date`, `install_date`) VALUES ('1', 'cf6c8711fe3266c44229d398af041cd4edf7cfb6', '2015-10-24T13:12:56Z', '2015-10-24T13:12:56Z');

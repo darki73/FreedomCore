@@ -1,0 +1,21 @@
+Updater_Manager = Менеджер Обновлений
+Updater_Documentation = Документация
+Updater_Start_Update = Начать Обновление
+Updater_Preparation = Подготовка к обновлению системы
+Updater_Current_Version = Текущая Версия
+Updater_New_Version = Новая Версия
+
+Updater_Update_ID = ID Обновления
+Updater_Update_Hash = Hash Обновления
+Updater_Update_Date = Дата Обновления
+Updater_Update_Title = Название Обновления
+Updater_Update_SafeUpdate = Безопасное Обновление
+
+Updater_No_Update_Required = Обновление не требуется
+Updater_Latest_Version = Вы используете последнюю версию системы
+
+Updater_SafeUpdate_Yes = Да
+Updater_SafeUpdate_No = Нет
+Updater_Attention = Внимание!
+Updater_UnsafeUpdate = Разработчик указал, что между вашей текущей версией и самой свежей версией обновления есть некоторые несовместимости.<br /> Мы рекомендуем сделать Backup данных перед обновлением
+Updater_Updates_Installed = FreedomCore CMS Updated!

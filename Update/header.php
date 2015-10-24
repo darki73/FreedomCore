@@ -9,4 +9,7 @@ require_once('Core'.IDS.'Core.php');
 if(!Account::IsAuthorized($_SESSION['username'], 3))
     header('Location: /');
 
+Manager::LoadExtension('Updater', [$Database, $Smarty]);
+$Smarty->translate('Updater');
+
 ?>
