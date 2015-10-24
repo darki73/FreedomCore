@@ -1,11 +1,20 @@
 # FreedomCore (aka Freedom.Net)
 
-[![Donate](http://freedomcore.ru/paypal-donate-button.jpg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=apple%2ezhivolupov%40gmail%2ecom&lc=GB&item_name=FreedomCore&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
+[![Donate](https://static.freedomcore.ru/images/freedomcore/paypal-donate.jpg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=apple%2ezhivolupov%40gmail%2ecom&lc=GB&item_name=FreedomCore&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 FreedomCore is a replica of Battle.net website created by Blizzard.  
 My desire is full compliance between FreedomCore and Battle.net.  
   
 Because it is most likely to happen that the development of the project will be only on me, please do not expect for the instant correction of errors and bugs, as well as new features. Of course, I'll be correcting them and so on, but please understand me, I need time.
+
+#Attention
+If you plan to sell the project or are about to give it as your own development, just go to hell. The project has been free, is free and will remain free.   
+
+I want to point out that despite the fact that the CSS and JS (80%) owned by Blizzard Entertainment, the rest of the code is the property of the developer (darki73 in this case).   
+With a very strong desire from the side of the developer, you will be able to "find" a few new problems from legal point of view.
+
+Respect the work of people, and follow the simple rules of decency.
+
 #Now a bit of boring stuff
 Since this project is publicly available and in need of help in the development, I ask you to provide a link to the repository, if you're going to lay out this project on any other site other than http://community.trinitycore.org  
  
@@ -37,7 +46,7 @@ $ chmod 755 -R Cache
 $ chmod 755 -R Uploads
 ```
 
-After you've cloned repo and set permissions (Linux only), you need to access website using Address or IP you've given to ip.
+After you've cloned repo and set permissions (Linux only), you need to access website using Address or IP you've given to it.
 
 For Example
 ```

@@ -34,6 +34,7 @@ RewriteRule ^(npc)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category
 RewriteRule ^(api)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /api.php?category=$1&endpoint=$2&method=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(forum)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RedirectMatch 301 /install /Install
+RedirectMatch 301 /update /Update
 
 <IfModule mod_headers.c>
    Header always append X-Frame-Options SAMEORIGIN

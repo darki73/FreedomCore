@@ -221,10 +221,10 @@ Class Security
         foreach($NewFilesArray as $NewFile)
         {
             $NewFileName = $NewFile['file'];
-            if(String::MASearch($SecurityList, 'file', $NewFileName))
+            if(Text::MASearch($SecurityList, 'file', $NewFileName))
             {
                 $FileHash = sha1_file(getcwd().$NewFileName);
-                if(!String::MASearch($SecurityList, 'hash', $FileHash))
+                if(!Text::MASearch($SecurityList, 'hash', $FileHash))
                 {
                     $FailedFiles++;
                     $FileName = explode(DS, $NewFileName);
