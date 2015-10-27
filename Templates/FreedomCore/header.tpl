@@ -22,6 +22,16 @@
                     <li>
                         <a id="nav-client-api" class="nav-item nav-link" href="/api" data-analytics="global-nav" data-analytics-placement="Nav - API">API</a>
                     </li>
+
+                    {if !isset($smarty.session.loggedin) || !$smarty.session.loggedin}
+
+                    {else}
+                        {if $User.access_level == 4}
+                        <li>
+                            <a id="nav-client-update" class="nav-item nav-link" href="/Update" data-analytics="global-nav" data-analytics-placement="Nav - Update">Update</a>
+                        </li>
+                        {/if}
+                    {/if}
                 </ul>
                 {if !isset($smarty.session.loggedin) || !$smarty.session.loggedin}
                 <ul class="nav-list nav-right" id="nav-client-account-menu">

@@ -243,43 +243,7 @@ Comments_Spam =
 
 # Administrator Localization
 Administrator_Title = <font color = "red"> Area Amministrazione </ font>
-Administrator_Page_Title = area di amministrazione
-Administrator_SiteControl = Gestione del sito
-Administrator_ForumControl = Forum
-Administrator_SiteStat = Statistiche
-Administrator_AddArticle = Articolo
-Administrator_Antivirus = Antivirus
-Administrator_UserManagement = Gestione utenti
-Administrator_Articles = Articolo
-Administrator_PatchNotes = Patch Notes
-Administrator_Antivirus_Failed = Failed
-Administrator_Antivirus_New = Nuovo
-Administrator_Antivirus_No_New = Non Nuovo
-Administrator_Antivirus_No_Failed = Non Fallito
-Administrator_Antivirus_Options = Impostazioni
-Administrator_Antivirus_Total = Totale
-Administrator_Antivirus_Integrity = Integrità
-Administrator_Antivirus_Rescan = Ancora
-Administrator_Antivirus_LastScan = Ultima scansione
-Administrator_Antivirus_NF = Nuovo
-Administrator_Antivirus_CF = Cambiato
-Administrator_Antivirus_TF = Totale
-Administrator_Antivirus_NT = Original
-Administrator_Antivirus_Renew_Tooltip = Data List. </ br> Esegui solo se tutti i dati sono stati modificati!
-Administrator_Antivirus_Integrity_Tooltip = Questa linea mostra una panoramica
-Administrator_Localization = Management Lingua
-Administrator_Localization_Installed = lingue installate
-Administrator_Localization_Edit = Lingua
-Administrator_Localization_MainFile = file della lingua
-Administrator_Shop =
-Administrator_Shop_Management =
-Administrator_Shop_AddItem =
-Administrator_Shop_DeleteItem =
-Administrator_Shop_EditItem =
-Administrator_Shop_Stats =
-Administrator_Shop_Revenue =
-Administrator_Shop_Items_Count =
-Administrator_Shop_Items_Price =
+
 
 Race_Human = Umano
 Race_Orc = Orco

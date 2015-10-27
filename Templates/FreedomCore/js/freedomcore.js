@@ -126,7 +126,7 @@ var Installation = {
         });
         return false;
     }
-}
+};
 
 var Localization = {
 
@@ -152,4 +152,4 @@ var Localization = {
             }
         });
     }
-}
+};

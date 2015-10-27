@@ -245,43 +245,6 @@ Comments_No_Characters = Keine Charakter gefunden.
 
 # Administrator Localization
 Administrator_Title = <font color="red">Administrationsbereich</font>
-Administrator_Page_Title = Administrationsbereich
-Administrator_SiteControl = Webseitenmanagement
-Administrator_ForumControl = Forummanagement
-Administrator_SiteStat = Statistiken
-Administrator_AddArticle = Artikel erstellen
-Administrator_Antivirus = Antivirus
-Administrator_UserManagement = Benutzermanagement
-Administrator_Articles = Artikel
-Administrator_PatchNotes = Patchnotizen
-Administrator_Antivirus_Failed = Fehlgeschlagen
-Administrator_Antivirus_New = Neu
-Administrator_Antivirus_No_New = Nicht Neu
-Administrator_Antivirus_No_Failed = Nicht fehlgeschlagen
-Administrator_Antivirus_Options = Einstellungen
-Administrator_Antivirus_Total = Insgesamt
-Administrator_Antivirus_Integrity = Integrität
-Administrator_Antivirus_Rescan = Erneut scannen
-Administrator_Antivirus_LastScan = Letzter Scan
-Administrator_Antivirus_NF = Neu
-Administrator_Antivirus_CF = Verändert
-Administrator_Antivirus_TF = Insgesamt
-Administrator_Antivirus_NT = Original
-Administrator_Antivirus_Renew_Tooltip = Datenliste erneuern.</ br> Nur ausführen, wenn alle Daten verändert wurden!
-Administrator_Antivirus_Integrity_Tooltip = Diese Zeile zeigt eine Übersicht
-Administrator_Localization = Sprachenmanagement
-Administrator_Localization_Installed = Installierte Sprachen
-Administrator_Localization_Edit = Sprache bearbeiten
-Administrator_Localization_MainFile = Sprachdatei
-Administrator_Shop =
-Administrator_Shop_Management =
-Administrator_Shop_AddItem =
-Administrator_Shop_DeleteItem =
-Administrator_Shop_EditItem =
-Administrator_Shop_Stats =
-Administrator_Shop_Revenue =
-Administrator_Shop_Items_Count =
-Administrator_Shop_Items_Price =
 
 Race_Human = Mensch
 Race_Orc = Ork

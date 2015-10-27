@@ -6,7 +6,7 @@ chdir(BASE_DIRECTORY);
 require_once('Core'.IDS.'Core.php');
 
 
-if(!Account::IsAuthorized($_SESSION['username'], 3))
+if(!Account::IsAuthorized($_SESSION['username'], 4))
     header('Location: /');
 
 Manager::LoadExtension('Updater', [$Database, $Smarty]);

@@ -240,43 +240,6 @@ Comments_No_Characters = No characters were found
 
 # Administrator Localization
 Administrator_Title = <font color="red">Administrator Panel</font>
-Administrator_Page_Title = Administrator Panel
-Administrator_SiteControl = Website Management
-Administrator_ForumControl = Forum Management
-Administrator_SiteStat = Website Stats
-Administrator_AddArticle = Add Article
-Administrator_Antivirus = Antivirus
-Administrator_UserManagement = Manage Users
-Administrator_Articles = Manage Articles
-Administrator_PatchNotes = Manage Patch Notes
-Administrator_Antivirus_Failed = Changed
-Administrator_Antivirus_New = New
-Administrator_Antivirus_No_New = Nothing Added
-Administrator_Antivirus_No_Failed = Nothing Changed
-Administrator_Antivirus_Options = Options
-Administrator_Antivirus_Total = Total
-Administrator_Antivirus_Integrity = Integrity
-Administrator_Antivirus_Rescan = Rescan
-Administrator_Antivirus_LastScan = Last Scan
-Administrator_Antivirus_NF = New
-Administrator_Antivirus_CF = Changed
-Administrator_Antivirus_TF = Total
-Administrator_Antivirus_NT = Original
-Administrator_Antivirus_Renew_Tooltip = Renew file list<br />Must only be used if all files were modified by you
-Administrator_Antivirus_Integrity_Tooltip = This line shows the subjective assessment of the system security
-Administrator_Localization = Language Management
-Administrator_Localization_Installed = Installed Languages
-Administrator_Localization_Edit = Edit Language
-Administrator_Localization_MainFile = Language File
-Administrator_Shop = Shop Settings
-Administrator_Shop_Management = Manage
-Administrator_Shop_AddItem = Add Item
-Administrator_Shop_DeleteItem = Delete Item
-Administrator_Shop_EditItem = Edit Item
-Administrator_Shop_Stats = Stats
-Administrator_Shop_Revenue = Revenue
-Administrator_Shop_Items_Count = Total Items
-Administrator_Shop_Items_Price = Items Price
 
 Race_Human = Human
 Race_Orc = Orc

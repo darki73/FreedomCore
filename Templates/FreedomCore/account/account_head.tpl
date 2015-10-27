@@ -37,7 +37,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/services.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/languages/{$Language}.css" />
     {/if}
-    {if $Page.type == 'account_management'}
+    {if $Page.type == 'account_management' || $Page.type == 'admin'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/nav-client-desktop.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/common.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/freedomnet.css" />
@@ -45,6 +45,11 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/ratings.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/inputs.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/lobby.css" />
+        {if $Page.type == 'admin'}
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/settings.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/item.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/services.css" />
+        {/if}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/languages/{$Language}.css" />
     {/if}
     {if $Page.type == 'account_dashboard'}

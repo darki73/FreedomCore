@@ -14,7 +14,7 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="nav-link active" href="/Update">
+                    <a class="nav-link active" href="/">
                         <i class="fa fa-home"></i>
                         {#Menu_Main#}
                     </a>

@@ -658,6 +658,8 @@ switch($_REQUEST['category'])
     break;
 
     case 'admin':
+        $Smarty->translate('Account');
+        $Smarty->translate('Administrator');
         if(Text::IsNull($_REQUEST['subcategory']))
             header('Location: /');
         else
@@ -669,10 +671,18 @@ switch($_REQUEST['category'])
                 switch($_REQUEST['subcategory'])
                 {
                     case 'dashboard':
+                        Manager::LoadExtension('Shop', $ClassConstructor);
+                        $Smarty->assign('ShopData', Shop::GetAdministratorShopData());
                         $Smarty->assign('ModulesStats', Account::GetRequiredModulesStatus());
                         $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Page_Title').' - ')));
                         $Smarty->display('admin/dashboard');
                     break;
+
+                    case 'dashboard_old':
+                        $Smarty->assign('ModulesStats', Account::GetRequiredModulesStatus());
+                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Page_Title').' - ')));
+                        $Smarty->display('admin/dashboard_old');
+                        break;
 
                     case 'articles':
                         $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('MSG_Search_article').' - ')));
@@ -690,18 +700,61 @@ switch($_REQUEST['category'])
                             switch($_REQUEST['lastcategory']){
 
                                 case 'add-item':
-                                    $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_AddItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
-                                    $Smarty->display('admin/shop_additem');
+                                    if(Text::IsNull($_REQUEST['datatype'])){
+                                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_AddItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                                        $Smarty->display('admin/shop_additem');
+                                    } else {
+                                        switch($_REQUEST['datatype']){
+                                            case 'process':
+                                                Shop::AddItem($_REQUEST);
+                                                header('Location: /admin/dashboard/');
+                                            break;
+
+                                            case 'get-data':
+                                                $ItemData = Items::GetItemInfo($_REQUEST['itemid']);
+                                                echo json_encode($ItemData);
+                                            break;
+
+                                            default:
+                                                header('Location: /admin/shop/add-item');
+                                            break;
+                                        }
+                                    }
                                 break;
 
                                 case 'delete-item':
+                                    $Smarty->assign("ItemsList", Shop::GetAllItemsForAdministrator());
                                     $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_DeleteItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
                                     $Smarty->display('admin/shop_deleteitem');
                                 break;
 
                                 case 'edit-item':
-                                    $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_EditItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
-                                    $Smarty->display('admin/shop_edititem');
+                                    if(isset($_REQUEST['itemid'])){
+                                        if(Text::IsNull($_REQUEST['itemid'])){
+                                            $Smarty->assign("ItemsList", Shop::GetAllItemsForAdministrator());
+                                            $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_EditItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                                            $Smarty->display('admin/shop_edititem');
+                                        } else {
+
+                                            $Smarty->assign('ItemData', Shop::GetItem($_REQUEST['itemid']));
+                                            $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_EditItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                                            $Smarty->display('admin/shop_edititem_page');
+                                        }
+                                    } else {
+                                        $Smarty->assign("ItemsList", Shop::GetAllItemsForAdministrator());
+                                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Shop_EditItem').' - '.$Smarty->GetConfigVars('Administrator_Shop').' - ')));
+                                        $Smarty->display('admin/shop_edititem');
+                                    }
+                                break;
+
+                                case 'delete-item-complete':
+                                    Shop::DeleteItem($_REQUEST['itemid']);
+                                    header('Location: /admin/dashboard');
+                                break;
+
+                                case 'edit-item-complete':
+                                    Shop::UpdateItem($_REQUEST);
+                                    header('Location: /admin/shop/edit-item');
                                 break;
                             }
                         }
@@ -1841,7 +1894,7 @@ switch($_REQUEST['category'])
                             $StorageDir = str_replace('/', DS, getcwd()).DS.'Uploads'.DS.'Core'.DS.'NPC'.DS.'ModelViewer'.DS;
                             $ItemName = 'creature'.$BossInfo['entry'].'.jpg';
                             if(!File::Exists($StorageDir.$ItemName))
-                                File::Download('//media.blizzard.com/wow/renders/npcs/rotate/creature'.$BossInfo['entry'].'.jpg', $StorageDir.$ItemName);
+                                File::Download('http://media.blizzard.com/wow/renders/npcs/rotate/creature'.$BossInfo['entry'].'.jpg', $StorageDir.$ItemName);
                             $NPCInfo = Zones::GetNPCInfo($BossInfo['entry']);
                             $Smarty->assign('NPC', $NPCInfo);
                             $Smarty->assign('ZoneInfo', $ZoneInfo);

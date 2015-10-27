@@ -239,49 +239,6 @@ Comments_Report = Сообщить Модераторам
 Comments_Spam = Спам
 Comments_No_Characters = У вас нет персонажей
 
-# Administrator Localization
-Administrator_Title = <font color="red">Панель Администратора</font>
-Administrator_Page_Title = Панель Администратора
-Administrator_SiteControl = Управление Сайтом
-Administrator_ForumControl = Управление Форумом
-Administrator_SiteStat = Статистика Сайта
-Administrator_AddArticle = Добавить Новость
-Administrator_Antivirus = Проверка Целостности Файлов
-Administrator_UserManagement = Управление Пользователями
-Administrator_Articles = Управление Новостями
-Administrator_PatchNotes = Управление списком изменений
-Administrator_Antivirus_Failed = Измененные
-Administrator_Antivirus_New = Новые файлы
-Administrator_Antivirus_No_New = Нет новых файлов
-Administrator_Antivirus_No_Failed = Все файлы прошли проверку
-Administrator_Antivirus_Options = Опции
-Administrator_Antivirus_Total = Всего файлов
-Administrator_Antivirus_Integrity = Защищенность
-Administrator_Antivirus_Rescan = Пересканировать
-Administrator_Antivirus_LastScan = Обновлено
-Administrator_Antivirus_NF = Новые
-Administrator_Antivirus_CF = Изменены
-Administrator_Antivirus_TF = Всего
-Administrator_Antivirus_NT = Не тронуты
-Administrator_Antivirus_Renew_Tooltip = Произвести обновление списка файлов<br />Делайте это только если уверены что файлы были добавлены вами
-Administrator_Antivirus_Integrity_Tooltip = Данная строка показывает субъективную оценку защищенности системы
-Administrator_Localization = Управление Языками
-Administrator_Localization_Installed = Установленные Языки
-Administrator_Localization_Edit = Редактирование Языка
-Administrator_Localization_MainFile = Основной файл языка
-
-Administrator_Shop = Настройки Магазина
-Administrator_Shop_Management = Управление Магазином
-Administrator_Shop_AddItem = Добавить Предмет
-Administrator_Shop_DeleteItem = Удалить Предмет
-Administrator_Shop_EditItem = Изменить Предмет
-Administrator_Shop_Stats = Статистика
-Administrator_Shop_Revenue = Доход
-Administrator_Shop_Items_Count = Всего Товаров
-Administrator_Shop_Items_Price = На сумму
-
-Administrator_Shop_ =
-
 Race_Human = Человек
 Race_Orc = Орк
 Race_Dwarf = Дворф
@@ -320,6 +277,8 @@ Class_Druid = Друид
 
 LevelShort = ур.
 No = Нет
+
+Administrator_Title = <font color="red">Панель Администратора</font>
 
 
 ## Characters Profile Localization

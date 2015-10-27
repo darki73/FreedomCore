@@ -26,6 +26,162 @@ Class Shop
         return $Sidebar;
     }
 
+
+    public static function GetAllItemsForAdministrator()
+    {
+        $Statement = Shop::$DBConnection->prepare('SELECT si.*, p.price FROM shop_items si LEFT JOIN prices p ON si.short_code = p.short_code');
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $Iteration = 0;
+        foreach($Result as $Item){
+            $Result[$Iteration]['category_name'] = str_replace(':', '', Shop::GetCategoryByID($Item['item_type']))['type'];
+            $Iteration++;
+        }
+
+        return $Result;
+    }
+
+    public static function GetItem($ItemID){
+        $Statement = Shop::$DBConnection->prepare('SELECT si.*, p.price FROM shop_items si LEFT JOIN prices p ON si.id = p.id WHERE si.id = :itemid');
+        $Statement->bindParam(':itemid', $ItemID);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if(Database::IsEmpty($Statement))
+            return false;
+        else {
+            $Result['category'] = Shop::GetCategoryByID($Result['item_type']);
+            $Result['backgrounds'] = Shop::AvailableBackgrounds();
+            return $Result;
+        }
+    }
+
+    public static function UpdateItem($Request){
+        $Statement = Shop::$DBConnection->prepare('UPDATE shop_items si, prices p SET si.item_name = :name, si.item_background = :background, si.item_background_color = :color, p.price = :price WHERE si.short_code = p.short_code AND si.id = :id');
+        $Statement->bindParam(':name', $Request['item_name']);
+        $Statement->bindParam(':background', $Request['background_template']);
+        $Statement->bindParam(':color', $Request['color_template']);
+        $Statement->bindParam(':price', $Request['item_price']);
+        $Statement->bindParam(':id', $Request['item_id']);
+        $Statement->execute();
+    }
+
+    public static function DeleteItem($ItemID){
+        $ShopStatement = Shop::$DBConnection->prepare('DELETE FROM shop_items WHERE short_code = :itemid');
+        $ShopStatement->bindParam(':itemid', $ItemID);
+        $ShopStatement->execute();
+        $PriceStatement = Shop::$DBConnection->prepare('DELETE FROM prices WHERE short_code = :itemid');
+        $PriceStatement->bindParam(':itemid', $ItemID);
+        $PriceStatement->execute();
+    }
+
+    private static function AvailableBackgrounds()
+    {
+        $Backgrounds = [
+            'images_folder' => '/Templates/FreedomCore/images/shop/items/',
+            'sizes'         => [
+                1024,
+                1280,
+                1920
+            ],
+            'types'         => [
+                'classic' => [
+                    'name'  => 'Classic',
+                    'color' => '#39100d',
+                    'image' => 'item_before_lk'
+                ],
+                'tbc' => [
+                    'name'  => 'The Burning Crusade',
+                    'color' => '#39100d',
+                    'image' => 'item_before_lk'
+                ],
+                'lich' => [
+                    'name'  => 'Wrath of the Lich King',
+                    'color' => '#050933',
+                    'image' => 'item_lk'
+                ],
+                'cata' => [
+                    'name'  => 'Cataclysm',
+                    'color' => '#240a08',
+                    'image' => 'item_after_lk'
+                ],
+                'mop' => [
+                    'name'  => 'Mists of Pandaria',
+                    'color' => '#240a08',
+                    'image' => 'item_after_lk'
+                ],
+                'wod' => [
+                    'name'  => 'Warlords of Draenor',
+                    'color' => '#240a08',
+                    'image' => 'item_after_lk'
+                ]
+            ]
+        ];
+
+        return $Backgrounds;
+    }
+
+    public static function AddItem($Data){
+        $ItemID = $Data['item_id'];
+        $ItemC = $Data['item_class'];
+        $ItemSC = $Data['item_subclass'];
+        $ItemP = $Data['item_price'];
+        $ItemName = $Data['item_name_in'];
+
+        $ShortCode = Shop::GenerateShortCode($ItemName);
+        $Category = "";
+        $PageSettings = Shop::ItemPageSettings($ItemID);
+
+        if($ItemC == '15'){
+            if($ItemSC == '2')
+                $Category = 5;
+            elseif($ItemSC == '5')
+                $Category = 3;
+        } else if($ItemC == '0' || $ItemC == '1' || $ItemC == '2' || $ItemC == '4' || $ItemC == '9')
+            $Category = 2;
+
+        $ShopStatement = Shop::$DBConnection->prepare('INSERT INTO shop_items (short_code, item_id, item_name, item_type, item_shop_icon, item_background, item_background_color) VALUES (:one, :two, :three, :four, :five, :six, :seven)');
+        $ShopStatement->bindParam(':one', $ShortCode);
+        $ShopStatement->bindParam(':two', $ItemID);
+        $ShopStatement->bindParam(':three', $ItemName);
+        $ShopStatement->bindParam(':four', $Category);
+        $ShopStatement->bindParam(':five', $ShortCode);
+        $ShopStatement->bindParam(':six', $PageSettings[0]);
+        $ShopStatement->bindParam(':seven', $PageSettings[1]);
+        $ShopStatement->execute();
+
+        $PricesStatement = Shop::$DBConnection->prepare('INSERT INTO prices (type, short_code, price) VALUES (:one, :two, :three)');
+        $PricesStatement->bindParam(':one', $Category);
+        $PricesStatement->bindParam(':two', $ShortCode);
+        $PricesStatement->bindParam(':three', $ItemP);
+        $PricesStatement->execute();
+    }
+
+    private static function GenerateShortCode($ItemName)
+    {
+        $Code = str_replace("'", '', $ItemName);
+        $Code = str_replace(" ", '-', $Code);
+        $Code = str_replace(",", '', $Code);
+        return strtolower($Code);
+    }
+
+    private static function ItemPageSettings($ItemID) {
+        // Well it is so hacky, that i dont even want to present it as a feature.
+        // Unless ill be able to somehow distinguish items by expansions, this
+        // is a super hacky way of doing "MATH" behind expansion = item id
+        $LKItemImage = "item_lk";
+        $LKItemColor = "#050933";
+        $LKItem = [$LKItemImage, $LKItemColor];
+
+        $CataItemImage = "item_after_lk";
+        $CataItemColor = "#240a08";
+        $CataItem = [$CataItemImage, $CataItemColor];
+
+        if($ItemID <= 59000)
+            return $LKItem;
+        else
+            return $CataItem;
+    }
+
     private static function GetMounts()
     {
         $Statement = Shop::$DBConnection->prepare('SELECT si.*, p.price FROM shop_items si LEFT JOIN prices p ON si.short_code = p.short_code  WHERE item_type = 3');

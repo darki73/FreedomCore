@@ -1,0 +1,74 @@
+# Administrator Localization
+Administrator_Title = <font color="red">Панель Администратора</font>
+Administrator_Page_Title = Панель Администратора
+Administrator_SiteControl = Управление Сайтом
+Administrator_ForumControl = Управление Форумом
+Administrator_SiteStat = Статистика Сайта
+Administrator_AddArticle = Добавить Новость
+Administrator_Antivirus = Проверка Целостности Файлов
+Administrator_UserManagement = Управление Пользователями
+Administrator_Articles = Управление Новостями
+Administrator_PatchNotes = Управление списком изменений
+Administrator_Antivirus_Failed = Измененные
+Administrator_Antivirus_New = Новые файлы
+Administrator_Antivirus_No_New = Нет новых файлов
+Administrator_Antivirus_No_Failed = Все файлы прошли проверку
+Administrator_Antivirus_Options = Опции
+Administrator_Antivirus_Total = Всего файлов
+Administrator_Antivirus_Integrity = Защищенность
+Administrator_Antivirus_Rescan = Пересканировать
+Administrator_Antivirus_LastScan = Обновлено
+Administrator_Antivirus_NF = Новые
+Administrator_Antivirus_CF = Изменены
+Administrator_Antivirus_TF = Всего
+Administrator_Antivirus_NT = Не тронуты
+Administrator_Antivirus_Renew_Tooltip = Произвести обновление списка файлов<br />Делайте это только если уверены что файлы были добавлены вами
+Administrator_Antivirus_Integrity_Tooltip = Данная строка показывает субъективную оценку защищенности системы
+Administrator_Localization = Управление Языками
+Administrator_Localization_Installed = Установленные Языки
+Administrator_Localization_Edit = Редактирование Языка
+Administrator_Localization_MainFile = Основной файл языка
+
+Administrator_Shop = Настройки Магазина
+Administrator_Shop_Management = Управление Магазином
+Administrator_Shop_AddItem = Добавить Предмет
+Administrator_Shop_DeleteItem = Удалить Предмет
+Administrator_Shop_EditItem = Изменить Предмет
+Administrator_Shop_Stats = Статистика Магазина
+Administrator_Shop_Revenue = Доход
+Administrator_Shop_Items_Count = Всего Товаров
+Administrator_Shop_Items_Price = На сумму
+Administrator_Shop_Add_Hint_One = Для добавления предмета, введите его ID и нажмите кнопку <br /> <i>Получить Данные</i>
+Administrator_Shop_Add_Hint_Two = После получения данных, вы сможете указать цену предмета
+Administrator_Shop_Add_Item_ID = ID Предмета
+Administrator_Shop_Add_Get_Data = Получить Данные
+Administrator_Shop_Add_Item_Price = Цена Предмета
+
+
+Administrator_Shop_Edit_Item_Subheader = Выберите предмет для редактирования
+Administrator_Shop_Edit_Item_SideTitle = Выберите предмет из списка для его дальнейшего редактирования
+Administrator_Shop_Edit_Item_Template = Выберите Задний Фон
+Administrator_Shop_Edit_Item_Color = Цвет Фона
+Administrator_Shop_Edit_Item_Name = Название Предмета
+Administrator_Shop_Edit_Item_Price = Цена Предмета
+Administrator_Shop_Edit_Item_Save = Сохранить
+
+Administrator_Shop_Delete_Item_SideTitle  = Выберите предмет из списка для его удаления
+Administrator_Shop_Delete_Item_Subheader  = Выберите предмет для удаления
+
+Administrator_PatchNotes_Add = Добавить Список Изменений
+Administrator_PatchNotes_Delete = Удалить Список Изменений
+Administrator_PatchNotes_Edit = Изменить Список Изменений
+
+Administrator_Articles_Add = Добавить Новость
+Administrator_Articles_Delete = Удалить Новость
+Administrator_Articles_Edit = Изменить Новость
+
+Administrator_Forum_Manage_Categories = Управление Категориями
+Administrator_Forum_Manage_MVP = Управление MVP
+Administrator_Forum_Manage_Posts = Управление Записями
+
+Administrator_Users_Registered = Зарегестрировано Пользователей
+Administrator_Users_Registered_Today = Сегодня:
+Administrator_Users_Registered_Total = Всего:
+
