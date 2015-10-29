@@ -1454,6 +1454,17 @@ switch($_REQUEST['category'])
 			{
 				switch($_REQUEST['subcategory'])
 				{
+
+                    case 'events':
+                        Manager::LoadExtension('Events', $ClassConstructor);
+                        $Smarty->translate('Events');
+                        $Events = Events::getEvents();
+                        $Smarty->assign('CurrentEvent', Events::getCurrentEvent($Events));
+                        $Smarty->assign('Events', Events::sortByDate($Events));
+                        $Smarty->assign('Page', Page::Info('game', array('bodycss' => 'page view-page', 'pagetitle' => $Smarty->GetConfigVars('Events_Page_Title').' - ')));
+                        $Smarty->display('pages/game_events');
+                    break;
+
 					case 'race':
 						$Smarty->assign('AllianceRaces', Races::GetAlliance());
 						$Smarty->assign('HordeRaces', Races::GetHorde());
@@ -1525,10 +1536,26 @@ switch($_REQUEST['category'])
                     $Smarty->display('pages/game_profession');
                 }
                 elseif($_REQUEST['subcategory'] == 'events'){
-                    if(!Text::IsNull($_REQUEST['lastcategory'])){
-                        switch($_REQUEST['lastcategory']){
-
+                    Manager::LoadExtension('Events', $ClassConstructor);
+                    $Smarty->translate('Events');
+                    $EventName = $_REQUEST['lastcategory'];
+                    $EventData = Events::getEventData($EventName);
+                    if(!$EventData){
+                        header('Location: /game/events');
+                    } else {
+                        $Events = Events::getEvents();
+                        $PageEventData = [];
+                        foreach($Events as $Event){
+                            if(isset($Event['description'])){
+                                $EventName = str_replace('\'', '', $Event['description']);
+                                if(trim($EventData['name']) == trim($EventName))
+                                    $PageEventData = $Event;
+                            }
                         }
+                        $Smarty->assign('DData', $PageEventData);
+                        $Smarty->assign('Event', $EventData);
+                        $Smarty->assign('Page', Page::Info('game', array('bodycss' => 'page view-page', 'pagetitle' => $EventData['name'].' - ')));
+                        $Smarty->display('pages/game_event_data');
                     }
                 }
 			}

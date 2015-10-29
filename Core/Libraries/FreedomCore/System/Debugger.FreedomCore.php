@@ -51,7 +51,8 @@ Class Debugger extends FreedomCore
           elseif($Category == 3)
           {
                $ErrorsID = array(
-               '1' => 'Unable to find template'
+                   '1' => 'Unable to find template',
+                   '2' => 'Unable to find language file'
                );
           }
           elseif($Category == 4)

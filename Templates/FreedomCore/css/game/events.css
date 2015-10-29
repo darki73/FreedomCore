@@ -1,0 +1,189 @@
+.event-content { background: url(/Templates/FreedomCore/images/calendar/events-content-background.png) 0 0 repeat-y; border-top: 1px solid #301b0e; position: relative; }
+.event-content:after { background: -webkit-linear-gradient(top, #1a0f08 0%, transparent 100%); background: -moz-linear-gradient(top, #1a0f08 0%, transparent 100%); background: linear-gradient(to top, #1a0f08 0%, transparent 100%); bottom: 0; content: ""; height: 280px; position: absolute; right: 0; width: 358px; }
+.event-content .left-col { float: left; padding: 0 30px 98px; position: relative; width: 576px; }
+.event-content .left-col:before { background: -webkit-linear-gradient(bottom, #24140b 0%, transparent 100%); background: -moz-linear-gradient(bottom, #24140b 0%, transparent 100%); background: linear-gradient(to bottom, #24140b 0%, transparent 100%); content: ""; height: 306px; left: 0; position: absolute; right: 0; top: 0; }
+.event-content .sidebar { background: #2c170d; color: #b79855; float: left; padding: 0 25px 98px; position: relative; width: 308px; }
+.event-content .sidebar:before { background: -webkit-linear-gradient(bottom, #32190f 0%, transparent 100%); background: -moz-linear-gradient(bottom, #32190f 0%, transparent 100%); background: linear-gradient(to bottom, #32190f 0%, transparent 100%); content: ""; height: 458px; left: 0; position: absolute; right: 0; top: 0; }
+
+.events-contents { float: left; padding: 34px 30px 0 28px; width: 704px; }
+.events-section { margin: 37px 0 57px; position: relative; }
+.events-section p { font-size: 13px; line-height: 23px; margin: 0 0 23px; }
+.events-sidebar-section { margin: 40px 0 57px; position: relative; }
+.events-sidebar-section p { line-height: 21px; padding: 0 8px; }
+.events-header { color: #efe3d2; font: normal 42px/45px "Palatino Linotype", Palatino, sans-serif; letter-spacing: -1px; margin-bottom: 31px; }
+.events-subheader { color: #efe3d2; font: 24px/24px "Palatino Linotype", Palatino, sans-serif; margin: 32px 0 29px; }
+.events-section .events-subheader { margin: 32px 0 20px; }
+.events-title { color: #b79855; display: block; font-size: 11px; line-height: 13px; text-transform: uppercase; }
+.events-intro { margin: 8px 0 39px; width: 559px; }
+.events-intro .events-intro-text,
+.events-section .events-intro-text { color: #b79855; font-size: 16px; line-height: 30px; }
+.events-contents .events-intro-text { margin: 4px 0 31px; }
+
+.events-main-menu { background: url(/Templates/FreedomCore/images/calendar/events-bg-left-body.jpg) 0 0 repeat-y; float: left; margin-bottom: 60px; width: 232px; }
+.events-main-menu .wrapper { background: url(/Templates/FreedomCore/images/calendar/events-bg-left-bottom.jpg) 0 100% no-repeat; min-height: 904px; }
+.events-main-menu .events-list { background: url(/Templates/FreedomCore/images/calendar/events-bg-left-top.jpg) 0 0 no-repeat; padding: 34px 14px 0; }
+.events-main-menu .events-list-item { border-bottom: 1px solid #4c300e; }
+.events-main-menu .events-list-link { display: block; padding: 13px 0; }
+.events-main-menu .events-icon { background-image: url(/Templates/FreedomCore/images/calendar/events-sprite.jpg); border: 1px solid #352310; border-radius: 2px; float: left; height: 45px; margin: 0 11px 0 10px; width: 45px; }
+.events-main-menu .events-date { display: block; font-size: 13px; line-height: 18px; }
+.events-main-menu .events-title { margin: 0 5px 6px 0; }
+.events-main-menu .events-list-link:hover .events-icon { border: 1px solid #cd9000; }
+.events-main-menu .events-list-link:hover .events-title,
+.events-main-menu .events-list-link:hover .events-date { color: #fff; }
+
+.icon-brewfest { background-position: 0 -315px; }
+.icon-childrens-week { background-position: 0 -135px; }
+.icon-darkmoon-faire { background-position: 0 -675px; }
+.icon-day-of-the-dead { background-position: 0 -405px; }
+.icon-feast-of-winter-veil { background-position: 0 -540px; }
+.icon-hallows-end { background-position: 0 -360px; }
+.icon-harvest-festival { background-position: 0 -270px; }
+.icon-love-is-in-the-air { background-position: 0 -45px; }
+.icon-midsummer-fire-festival { background-position: 0 -180px; }
+.icon-new-year { background-position: 0 -585px; }
+.icon-noblegarden { background-position: 0 -90px; }
+.icon-pilgrims-bounty { background-position: 0 -495px; }
+.icon-pirates-day { background-position: 0 -225px; }
+.icon-stranglethorn-fishing-extravaganza { background-position: 0 -630px; }
+.icon-world-of-warcraft-anniversary { background-position: 0 -450px; }
+
+#content .event .content-header { min-height: 315px; padding: 44px 464px 43px 30px; position: relative; width: 500px; }
+#content .event .content-header:after { background: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%, transparent 100%); background: -moz-linear-gradient(top, rgba(0,0,0,0.3) 0%, transparent 100%); background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%); bottom: 0; content: ""; height: 5px; left: 0; position: absolute; right: 0; }
+.event .content-header .events-parent { font-size: 14px; margin: 0 0 8px; }
+.event .content-header .events-header { margin-bottom: 11px; }
+.event .content-header .events-subheader { color: #98562a; margin: 0 0 45px; }
+
+.page-outline { margin-bottom: 20px; }
+.page-outline .section-title { color: #efe3d2; font-size: 14px; font-weight: normal; margin-bottom: 1px; text-transform: uppercase; }
+.page-outline .section-link { color: #efe3d2; padding-right: 14px; position: relative; }
+.page-outline .section-link:after { background: url(/Templates/FreedomCore/images/calendar/events-arrows-compact.png) 0 0 no-repeat; content: ""; height: 10px; position: absolute; right: 0; top: 3px; width: 6px; }
+.page-outline .section-link:hover:after { background-position: -6px 0; }
+.page-outline .subsection-list { margin: 0; text-indent: 0.5em; }
+
+.panel { background: #211309 url(/Templates/FreedomCore/images/calendar/wiki-box-bg.jpg) 0 0 no-repeat; border-radius: 4px; -webkit-box-shadow: #0d0703 0 0 5px; -moz-box-shadow: #0d0703 0 0 5px; box-shadow: #0d0703 0 0 5px; margin: 27px 0 0; min-height: 269px; padding: 22px 351px 25px 29px; position: relative; }
+.panel-title { color: #efe3d2; font-size: 22px; font-weight: bold; letter-spacing: -1px; line-height: 30px; text-transform: uppercase; }
+.panel-subtitle { color: #efe3d2; font: normal 14px/22px Arial, sans-serif; padding: 9px 0 12px; text-transform: uppercase; }
+.panel-desc { font-size: 13px; line-height: 23px; }
+.panel .ui-button { bottom: 19px; left: 26px; position: absolute; }
+
+.panel-brewfest { background-image: url(/Templates/FreedomCore/images/calendar/events-brewfest-box-bg.jpg); }
+.panel-childrens-week { background-image: url(/Templates/FreedomCore/images/calendar/events-childrens-week-box-bg.jpg); }
+.panel-darkmoon-faire { background-image: url(/Templates/FreedomCore/images/calendar/events-darkmoon-faire-box-bg.jpg); }
+.panel-day-of-the-dead { background-image: url(/Templates/FreedomCore/images/calendar/events-day-of-the-dead-box-bg.jpg); }
+.panel-feast-of-winter-veil { background-image: url(/Templates/FreedomCore/images/calendar/events-feast-of-winter-veil-box-bg.jpg); }
+.panel-hallows-end { background-image: url(/Templates/FreedomCore/images/calendar/events-hallows-end-box-bg.jpg); }
+.panel-harvest-festival { background-image: url(/Templates/FreedomCore/images/calendar/events-harvest-festival-box-bg.jpg); }
+.panel-love-is-in-the-air { background-image: url(/Templates/FreedomCore/images/calendar/events-love-is-in-the-air-box-bg.jpg); }
+.panel-lunar-festival { background-image: url(/Templates/FreedomCore/images/calendar/events-lunar-festival-box-bg.jpg); }
+.panel-midsummer-fire-festival { background-image: url(/Templates/FreedomCore/images/calendar/events-midsummer-fire-festival-box-bg.jpg); }
+.panel-new-year { background-image: url(/Templates/FreedomCore/images/calendar/events-new-year-box-bg.jpg); }
+.panel-noblegarden { background-image: url(/Templates/FreedomCore/images/calendar/events-noblegarden-box-bg.jpg); }
+.panel-pilgrims-bounty { background-image: url(/Templates/FreedomCore/images/calendar/events-pilgrims-bounty-box-bg.jpg); }
+.panel-pirates-day { background-image: url(/Templates/FreedomCore/images/calendar/events-pirates-day-box-bg.jpg); }
+.panel-stranglethorn-fishing-extravaganza { background-image: url(/Templates/FreedomCore/images/calendar/events-stranglethorn-fishing-extravaganza-box-bg.jpg); }
+.panel-world-of-warcraft-anniversary { background-image: url(/Templates/FreedomCore/images/calendar/events-wow-anniversary-box-bg.jpg); }
+
+.events-subsection { clear: both; margin-top: 27px; padding-left: 33px; }
+.subsection-title { color: #efe3d2; font: 14px Arial, sans-serif; padding: 18px 0 22px 50px; position: relative; text-transform: uppercase; z-index: 2; }
+.subsection-title:after { background: url(/Templates/FreedomCore/images/calendar/events-medallion-sprite.jpg) 0 0 no-repeat; content: ""; height: 43px; left: 0; position: absolute; top: 4px; width: 43px; }
+
+.has-top-link { border-bottom: 1px solid #402413; margin-bottom: -7px; padding-bottom: 0.5em; position: relative; }
+.has-top-link:after { background: #000; content: ""; bottom: 0; height: 1px; left: 0; position: absolute; right: 0; }
+.has-top-link .top-link { background: url(/Templates/FreedomCore/images/calendar/icon-flyout-arrows.gif) 0 -54px no-repeat; font-family: Arial, sans-serif; font-size: 11px; margin-top: 5px; padding-left: 18px; position: absolute; right: 0; }
+
+.item-title { color: #efe3d2; font-size: 13px; line-height: 23px; padding: 8px 0 4px; }
+.item-link { display: inline-block; padding: 1px 0 4px; }
+.item-link .icon-frame { float: left; margin-right: 8px; position: relative; top: -1px; }
+
+.subsection-entertainment .subsection-title:after { background-position: 0 -43px; }
+.subsection-merchants-and-vendors .subsection-title:after { background-position: 0 -86px; }
+.subsection-mounts .subsection-title:after { background-position: 0 -172px; }
+.subsection-pets .subsection-title:after { background-position: 0 -215px; }
+.subsection-gear .subsection-title:after { background-position: 0 -129px; }
+.subsection-toys .subsection-title:after { background-position: 0 -258px; }
+.subsection-consumables .subsection-title:after { background-position: 0 -301px; }
+.subsection-recipes .subsection-title:after { background-position: 0 -344px; }
+
+.panel-achievements { margin-top: 34px; min-height: 0; padding: 1px; }
+.panel-achievements .achievements-desc { padding: 17px 100px 6px 28px; }
+.panel-achievements .achievements-desc p { margin: 0 0 12px; }
+.panel-achievements .achievements-title,
+.panel-achievements .achievement-link { color: #efe3d2; font-weight: bold; }
+.panel-achievements .table { background: none; border-top: 1px solid #000; overflow: hidden; padding-bottom: 0; }
+.panel-achievements .table td { padding: 10px 16px 10px 28px; width: 50%; white-space: nowrap; }
+.panel-achievements .table td,
+.panel-achievements .table tr:hover td { color: #efc9a0; }
+.panel-achievements .icon-frame { margin-right: 9px; }
+.panel-achievements .achievement-link { cursor: help; margin-right: 4px; }
+.panel-achievements .achievement-link:hover { color: #fff; }
+.panel-achievements .table tr:first-child td { border-top-color: #402413; }
+.panel-achievements .table td:first-child { padding-right: 0; }
+.panel-achievements .table tr:last-child td { padding-bottom: 16px; }
+
+.events-page-nav { background: url(/Templates/FreedomCore/images/calendar/basic-comments-bg.jpg) 50% 0 repeat-x; padding: 21px 27px 16px; }
+.events-page-nav .next-event,
+.events-page-nav .next-event .ui-button,
+.events-page-nav .next-event .events-info { float: right; }
+.events-page-nav .previous-event,
+.events-page-nav .previous-event .ui-button,
+.events-page-nav .previous-event .events-info { float: left; }
+.events-page-nav .next-event .ui-button { margin-left: 17px; }
+.events-page-nav .previous-event .ui-button { margin-right: 17px; }
+.events-page-nav .events-info { margin-top: 4px; }
+.events-page-nav .next-event .events-info { text-align: right; }
+
+.next-wide .button-right,
+.previous-wide .button-right { font-family: Arial, sans-serif; min-width: 74px; text-transform: none; }
+.next-wide .button-right:after,
+.previous-wide .button-right:before { background: url(/Templates/FreedomCore/images/calendar/events-arrows-compact.png) no-repeat 0 0; content: ""; display: inline-block; height: 10px; position: relative; top: 1px; width: 6px; }
+.next-wide .button-right:after { margin-left: 5px; }
+.next-wide:hover .button-right:after { background-position: -6px 0; }
+.previous-wide .button-right:before { background-position: -12px 0; margin-right: 5px; }
+.previous-wide:hover .button-right:before { background-position: -18px 0; }
+
+.events-sidebar-header { border-bottom: 1px solid #4b2a17; color: #854a26; font-size: 16px; font-weight: normal; margin: 38px 0 20px; padding: 0 0 4px 38px; position: relative; }
+.events-sidebar-header:after { background: url(/Templates/FreedomCore/images/calendar/events-sidebar-sprite.png) 0 0 no-repeat; content: ""; height: 26px; left: 2px; position: absolute; top: -3px; width: 30px; }
+
+.section-currency .events-sidebar-header:after { background-position: 0 -26px; }
+.section-gallery .events-sidebar-header:after { background-position: 1px -52px; }
+.section-wallpapers .events-sidebar-header:after { background-position: 0 -76px; }
+
+.screen-display { border: 1px solid #4b2a17; border-radius: 5px; height: 179px; margin-top: 27px; overflow: hidden; position: relative; width: 307px; }
+.screen-display .screen-list { position: relative; }
+.screen-display .thumbnail-large { background: #1a0f08; float: left; height: 179px; position: relative; width: 307px; }
+.screen-display .thumbnail-large:after { bottom: 0; -webkit-box-shadow: inset 0 0 24px #000; -moz-box-shadow: inset 0 0 24px #000; box-shadow: inset 0 0 24px #000; content: ""; left: 0; position: absolute; right: 0; top: 0; }
+.screen-display .thumbnail-large img { bottom: 0; left: 0; margin: auto; max-width: 100%; position: absolute; right: 0; top: 0; }
+
+.screenshot-nav { background: url(/Templates/FreedomCore/images/calendar/media-sprite.png) 0 0 no-repeat; cursor: pointer; display: block; height: 85px; margin-top: 46px; position: absolute; width: 56px; z-index: 5; }
+.screenshot-nav.prev { background-position: -104px -436px; float: left;  }
+.screenshot-nav.next { background-position: -155px -436px; margin-left: 251px; }
+.screenshot-nav.prev:hover { background-position: -261px -436px; float: left; }
+.screenshot-nav.next:hover { background-position: -312px -436px; float: right; }
+
+.illustration { border: 1px solid #4b2a17; border-radius: 3px; margin: 12px 0 46px; position: relative; }
+.illustration:after { bottom: 0; -webkit-box-shadow: inset 0 0 24px #000; -moz-box-shadow: inset 0 0 24px #000; box-shadow: inset 0 0 24px #000; content: ""; left: 0; position: absolute; right: 0; top: 0; }
+.illustration.float-left { margin-right: 31px; }
+.illustration.float-right { margin-left: 31px; }
+.illustration img { display: block; }
+
+
+/* Additional and probably temporary styles that were added for the CMS migration. */
+/*	CMS modules can't do zebra stripes at the moment, so this recreates the row1/row2 styles with CSS3.
+	It won't work in IE8 but this will have to do for now. */
+/*	"row1" */
+.event .table tr td,
+.event .table tr:hover td {
+    background: #2b1507;
+}
+.event .table tr td {
+    border-top: 1px solid #31190a;
+}
+/*	"row2" */
+.event .table tr:nth-child(even) td {
+    background: #231207;
+    border-top: 1px solid #30190b;
+}
+/*	Content editors can't add <span> elements, so this is a style that is normally on .achievement-title */
+.event .achievements-desc strong {
+    color: #efe3d2;
+}

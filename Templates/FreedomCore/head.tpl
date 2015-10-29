@@ -123,6 +123,9 @@
         <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/wiki/profession.css" />
         <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/character/profession.css" />
     {/if}
+    {if $Page.bodycss == 'page view-page'}
+        <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/game/events.css" />
+    {/if}
 
     <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/locale/{$Language}.css" />
 	

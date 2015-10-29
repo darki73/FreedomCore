@@ -12,6 +12,7 @@ new SQLGenerator($FCCore['DataDirectory'].$FCCore['English6x'], $FCCore['Locale'
 
 //SQLGenerator::PrintSQL('<br />INSERT INTO `freedomhead_achievementcategory` VALUES', SQLGenerator::Unpack("Achievement_Category.dbc", "nisx"));
 //SQLGenerator::PrintSQL('<br />INSERT INTO `freedomhead_achievement` VALUES', SQLGenerator::Unpack("Achievement.dbc", "niiissiiiiisxii"));
+//SQLGenerator::PrintSQL('<br />INSERT INTO `freedomhead_achievementcriteria` VALUES', SQLGenerator::Unpack("Achievement_Criteria.dbc", "niiiiiiiisxxxxxxxxxxxxxxxxiixii"));
 // Missing Achievement Criteria
 //SQLGenerator::PrintSQL('<br />INSERT INTO `freedomhead_glyphproperties` VALUES', SQLGenerator::Unpack("GlyphProperties.dbc", "niiix"));
 //SQLGenerator::PrintSQL('<br />INSERT INTO `freedomhead_items', SQLGenerator::Unpack("Item.dbc", "niixiiixi")); Almost done
@@ -26,5 +27,7 @@ new SQLGenerator($FCCore['DataDirectory'].$FCCore['English6x'], $FCCore['Locale'
 //SQLGenerator::PrintSQL('<br />INSERT INTO `freedomhead_lock` VALUES', SQLGenerator::Unpack("Lock.dbc", "niiiiixxxiiiiixxxiiiiixxxxxxxxxxx"));
 // Changed Structure for Item Display Info
 //SQLGenerator::PrintSQL('<br />INSERT INTO `freedomhead_itemset` VALUES', SQLGenerator::Unpack("ItemSet.dbc", "nsiiiiiiiiiiiiiiiiiii")); Unfinished
+
+
 
 ?>

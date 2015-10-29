@@ -86,7 +86,12 @@ Class Smarty_FreedomCore extends Smarty
 	{
 		global $FreedomCore;
 		$Language = str_replace('.language', '', $FreedomCore->loadLanguage());
-		Smarty::configLoad($Language.DS.$TranslationFile.'.language');
+		try {
+			Smarty::configLoad($Language.DS.$TranslationFile.'.language');
+		} catch (Exception $e) {
+			Debugger::ReportError(3, 2, $TranslationFile.'.language in '.$Language.' language folder');
+			die();
+		}
 	}
 }
 $Smarty = new Smarty_FreedomCore($FCCore['Template']);
