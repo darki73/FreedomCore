@@ -47,6 +47,8 @@ Class Updater {
             if($UpdateData['updating_from']['id'] < $Version)
                 $UpdatesList[] = $Update;
         }
+        sort($UpdatesList);
+        $UpdatesList = array_map("unserialize", array_unique(array_map("serialize", $UpdatesList)));
         return $UpdatesList;
     }
 
