@@ -21,7 +21,9 @@ Class Updater {
 
         $UpdateURL = "https://project.freedomcore.ru/freedomcore.php?action=%s&current_hash=%s";
         $UpdateData = Manager::GetUrlData(sprintf($UpdateURL, 'update', $DBData['database_version']));
-        return json_decode($UpdateData, true);
+        $Data = json_decode($UpdateData, true);
+        $Data['downloaded'] = Updater::CheckForPull($Data['updating_to']['sha']);
+        return $Data;
     }
 
     public static function GetDatabaseVersion()
@@ -70,6 +72,22 @@ Class Updater {
                 $Iteration++;
             }
         }
+    }
+
+    public static function CheckForPull($UpdateTo)
+    {
+        $GitHead = getcwd().DS.'.git'.DS.'FETCH_HEAD';
+        if(file_exists($GitHead))
+        {
+            $LocalVersion = file_get_contents(getcwd().DS.'.git'.DS.'FETCH_HEAD');
+            list($LocalVersion, $ServiceInfo) = explode('branch', $LocalVersion);
+        } else {
+            $LocalVersion = "UNKNOWN";
+        }
+        if(trim($LocalVersion) == trim($UpdateTo))
+            return true;
+        else
+            return false;
     }
 
     public static function ApplyUpdate($File, $Last, $Hash, $Date){
