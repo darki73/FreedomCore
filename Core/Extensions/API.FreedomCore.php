@@ -116,7 +116,8 @@ Class API
             500 => ['type' => 'Internal Server Error', 'detail' => 'The server encountered an unexpected condition which prevented it from fulfilling the request'],
             501 => ['type' => 'Not Implemented', 'detail' => 'The server does not support the functionality required to fulfill the request'],
             502 => ['type' => 'Bad Gateway', 'detail' => 'The server, while acting as a gateway or proxy, received an invalid response from the upstream server it accessed in attempting to fulfill the request'],
-            596 => ['type' => 'Service Not Found', 'detail' => 'The requested service could not be found']
+            596 => ['type' => 'Service Not Found', 'detail' => 'The requested service could not be found'],
+            1404 => ['type' => 'Assembly Version Not Presented', 'detail' => 'Unable to identify current assembly version']
         ];
         return $Codes[$CodeID];
     }

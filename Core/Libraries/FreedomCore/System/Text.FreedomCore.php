@@ -28,6 +28,13 @@ Class Text
         return false;
     }
 
+    public static function ASearch($Array, $Item){
+        foreach($Array as $Key => $Value)
+            if(trim($Value) == trim($Item))
+                return $Key;
+        return false;
+    }
+
     public static function IsNull($String)
     {
         if(is_null($String))
@@ -45,6 +52,15 @@ Class Text
         echo "<pre>";
         print_r($_REQUEST);
         echo "</pre>";
+    }
+
+    public static function toJson($Array, $Parameters = [])
+    {
+        $PList = 0;
+        for($i = 0; $i < count($Parameters); $i++){
+            $PList += constant($Parameters[$i]);
+        }
+        echo json_encode($Array, $PList);
     }
 
     public static function Match($ArgOne, $ArgTwo)
@@ -154,6 +170,32 @@ Class Text
         return $string1;
     }
 
+    public static function IsRequestSet($Request, $KeysToCheck){
+        $Validated = false;
+        foreach($KeysToCheck as $Key){
+            if(isset($Request[$Key]))
+                $Validated = true;
+            else {
+                $Validated = false;
+                break;
+            }
+        }
+        return $Validated;
+    }
+
+    public static function UniqueMulti($Array)
+    {
+        $Array = array_unique($Array);
+        return array_map('array_values', $Array);
+    }
+
+    public static function UniqueSingle($Array)
+    {
+        $Array = array_unique($Array);
+        $Array = array_values($Array);
+        return $Array;
+    }
+
     public static function ProtectionCode($MainString)
     {
         return sha1($MainString.mt_rand(10000,99999));
@@ -164,6 +206,11 @@ Class Text
         foreach($UnsetArray as $Item)
             unset($Array[$Item]);
         return $Array;
+    }
+
+    public static function SimpleJson($Code, $Key, $Text)
+    {
+        return json_encode(['code' => $Code, $Key => $Text]);
     }
 
     public static function RemapArray($Array, $From, $To)
