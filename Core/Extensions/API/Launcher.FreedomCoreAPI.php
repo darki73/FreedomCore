@@ -129,8 +129,6 @@ Class LauncherAPI extends API
         else
             $Response['update_needed'] = 0;
 
-        $Response['agent_data'] = LauncherAPI::GetAgentFileData();
-
         $Response['download_url'] = $DownloadURL;
         return $Response;
     }
