@@ -833,7 +833,7 @@ Class Account
      *
      * @return bool
      */
-    public static function Authorize($Username, $Password)
+    public static function Authorize($Username, $Password, $APICall = false)
     {
         $StringToHash = $Username.':'.$Password;
         $HashedPassword = Account::HashPassword('sha1', $StringToHash);
@@ -844,13 +844,15 @@ Class Account
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         if(!is_null($Result['username']))
         {
-            if($Result['pinned_character'] == null || Text::IsNull($Result['pinned_character']))
-            {
-                $CharID = Characters::PickRandomChar($Result['id']);
-                if($CharID != false)
-                    Account::PinCharacter($Result['username'], $CharID);
+            if(!$APICall){
+                if($Result['pinned_character'] == null || Text::IsNull($Result['pinned_character']))
+                {
+                    $CharID = Characters::PickRandomChar($Result['id']);
+                    if($CharID != false)
+                        Account::PinCharacter($Result['username'], $CharID);
+                }
+                $_SESSION['access_role'] = $Result['access_level'];
             }
-            $_SESSION['access_role'] = $Result['access_level'];
             return true; // Successfull Athorization
         }
         else

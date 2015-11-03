@@ -67,6 +67,15 @@ switch($_SERVER['REQUEST_METHOD'])
             case 'launcher':
                 API::EnableAPIExtension('Launcher');
                 switch($_REQUEST['method']){
+
+                    case 'authorize':
+                        if(Text::IsRequestSet($_REQUEST, ['username', 'password'])){
+                            LauncherAPI::AuthorizeUser($_REQUEST['username'], $_REQUEST['password']);
+                        } else {
+                            echo Text::SimpleJson(1403, 'status', '0');
+                        }
+                    break;
+
                     case 'server-supported':
                         $ServerData = LauncherAPI::ServerSupported();
                         if($ServerData['code'] == 1200)
@@ -126,7 +135,23 @@ switch($_SERVER['REQUEST_METHOD'])
                                     echo Text::SimpleJson(1201, 'status', $UpdateStatus);
                             }
                         }
-                        break;
+                    break;
+
+                    case 'get-latest-update':
+                        echo LauncherAPI::StringToVersion(LauncherAPI::LatestUpdate());
+                    break;
+
+                    case 'checkupdate-build':
+                        if(!Text::IsRequestSet($_REQUEST, ['last_build'])){
+                            API::GenerateResponse(1404, true);
+                        } else {
+                            $UpdateStatus = LauncherAPI::CheckForUpdateByBuild($_REQUEST['last_build'], true);
+                            if(!$UpdateStatus)
+                                echo Text::SimpleJson(1200, 'status', 'No Update Needed');
+                            else
+                                echo Text::SimpleJson(1201, 'status', $UpdateStatus);
+                        }
+                    break;
 
                     case 'downloadupdatelist':
                         if(Text::IsRequestSet($_REQUEST, ['assembly_version', 'updating_to'])){
@@ -142,7 +167,7 @@ switch($_SERVER['REQUEST_METHOD'])
                         } else {
                             echo "Not Set!";
                         }
-                        break;
+                    break;
                 }
             break;
 

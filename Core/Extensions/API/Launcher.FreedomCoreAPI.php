@@ -40,6 +40,26 @@ Class LauncherAPI extends API
                 return end($Versions);
     }
 
+    public static function LatestUpdate()
+    {
+        $Versions = LauncherAPI::GetVersions();
+        return end($Versions);
+    }
+
+    public static function CheckForUpdateByBuild($BuildNumber, $Format = false)
+    {
+        $Versions = LauncherAPI::GetVersions();
+        for($i = 0; $i <= Text::ASearch($Versions, $BuildNumber); $i++)
+            unset($Versions[$i]);
+        if(empty($Versions))
+            return false;
+        else
+            if($Format)
+                return LauncherAPI::StringToVersion(end($Versions));
+            else
+                return end($Versions);
+    }
+
     public static function StringToVersion($String)
     {
         return implode('.', str_split($String));
@@ -147,6 +167,15 @@ Class LauncherAPI extends API
         ];
 
         return $AgentDataArray;
+    }
+
+    public static function AuthorizeUser($Username, $Password)
+    {
+        $AuthorizationStatus = Account::Authorize($Username, $Password, true);
+        if(!$AuthorizationStatus)
+            echo Text::SimpleJson(1403, 'status', 'Authorization Failed');
+        else
+            echo Text::SimpleJson(1200, 'status', 'Authorization Successful');
     }
 
     private static function APIRequest($Method, $Hash, $AdditionalParameters = [])
