@@ -327,10 +327,14 @@ switch($_REQUEST['category'])
                                 break;
 
                                 case 'freedomtag-verify':
-                                    $FreedomTag = Account::CreateFreedomTag($User['id'], $_REQUEST['freedomTag']);
-                                    $Smarty->assign('FreedomTag', $FreedomTag);
-                                    $Smarty->assign('Page', Page::Info('account_freedomtag', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_FreedomTag_PageTitle').' - ')));
-                                    $Smarty->display('account/freedomtag_verify');
+                                    if(isset($_REQUEST['freedomTag'])){
+                                        $FreedomTag = Account::CreateFreedomTag($User['id'], $_REQUEST['freedomTag']);
+                                        $Smarty->assign('FreedomTag', $FreedomTag);
+                                        $Smarty->assign('Page', Page::Info('account_freedomtag', array('bodycss' => '', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_FreedomTag_PageTitle').' - ')));
+                                        $Smarty->display('account/freedomtag_verify');
+                                    } else {
+                                        die('This is a know issue.<br />For some reason <i>freedomTag</i> input does not get submitted while performing insert, but it does when you just print our request on page');
+                                    }
                                 break;
 
                                 case 'orders':

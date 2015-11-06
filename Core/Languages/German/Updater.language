@@ -1,21 +1,21 @@
-Updater_Manager = 
-Updater_Documentation = 
-Updater_Start_Update = 
-Updater_Preparation = 
-Updater_Current_Version = 
-Updater_New_Version = 
+Updater_Manager = Update-Manager
+Updater_Documentation = Dokumentation
+Updater_Start_Update = Update starten
+Updater_Preparation = Preparation for system update
+Updater_Current_Version = Aktuelle Version
+Updater_New_Version = Neue Version
 
-Updater_Update_ID = 
-Updater_Update_Hash = 
-Updater_Update_Date = 
-Updater_Update_Title = 
-Updater_Update_SafeUpdate = 
+Updater_Update_ID = Update ID
+Updater_Update_Hash = Update Hash
+Updater_Update_Date = Datum
+Updater_Update_Title = Titel
+Updater_Update_SafeUpdate = Safe Update
 
-Updater_No_Update_Required = 
-Updater_Latest_Version = 
+Updater_No_Update_Required = Kein Update ben?tigt.
+Updater_Latest_Version = Letzte Version
 
-Updater_SafeUpdate_Yes = 
-Updater_SafeUpdate_No = 
-Updater_Attention = 
-Updater_UnsafeUpdate = 
-Updater_Updates_Installed = 
+Updater_SafeUpdate_Yes = Ja
+Updater_SafeUpdate_No = Nein
+Updater_Attention = Achtung
+Updater_UnsafeUpdate = unsicheres Update
+Updater_Updates_Installed = Updates installiert

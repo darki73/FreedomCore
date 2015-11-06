@@ -68,6 +68,11 @@ switch($_SERVER['REQUEST_METHOD'])
                 API::EnableAPIExtension('Launcher');
                 switch($_REQUEST['method']){
 
+                    case 'friends':
+                        API::EnableAPIExtension('Friends');
+                        FriendsAPI::GetCharacterFriends($_REQUEST['datatype']);
+                    break;
+
                     case 'authorize':
                         if(Text::IsRequestSet($_REQUEST, ['username', 'password'])){
                             LauncherAPI::AuthorizeUser($_REQUEST['username'], $_REQUEST['password']);

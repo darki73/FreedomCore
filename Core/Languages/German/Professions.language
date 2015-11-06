@@ -1,20 +1,20 @@
-Game_Professions_Header_Description = 
-Game_Professions_Alchemy_Description = 
-Game_Professions_Mining_Description = 
-Game_Professions_Engineering_Description = 
-Game_Professions_Leatherworking_Description = 
-Game_Professions_Blacksmithing_Description = 
-Game_Professions_Enchanting_Description = 
-Game_Professions_Inscription_Description = 
-Game_Professions_Tailoring_Description = 
-Game_Professions_Skinning_Description = 
-Game_Professions_Herbalism_Description = 
-Game_Professions_Jewelcrafting_Description = 
-Game_Professions_Archaeology_Description = 
-Game_Professions_Cooking_Description = 
-Game_Professions_First_Aid_Description = 
-Game_Professions_Fishing_Description = 
-
+Game_Professions_Header_Description = Spieler, die einen Beruf ergreifen, stellen im Verlauf des Lernprozesses, selbigen zu meistern, schnell fest, dass das erlernte Wissen mindestens so n&uumltzlich ist wie das Schwingen eines Schwertes oder die Kunst, einen Zauber auszusprechen. Sie k&oumlnnen Waffen, Werkzeuge und magische Tr&aumlnke erstellen, Wunden verbinden, wertvolle Materialien sammeln, uralte Runen der Macht herstellen und vieles mehr. Wahrliche geschickte Meister ihres Berufes denken selbstverst&aumlndlich in gr&ouml&szligeren Dimensionen als nur das Ausr&uumlsten ihrer eigenen Charaktere. In den Zeiten, in denen sie nicht ihre eigene Ausr&uumlstung mit diesen F&aumlhigkeiten verbessern, machen sie Profit, indem sie diese anderen zur Verf&uumlgung stellen.
+Game_Professions_Alchemy_Description = Alchemisten verwenden Kr&aumluter zur Herstellung magischer Gebr&aumlue, die heilen, Kr&aumlfte verleihen und andere positive Effekte hervorrufen - Unsichtbarkeit, Widerstandsf&aumlhigkeit und vieles andere.
+Game_Professions_Mining_Description = Bergbauspezialisten sind immer auf der Suche nach wertvollen und n&uumltzlichen Erzen und entrei?en diese mit der Hilfe ihrer Spitzhacke der Erde. 
+Game_Professions_Engineering_Description = Ingenieure nutzen ihren Erfindungsreichtum, um eine zahlreiche (und mitunter willk&uumlrliche) Auswahl an hilfreichen Gegenst&aumlnden zu entwickeln.
+Game_Professions_Leatherworking_Description = Lederer nehmen die unbehandelten, stacheligen oder robusten B&aumllge von allen m&oumlglichen Tieren und verwandeln sie in n&uumltzliche Dinge.
+Game_Professions_Blacksmithing_Description = Schmiede nutzen ihre Fertigkeiten im Umgang mit Hammer und Amboss, um t&oumldliche Waffen, schwere Ketten- und Plattenr&uumlstungen und weitere spezialisierte Gegenst&aumlnde herzustellen.
+Game_Professions_Enchanting_Description = Verzauberer k&oumlnnen &uumlberz&aumlhlige magische Gegenst&aumlnde auch entzaubern - die dadurch entstandenen R&uumlckst&aumlnde lassen sich verwenden, um die Ausr&uumlstung ihrer Wahl langfristig zu verst&aumlrken.
+Game_Professions_Inscription_Description = Schreiber weben Worte der Macht in Glyphen, die die F&aumlhigkeiten und Fertigkeiten der Helden verbessern und ihnen auf normalem Wege unzug&aumlngliche Spezialeffekte erm&oumlglichen.
+Game_Professions_Tailoring_Description = Schneider nehmen einfachen Stoff und weben Wunder.
+Game_Professions_Skinning_Description = K&uumlrschner verhindern Verschwendungen von Rohstoffen, indem sie tote Tiere h&aumluten und so Felle und Leder ansammeln.
+Game_Professions_Herbalism_Description = Kr&aumluterkundige ernten vorsichtig die n&uumltzlichen und heilkr&aumlftigen Kr&aumluter, die &uumlberall in der Welt zu finden sind.
+Game_Professions_Jewelcrafting_Description = Juwelenschleifer entlocken wertvollen Steinen &uumlberraschende Kr&aumlfte und stellen machtvolle Juwelen und Schmuckst&uumlcke her.
+Game_Professions_Archaeology_Description = Arch&aumlologen durchsuchen die Welt - und Orte jenseits von ihr - nach mysteri&oumlsen Artefakten aus der Vergangenheit.
+Game_Professions_Cooking_Description = K&oumlche experimentieren mit ungew&oumlhnlichen und verbl&uumlffenden Zutaten aus den entlegensten Winkeln von Azeroth.
+Game_Professions_First_Aid_Description = &Aumlrzte retten im gef&aumlhrlichen Azeroth Leben, indem sie Bandagen und Gegengifte einsetzen, um Verletzungen und Vergiftungen zu heilen.
+Game_Professions_Fishing_Description = Angler k&oumlnnen gleichzeitig entspannen und f?r ihre Ern&aumlhrung sorgen, indem sie ihren Fang in den Seen und Meeren Azeroths machen.
+                
 Game_Professions_Alchemy_Description_Full = 
 Game_Professions_Mining_Description_Full = 
 Game_Professions_Engineering_Description_Full = 
@@ -31,6 +31,6 @@ Game_Professions_Cooking_Description_Full =
 Game_Professions_First_Aid_Description_Full = 
 Game_Professions_Fishing_Description_Full = 
 
-Game_Professions_Primary = 
-Game_Professions_Secondary = 
+Game_Professions_Primary = Prim&aumlr 
+Game_Professions_Secondary = Sekund&aumlr
 Game_Professions_ =
