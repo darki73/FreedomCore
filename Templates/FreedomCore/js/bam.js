@@ -341,7 +341,7 @@ var ChargebackCall = {
         $.ajax({
             type: 'POST',
             timeout: 60000,
-            url: Core.baseUrl + '/data/wow-licenses-details.html',
+            url: '/data/wow-licenses-details.html',
             data: postData,
             dataType: 'json',
             success: function(msg) {
@@ -778,7 +778,7 @@ var accountBalance = {
             timeout: 60000,
             data: postData,
             dataType: 'json',
-            url: Core.baseUrl + '/data/refresh-balance',
+            url: '/data/refresh-balance',
             success: function(msg) {
                 if (msg !== '') {
                     var currencies = msg;
@@ -847,7 +847,7 @@ var accountBalance = {
         $.ajax({
             type: 'POST',
             timeout: 60000,
-            url: Core.baseUrl + '/data/set-account-cookie',
+            url: '/data/set-account-cookie',
             data: postData,
             dataType: 'json',
             success: function(msg) {

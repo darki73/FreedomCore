@@ -23,16 +23,15 @@ Class Image extends FreedomCore
         Image::Initialize($FileName);
         Image::Resize(640, 300, "exact");
         Image::saveImage($SavePath);
-        Image::CreateNewsImage($FileName);
+        Image::CreateNewsImage($FileName, $NewImageName);
         unlink($FileName);
-        return ['filePath' => $SavePath, 'name' => $NewImageName, 'url' => '//'.$_SERVER['SERVER_NAME'].'/Uploads/Core/SlideShow/'.$NewImageName];
+        return ['filePath' => $SavePath, 'name' => $NewImageName, 'url' => '//'.$_SERVER['SERVER_NAME'].'/Uploads/Core/Slideshow/'.$NewImageName];
     }
 
-    public static function CreateNewsImage($FileName)
+    public static function CreateNewsImage($FileName, $NewImageName)
     {
         $Extension = strrchr($FileName, '.');
         $SlideShowPath = getcwd().DS."Uploads".DS."Core".DS."News".DS;
-        $NewImageName = strtoupper(md5(uniqid(rand(), true))).$Extension;
         $SavePath = $SlideShowPath.$NewImageName;
         Image::Resize(622, 240, "exact");
         Image::saveImage($SavePath);
