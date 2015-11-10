@@ -7,6 +7,10 @@ body.item-index #content .content-top { background: url(/Templates/FreedomCore/i
 .wiki .directory { padding: 0; }
 .wiki .directory .title { margin: 25px; }
 
+
+/* article data */
+.article-image-upload { padding-left: 30px; color: #fff; width: 310px; position: relative; }
+
 /* item detail */
 .item-detail { padding-left: 80px; color: #fff; width: 310px; position: relative; }
 .item-detail .frame-56 { position: absolute; overflow: hidden; left: 0; top: 5px; }

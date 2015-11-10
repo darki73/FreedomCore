@@ -47,5 +47,24 @@ var Administrator = {
             }
         });
         return false;
+    },
+
+    tmp_article_image: function(form) {
+        $.ajax({
+            url: Core.baseUrl + '/admin/articles/tmp_image',
+            type: 'POST',
+            data:  new FormData(form),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success: function(result) {
+                $('#imagePreviewDiv').show();
+                $('#TMPImageForm').hide();
+                var ImageData = JSON.parse(result);
+                $('#imagePreviewDiv').html("<img src='"+ImageData.url+"' alt='"+ImageData.name+"' width='310'>");
+                $('#imageName').val(ImageData.name);
+            }
+        });
+        return false;
     }
 };

@@ -49,7 +49,10 @@ Class News
         if(Text::IsNull($Result['id']))
             return null;
         else
+        {
+            $Result['full_description'] = News::ParseBBCode($Result['full_description']);
             return $Result;
+        }
     }
 
     public static function GetComments($ArticleID)
@@ -140,6 +143,32 @@ Class News
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         return $Result['maxcomment'];
+    }
+
+    public static function CreateArticle($Data)
+    {
+        $CommentsKey = md5(uniqid(rand(), true));
+        $Title = $Data['subject'];
+        $Body = $Data['postCommand_detail'];
+        $Short = Text::Truncate($Body, 150);
+        $Image = 'Core/News/'.$Data['imageName'];
+        $Poster = $_SESSION['username'];
+        $Date = date('Y-m-d H:i:s');
+
+        $Statement = News::$DBConnection->prepare('INSERT INTO news (title, short_description, full_description, posted_by, post_date, post_miniature, comments_key) VALUES(:title, :sd, :fd, :pb, :pd, :pm, :ck)');
+        $Statement->bindParam(':title', $Title);
+        $Statement->bindParam(':sd', $Short);
+        $Statement->bindParam(':fd', $Body);
+        $Statement->bindParam(':pb', $Poster);
+        $Statement->bindParam(':pd', $Date);
+        $Statement->bindParam(':pm', $Image);
+        $Statement->bindParam(':ck', $CommentsKey);
+        $Statement->execute();
+    }
+
+    private static function ParseBBCode($Message)
+    {
+        return str_replace('[', '<', str_replace(']', '>', $Message));
     }
 }
 

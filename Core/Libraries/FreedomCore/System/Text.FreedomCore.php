@@ -78,6 +78,17 @@ Class Text
         echo "</pre>";
     }
 
+    public static function Truncate($String, $Length, $StopAnywhere=false) {
+        if (strlen($String) > $Length) {
+            $String = substr($String,0,($Length -3));
+            if ($StopAnywhere)
+                $String .= '...';
+            else
+                $String = substr($String,0,strrpos($String,' ')).'...';
+        }
+        return $String;
+    }
+
     public static function MassUnset($Array, $Unset)
     {
         $ArrayIndex = 0;

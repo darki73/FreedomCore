@@ -689,8 +689,38 @@ switch($_REQUEST['category'])
                         break;
 
                     case 'articles':
-                        $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('MSG_Search_article').' - ')));
-                        $Smarty->display('admin/articles');
+                        Manager::LoadExtension('News', $ClassConstructor);
+                        if(!Text::IsNull($_REQUEST['lastcategory'])){
+                            switch($_REQUEST['lastcategory']){
+
+                                case 'add':
+                                    $Smarty->assign('Page', Page::Info('admin', array('bodycss' => 'services-home', 'pagetitle' => $Smarty->GetConfigVars('Administrator_Articles_Add').' - ')));
+                                    $Smarty->display('admin/create_article');
+                                break;
+
+                                case 'create-article':
+                                    if(Text::IsRequestSet($_REQUEST, ['imageName', 'postCommand_detail', 'subject'])){
+                                        News::CreateArticle($_REQUEST);
+                                        header('Location: /admin/dashboard');
+                                    } else {
+                                        header('Location: /admin/dashboard');
+                                    }
+                                break;
+
+                                case 'tmp_image':
+                                    if(is_array($_FILES)) {
+                                        if (is_uploaded_file($_FILES['file_upload']['tmp_name'])) {
+                                            $name = $_FILES['file_upload']['name'];
+                                            $sourcePath = $_FILES['file_upload']['tmp_name'];
+                                            $ImageData = Image::CreateSlideShowImage(Image::MoveUploadedImage($sourcePath, $name));
+                                            echo json_encode($ImageData);
+                                        }
+                                    }
+                                break;
+                            }
+                        } else {
+                            header('Location: /admin/dashboard');
+                        }
                     break;
 
                     case 'shop':
@@ -1655,11 +1685,11 @@ switch($_REQUEST['category'])
                         {
                             case 'load.json':
                                 $CommentsInfo = array(
-                                    'article_id' => $_REQUEST['page'],
-                                    'base' => $_REQUEST['base']
+                                    'article_id' => $SearchFor,
+                                    'base' => $_REQUEST['base'],
+                                    'page' => $_REQUEST['page']
                                 );
-
-                                $Smarty->assign('Comments', News::GetComments($_REQUEST['page']));
+                                $Smarty->assign('Comments', News::GetComments($SearchFor));
                                 $Smarty->display('blog/comments_load');
                                 break;
 

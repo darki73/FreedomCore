@@ -146,5 +146,10 @@
         <script type="text/javascript" src="/Templates/{$Template}/js/freedomtag/freedomtag-randomize.js"></script>
     {/if}
 
+    {if $Page.bodycss == 'services-home'}
+        {include file = 'parts/MSG_Javascript.tpl'}
+        <script type="text/javascript" src="/Templates/{$Template}/js/cms.min.js"></script>
+    {/if}
+
     </body>
 </html>

@@ -40,7 +40,10 @@ Class FriendsAPI extends API
                         $FinalArray[$ArrayIndex]['game']['online_on'] = ['guid' => "", 'name' => "", 'level' => "", 'map' => "", 'zone' => "", 'online' => "", 'owner' => "", 'location' => ""];
                     $ArrayIndex++;
                 }
-                return Text::toJson(['friends' => $FinalArray], ['JSON_UNESCAPED_UNICODE']);
+                if(empty($FinalArray))
+                    echo Text::SimpleJson(1404, "status", "User has no friends");
+                else
+                    return Text::toJson(['code' => '1200', 'status' => 'Successful request', 'friends' => $FinalArray], ['JSON_UNESCAPED_UNICODE']);
             } else {
                 return Text::SimpleJson(1404, 'status', sprintf("Account with id %i has no characters", $AccountID));
             }

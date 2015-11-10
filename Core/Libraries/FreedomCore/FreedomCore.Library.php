@@ -75,7 +75,6 @@ Class FreedomCore
 
     private static function VerifyPDOInstallation()
     {
-        $PDOInstalled = false;
         if(extension_loaded('pdo'))
             $PDOInstalled = true;
         else
@@ -94,6 +93,7 @@ Class FreedomCore
     private static function InitializeSystem()
     {
         Manager::LoadSystemExtension("Security");
+        Manager::LoadSystemExtension("Image");
         Manager::LoadSystemExtension("Session");
         Manager::LoadSystemExtension("Debugger");
         Manager::LoadSystemExtension("Database");

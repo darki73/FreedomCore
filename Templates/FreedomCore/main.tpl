@@ -83,6 +83,7 @@
                 <div class="left-container-inner">
                     <div class="featured-news-container">
                         <ul class="featured-news">
+                            {assign "Iteration" "0"}
                             {foreach $News as $Article}
                                 <li>
                                     <div class="article-wrapper">
@@ -101,6 +102,10 @@
                                         </div>
                                     </div>
                                 </li>
+                                {$Iteration = $Iteration + 1}
+                                {if $Iteration == 3}
+                                    {break}
+                                {/if}
                             {/foreach}
                         </ul>
                     </div>
