@@ -51,7 +51,7 @@ var Administrator = {
 
     tmp_article_image: function(form) {
         $.ajax({
-            url: Core.baseUrl + '/admin/articles/tmp_image',
+            url: '/admin/articles/tmp_image',
             type: 'POST',
             data:  new FormData(form),
             contentType: false,
