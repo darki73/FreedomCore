@@ -97,6 +97,7 @@ crashlytics-build.properties
 /Uploads/Core/Slideshow/*.png
 /Uploads/Core/Slideshow/*.jpeg
 /Uploads/Core/Slideshow/*.jpg
+/Uploads/Media/Videos/*.flv
 /Templates/FreedomCore/images/dungeon-maps/*
 /Templates/FreedomCore/images/wiki/zone/*
 !/Templates/FreedomCore/images/wiki/zone/bgs

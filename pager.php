@@ -1719,12 +1719,34 @@ switch($_REQUEST['category'])
     break;
 
 	case 'media':
-        header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
-//		if(Text::IsNull($_REQUEST['subcategory']))
-//		{
-//			$Smarty->assign('Page', Page::Info('media', array('bodycss' => '')));
-//			$Smarty->display('media');
-//		}
+        Manager::LoadExtension('Media', $ClassConstructor);
+        $Smarty->translate('Media');
+        switch($_REQUEST['subcategory']){
+            case 'videos':
+                $TypeID = Media::getMediaTypeByName($_REQUEST['subcategory']);
+                $Data = Media::getMediaRecord($_REQUEST['lastcategory'], $TypeID);
+                $Smarty->assign('MediaData', $Data);
+                $Smarty->assign('MediaVideos', Media::getMedia(1));
+                Page::GeneratePage($Smarty, 'media', null, $Smarty->variable('Media_Videos'), 'pages/media_videos');
+            break;
+
+            case 'screenshots':
+
+            break;
+
+            case 'music':
+
+            break;
+
+            case 'wallpapers':
+
+            break;
+
+            default:
+                $Smarty->assign('MediaData', Media::getAll());
+                Page::GeneratePage($Smarty, 'media', null, $Smarty->variable('Menu_Media'), 'pages/media_index');
+            break;
+        }
 	break;
 
     case 'shop':

@@ -20,6 +20,10 @@
     {/if}
     <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/nav-client-desktop.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/lightbox.css" />
+    {if $Page.type == 'media'}
+        <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/media/media-gallery.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/media/media.css" />
+    {/if}
     {if $Page.type == 'forum'}
         <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/build/cms.min.css" />
         <link rel="stylesheet" type="text/css" media="all" href="//{$smarty.server.HTTP_HOST}/Templates/{$Template}/css/forums/forums-index.css" />

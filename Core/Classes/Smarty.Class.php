@@ -93,6 +93,11 @@ Class Smarty_FreedomCore extends Smarty
 			die();
 		}
 	}
+
+	function variable($Variable)
+	{
+		return $this->getConfigVariable($Variable);
+	}
 }
 $Smarty = new Smarty_FreedomCore($FCCore['Template']);
 ?>

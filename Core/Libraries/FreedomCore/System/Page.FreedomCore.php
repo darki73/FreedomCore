@@ -33,6 +33,12 @@ Class Page
         $Smarty->assign('Page', Page::Info('error_'.$ErrorDescription['code'], array('bodycss' => 'server-error', 'pagetitle' => $ErrorDescription['code'].' - ')));
         $Smarty->display('pages/error_page');
     }
+
+	public static function GeneratePage($TemplatesManager, $PageType, $BodyCSS, $HeaderString, $PageTemplate)
+	{
+		$TemplatesManager->assign('Page', Page::Info($PageType, array('bodycss' => $BodyCSS, 'pagetitle' => $HeaderString.' - ')));
+		$TemplatesManager->display($PageTemplate);
+	}
 }
 
 ?>
