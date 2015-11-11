@@ -31,10 +31,10 @@ Status = Estado
 Players_Online = Jugadores Online
 Captcha_Code = Código Captcha
 Captcha_Renew = Renovar Captcha
-Change =
-Today =
-Tomorrow =
-Soon =
+Change = Cambiar
+Today = Hoy
+Tomorrow = Mañana
+Soon = Pronto
 
 #PvP Pages
 PvP_Rated_Battlegrounds =
@@ -166,7 +166,7 @@ Login_Authorization = Iniciar sesión
 Login_Create_Account = ¿Necesitas una cuenta?
 Login_Cant_Login = ¿No puedes iniciar sesión?
 Login_Registration = Crear una cuenta gratis
-Login_Already_Have_Account =
+Login_Already_Have_Account = ¿Ya tienes una cuenta?
 Account_No_Characters =
 Login_Logout = Salir
 Login_Log_In = Iniciar sesión
@@ -175,7 +175,7 @@ Account_Characters_Return_Back =
 Account_Characters_Not_Found = No encontrado
 Account_Characters_Management =
 Account_Characters_DropDown =
-Account_Authorization_Required =
+Account_Authorization_Required = ¡<strong>Inicia sesión</strong> para mejorar y personalizar tu experiencia!
 
 Realm_Status_Title = Estado del Reino
 Latest_Updates_Title = Últimas actualizaciones
