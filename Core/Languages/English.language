@@ -35,6 +35,7 @@ Change = Change
 Today = Today
 Tomorrow = Tomorrow
 Soon = Soon
+Search_Field = Search characters, items, forums and more…
 
 #PvP Pages
 PvP_Rated_Battlegrounds = Rated Battlegrounds
@@ -175,7 +176,7 @@ Account_Characters_Return_Back =
 Account_Characters_Not_Found =
 Account_Characters_Management =
 Account_Characters_DropDown =
-Account_Authorization_Required =
+Account_Authorization_Required = <strong>Log in now</strong> to enhance and personalize your experience!
 
 Realm_Status_Title = Realm Status
 Latest_Updates_Title = Latest Updates
