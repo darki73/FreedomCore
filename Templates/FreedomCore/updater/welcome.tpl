@@ -41,6 +41,21 @@
                                 <td>{$UpdateData.updating_from.title}</td>
                                 <td>{$UpdateData.updating_to.title}</td>
                             </tr>
+                            <tr>
+                                <td><strong>{#Updater_Author#}</strong></td>
+                                <td>{$UpdateData.updating_from.author}</td>
+                                <td>{$UpdateData.updating_to.author}</td>
+                            </tr>
+                            {if $UpdateData.updating_to.post_install}
+                            <tr style='background-color: orangered'>
+                                <td><strong>{#Updater_Post_Install#}</strong></td>
+                                <td colspan="2">
+                                    <center>
+                                        {#Updater_Post_Install_Required#}
+                                    </center>
+                                </td>
+                            </tr>
+                            {/if}
                             <tr {if $UpdateData.safe_update == 0}style='background-color: orangered'{else}style='background-color: forestgreen'{/if}">
                             <td><strong>{#Updater_Update_SafeUpdate#}</strong></td>
                             <td colspan="2">
@@ -66,9 +81,17 @@
                                 <h3>{#Updater_Attention#}</h3>
                                 {#Updater_UnsafeUpdate#}
                             </div>
-                            <a href="/Update/complete" class="btn btn-primary"> {#Updater_Start_Update#}</a>
+                            {if $UpdateData.updating_to.post_install}
+                                <a href="/Update/post_configuration" class="btn btn-primary"> {#Updater_Start_Update#}</a>
+                            {else}
+                                <a href="/Update/complete" class="btn btn-primary"> {#Updater_Start_Update#}</a>
+                            {/if}
                         {else}
-                            <a href="/Update/complete" class="btn btn-primary"> {#Updater_Start_Update#}</a>
+                            {if $UpdateData.updating_to.post_install}
+                                <a href="/Update/post_configuration" class="btn btn-primary"> {#Updater_Start_Update#}</a>
+                            {else}
+                                <a href="/Update/complete" class="btn btn-primary"> {#Updater_Start_Update#}</a>
+                            {/if}
                         {/if}
                     {/if}
                 </center>

@@ -28,6 +28,17 @@ Class Text
         return false;
     }
 
+    public static function Like($Array, $Search)
+    {
+        $Position = array_filter($Array, function ($item) use ($Search) {
+            if (stripos($item, $Search) !== false) {
+                return true;
+            }
+            return false;
+        });
+        return $Position;
+    }
+
     public static function ASearch($Array, $Item){
         foreach($Array as $Key => $Value)
             if(trim($Value) == trim($Item))

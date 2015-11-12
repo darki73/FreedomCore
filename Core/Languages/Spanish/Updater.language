@@ -4,6 +4,7 @@ Updater_Start_Update =
 Updater_Preparation = 
 Updater_Current_Version = 
 Updater_New_Version = 
+Updater_Author =
 
 Updater_Update_ID = 
 Updater_Update_Hash = 
@@ -18,4 +19,7 @@ Updater_SafeUpdate_Yes =
 Updater_SafeUpdate_No = 
 Updater_Attention = 
 Updater_UnsafeUpdate = 
-Updater_Updates_Installed = 
+Updater_Updates_Installed =
+
+Updater_Post_Install =
+Updater_Post_Install_Required =

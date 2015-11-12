@@ -4,6 +4,7 @@ Updater_Start_Update = Начать Обновление
 Updater_Preparation = Подготовка к обновлению системы
 Updater_Current_Version = Текущая Версия
 Updater_New_Version = Новая Версия
+Updater_Author = Автор
 
 Updater_Update_ID = ID Обновления
 Updater_Update_Hash = Hash Обновления
@@ -19,3 +20,6 @@ Updater_SafeUpdate_No = Нет
 Updater_Attention = Внимание!
 Updater_UnsafeUpdate = Разработчик указал, что между вашей текущей версией и самой свежей версией обновления есть некоторые несовместимости.<br /> Мы рекомендуем сделать Backup данных перед обновлением
 Updater_Updates_Installed = FreedomCore CMS Updated!
+
+Updater_Post_Install = Обновление Конфигурации
+Updater_Post_Install_Required = Необходимо произвести обновление конфигурации

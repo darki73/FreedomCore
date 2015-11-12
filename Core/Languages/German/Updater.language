@@ -4,6 +4,7 @@ Updater_Start_Update = Update starten
 Updater_Preparation = Preparation for system update
 Updater_Current_Version = Aktuelle Version
 Updater_New_Version = Neue Version
+Updater_Author = Author
 
 Updater_Update_ID = Update ID
 Updater_Update_Hash = Update Hash
@@ -19,3 +20,6 @@ Updater_SafeUpdate_No = Nein
 Updater_Attention = Achtung
 Updater_UnsafeUpdate = unsicheres Update
 Updater_Updates_Installed = Updates installiert
+
+Updater_Post_Install =
+Updater_Post_Install_Required =
