@@ -35,6 +35,7 @@ Change =
 Today =
 Tomorrow =
 Soon =
+Search_Field = Search characters, items, forums and more…
 
 #PvP Pages
 PvP_Rated_Battlegrounds =
@@ -175,7 +176,7 @@ Account_Characters_Return_Back =
 Account_Characters_Not_Found =
 Account_Characters_Management =
 Account_Characters_DropDown =
-Account_Authorization_Required =
+Account_Authorization_Required = <strong>로그인</strong> 하신 후 커뮤니티 사이트의 더 많은 서비스를 이용하세요!
 
 Realm_Status_Title = 
 Latest_Updates_Title = 

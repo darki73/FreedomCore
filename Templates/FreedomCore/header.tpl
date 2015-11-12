@@ -133,7 +133,7 @@
 					<div>
 						<div class="ui-typeahead-ghost">
 							<input type="text" value="" autocomplete="off" readonly="readonly" class="search-field input input-ghost" />
-							<input type="search" class="search-field input" name="q" id="search-field" maxlength="200" tabindex="40" alt="" value="" />
+							<input type="search" class="search-field input" name="q" id="search-field" maxlength="200" tabindex="40" alt="{#Search_Field#}" value="{#Search_Field#}" />
 						</div>
 						<input type="submit" class="search-button" value="" tabindex="41" />
 					</div>
