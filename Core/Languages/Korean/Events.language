@@ -1,0 +1,166 @@
+Events_Page_Title =
+Events_Page_Intro =
+Events_Page_Current_Event =
+Events_Page_Learn_More =
+Events_Page_Repeating_Events =
+Events_Page_Every_Sunday =
+Events_Page_Month =
+Events_Page_Weekly =
+Events_Page_Monthly =
+Events_Page_InGame =
+
+Events_Page_Go_To_Top =
+Events_Page_What_To_Do =
+Events_Page_Rewards =
+Events_Page_Achievements =
+Events_Page_Cat_Quests =
+Events_Page_Cat_Entertainment =
+Events_Page_Cat_Merchants =
+Events_Page_Rewards_Desc =
+Events_Page_Cat_Mounts =
+Events_Page_Cat_Pets =
+Events_Page_Cat_Items =
+Events_Page_Cat_Toys =
+Events_Page_Event_Place =
+Events_Page_Event_Currency =
+
+Events_Page_Lunar_Festival =
+Events_Page_Love_Is_In_The_Air =
+Events_Page_Noblegarden =
+Events_Page_Childrens_Week =
+Events_Page_Midsummer_Fire_Festival =
+Events_Page_Harvest_Festival =
+Events_Page_Pirates_Day =
+Events_Page_Brewfest =
+Events_Page_Hallows_End =
+Events_Page_Day_Of_The_Dead =
+Events_Page_Pilgrims_Bounty =
+Events_Page_Winter_Veil =
+Events_Page_New_Year =
+Events_Page_Fishing_Ext =
+Events_Page_Fishing_Ext_Desc =
+Events_Page_Faire =
+Events_Page_Faire_Desc =
+
+
+Events_Hallows_End_Place =
+Events_Hallows_End_Currency =
+Events_Hallows_End_Quests =
+Events_Hallows_End_Intro_Header =
+Events_Hallows_End_Intro_Footer =
+Events_Hallows_End_What_To_Do =
+Events_Hallows_End_Entertainment =
+Events_Hallows_End_Merchants =
+
+Events_Lunar_Festival_Place =
+Events_Lunar_Festival_Currency =
+Events_Lunar_Festival_Quests =
+Events_Lunar_Festival_Intro_Header =
+Events_Lunar_Festival_Intro_Footer =
+Events_Lunar_Festival_What_To_Do =
+Events_Lunar_Festival_Entertainment =
+Events_Lunar_Festival_Merchants =
+
+Events_Love_Is_In_The_Air_Place =
+Events_Love_Is_In_The_Air_Currency =
+Events_Love_Is_In_The_Air_Quests =
+Events_Love_Is_In_The_Air_Intro_Header =
+Events_Love_Is_In_The_Air_Intro_Footer =
+Events_Love_Is_In_The_Air_What_To_Do =
+Events_Love_Is_In_The_Air_Entertainment =
+Events_Love_Is_In_The_Air_Merchants =
+
+Events_Noblegarden_Place =
+Events_Noblegarden_Currency =
+Events_Noblegarden_Quests =
+Events_Noblegarden_Intro_Header =
+Events_Noblegarden_Intro_Footer =
+Events_Noblegarden_What_To_Do =
+Events_Noblegarden_Entertainment =
+Events_Noblegarden_Merchants =
+
+Events_Childrens_Week_Place =
+Events_Childrens_Week_Quests =
+Events_Childrens_Week_Intro_Header =
+Events_Childrens_Week_Intro_Footer =
+Events_Childrens_Week_What_To_Do =
+Events_Childrens_Week_Entertainment =
+Events_Childrens_Week_Merchants =
+
+
+Events_Midsummer_Fire_Festival_Place =
+Events_Midsummer_Fire_Festival_Currency =
+Events_Midsummer_Fire_Festival_Intro_Header =
+Events_Midsummer_Fire_Festival_Intro_Footer =
+Events_Midsummer_Fire_Festival_What_To_Do =
+Events_Midsummer_Fire_Festival_Quests =
+Events_Midsummer_Fire_Festival_Entertainment =
+Events_Midsummer_Fire_Festival_Merchants =
+
+Events_Pirates_Day_Place =
+Events_Pirates_Day_Intro_Header =
+Events_Pirates_Day_Intro_Footer =
+Events_Pirates_Day_What_To_Do =
+Events_Pirates_Day_Entertainment =
+
+Events_Harvest_Festival_Place =
+Events_Harvest_Festival_Intro_Header =
+Events_Harvest_Festival_Intro_Footer =
+Events_Harvest_Festival_What_To_Do =
+Events_Harvest_Festival_Quests =
+Events_Harvest_Festival_Entertainment =
+Events_Harvest_Festival_Merchants =
+
+Events_Brewfest_Place =
+Events_Brewfest_Currency =
+Events_Brewfest_Intro_Header =
+Events_Brewfest_Intro_Footer =
+Events_Brewfest_What_To_Do =
+Events_Brewfest_Quests =
+Events_Brewfest_Entertainment =
+Events_Brewfest_Merchants =
+
+Events_Day_Of_The_Dead_Place =
+Events_Day_Of_The_Dead_Intro_Header =
+Events_Day_Of_The_Dead_Intro_Footer =
+Events_Day_Of_The_Dead_What_To_Do =
+Events_Day_Of_The_Dead_Quests =
+Events_Day_Of_The_Dead_Entertainment =
+Events_Day_Of_The_Dead_Merchants =
+
+Events_Pilgrims_Bounty_Place =
+Events_Pilgrims_Bounty_Intro_Header =
+Events_Pilgrims_Bounty_Intro_Footer =
+Events_Pilgrims_Bounty_What_To_Do =
+Events_Pilgrims_Bounty_Quests =
+Events_Pilgrims_Bounty_Entertainment =
+Events_Pilgrims_Bounty_Merchants =
+
+Events_Winter_Veil_Place =
+Events_Winter_Veil_Intro_Header =
+Events_Winter_Veil_Intro_Footer =
+Events_Winter_Veil_What_To_Do =
+Events_Winter_Veil_Quests =
+Events_Winter_Veil_Entertainment =
+Events_Winter_Veil_Merchants =
+
+Events_New_Year_Place =
+Events_New_Year_Intro_Header =
+Events_New_Year_Intro_Footer =
+
+Events_Stranglethorn_Fishing_Extravaganza_Place =
+Events_Stranglethorn_Fishing_Extravaganza_Intro_Header =
+Events_Stranglethorn_Fishing_Extravaganza_Intro_Footer =
+Events_Stranglethorn_Fishing_Extravaganza_What_To_Do =
+Events_Stranglethorn_Fishing_Extravaganza_Quests =
+Events_Stranglethorn_Fishing_Extravaganza_Entertainment =
+Events_Stranglethorn_Fishing_Extravaganza_Merchants =
+
+Events_Darkmoon_Faire_Place =
+Events_Darkmoon_Faire_Currency =
+Events_Darkmoon_Faire_Intro_Header =
+Events_Darkmoon_Faire_Intro_Footer =
+Events_Darkmoon_Faire_What_To_Do =
+Events_Darkmoon_Faire_Quests =
+Events_Darkmoon_Faire_Entertainment =
+Events_Darkmoon_Faire_Merchants =

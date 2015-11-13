@@ -25,10 +25,12 @@ Class Manager extends FreedomCore
 		if(file_exists(FREEDOMCORE_EXTENSIONS_DIR.$ExtensionName.'.FreedomCore.php'))
 		{
 			require_once(FREEDOMCORE_EXTENSIONS_DIR.$ExtensionName.'.FreedomCore.php');
+
+			if(!class_exists($ExtensionName))
+				die('<strong>Loaded extension: </strong>'.$ExtensionName.'<br /><strong>Error: </strong> Class Name does not match Extension name');
+
 			if($AdditionalInfo != null)
-			{
 				new $ExtensionName($AdditionalInfo);
-			}
 		}
 		else
 		{
@@ -54,6 +56,7 @@ Class Manager extends FreedomCore
 		curl_setopt($curl, CURLOPT_URL, $URL);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl, CURLOPT_HEADER, false);
+		curl_setopt($curl, CURLOPT_USERAGENT, 'FreedomCore CMS (Manager Class Download Function)');
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
 		$data = curl_exec($curl);

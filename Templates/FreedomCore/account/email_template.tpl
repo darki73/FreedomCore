@@ -55,19 +55,16 @@
                 </tbody>
             </table>
 
-            <table border="0" cellpadding="0" cellspacing="0" class="" id=
-            "" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" class="" id="" width="100%">
                 <tbody>
                 <tr>
-                    <td style=
-                        "padding: 0 0 20px 0; margin: 0px 0px 0px 0px; color: #BFC1C5; display: inline-block; -webkit-font-smoothing: antialiased;">
+                    <td style="padding: 0 0 20px 0; margin: 0px 0px 0px 0px; color: #BFC1C5; display: inline-block; -webkit-font-smoothing: antialiased;">
                         &nbsp;</td>
                 </tr>
                 </tbody>
             </table>
 
-            <table border="0" cellpadding="0" cellspacing="0" class="" id=
-            "" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" class="" id="" width="100%">
                 <tbody>
                 <tr>
                     <td style="padding: 0 0 20px 0; margin: 0px 0px 0px 0px; color: #BFC1C5; display: inline-block; -webkit-font-smoothing: antialiased;">
@@ -77,12 +74,10 @@
                 </tbody>
             </table>
 
-            <table border="0" cellpadding="0" cellspacing="0" class="" id=
-            "" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" class="" id="" width="100%">
                 <tbody>
                 <tr>
-                    <td style=
-                        "padding: 0 0 20px 0; margin: 0px 0px 0px 0px; color: #BFC1C5; display: inline-block; -webkit-font-smoothing: antialiased;">
+                    <td style="padding: 0 0 20px 0; margin: 0px 0px 0px 0px; color: #BFC1C5; display: inline-block; -webkit-font-smoothing: antialiased;">
                         {#Account_Registration_HappyGame#} {$AppName}</td>
                 </tr>
                 </tbody>
@@ -91,14 +86,11 @@
     </tr>
 
     <tr>
-        <td style=
-            "font-size: 12px; color: #757B90; border-top: 1px solid #3E424E; padding: 30px;">
-            <table border="0" cellpadding="0" cellspacing="0" class="" id=""
-                   width="100%">
+        <td style="font-size: 12px; color: #757B90; border-top: 1px solid #3E424E; padding: 30px;">
+            <table border="0" cellpadding="0" cellspacing="0" class="" id="" width="100%">
                 <tbody>
                 <tr>
-                        <table border="0" cellpadding="0" cellspacing=
-                        "0" class="" id="" width="100%">
+                        <table border="0" cellpadding="0" cellspacing="0" class="" id="" width="100%">
                             <tbody>
                             <tr>
                                 <td style="font-size: 12px; color: #757B90; margin: 0px 0px 0px 0px; padding-bottom: 5px; color: #757B90; display: block; -webkit-font-smoothing: antialiased;">

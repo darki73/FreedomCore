@@ -24,6 +24,21 @@ $('#oldPassword').keydown(function(){
     clearTimeout(typingTimer);
 });
 
+function ReloadCaptcha()
+{
+    var CaptchaDiv = $('#captcha-image');
+    CaptchaDiv.empty();
+    var Image = $('<img/>');
+    Image.attr('align', 'middle');
+    Image.attr('id', 'sec-string');
+    Image.attr('alt', 'Renew');
+    Image.attr('src', '/account/captcha.jpg');
+
+    CaptchaDiv.append(Image);
+
+    return false;
+}
+
 function doneTyping () {
     $.ajax({
         url: '/account/management/settings/verify-old-password?username='+$('#Username').val()+'&oldPassword='+$('#oldPassword').val(),
@@ -60,6 +75,59 @@ function makeErrorBox(errorMsgs) {
     return errorHtml;
 }
 
+var Installation = {
+
+    configcreate: function()
+    {
+        var DatabaseData = $('#database_settings').serialize();
+        $.ajax({
+            type: 'POST',
+            url: '/install?category=createconfig',
+            data: DatabaseData,
+            cache: false,
+            success: function(data){
+                if(data == 1)
+                {
+                    document.getElementById('filestoimport').style.display = 'block';
+                    $('#filestoimport')[0].scrollIntoView(true);
+                }
+                else
+                {
+                    console.log(data);
+                    alert('Unhandled error occured!');
+                }
+            }
+        });
+        return false;
+    },
+
+    import: function(link, name)
+    {
+        var SpanName = 'installation_status_'+name;
+        document.getElementById(SpanName).innerHTML = "<img height='15px' width='15px' src='/Templates/FreedomCore/images/loaders/uber-loading.gif'>";
+        $.ajax({
+            type: 'POST',
+            url: '/install?category=import&link='+encodeURIComponent(link),
+            data: null,
+            cache: false,
+            success: function(data)
+            {
+                if(data == 1)
+                {
+                    document.getElementById(SpanName).innerHTML = "";
+                    document.getElementById(SpanName).innerHTML = "<img height='15px' width='15px' src='/Templates/FreedomCore/images/icons/arrow-done-plain.gif'>";
+                }
+                else
+                {
+                    document.getElementById(SpanName).innerHTML = "";
+                    document.getElementById(SpanName).innerHTML = "<img height='15px' width='15px' src='/Templates/FreedomCore/images/icons/cross.png'>";
+                }
+            }
+        });
+        return false;
+    }
+};
+
 var Localization = {
 
     update: function(Language, File)
@@ -84,4 +152,4 @@ var Localization = {
             }
         });
     }
-}
+};

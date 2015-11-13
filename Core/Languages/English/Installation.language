@@ -1,0 +1,61 @@
+Installation_Manager = Installation Manager
+Installation_LatestVersion = Latest Version
+Installation_InstalledVersion = Installed Version
+Installation_Main = Main
+Installation_SysReq = System Requirements
+Installation_Module = Module
+Installation_Module_Required = Required Version
+Installation_Module_Installed = Installed Version
+Installation_Documentation = Documentation
+Installation_BeginInstall = Begin Installation
+Installation_Perform_Installation = Install!
+
+Installation_Setup_Database = Configure Database Connection
+Installation_Setup_HO = Initial Website Configuration
+Installation_Setup_HC = Finalizing Installation
+Installation_Setup_HCF = Installation of FreedomCore CMS is almost finished. There a few more steps to be made by script
+Installation_Allowed = All requirements are met. You can continue with installation
+Installation_Finalizing = Give us a minute... or Two....
+Installation_Module_OS = Operating System
+Installation_Module_Apache = Apache Server Version
+Installation_Module_Nginx = Nginx Server Version
+Installation_Module_IIS = IIS Server Version
+Installation_Module_MySQL = MySQL API Version
+Installation_Module_PHP = PHP Version
+Installation_Module_Status = Status
+Installation_Module_Si = Installed
+Installation_Module_No = Not Installed
+
+Installation_MySQL_Website = Website Database Configuration
+Installation_MySQL_Auth = Auth Database Configuration
+Installation_MySQL_Characters = Characters Database Configuration
+Installation_MySQL_World = World Database Configuration
+Installation_SOAP_Header = SOAP Protocol Configuration
+Installation_SOAP_IP = Soap IP
+Installation_SOAP_Port = Soap Port
+Installation_SOAP_Account = Soap Account
+Installation_SOAP_Password = Soap Password
+Installation_Site_Data = Website Configuration
+Installation_Site_Title = Website Title
+Installation_Site_Description = Website Description
+Installation_Site_Keywords = Website Keywords
+Installation_Site_Template = Website Template
+Installation_Finalize_Install = Install FreedomCore CMS
+Installation_Site_Cancel = Cancel Installation
+
+Installation_MySQL_Settings = MySQL Settings
+Installation_MySQL_Host = Host
+Installation_MySQL_DB = Database
+Installation_MySQL_User = Username
+Installation_MySQL_Password = Password
+Installation_MySQL_Encoding = Encoding
+Installation_MySQL_Port = Port
+
+
+Installation_Final_Please_Wait = Please Wait...
+Installation_Final_Success = Success!
+Installation_Final_Failed = Failed!
+Installation_Final_Config_Creation = Trying to create configuration file...
+Installation_Final_Database_Connection = Trying to connect to Database...
+Installation_Final_Database_Import = Importing main SQL files...
+Installation_Final_Complete = Complete Installation!

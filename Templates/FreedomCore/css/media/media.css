@@ -1,0 +1,126 @@
+/* media gallery */
+.media-content { padding-top:11px }
+.media-content .thumbnail-loader { background-color:#362015; background-image:url(../../images/loaders/thumbnail-loader.gif) }
+
+
+/* set sprite image */
+.media-content .film-strip-wrapper .ajax-frame .paging-arrow,
+.media-content .view-link,
+#film-strip .track:hover,
+#film-strip .track .thumb,
+#film-strip .track .thumb .thumb-bot,
+.media-content .film-strip-thumb-frame,
+.media-content .filter-dropdown .keyword-filter .checkbox,
+.media-content .currently-viewing .clear-filters,
+.media-content .currently-viewing .clear-filters span,
+.media-content .thumb-frame,
+#media-index .media-index-section .gallery-title .view-all .arrow,
+#media-index .media-index-section .gallery-title .gallery-icon { background-image:url(../../images/media/sprite.png) }
+
+/* submission */
+.media-content .desc { font-size: 14px; line-height: 27px; margin: 0 auto; width: 942px; }
+
+/* filtering */
+.media-content .currently-viewing { color:#F0E29A }
+.media-content .currently-viewing .float-left { color:#7F7231 }
+.media-content .filter-dropdown .filter-title { display:none }
+.media-content .filter-dropdown .apply-filters { background-color:#2C0B01; }
+.media-content .filter-dropdown .apply-filters .button3 span { color:#FFB100; background-image:none; text-transform:none }
+
+.media-content .filter-list { max-width:520px; display:block; padding-bottom:5px }
+.media-content .filter-list  a { display:inline-block; height:27px; line-height:27px; vertical-align: top; }
+
+/* film-strip container */
+.media-content .film-strip-wrapper { background-image:url(../../images/media/vertical-bg.jpg) }
+
+/* film-strip ajax target */
+#film-strip-ajax-target { background-image:url(../../images/loaders/media-page-load.gif) }
+
+/* meta data */
+.media-content #item-title { color:#f9efa2 }
+.media-content #item-description { color:#967648 }
+.media-content .meta-details dt { color:#7f7231 }
+.media-content .meta-details .dt-separator { border-color:#2a2019 }
+.media-content .meta-details dd { color:#f0e29a }
+
+/* comments */
+#load-comments { color:#F9EFA2 }
+#media-comments { min-height:187px }
+#media-comments #page-comments h3 { width:942px; margin:0 auto; padding: 0 0 15px 0; color:#F9EFA2 }
+
+/* thumbnail page */
+.thumbnail-page-wrapper { padding-bottom:50px; background-image:url(../../images/media/thumbnail-bg.jpg) }
+.thumbnail-page-wrapper .thumb-wrapper .thumb-title { color:#B79855 }
+.thumbnail-page-wrapper .thumb-wrapper:hover .thumb-title { color:#fff }
+
+/* landing page */
+#media-index { padding-top:31px }
+.ie6 #media-index .media-index-section { margin-left:30px }
+.ie6 #media-index .media-index-section.float-right { margin-right:30px }
+#media-index .media-index-section .gallery-title { font-size:17px; color:#F0E29A; border-bottom:2px solid #552B12; letter-spacing:-0.05em }
+#media-index .media-index-section .gallery-title.videos .gallery-icon { background-position:-90px -550px }
+#media-index .media-index-section .gallery-title.screenshots .gallery-icon { background-position:-125px -550px }
+#media-index .media-index-section .gallery-title.artwork .gallery-icon { background-position:-230px -550px }
+#media-index .media-index-section .gallery-title.comics .gallery-icon { background-position:-160px -550px }
+#media-index .media-index-section .gallery-title.wallpapers .gallery-icon { background-position:-195px -550px }
+#media-index .media-index-section .gallery-title.fanart .gallery-icon { background-position:-230px -550px }
+#media-index .media-index-section .gallery-title.music .gallery-icon { background-position:-265px -550px }
+#media-index .media-index-section .gallery-title.downloads .gallery-icon { background-position:-300px -550px }
+#media-index .media-index-section .gallery-title.costumes .gallery-icon { background-position:-125px -550px }
+#media-index .media-index-section .gallery-title.misc .gallery-icon { background-position:-125px -550px }
+#media-index .media-index-section .gallery-title .total { color:#A67100 }
+#media-index .media-index-section .gallery-title .view-all { color:#FFB100; letter-spacing:normal; top:6px }
+#media-index .media-index-section .gallery-title:hover,
+#media-index .media-index-section .gallery-title:hover .view-all { color:#FFF }
+#media-index .media-index-section .gallery-title:hover .total { color:#AD8F50 }
+#media-index .media-index-section .thumb-frame { -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:#000 0 0 10px; box-shadow:#000 0 0 10px }
+#media-index .media-index-section .thumb-wrapper .date-added { color:#71401F }
+#media-index .media-index-section .thumb-wrapper:hover .date-added { color:#FFF }
+#media-index .media-index-section .video-thumb-wrapper .video-desc { color:#AD8F50 }
+#media-index .media-index-section .video-thumb-wrapper .date-added { padding-top:0 }
+#media-index .media-index-section .video-thumb-wrapper:hover .video-desc { color:#F0E29A }
+#media-index .media-index-section .video-thumb-wrapper:hover .date-added { color:#A67100 }
+
+#media-index .media-index-section .downloads-thumb-wrapper { float:none; width:392px }
+#media-index .media-index-section .downloads-thumb-wrapper .downloads-info { display:block; float:right; width:175px; padding:3px 10px 0 5px }
+#media-index .media-index-section .downloads-thumb-wrapper .downloads-desc { font-size:11px; margin:0.5em 0; display:block }
+#media-index .media-index-section .downloads-thumb-wrapper .downloads-title { display:block; font-size:14px }
+#media-index .media-index-section .downloads-thumb-wrapper .downloads-desc { color:#AD8F50 }
+#media-index .media-index-section .downloads-thumb-wrapper .date-added { padding-top:0 }
+#media-index .media-index-section .downloads-thumb-wrapper:hover .downloads-desc { color:#F0E29A }
+#media-index .media-index-section .downloads-thumb-wrapper:hover .date-added { color:#A67100 }
+#media-index .media-index-section .downloads-thumb-wrapper:hover .thumb-frame { background-position:-200px 0 }
+
+/* sub gallery list */
+.media-content  .sub-gallery-list { padding-bottom:50px }
+.media-content  .sub-gallery-list .thumb-title { color:#FAB000 }
+.media-content  .sub-gallery-list .thumb-title .section-count { color:#80461F }
+.media-content  .sub-gallery-list .thumb-title .last-modified { color:#80461F; font-size:11px }
+.media-content  .sub-gallery-list .thumb-wrapper:hover { -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background-color:#341e0f }
+.media-content  .sub-gallery-list .thumb-wrapper:hover .thumb-title { color:#FFF }
+.media-content  .sub-gallery-list .thumb-wrapper:hover .thumb-frame { background-position:-388px -236px }
+.media-content  .sub-gallery-list .sub-gallery-frame:hover .thumb-frame { background-position:-388px -118px }
+
+/* Tiny Scrollbar for only media/fanart page*/
+#filter-wrapper { width: 200px;; color:#201715; }
+#filter-wrapper .viewport { width: 177px; height: 300px; overflow: hidden; position: relative; }
+#filter-wrapper .overview {  position: absolute; left: 0; top: 0; padding:0; margin: 0; }
+#filter-wrapper .scrollbar { position: relative; float: right; width: 15px; height: 300px; }
+#filter-wrapper .track { height: 300px; width:15px; position: relative; background-color:#491909 }
+#filter-wrapper .thumb { background: url(../../images/media/scrollbar-bg.jpg) no-repeat 0 bottom; height: 20px; width:13px; cursor: pointer; overflow: hidden; position: absolute; margin-left:1px}
+#filter-wrapper .thumb .end { background: url(../../images/media/scrollbar-bg.jpg) no-repeat 0 top; overflow: hidden; height: 7px; width: 13px; }
+#filter-wrapper .thumb:hover { background-position: right bottom}
+#filter-wrapper .thumb:hover .end { background-position: right top }
+#filter-wrapper .disable { display: none; }
+.ui-dropdown .dropdown-wrapper { display:block }
+.noSelect { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+/* music thumb */
+a .album-thumb { width:28px; height:28px; display:block; border:1px solid #4F371E; background-repeat:no-repeat; float:left; margin-right:15px }
+a:hover .album-thumb { border:1px solid #FAB000 }
+a .album-1 { background-image: url(../../images/media/album-sprite.jpg); background-position: 0px 0px }
+a .album-2 { background-image: url(../../images/media/album-sprite.jpg); background-position: 0px -28px }
+a .album-title { font-size:11px; line-height:14px; display:block; width:208px; float:left }
+a .album-title em { color:#F0E29A; font-style:normal; display:block }
+#media-index .media-index-section .music-thumb-wrapper { float:none; width:392px; display: block; min-height:33px; margin-bottom:12px }
+#media-index .media-index-section .music-thumb-wrapper .date-added { color: #71401F; padding-top:0; text-align: right }

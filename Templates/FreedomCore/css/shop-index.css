@@ -279,6 +279,20 @@
 .wiki.directory .free-paid-services .services-column .paid-services-character-transfer {
 	background-position: 0 -679px;
 }
+
+.wiki.directory .free-paid-services .services-column .free-service-database{
+    background-position: 0 -1278px;
+}
+
+.wiki.directory .free-paid-services .services-column .free-service-additem{
+    background-position: 0 -930px;
+}
+.wiki.directory .free-paid-services .services-column .free-service-edititem{
+    background-position: 0 -385px;
+}
+.wiki.directory .free-paid-services .services-column .free-service-countitems{
+    background-position: -1px -293px;
+}
 .wiki.directory .free-paid-services .services-column .paid-services-faction-change {
 	background-position: 0 -530px;
 }

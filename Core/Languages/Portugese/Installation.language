@@ -1,0 +1,61 @@
+Installation_Manager = 
+Installation_LatestVersion = 
+Installation_InstalledVersion = 
+Installation_Main = 
+Installation_SysReq = 
+Installation_Module = 
+Installation_Module_Required = 
+Installation_Module_Installed = 
+Installation_Documentation = 
+Installation_BeginInstall = 
+Installation_Perform_Installation = 
+
+Installation_Setup_Database = 
+Installation_Setup_HO = 
+Installation_Setup_HC = 
+Installation_Setup_HCF = 
+Installation_Allowed = 
+Installation_Finalizing = 
+Installation_Module_OS = 
+Installation_Module_Apache = 
+Installation_Module_Nginx = 
+Installation_Module_IIS = 
+Installation_Module_MySQL = 
+Installation_Module_PHP = 
+Installation_Module_Status = 
+Installation_Module_Si = 
+Installation_Module_No = 
+
+Installation_MySQL_Website = 
+Installation_MySQL_Auth = 
+Installation_MySQL_Characters = 
+Installation_MySQL_World = 
+Installation_SOAP_Header = 
+Installation_SOAP_IP = 
+Installation_SOAP_Port = 
+Installation_SOAP_Account = 
+Installation_SOAP_Password = 
+Installation_Site_Data = 
+Installation_Site_Title = 
+Installation_Site_Description = 
+Installation_Site_Keywords = 
+Installation_Site_Template = 
+Installation_Finalize_Install = 
+Installation_Site_Cancel = 
+
+Installation_MySQL_Settings = 
+Installation_MySQL_Host = 
+Installation_MySQL_DB = 
+Installation_MySQL_User = 
+Installation_MySQL_Password = 
+Installation_MySQL_Encoding = 
+Installation_MySQL_Port = 
+
+
+Installation_Final_Please_Wait = 
+Installation_Final_Success = 
+Installation_Final_Failed = 
+Installation_Final_Config_Creation = 
+Installation_Final_Database_Connection = 
+Installation_Final_Database_Import = 
+Installation_Final_Complete = 

@@ -14,6 +14,8 @@ Forum_No_Topics_Found = В данном разделе еще не создан�
 Forum_Make_It_Sticky = Попросить прикрепить
 Forum_Make_It_Sticky_Full = Попросить сделать это обсуждение прикрепленным.
 Forum_Reply = Ответить
+Forum_Preview = Предпросмотр
+Forum_Edit_Topic = Редактировать
 
 Forum_Category_Support_Name = Поддержка
 Forum_Category_Support_Support_Title = Служба Поддержки
@@ -69,6 +71,7 @@ Forum_Category_Classes_Warlock_Title = Чернокнижник
 Forum_Category_Classes_Shaman_Title = Шаман
 
 
+Forum_Create_New_Topic = Новая Тема
 
 Forum_Category_Name =
 Forum_Category__Title =

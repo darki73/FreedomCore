@@ -4,10 +4,24 @@ global $FreedomCore, $Directory, $FCCore, $Smarty;
 $Directory = str_replace("\\", "/", getcwd());
 Class Smarty_FreedomCore extends Smarty
 {
-	function Smarty_FreedomCore()
+	function __construct($Template)
 	{
-		global $FreedomCore, $Directory, $FCCore, $Functions;
-		$this->__construct();
+		global $FreedomCore, $Directory, $FCCore;
+		parent::__construct();
+
+		if(isset($_ENV['installation_in_progress'])){
+			$FCCore = [
+				'Template'					=>	'FreedomCore',
+				'ApplicationName'			=>	'FreedomCore',
+				'ApplicationDescription'	=>	'FreedomCore CMS',
+				'ApplicationKeywords'		=>	'FreedomCore, Darki73, FreedomCMS, FreedomCore CMS',
+				'ExpansionTemplate'			=>	'WoD',
+				'SmartyDebug'				=>	false,
+				'SmartyCaching'				=>	false,
+				'debug'						=>	false,
+			];
+		}
+
 		$this->template_dir = $Directory.'/Templates/'.$FCCore['Template'].'/';
 		$this->compile_dir = $Directory.'/Cache/Compile/Templates/'.$FCCore['Template'].'/';
 		$this->config_dir = $FreedomCore->getLanguageDir();
@@ -15,6 +29,7 @@ Class Smarty_FreedomCore extends Smarty
 		$this->configLoad($FreedomCore->loadLanguage());
 		// Debug Mode
 		$this->debugging = $FCCore['SmartyDebug'];
+		$this->assign('https', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 
 		// Template Vars
 		$this->left_delimiter = '{';
@@ -35,17 +50,19 @@ Class Smarty_FreedomCore extends Smarty
 		$this->assign('Template', $FCCore['Template']);
 		$this->assign('ExpansionTemplate', $FCCore['ExpansionTemplate']);
 
-		// Social Links
-		$this->assign('SLFacebook', $FCCore['Social']['Facebook']);
-		$this->assign('SLTwitter', $FCCore['Social']['Twitter']);
-		$this->assign('SLTwitter', $FCCore['Social']['Vkontakte']);
-		$this->assign('SLSkype', $FCCore['Social']['Skype']);
-		$this->assign('SLYoutube', $FCCore['Social']['Youtube']);
-		$this->assign('FacebookAdmins', $FCCore['Facebook']['admins']);
-		$this->assign('FacebookPage', $FCCore['Facebook']['pageid']);
+		if(!isset($_ENV['installation_in_progress'])) {
+			// Social Links
+			$this->assign('SLFacebook', $FCCore['Social']['Facebook']);
+			$this->assign('SLTwitter', $FCCore['Social']['Twitter']);
+			$this->assign('SLTwitter', $FCCore['Social']['Vkontakte']);
+			$this->assign('SLSkype', $FCCore['Social']['Skype']);
+			$this->assign('SLYoutube', $FCCore['Social']['Youtube']);
+			$this->assign('FacebookAdmins', $FCCore['Facebook']['admins']);
+			$this->assign('FacebookPage', $FCCore['Facebook']['pageid']);
 
-		// Google Analytics
-		$this->assign('GoogleAnalytics', array('Account' => $FCCore['GoogleAnalytics']['Account'], 'Domain' => $FCCore['GoogleAnalytics']['Domain']));
+			// Google Analytics
+			$this->assign('GoogleAnalytics', array('Account' => $FCCore['GoogleAnalytics']['Account'], 'Domain' => $FCCore['GoogleAnalytics']['Domain']));
+		}
 	}
 	function display($template = NULL, $cache_id = NULL, $compile_id = NULL, $parent = NULL)
 	{
@@ -58,14 +75,28 @@ Class Smarty_FreedomCore extends Smarty
         }
         else
             $this->assign('Debug', false);
-		Smarty::Display($template.".tpl");
+		try {
+			Smarty::Display($template.".tpl");
+		} catch (Exception $e) {
+			Debugger::ReportError(3, 1, $template.".tpl");
+		}
 	}
 
 	function translate($TranslationFile)
 	{
 		global $FreedomCore;
 		$Language = str_replace('.language', '', $FreedomCore->loadLanguage());
-		Smarty::configLoad($Language.DS.$TranslationFile.'.language');
+		try {
+			Smarty::configLoad($Language.DS.$TranslationFile.'.language');
+		} catch (Exception $e) {
+			Debugger::ReportError(3, 2, $TranslationFile.'.language in '.$Language.' language folder');
+			die();
+		}
+	}
+
+	function variable($Variable)
+	{
+		return $this->getConfigVariable($Variable);
 	}
 }
 $Smarty = new Smarty_FreedomCore($FCCore['Template']);

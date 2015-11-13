@@ -37,7 +37,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/services.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/languages/{$Language}.css" />
     {/if}
-    {if $Page.type == 'account_management'}
+    {if $Page.type == 'account_management' || $Page.type == 'admin'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/nav-client-desktop.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/common.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/freedomnet.css" />
@@ -45,7 +45,17 @@
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/ratings.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/inputs.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/lobby.css" />
+        {if $Page.type == 'admin'}
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/settings.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/wiki/item.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/services.css" />
+        {/if}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/languages/{$Language}.css" />
+    {/if}
+    {if $Page.type == 'admin'}
+        {if $Page.bodycss == 'services-home'}
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/build/cms.min.css" />
+        {/if}
     {/if}
     {if $Page.type == 'account_dashboard'}
         <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/nav-client-desktop.css" />
@@ -55,6 +65,9 @@
         {if $Page.bodycss != 'paymentpage'}
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard.css" />
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/dashboard_secondary.css" />
+        {/if}
+        {if $Page.bodycss == 'claimcode'}
+            <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/add-game.css" />
         {/if}
         {if $Page.bodycss == 'servicespage'}
             <link rel="stylesheet" type="text/css" media="all" href="/Templates/{$Template}/css/account/guild_services.css" />

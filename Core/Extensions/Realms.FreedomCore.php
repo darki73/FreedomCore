@@ -46,7 +46,7 @@ Class Realms
         $Statement = Realms::$AConnection->prepare('SELECT starttime FROM uptime WHERE realmid = :rid LIMIT 1');
         $Statement->bindParam(':rid', $RealmID);
         $Statement->execute();
-        return String::GetTimeDiff($Statement->fetch(PDO::FETCH_ASSOC)['starttime']);
+        return Text::GetTimeDiff($Statement->fetch(PDO::FETCH_ASSOC)['starttime']);
     }
 
     private static function RealmTypeByID($TypeID)

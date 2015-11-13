@@ -44,6 +44,7 @@ Class Characters
                 $Result[$Index]['race_name'] = Characters::GetRaceByID($Character['race'])['translation'];
                 $Result[$Index]['class_name'] = Characters::GetClassByID($Character['class'])['translation'];
                 $Result[$Index]['side'] = Characters::GetSideByRaceID($Character['race'])['name'];
+                $Result[$Index]['apoints'] = Characters::GetAchievementPoints($Character['guid'])['points'];
                 $Index++;
             }
             return $Result;
@@ -73,6 +74,19 @@ Class Characters
                 return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
             elseif($HasMail && $IsOnline)
                 return array('eligible' => false, 'reasons' => array(Characters::VerificationTranslation('20034Title')));
+    }
+
+    public static function GetShortProfileInfo($Character)
+    {
+        $Statement = Characters::$CharConnection->prepare('SELECT guid, class, race, gender, level FROM characters WHERE name = :name');
+        $Statement->bindParam(':name', $Character);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        $Result['class_name'] = Characters::GetClassByID($Result['class'])['translation'];
+        $Result['race_name'] = Characters::GetRaceByID($Result['race'])['translation'];
+        $Result['apoints'] = Characters::GetAchievementPoints($Result['guid'])['points'];
+
+        return $Result;
     }
 
     private static function VerificationTranslation($Reason)
@@ -122,6 +136,35 @@ Class Characters
             return false;
         else
             return true;
+    }
+
+    public static function GetCharacterGlyphs($CharacterGuid)
+    {
+        $Statement = Characters::$CharConnection->prepare('SELECT * FROM character_glyphs WHERE guid = :guid');
+        $Statement->bindParam(':guid', $CharacterGuid);
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        $ArrayIndex = 0;
+        foreach($Result as $Glyphs)
+        {
+            unset($Result[$ArrayIndex]['guid']);
+            unset($Result[$ArrayIndex]['talentGroup']);
+            $ArrayIndex++;
+        }
+        $ArrayIndex = 0;
+        foreach($Result as $Glyph)
+        {
+            for($i = 1; $i < 7; $i++)
+                if($Glyph['glyph'.$i] != 0)
+                {
+                    $GlyphData = Spells::GetGlyphData($Glyph['glyph'.$i]);
+                    $Result[$ArrayIndex]['glyph'.$i] = Spells::SpellInfo($GlyphData['spellid']);
+                    $Result[$ArrayIndex]['glyph'.$i]['Name'] = str_replace('Glyph of', '', str_replace('Glyph of the', '', $Result[$ArrayIndex]['glyph'.$i]['Name']));
+                    $Result[$ArrayIndex]['glyph'.$i]['icon'] = $GlyphData['icon'];
+                }
+            $ArrayIndex++;
+        }
+        return $Result;
     }
 
     public static function GetGearForCharacter($CharacterGuid)
@@ -183,6 +226,7 @@ Class Characters
         $BlockValue = 0;
         $CritValue = 0;
         $HasteValue = 0;
+        $SpellPowerValue = 0;
 
         $MainHandSpeed = 0;
         $OffHandSpeed = 0;
@@ -216,6 +260,8 @@ Class Characters
                             $CritValue = $CritValue + $Item['data']['stat_value'.$i];
                         elseif ($Item['data']['stat_type'.$i] == 36)
                             $HasteValue = $HasteValue + $Item['data']['stat_value'.$i];
+                        elseif ($Item['data']['stat_type'.$i] == 45)
+                            $SpellPowerValue = $SpellPowerValue + $Item['data']['stat_value'.$i];
                         elseif ($Item['data']['stat_type'.$i] == 48)
                             $BlockValue = $BlockValue + $Item['data']['stat_value'.$i];
                     }
@@ -240,6 +286,7 @@ Class Characters
         $Result['BlockValue'] = $BlockValue;
         $Result['CritValue'] = $CritValue;
         $Result['HasteValue'] = $HasteValue;
+        $Result['SpellPowerValue'] = $SpellPowerValue;
         $Result['MainHandSpeed'] = $MainHandSpeed;
         $Result['OffHandSpeed'] = $OffHandSpeed;
         $Result['RangedSpeed'] = $RangedSpeed;
@@ -271,6 +318,8 @@ Class Characters
     {
         $Statement = Characters::$CharConnection->prepare('
             SELECT
+                atm.weekGames,
+                atm.weekWins,
                 atm.personalRating,
                 cat.type
             FROM
@@ -408,11 +457,32 @@ Class Characters
         $Result['level_data']['blockpoints'] = Characters::GetBlockRatingByLevel($Result['level']);
         $Result['level_data']['critpoints'] = Characters::GetCritRatingByLevel($Result['level']);
         $Result['level_data']['hastepoints'] = Characters::GetHasteRatingByLevel($Result['level']);
+        $StatByClass = Characters::StatByClass($Result['class']);
+        $Result['power_data'] = $StatByClass;
+        $Result['power_data']['value'] = $Result[$StatByClass['field']];
         Characters::$CharacterLevel = $Result['level'];
         Characters::$CharacterClass = $Result['class'];
         return $Result;
     }
 
+    private static function StatByClass($ClassID)
+    {
+        $Stats = [
+            1 => ['id' => 1, 'field' => 'power2', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_rage_title'))],
+            2 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            3 => ['id' => 2, 'field' => 'power3', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_focus_title'))],
+            4 => ['id' => 3, 'field' => 'power4', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_energy_title'))],
+            5 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            6 => ['id' => 6, 'field' => 'power7', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_runic_title'))],
+            7 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            8 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            9 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))],
+            10 => ['id' => 3, 'field' => 'power4', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_energy_title'))],
+            11 => ['id' => 0, 'field' => 'power1', 'translation' => str_replace('{0}', '', Characters::$TM->GetConfigVars('MSG_Summary_Stats_mana_title'))]
+        ];
+        return $Stats[$ClassID];
+    }
+    
     private static function GetHasteRatingByLevel($Level)
     {
         if($Level >= 90 && $Level < 100)
@@ -596,7 +666,7 @@ Class Characters
             array('lowest' => $ReputationRangs[6], 'highest' => $ReputationRangs[6]+20999), // Revered
             array('lowest' => $ReputationRangs[7], 'highest' => $ReputationRangs[7]+999) // Exalted
         );
-        $RankID = String::FindClosestKey($Reputation, $ReputationValue);
+        $RankID = Text::FindClosestKey($Reputation, $ReputationValue);
         return Characters::DataByReputationRankID($RankID);
     }
 
@@ -882,8 +952,8 @@ Class Characters
             SELECT
                 lower(ftt.name_loc0) as name,
                 ftt.name_loc0 as Description,
-                ct.spec,
-                c.activespec
+                ct.talentGroup,
+                c.activeTalentGroup
             FROM
                 freedomcore_talent ft
             LEFT JOIN '.$FCCore['CharDB']['database'].'.character_talent ct ON
@@ -901,7 +971,7 @@ Class Characters
             JOIN '.$FCCore['CharDB']['database'].'.characters c ON
                 ct.guid = c.guid
             WHERE ct.guid = :guid
-            GROUP BY ct.spec;
+            GROUP BY ct.talentGroup;
         ');
         $Statement->bindParam(':guid', $CharacterGUID);
         $Statement->execute();
@@ -945,13 +1015,13 @@ Class Raids
         {
             $ParametersIDs = ':id_'.implode(',:id_', array_keys($Criteria));
             $IDsAndValues = array_combine(explode(",", $ParametersIDs), $Criteria);
-            $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+            $IDsAndValues = Text::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
         }
         else
         {
             $ParametersIDs = $Criteria;
             $IDsAndValues = array();;
-            $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+            $IDsAndValues = Text::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
         }
         $HTML = "";
         $RaidData = array();
@@ -995,7 +1065,7 @@ Class Raids
         global $FCCore;
         $ParametersIDs = ':id_'.implode(',:id_', array_keys($Criteria));
         $IDsAndValues = array_combine(explode(",", $ParametersIDs), $Criteria);
-        $IDsAndValues = String::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
+        $IDsAndValues = Text::UnshiftAssoc($IDsAndValues, ':guid', $CharacterGUID);
         $HTML = "";
         $RaidData = array();
         $CharactersSQL = "SELECT cap.*, fa.value1 as bossid FROM character_achievement_progress cap LEFT JOIN ".$FCCore['Database']['database'].".freedomcore_achievementcriteria fa ON cap.criteria = fa.id WHERE guid = :guid AND criteria IN (".$ParametersIDs.")";

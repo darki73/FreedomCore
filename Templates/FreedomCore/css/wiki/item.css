@@ -7,6 +7,10 @@ body.item-index #content .content-top { background: url(/Templates/FreedomCore/i
 .wiki .directory { padding: 0; }
 .wiki .directory .title { margin: 25px; }
 
+
+/* article data */
+.article-image-upload { padding-left: 30px; color: #fff; width: 310px; position: relative; }
+
 /* item detail */
 .item-detail { padding-left: 80px; color: #fff; width: 310px; position: relative; }
 .item-detail .frame-56 { position: absolute; overflow: hidden; left: 0; top: 5px; }
@@ -16,3 +20,22 @@ body.item-index #content .content-top { background: url(/Templates/FreedomCore/i
 
 /* item browse */
 .item-results em { color: #EFC9A0; font-style: normal; }
+
+.icon-frame.frame-56.shop {
+    height: 56px;
+    width: 56px;
+    -moz-box-shadow: #000 0 0 10px;
+    -webkit-box-shadow: #000 0 0 10px;
+    box-shadow: #000 0 0 10px;
+    margin-left: 10px;
+}
+
+/* item quality */
+.color-q0, .color-q0 a { color: #9d9d9d !important; } /* poor (gray) */
+.color-q1, .color-q1 a { color: #ffffff !important; } /* common (white) */
+.color-q2, .color-q2 a { color: #1eff00 !important; } /* uncommon (green) */
+.color-q3, .color-q3 a { color: #0081ff !important; } /* #0070dd rare (blue) */
+.color-q4, .color-q4 a { color: #c600ff !important; } /* #a335ee epic (purple) */
+.color-q5, .color-q5 a { color: #ff8000 !important; } /* lengendary (orange) */
+.color-q6, .color-q6 a { color: #e5cc80 !important; } /* artifact (gold) */
+.color-q7, .color-q7 a { color: #e5cc80 !important; } /* heirloom (gold) */

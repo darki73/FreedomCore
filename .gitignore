@@ -72,10 +72,15 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
+/test/*
+/Install/*.github-data
 /Core/Configuration/Configuration.php
-.Cache/
-.Cache/Compile/
-.Cache/Compile/Templates/
+/Core/Libraries/FreedomCore/*
+!/Core/Libraries/FreedomCore/*/
+!/Core/Libraries/FreedomCore/*.*
+/Cache/
+/Cache/Compile/
+/Cache/Compile/Templates/*.php
 /Cache/Compile/Templates/FreedomCore/*
 !/Cache/Compile/Templates/FreedomCore/index.html
 /Templates/FreedomCore/images/icons/large/*.*
@@ -86,6 +91,13 @@ crashlytics-build.properties
 /Uploads/Core/Items/Cache/ModelViewer/*.jpg
 /Uploads/Core/NPC/Cache/*.jpg
 /Uploads/Core/NPC/ModelViewer/*.jpg
+/Uploads/Core/News/*.png
+/Uploads/Core/News/*.jpg
+/Uploads/Core/News/*.jpeg
+/Uploads/Core/Slideshow/*.png
+/Uploads/Core/Slideshow/*.jpeg
+/Uploads/Core/Slideshow/*.jpg
+/Uploads/Media/Videos/*.flv
 /Templates/FreedomCore/images/dungeon-maps/*
 /Templates/FreedomCore/images/wiki/zone/*
 !/Templates/FreedomCore/images/wiki/zone/bgs

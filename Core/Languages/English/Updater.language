@@ -1,0 +1,25 @@
+Updater_Manager = Update Manager
+Updater_Documentation = Documentation
+Updater_Start_Update = Start Update
+Updater_Preparation = Preparing to Update System
+Updater_Current_Version = Current Version
+Updater_New_Version = New Version
+Updater_Author = Author
+
+Updater_Update_ID = Update ID
+Updater_Update_Hash = Update Hash
+Updater_Update_Date = Update Date
+Updater_Update_Title = Update Title
+Updater_Update_SafeUpdate = Is Safe Update?
+
+Updater_No_Update_Required = No update required
+Updater_Latest_Version = You are using the lates version of FreedomCore CMS
+
+Updater_SafeUpdate_Yes = Yes
+Updater_SafeUpdate_No = No
+Updater_Attention = Attention
+Updater_UnsafeUpdate = Developer indicated that one of the Updates between your version of FreedomCore CMS and lates version may not be a safe one. <br /> We recommend you to make a backup of Database
+Updater_Updates_Installed = FreedomCore CMS Updated!
+
+Updater_Post_Install = Configuration Update
+Updater_Post_Install_Required = This Update requires Re-Configuration

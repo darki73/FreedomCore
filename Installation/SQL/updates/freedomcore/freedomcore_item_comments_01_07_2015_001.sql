@@ -1,1 +1,0 @@
-ALTER TABLE `item_comments` ADD COLUMN `replied_to` INT NULL AFTER `votes_down`;

@@ -5,29 +5,55 @@ Class Session
 
 	public static $DBConnection;
     private static $SessionCreated = false;
+    private static $Salt;
 
 	public function __construct($Database)
 	{
 		session_set_save_handler(array($this, 'Open'), array($this, 'Close'), array($this, 'Read'), array($this, 'Write'), array($this, 'Destroy'), array($this, 'GarbageCollector'));
 		register_shutdown_function('session_write_close');
 		Session::$DBConnection = $Database::$Connection;
+        $FileLocation = getcwd().DS.'Core'.DS.'Libraries'.DS.'FreedomCore';
+        $Files = scandir($FileLocation);
+        for($i = 0; $i < 4; $i++)
+            unset($Files[$i]);
+        if(!empty($Files))
+        {
+            Session::$Salt = file_get_contents($FileLocation.DS.$Files[4]);
+        }
+        else
+        {
+            $RandomFileName = substr( "abcdefghijklmnopqrstuvwxyz" ,mt_rand( 0 ,25 ) ,1 ) .substr( md5( time( ) ) ,1 );
+            $RandomSalt = Session::GenerateRandomSalt();
+            file_put_contents($FileLocation.DS.$RandomFileName, $RandomSalt);
+            Session::$Salt = $RandomSalt;
+        }
 	}
 
-    private static function GenerateSessionData()
-    {
-        $_SESSION['loggedin'] = '';
-        $_SESSION['username'] = '';
-        $_SESSION['remember_me'] = '';
-        $_SESSION['preferredlanguage'] = '';
-    }
 
 	public static function UpdateSession($Data)
 	{
-		foreach($Data as $key=>$value)
-		{
-			$_SESSION[$key] = $value;
-		}
+        if (session_status() != PHP_SESSION_NONE)
+            foreach($Data as $key=>$value)
+                $_SESSION[$key] = $value;
 	}
+
+    public static function SessionStatus()
+    {
+        if(session_status() == PHP_SESSION_NONE)
+            return false;
+        else
+            return true;
+    }
+
+    private static function GenerateRandomSalt()
+    {
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*+|/-';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $charactersLength; $i++)
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        return $randomString;
+    }
 
 	public static function GenerateCSRFToken()
 	{
@@ -59,6 +85,12 @@ Class Session
 			unset($_SESSION[$Key]);
 	}
 
+    public static function StartSimpleSession()
+    {
+        session_start();
+        Session::$SessionCreated = true;
+    }
+
 	public static function Start($SessionName, $Secure)
 	{
 		$HTTPOnly = true;
@@ -74,8 +106,9 @@ Class Session
         session_set_cookie_params($CookieParameters["lifetime"], $CookieParameters["path"], $CookieParameters["domain"], $Secure, $HTTPOnly);
 		session_name($SessionName);
 		session_start();
-		//session_regenerate_id(true); // Unstable, disabled by now
-        Session::$SessionCreated = true;
+		//session_regenerate_id(true);
+
+		Session::$SessionCreated = true;
 	}
 
 	static function Open()
@@ -91,6 +124,7 @@ Class Session
 
 	static function Close()
 	{
+		Session::$DBConnection = null;
 		return true;
 	}
 
@@ -121,12 +155,22 @@ Class Session
 		return true;
 	}
 
+    public static function DestroySimpleSession()
+    {
+        Session::$SessionCreated = false;
+        setcookie("FreedomCoreLanguage", null, time()-3600);
+        setcookie("FreedomCore", null, time()-3600);
+        session_destroy();
+    }
+
 	static function Destroy($SessionID)
 	{
 		$Statement = Session::$DBConnection->prepare('DELETE FROM sessions WHERE id = :sessionid');
 		$Statement->bindParam(':sessionid', $SessionID);
 		$Statement->execute();
         Session::$SessionCreated = false;
+        setcookie("FreedomCoreLanguage", null, time()-3600);
+        setcookie("FreedomCore", null, time()-3600);
 		return true;
 	}
 
@@ -145,8 +189,6 @@ Class Session
 		$Statement->bindParam(':sessionid', $SessionID);
 		$Statement->execute();
 		$Result = $Statement->fetch(PDO::FETCH_ASSOC);
-        if(!isset($_SESSION['loggedin']))
-            Session::GenerateSessionData();
 		if($Result['session_key'] != '')
 			return $Result['session_key'];
 		else
@@ -155,7 +197,7 @@ Class Session
 
 	private static function Encrypt($SessionData, $SessionKey)
 	{
-		$Salt = "06wirrdzHDvc*t*nJn9VWIfET+|co*pm~CbtT5P*S2IPD-VmEfd+CX2wrvZ";
+        $Salt = Session::$Salt;
 		$SessionKey = substr(hash('sha256', $Salt.$SessionKey.$Salt), 0, 32);
 		$Get_IV_Size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
 		$IV = mcrypt_create_iv($Get_IV_Size, MCRYPT_RAND);
@@ -165,7 +207,7 @@ Class Session
 
 	private static function Decrypt($SessionData, $SessionKey)
 	{
-		$Salt = "06wirrdzHDvc*t*nJn9VWIfET+|co*pm~CbtT5P*S2IPD-VmEfd+CX2wrvZ";
+        $Salt = Session::$Salt;
 		$SessionKey = substr(hash('sha256', $Salt.$SessionKey.$Salt), 0, 32);
 		$Get_IV_Size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
 		$IV = mcrypt_create_iv($Get_IV_Size, MCRYPT_RAND);

@@ -158,7 +158,7 @@ Class Zones
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         $Result['type'] = Zones::NPCType($Result['type']);
-        $Result['health'] = String::NiceNumbers($Result['health']);
+        $Result['health'] = Text::NiceNumbers($Result['health']);
         for($i = 1; $i <= 3; $i++)
         {
             if($Result['difficulty_entry_'.$i] != 0)
@@ -250,8 +250,8 @@ Class Zones
         {
             $Result[$ArrayIndex]['subclass'] = Items::ItemSubClass($Item['class'], $Item['subclass']);
             $Result[$ArrayIndex]['class'] = Items::ItemClass($Item['class']);
-            $Result[$ArrayIndex]['BuyPrice'] = String::MoneyToCoins($Item['BuyPrice']);
-            $Result[$ArrayIndex]['SellPrice'] = String::MoneyToCoins($Item['SellPrice']);
+            $Result[$ArrayIndex]['BuyPrice'] = Text::MoneyToCoins($Item['BuyPrice']);
+            $Result[$ArrayIndex]['SellPrice'] = Text::MoneyToCoins($Item['SellPrice']);
             $Result[$ArrayIndex]['bond_translation'] = Items::BondTranslation($Item['bonding']);
             $Result[$ArrayIndex]['it_translation'] = Items::InventoryTypeTranslation($Item['InventoryType']);
             $ArrayIndex++;

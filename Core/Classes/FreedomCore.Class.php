@@ -4,11 +4,10 @@ global $Directory, $FreedomCore;
 $Directory = str_replace("\\", "/", getcwd());
 Class FreedomCore_Base extends FreedomCore
 {
-	function FreedomCore_Base()
+	function __construct()
 	{
         global $FCCore, $Directory;
-		$this->__construct();
-		// System Variables 
+		parent::__construct();
         $this->cache_dir = $Directory.'/Cache/FreedomCore/';
 		$this->languages_dir = $Directory.'/Core/Languages/';
         $this->config_dir = $Directory.'/Core/Configuration/';

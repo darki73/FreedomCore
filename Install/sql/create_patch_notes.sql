@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS `patch_notes` (`id` int(11) NOT NULL, `patch_version` double DEFAULT NULL, `patch_name_ru` varchar(45) DEFAULT NULL, `patch_name_en` varchar(45) DEFAULT NULL, `patch_menu_icon` varchar(45) DEFAULT NULL, `patch_content_header` varchar(45) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `patch_notes` ADD PRIMARY KEY (`id`);
+ALTER TABLE `patch_notes` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

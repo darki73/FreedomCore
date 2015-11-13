@@ -2,6 +2,11 @@ Options -Indexes
 Options +FollowSymLinks
 ServerSignature Off
 RewriteEngine On
+<IfModule mod_ssl.c>
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</IfModule>
+AddDefaultCharset utf-8
 
 
 RewriteRule ^(account)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
@@ -26,8 +31,10 @@ RewriteRule ^(quest)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?catego
 RewriteRule ^(data)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(zone)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(npc)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
-RewriteRule ^(api)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /api.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
+RewriteRule ^(api)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /api.php?category=$1&endpoint=$2&method=$3&datatype=$4 [L,NC,QSA]
 RewriteRule ^(forum)(?:/([^/]+)(?:/([^/]+))?(?:/([^/]+))?)?/?$ /pager.php?category=$1&subcategory=$2&lastcategory=$3&datatype=$4 [L,NC,QSA]
+RedirectMatch 301 /install /Install
+RedirectMatch 301 /update /Update
 
 <IfModule mod_headers.c>
    Header always append X-Frame-Options SAMEORIGIN

@@ -1,0 +1,61 @@
+Installation_Manager = Installationsmanager
+Installation_LatestVersion = Neueste Version
+Installation_InstalledVersion = Installierte Version
+Installation_Main = Hauptteil
+Installation_SysReq = Systemanforderungen
+Installation_Module = Modul
+Installation_Module_Required = erforderlich
+Installation_Module_Installed = installiert
+Installation_Documentation = Dokumentation
+Installation_BeginInstall = Installation starten
+Installation_Perform_Installation = Ausf?hren!
+
+Installation_Setup_Database = Datenbankverbindung
+Installation_Setup_HO = Setup Homepage
+Installation_Setup_HC = Abschluss der Installation
+Installation_Setup_HCF = Die CMS Installation ist fast abgeschlossen.
+Installation_Allowed = Alle Komponenten wurden getestet, Sie k?nnen mit der Installation fortfahren!
+Installation_Finalizing = Fast fertig....
+Installation_Module_OS = Betriebssystem
+Installation_Module_Apache = Apache-Server-Version
+Installation_Module_Nginx = Server-Version NGinx
+Installation_Module_IIS = Druckerserver IIS
+Installation_Module_MySQL = Version MySQL API
+Installation_Module_PHP = Version PHP
+Installation_Module_Status = Titel
+Installation_Module_Si = installiert
+Installation_Module_No = nicht installiert
+
+Installation_MySQL_Website = Basiseinstellungen Website
+Installation_MySQL_Auth = Basiseinstellungen Auth
+Installation_MySQL_Characters = Basiseinstellungen Characters
+Installation_MySQL_World = Basiseinstellungen World
+Installation_SOAP_Header = Protokolleinstellung SOAP
+Installation_SOAP_IP = Soap IP
+Installation_SOAP_Port = Soap Port
+Installation_SOAP_Account = Account
+Installation_SOAP_Password = Passwort
+Installation_Site_Data = Datenschutzeinstellungen
+Installation_Site_Title = Seitenname
+Installation_Site_Description = Seitenbeschreibung
+Installation_Site_Keywords = Stichworte
+Installation_Site_Template = Seitentemplate
+Installation_Finalize_Install = Fertigstellung CMS
+Installation_Site_Cancel = Abbrechen
+
+Installation_MySQL_Settings = MySQL-Einstellungen
+Installation_MySQL_Host = Datenbankhost
+Installation_MySQL_DB = Datenbankname
+Installation_MySQL_User = Benutzer
+Installation_MySQL_Password = Passwort
+Installation_MySQL_Encoding = Verschl?sselung
+Installation_MySQL_Port = Port
+
+
+Installation_Final_Please_Wait = Bitte warten Sie...
+Installation_Final_Success = Erfolg!
+Installation_Final_Failed = Fehlgeschlagen!
+Installation_Final_Config_Creation = Erstelle die Konfigurationsdatei
+Installation_Final_Database_Connection = Datenbankverbindung
+Installation_Final_Database_Import = ?nderungen an der Datenbank
+Installation_Final_Complete = Schlie?en Sie die Installation ab

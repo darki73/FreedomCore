@@ -5,7 +5,11 @@ Class File
 	public static function Download($URL, $SaveTo)
 	{
         $Handle = curl_init($URL);
-        curl_setopt($Handle,  CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($Handle, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($Handle, CURLOPT_HEADER, false);
+        curl_setopt($Handle, CURLOPT_USERAGENT, 'FreedomCore CMS (Manager Class Download Function)');
+        curl_setopt($Handle, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($Handle, CURLOPT_SSL_VERIFYHOST, false);
         $Response = curl_exec($Handle);
         $HTTPCode = curl_getinfo($Handle, CURLINFO_HTTP_CODE);
         if($HTTPCode != 404) {
@@ -69,6 +73,35 @@ Class File
                     'SmallFileName' => strtolower(str_replace('.language', '', $Iterator->getSubPathName())),
                     'LinesCount' => File::CountLines($Iterator->key())
                 );
+            }
+            $Iterator->next();
+        }
+        return $FilesArray;
+    }
+
+    public static function GetDirectoryContent($Directory, $SearchForFormat = null)
+    {
+        $Iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($Directory));
+        $FilesArray = array();
+        while($Iterator->valid())
+        {
+            if (!$Iterator->isDot())
+            {
+                if($SearchForFormat != null)
+                {
+                    $Exploded = explode('.', $Iterator->getSubPathName());
+
+                    if($Exploded[1] == $SearchForFormat)
+                        $FilesArray[] = array(
+                            'FileLink' => $Iterator->key(),
+                            'FileName' => $Iterator->getSubPathName()
+                        );
+                }
+                else
+                    $FilesArray[] = array(
+                        'FileLink' => $Iterator->key(),
+                        'FileName' => $Iterator->getSubPathName()
+                    );
             }
             $Iterator->next();
         }

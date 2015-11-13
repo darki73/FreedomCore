@@ -15,7 +15,7 @@ Class Items
         Items::$WConnection = $VariablesArray[0]::$WConnection;
         Items::$CConnection = $VariablesArray[0]::$CConnection;
         Items::$TM = $VariablesArray[1];
-        Items::LoadSocketBonus();
+        //Items::LoadSocketBonus();
     }
 
     private static function GetItemIcon($ItemID)
@@ -74,8 +74,8 @@ Class Items
         {
             $Result['subclass'] = Items::ItemSubClass($Result['class'], $Result['subclass']);
             $Result['class'] = Items::ItemClass($Result['class']);
-            $Result['BuyPrice'] = String::MoneyToCoins($Result['BuyPrice']);
-            $Result['SellPrice'] = String::MoneyToCoins($Result['SellPrice']);
+            $Result['BuyPrice'] = Text::MoneyToCoins($Result['BuyPrice']);
+            $Result['SellPrice'] = Text::MoneyToCoins($Result['SellPrice']);
             $Result['bond_translation'] = Items::BondTranslation($Result['bonding']);
             $Result['it_translation'] = Items::InventoryTypeTranslation($Result['InventoryType']);
             if($Result['RequiredSkill'] != 0)
@@ -579,13 +579,13 @@ Class Items
         return $Result;
     }
 
-    private static function SocketDescription($SocketColorID)
+    public static function SocketDescription($SocketColorID)
     {
         $Sockets = array(
-            '1' => array('subclass' => '6', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Meta')),
-            '2' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Red')),
-            '4' => array('subclass' => '2', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Yellow')),
-            '8' => array('subclass' => '1', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Blue'))
+            '1' => array('subclass' => '6', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Meta'), 'type' => 'META'),
+            '2' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Red'), 'type' => 'RED'),
+            '4' => array('subclass' => '2', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Yellow'), 'type' => 'YELLOW'),
+            '8' => array('subclass' => '1', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Blue'), 'type' => 'BLUE')
         );
 
         return $Sockets[$SocketColorID];
@@ -675,7 +675,7 @@ Class Items
             }
         }
         $Result['XPReward'] = Items::QuestXP($Result['QuestLevel'], $Result['RewardXPId']);
-        $Result['MoneyReward'] = String::MoneyToCoins($Result['RewardOrRequiredMoney']);
+        $Result['MoneyReward'] = Text::MoneyToCoins($Result['RewardOrRequiredMoney']);
         return $Result;
     }
 
@@ -791,9 +791,9 @@ Class Items
             //  => ' '.Items::$TM->GetConfigVars(''),
         );
 
-        foreach(Items::$SocketBonuses as $Bonus)
-            if(!in_array($Bonus['id'], $Bonuses))
-                $Bonuses[$Bonus['id']] = $Bonus['description'];
+//        foreach(Items::$SocketBonuses as $Bonus)
+//            if(!in_array($Bonus['id'], $Bonuses))
+//                $Bonuses[$Bonus['id']] = $Bonus['description'];
 
         return @$Bonuses[$BonusID];
     }
@@ -844,7 +844,7 @@ Class Items
         return $LevelArray[$QuestLevel][$ExpID];
     }
 
-    public static function ItemSubClass($ClassID, $SubClassID, $Menu = false)
+    public static function ItemSubClass($ClassID, $SubClassID, $Menu = false, $API = false)
     {
         $SubClassesByClasses = array(
             '0' => array(
@@ -1005,15 +1005,18 @@ Class Items
             )
         );
 
-        if($Menu == false)
+        if($Menu == false && $API == false)
         {
             $SubClass = $SubClassesByClasses[$ClassID];
             return $SubClass[$SubClassID];
         }
-        else
+        elseif($Menu)
         {
             return $SubClassesByClasses[$ClassID];
         }
+        elseif($API)
+            return $SubClassesByClasses;
+
     }
 }
 
@@ -1023,12 +1026,16 @@ Class Spells
     {
         $SpellArray = array();
         $SpellData = Spells::GetSpellByID($SpellID);
-        $SpellArray['SpellID'] = $SpellData['spellID'];
-        $SpellArray['Name'] = $SpellData['spellname_loc0'];
-        $SpellArray['Description'] = Spells::ParseDescription($SpellData, $SpellData['tooltip_loc0']);
-        $SpellArray['icon'] = $SpellData['icon'];
-
-        return $SpellArray;
+        if($SpellData)
+        {
+            $SpellArray['SpellID'] = $SpellData['spellID'];
+            $SpellArray['Name'] = $SpellData['spellname_loc0'];
+            $SpellArray['Description'] = Spells::ParseDescription($SpellData, $SpellData['tooltip_loc0']);
+            $SpellArray['icon'] = $SpellData['icon'];
+            return $SpellArray;
+        }
+        else
+            return false;
     }
 
     private static function ParseDescription($SpellData, $DescriptionString)
@@ -1078,6 +1085,14 @@ Class Spells
 
 
         return $DescriptionString;
+    }
+
+    public static function GetGlyphData($GlyphID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT gp.spellid, gp.iconid, LOWER(si.iconname) as icon  FROM freedomcore_glyphproperties gp LEFT JOIN freedomcore_spellicons si ON gp.iconid = si.id WHERE gp.id = :glyphid');
+        $Statement->bindParam(':glyphid', $GlyphID);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
     }
 
     private static function ParseSubSpells($SubSpells)
@@ -1154,7 +1169,11 @@ Class Spells
         $Statement = Items::$DBConnection->prepare('SELECT fs.*, LOWER(fsi.iconname) as icon FROM freedomcore_spell fs, freedomcore_spellicons fsi WHERE fs.spellID = :spellid AND fsi.id = fs.spellicon LIMIT 1');
         $Statement->bindParam(':spellid', $SpellID);
         $Statement->execute();
-        return $Statement->fetch(PDO::FETCH_ASSOC);
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if ($Statement->rowCount() > 0)
+            return $Result;
+        else
+            return false;
     }
 
     private static function GetSpellDurationBySpellID($SpellID)

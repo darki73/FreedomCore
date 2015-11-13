@@ -188,6 +188,12 @@
                                 </ul>
                             </div>
                         </li>
+                        {if $User.access_level == 4}
+                            <li {if $Page.type == 'admin'}class="active"{/if}>
+                                <a href="/admin/dashboard" class="border-3 administrator">{#Administrator_Title#}</a>
+                                <span class="arrow"></span>
+                            </li>
+                        {/if}
                     </ul>
                     <span class="clear"><!-- --></span>
                 </div>

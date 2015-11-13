@@ -1,0 +1,61 @@
+Installation_Manager = Менеджер Установки
+Installation_LatestVersion = Последняя Версия
+Installation_InstalledVersion = Установленная Версия
+Installation_Main = Главная
+Installation_SysReq = Системные Требования
+Installation_Module = Модуль
+Installation_Module_Required = Требуется
+Installation_Module_Installed = Установлена
+Installation_Documentation = Документация
+Installation_BeginInstall = Начать установку
+Installation_Perform_Installation = Установить!
+
+Installation_Setup_Database = Настроить Соединение с БД
+Installation_Setup_HO = Первоначальная настройка сайта
+Installation_Setup_HC = Завершение установки
+Installation_Setup_HCF = Установка FreedomCore CMS практически заврешена. Скоро Вы сможете приступить к работе с сайтом.
+Installation_Allowed = Все компоненты успешно прошли проверку, вы можете приступить к установке!
+Installation_Finalizing = Еще чуть чуть....
+Installation_Module_OS = Операционная Система
+Installation_Module_Apache = Версия Сервера Apache
+Installation_Module_Nginx = Версия Сервера NGinx
+Installation_Module_IIS = Версия Сервера IIS
+Installation_Module_MySQL = Версия MySQL API
+Installation_Module_PHP = Версия PHP
+Installation_Module_Status = Статус
+Installation_Module_Si = Установлен
+Installation_Module_No = Не Установлен
+
+Installation_MySQL_Website = Настройка Базы Сайта
+Installation_MySQL_Auth = Настройка Базы Auth
+Installation_MySQL_Characters = Настройка Базы Characters
+Installation_MySQL_World = Настройка Базы World
+Installation_SOAP_Header = Настройка Протокола SOAP
+Installation_SOAP_IP = Soap IP
+Installation_SOAP_Port = Soap Порт
+Installation_SOAP_Account = Аккаунт
+Installation_SOAP_Password = Пароль
+Installation_Site_Data = Настройки Сайта
+Installation_Site_Title = Название Сайта
+Installation_Site_Description = Описание Сайта
+Installation_Site_Keywords = Ключевые Слова
+Installation_Site_Template = Шаблон Сайта
+Installation_Finalize_Install = Установить FreedomCore CMS
+Installation_Site_Cancel = Отмена
+
+Installation_MySQL_Settings = Настройки MySQL
+Installation_MySQL_Host = Адрес Базы
+Installation_MySQL_DB = Название Базы
+Installation_MySQL_User = Пользователь
+Installation_MySQL_Password = Пароль
+Installation_MySQL_Encoding = Кодировка
+Installation_MySQL_Port = Порт
+
+
+Installation_Final_Please_Wait = Пожалуйста, подождите...
+Installation_Final_Success = Успешно!
+Installation_Final_Failed = Провал!
+Installation_Final_Config_Creation = Создание Файла Конфигурации
+Installation_Final_Database_Connection = Соединение с базой данных
+Installation_Final_Database_Import = Внесение изменений в базу данных
+Installation_Final_Complete = Завершить Установку

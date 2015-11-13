@@ -1,0 +1,88 @@
+Administrator_Title = <font color="red">Administrator Panel</font>
+Administrator_Page_Title = Administrator Panel
+Administrator_SiteControl = Website Management
+Administrator_ForumControl = Forum Management
+Administrator_SiteStat = Website Stats
+Administrator_AddArticle = Add Article
+Administrator_Antivirus = Antivirus
+Administrator_UserManagement = Manage Users
+Administrator_Articles = Manage Articles
+Administrator_PatchNotes = Manage Patch Notes
+Administrator_Antivirus_Failed = Changed
+Administrator_Antivirus_New = New
+Administrator_Antivirus_No_New = Nothing Added
+Administrator_Antivirus_No_Failed = Nothing Changed
+Administrator_Antivirus_Options = Options
+Administrator_Antivirus_Total = Total
+Administrator_Antivirus_Integrity = Integrity
+Administrator_Antivirus_Rescan = Rescan
+Administrator_Antivirus_LastScan = Last Scan
+Administrator_Antivirus_NF = New
+Administrator_Antivirus_CF = Changed
+Administrator_Antivirus_TF = Total
+Administrator_Antivirus_NT = Original
+Administrator_Antivirus_Renew_Tooltip = Renew file list<br />Must only be used if all files were modified by you
+Administrator_Antivirus_Integrity_Tooltip = This line shows the subjective assessment of the system security
+Administrator_Localization = Language Management
+Administrator_Localization_Installed = Installed Languages
+Administrator_Localization_Edit = Edit Language
+Administrator_Localization_MainFile = Language File
+Administrator_Shop = Shop Settings
+Administrator_Shop_Management = Manage
+Administrator_Shop_AddItem = Add Item
+Administrator_Shop_DeleteItem = Delete Item
+Administrator_Shop_EditItem = Edit Item
+Administrator_Shop_Stats = Stats
+Administrator_Shop_Revenue = Revenue
+Administrator_Shop_Items_Count = Total Items
+Administrator_Shop_Items_Price = Items Price
+
+Administrator_Shop = Настройки Магазина
+Administrator_Shop_Management = Shop Management
+Administrator_Shop_AddItem = Add Item
+Administrator_Shop_DeleteItem = Delete Item
+Administrator_Shop_EditItem = Change Item
+Administrator_Shop_Stats = Shop Statistics
+Administrator_Shop_Revenue = Revenue
+Administrator_Shop_Items_Count = Total Items
+Administrator_Shop_Items_Price = Total Price
+Administrator_Shop_Add_Hint_One = To add item, enter Items ID and press <br /> <i>Get Data</i>
+Administrator_Shop_Add_Hint_Two = After initial data gathered, you'll be able to set item price
+Administrator_Shop_Add_Item_ID = Item ID
+Administrator_Shop_Add_Get_Data = Get Data
+Administrator_Shop_Add_Item_Price = Item Price
+
+
+Administrator_Shop_Edit_Item_Subheader = Select item to edit it
+Administrator_Shop_Edit_Item_SideTitle = Select item from list to edit it
+Administrator_Shop_Edit_Item_Template = Background Template
+Administrator_Shop_Edit_Item_Color = Background Color
+Administrator_Shop_Edit_Item_Name = Item Name
+Administrator_Shop_Edit_Item_Price = Item Price
+Administrator_Shop_Edit_Item_Save = Save
+
+Administrator_Shop_Delete_Item_SideTitle  = Select item from the list to delete it
+Administrator_Shop_Delete_Item_Subheader  = Select Item For Deletion
+
+Administrator_PatchNotes_Add = Add Patch Note
+Administrator_PatchNotes_Delete = Delete Patch Notes
+Administrator_PatchNotes_Edit = Change Patch Notes
+
+Administrator_Articles_Add = Add Article
+Administrator_Articles_Delete = Delete Article
+Administrator_Articles_Edit = Change Article
+
+Administrator_Forum_Manage_Categories = Manage Categories
+Administrator_Forum_Manage_MVP = Manage MVP
+Administrator_Forum_Manage_Posts = Manage Posts
+
+Administrator_Users_Registered = Registered Users
+Administrator_Users_Registered_Today = Today:
+Administrator_Users_Registered_Total = Total:
+
+Administrator_Articles_Preview = Preview
+Administrator_Articles_Edit = Edit
+Administrator_Articles_Post = Add Article
+Administrator_Articles_AddImage = Add Article Image
+Administrator_Articles_UploadImage = Upload Image
+Administrator_Articles_ =

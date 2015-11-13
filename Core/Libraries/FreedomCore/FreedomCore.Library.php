@@ -75,7 +75,6 @@ Class FreedomCore
 
     private static function VerifyPDOInstallation()
     {
-        $PDOInstalled = false;
         if(extension_loaded('pdo'))
             $PDOInstalled = true;
         else
@@ -94,12 +93,13 @@ Class FreedomCore
     private static function InitializeSystem()
     {
         Manager::LoadSystemExtension("Security");
+        Manager::LoadSystemExtension("Image");
         Manager::LoadSystemExtension("Session");
         Manager::LoadSystemExtension("Debugger");
         Manager::LoadSystemExtension("Database");
         Manager::LoadSystemExtension("Utilities");
         Manager::LoadSystemExtension("Page");
-        Manager::LoadSystemExtension("String");
+        Manager::LoadSystemExtension("Text");
         Manager::LoadSystemExtension("File");
     }
 
@@ -247,11 +247,13 @@ Class FreedomCore
     */
     public function loadConfig()
     {
-        $Configuration = FreedomCore::getConfigDir().'Configuration.php';
-        if(file_exists($Configuration))
-            require_once($Configuration);
-        else
-            Debugger::ReportError(1,2, 'Configuration File');
+        if(!isset($_ENV['installation_in_progress'])){
+            $Configuration = FreedomCore::getConfigDir().'Configuration.php';
+            if(file_exists($Configuration))
+                require_once($Configuration);
+            else
+                Debugger::ReportError(1,2, 'Configuration File');
+        }
 
     }
 
@@ -262,7 +264,10 @@ Class FreedomCore
     */
     public function setTimezone($TimeZone)
     {
-        date_default_timezone_set($TimeZone);
+        if($TimeZone == NULL)
+            date_default_timezone_set('Europe/Moscow');
+        else
+            date_default_timezone_set($TimeZone);
     }
 
     /**

@@ -1,0 +1,3 @@
+ALTER TABLE `media` ADD COLUMN `file_name` VARCHAR(150) NULL COMMENT '' AFTER `comment_key`;
+ALTER TABLE `media` ADD COLUMN `thumbnail` VARCHAR(150) NULL COMMENT '' AFTER `file_name`;
+ALTER TABLE `media`ADD COLUMN `slug` VARCHAR(200) NULL COMMENT '' AFTER `name`;

@@ -79,12 +79,12 @@ Class ModelViewer
     public static function GetCharacterHtml()
     {
         $HtmlFormat = '
-                <object type="application/x-shockwave-flash" data="http://wow.zamimg.com/modelviewer/ZAMviewerfp11.swf" width="%u" height="%u" id="paperdoll-model-paperdoll-0-equipment-set">
+                <object type="application/x-shockwave-flash" data="//wow.zamimg.com/modelviewer/ZAMviewerfp11.swf" width="%u" height="%u" id="paperdoll-model-paperdoll-0-equipment-set">
                     <param name="quality" value="high">
                     <param name="wmode" value="direct"/>
                     <param name="allowsscriptaccess" value="always">
                     <param name="menu" value="false">
-                    <param name="flashvars"  value="hd=false&amp;model=%s&amp;modelType=16&amp;contentPath=http://wow.zamimg.com/modelviewer/&amp;%s">
+                    <param name="flashvars"  value="hd=false&amp;model=%s&amp;modelType=16&amp;contentPath=//wow.zamimg.com/modelviewer/&amp;%s">
                 </object>
         ';
 

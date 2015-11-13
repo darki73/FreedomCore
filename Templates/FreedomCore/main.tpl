@@ -14,11 +14,44 @@
             <div id="slideshow" class="ui-slideshow">
                 <div class="slideshow">
 
+                    {for $i = 0; $i < count($Slideshow); $i++}
+                        <div class="slide" id="slide-{$i}" style="background-image: url('/Uploads/Core/Slideshow/{$Slideshow.$i.image}'); {if $i != 0} display: none;{/if}"></div>
+                    {/for}
+                </div>
+
+                <div class="paging">
+                    <a href="javascript:;" class="prev" onclick="Slideshow.prev();"></a>
+                    <a href="javascript:;" class="next" onclick="Slideshow.next();"></a>
+                </div>
+
+                <div class="caption">
+                    <h3><a href="javascript:;" class="link"></a></h3>
+
                 </div>
 
                 <div class="preview"></div>
                 <div class="mask"></div>
             </div>
+            <script type="text/javascript">
+                //<![CDATA[
+                $(function() {
+                    Slideshow.initialize('#slideshow', [
+                        {for $i = 0; $i < count($Slideshow); $i++}
+                        {ldelim}
+                            image: "/Uploads/Core/Slideshow/{$Slideshow.$i.image}",
+                            desc: "{$Slideshow.$i.description}",
+                            title: "{$Slideshow.$i.title}",
+                            url: "{$Slideshow.$i.url}",
+                            id: "{$Slideshow.$i.id}",
+                            duration: {$Slideshow.$i.duration}
+                            {rdelim},
+                        {/for}
+                    ]);
+
+                });
+                //]]>
+            </script>
+
             <div class="right-sidebar" >
                 <div class="sidebar" id="sidebar">
                     <div class="sidebar-top">
@@ -34,7 +67,9 @@
                     //<![CDATA[
                     $(function() {
                         Sidebar.sidebar([
+                            { "type": "client", "query": "" },
                             { "type": "realm-status", "query": "" },
+                            { "type": "events", "query": "" },
                             { "type": "under-dev", "query": "" },
                             {if $Debug}
                             { "type": "debugger", "query": "" },
@@ -48,10 +83,11 @@
                 <div class="left-container-inner">
                     <div class="featured-news-container">
                         <ul class="featured-news">
+                            {assign "Iteration" "0"}
                             {foreach $News as $Article}
                                 <li>
                                     <div class="article-wrapper">
-                                        <a href="/blog/{$Article.id}" class="featured-news-link" data-category="wow" data-action="Blog_Click-Throughs" data-label="home ">
+                                        <a href="/blog/{$Article.id}/{$Article.slugged_url}" class="featured-news-link" data-category="wow" data-action="Blog_Click-Throughs" data-label="home ">
                                             <div class="article-image" style="background-image:url(/Uploads/{$Article.post_miniature})">
                                                 <div class="article-image-frame"></div>
                                             </div>
@@ -66,13 +102,17 @@
                                         </div>
                                     </div>
                                 </li>
+                                {$Iteration = $Iteration + 1}
+                                {if $Iteration == 3}
+                                    {break}
+                                {/if}
                             {/foreach}
                         </ul>
                     </div>
                     <div id="blog-articles" class="blog-articles" itemscope="itemscope" itemtype="http://schema.org/Blog">
                         {foreach $News as $Article}
                             <div class="article-wrapper" >
-                                <a href="/blog/{$Article.id}">
+                                <a href="/blog/{$Article.id}/{$Article.slugged_url}">
                                     <div class="article-image" style="background-image:url(/Uploads/{$Article.post_miniature})">
                                         <div class="article-image-frame"></div>
                                     </div>

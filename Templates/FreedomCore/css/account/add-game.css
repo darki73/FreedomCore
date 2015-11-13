@@ -1,0 +1,201 @@
+.region-label2 fieldset.ui-controls { 	margin-left: 0%; }
+#predownload-link { width: auto; text-align: center; padding-left: 0px; }
+#predownload-link strong { padding-left: 60px; padding-right: 12px; white-space: nowrap; }
+#predownload-link em { padding-left: 60px; padding-right: 12px; white-space: nowrap; }
+
+#page-header-purchase { padding: 0 0 10px; height: 49px; width: 744px; overflow: visible; border-bottom: 1px solid #b5b3b1; }
+.add-game { overflow: hidden; }
+.add-game .introduction { margin-bottom: 40px; font-size: 13px; }
+.add-game .introduction .download-notice { color: #0077a6 }
+.add-game .section-box { min-height: 10.5em; }
+.add-game .section-right .section-box { text-align: center; }
+.add-game .section-box .simple-input { margin-top: 1em; }
+.add-game .section-box .simple-input .input { vertical-align: top; width: 400px; }
+.add-game .section-box .ui-controls { margin: 1.5em 0 0 0; width: auto; }
+.add-game .section-box .section-buttons { margin-top: 3em; }
+.add-game .section-box .ui-controls .button1 { padding: 0; }
+
+.additional-region-warning { float: right; clear: both; padding-top: 2px; }
+
+#region-selection-container { float: right; background: url("/Templates/FreedomCore/images/icons/small-globe.png") 0 50% no-repeat; padding-left: 40px; }
+#region-selection-container #current-region a { color: #007db7; font-size: 12px; padding-left: 8px; }
+#region-selection-container #current-region a:hover,
+#region-selection-container #current-region a:focus { color: #FFFFFF; }
+
+#change-game-region { width: 720px; margin: 40px auto; position: relative; margin-bottom: 40px; height: 245px; }
+#change-game-region .arrow { background: url("/Templates/FreedomCore/images/digital-purchase/selector2.gif") 0 0 no-repeat; height: 22px; width: 12px; position: absolute; top: 112px; left: 415px; }
+#change-game-region #region-list-container { float: left; width: 380px; height: 225px; background-color: #bfbfbd; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 10px; }
+#change-game-region #region-list-container .region-selector { color: #4A4A4A; display: block; padding: 4px 10px 4px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; font-weight: bold; margin-top: 4px; }
+#change-game-region #region-list-container .region-selector:hover { color: #000000; cursor: pointer; }
+#change-game-region #region-list-container .region-selector.selected { background-color: #545b63; color: #FFFFFF; }
+
+#change-game-region #region-warning-container { float: right; background-color: #f6f6f6; width: 275px; height: 225px; padding: 10px; }
+
+#game-selection-container { height: 235px; background: #e5e3e2; }
+
+.game-selection { float: left; width: 141px; height: 235px; background: #e5e3e2; position: relative; cursor: pointer; }
+.game-selection:hover { background-color: #FFFFFF; cursor: pointer; }
+.game-selection.selected { background-color: #FFFFFF; }
+.game-selection .box { margin-left: 12px; margin-top: 12px; box-shadow: 0px 0px 5px #333; -moz-box-shadow: 0px 0px 5px #333; -webkit-box-shadow: 0px 0px 5px #333; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+.game-selection .plus { width: 25px; height: 25px; position: absolute; top: 158px; left: 114px; background: url("/Templates/FreedomCore/images/digital-purchase/plus.png") 0 0 no-repeat; }
+.game-selection .game-label { text-align: center; color: #565c67; height: 38px; margin-top: 10px; }
+.game-selection .game-price { text-align: center; font-weight: bold; color: #565c67; font-size: 16px; }
+.game-selection .selector { position: absolute; bottom: 0px; left: 58px; display: none; }
+
+.empty-game-selection-dialog { width: 987px; height: 166px; color: #000000; }
+.empty-game-selection-dialog div { background-color: #e9e8e7; margin: 40px; line-height: 86px; font-size: 16px; font-weight: bold; -moz-border-radius: 5px; -webkit-border-radius: 5px; text-align: center; }
+.game-selection-dialog { width: 987px; height: 166px; background: #a4a2a0; color: #FFFFFF; display: none; }
+.game-selection-dialog .game-label { color: #fff; padding-top: 30px; padding-left: 30px; }
+.game-selection-dialog .game-label span { display: inline-block; width: 26px; height: 26px; background: url("/Templates/FreedomCore/images/icons/circle-close.png") 0 0 no-repeat; float: right; cursor: pointer; position: relative; top: -20px; right: 12px; }
+.game-selection-dialog .game-label span:hover { background-position: 0px -25px; }
+.game-selection-dialog.S2 { background: url("/Templates/FreedomCore/images/digital-purchase/backplate/S2.jpg") no-repeat; }
+.game-selection-dialog.WAR3 { background: url("/Templates/FreedomCore/images/digital-purchase/backplate/WAR3.jpg") no-repeat; }
+.game-selection-dialog.W3XP { background: url("/Templates/FreedomCore/images/digital-purchase/backplate/W3XP.jpg") no-repeat; }
+.game-selection-dialog.D2DV { background: url("/Templates/FreedomCore/images/digital-purchase/backplate/D2DV.jpg") no-repeat; }
+.game-selection-dialog.D2XP { background: url("/Templates/FreedomCore/images/digital-purchase/backplate/D2XP.jpg") no-repeat; }
+.game-selection-dialog.STAR { background: url("/Templates/FreedomCore/images/digital-purchase/backplate/STAR.jpg") no-repeat; }
+.game-selection-dialog.WOWC { background: url("/Templates/FreedomCore/images/digital-purchase/backplate/WOWC.jpg") no-repeat; }
+
+.game-region-separator { padding: 0 .5em; }
+.game-region-global strong span { display: inline-block; width: 16px; height: 16px; background: url("/Templates/FreedomCore/images/icons/sprite.png") no-repeat 0 -112px; line-height: 16px; overflow: hidden; position: relative; top: 3px; }
+.game-time-container { margin-top:20px; }
+.additional-languages { color: #0072a3; }
+
+.alert-float { float: left; margin-left: 30px; width: 480px; position: relative; top: -8px; height: 60px; margin-top:27px; }
+.alert-inner.adjusted { height: 60px; }
+.alert.caution .alert-message { background-position: 13px 16px; padding: 10px 10px 15px 50px; }
+
+.primary { background: #d3d1ce url(/Templates/FreedomCore/images/dashboard/game-space/default.png) no-repeat scroll right top; margin: 0 0 3em; min-height: 400px; overflow: auto; padding: 0; position: relative; }
+.wrapper .primary.WOW-back,
+.wrapper .primary.WOWC-back { background: url(/Templates/FreedomCore/images/dashboard/game-space/wowc.png) no-repeat scroll top right; }
+
+.primary .summary { position: relative; width: 990px; }
+.primary .summary .interior { background: #e5e3e2; background: rgba(255, 255, 255, 0.4); float: left; overflow: hidden; position: relative; width: 742px; min-height: 380px; }
+.primary .summary .interior.plural { width: 702px; }
+.primary .summary .interior.singular { padding-top: 10px; padding-bottom: 10px; }
+.primary .summary .interior .want-de { padding: 16px 22px; text-align: right; }
+.primary .summary .interior .large-boxart-container { margin: 16px; width: 254px; height: 374px; float: left; background-color: #5b5b5b; -moz-box-shadow: 0px 0px 5px #333; -webkit-box-shadow: 0px 0px 5px #333; -moz-border-radius: 5px; -webkit-border-radius: 5px; position: relative; }
+.primary .summary .interior .large-boxart-container span {  position:absolute; bottom:0px; width:100%; color: #FFFFFF; text-align:center; font-size: 14px; font-weight: bold; text-transform: uppercase; height: 30px; line-height: 30px; background-color: #5b5b5b; background-position: 0 0; background-repeat: no-repeat; }
+.primary .summary .interior .view-container { float:left; margin:16px; width: 254px; }
+.primary .summary .interior .info-container { float: left; padding: 10px 0 100px; width: 410px; }
+.primary .summary .interior .info-container.info-container-padding-0 { padding-bottom: 0; }
+.primary .summary .interior .info-container .game-description { margin: 1.5em 0; width: 435px; }
+.primary .summary .interior .info-container .game-description p { margin: 0 0 1.5em 0; }
+.primary .summary .interior .info-container .gift-options { margin: 3em 0; padding: 16px 16px 16px 80px; min-height: 48px; background: #d3d1ce url(/Templates/FreedomCore/images/digital-purchase/gift.png) no-repeat left top; }
+.primary .summary .interior .info-container .gift-options p:last-child { margin: 0; }
+.primary .summary .interior .info-container .region-label { margin-top: 15px; }
+.primary .summary .interior .info-container .region-label .caption { margin: 0; }
+
+.primary .summary .interior .upgrade-package-hots-de .info-container .region-label { margin-top: 0; }
+.primary .summary .interior .info-container .region-label .region-name a { font-size: 12px; }
+.primary .summary .interior .info-container .languages { background-color: #bfbebc; -moz-border-radius: 3px; -webkit-border-radius: 3px; margin: 15px 16px 0px 0px; padding: 8px; }
+.primary .summary .interior.plural .info-container .languages { background-color: #e3e2e0; }
+.primary .summary .interior .info-container .languages .list { font-weight: bold; margin-top: 8px; }
+.primary .summary .interior .info-container .languages .list .language { white-space: nowrap; }
+.primary .summary .interior .info-container .system-specs { font-weight: bold; margin-top: 20px; }
+.primary .summary .interior .info-container .system-specs .d3-additional-tip { font-weight: normal; padding-right: 20px; }
+.primary.D3-back .summary .interior .info-container .system-specs { margin-bottom: 30px; }
+.primary .summary .interior .info-container .system-specs.no-margin { margin-bottom: 0; }
+.primary .summary .interior .info-container .retailers { font-weight: bold; margin-top: 5px; }
+.primary .summary .interior .info-container .retailers-desc { color: #dd0000; padding: 5px 5px 5px 0 }
+.primary .summary .interior .info-container .warning-desc { padding: 0 5px 5px 0 ; margin-bottom: 0; }
+.primary .summary .interior .info-container .warning-desc ul { padding: 5px 20px 0 15px; list-style-type: circle; }
+.primary .summary .interior .info-container .retailers-time-desc { width: 250px }
+.primary .summary .interior .info-container .payment { text-align: right; margin-right: 16px; margin-bottom: 16px; }
+.primary .summary .interior .info-container .payment .old-price { line-height: 22px; vertical-align: middle; margin-bottom: 0; text-align: right; padding-right: 20px; }
+.primary .summary .interior .info-container .payment .price { line-height: 40px; vertical-align: middle; margin-bottom: 10px; text-align: right; padding-right: 20px; }
+.primary .summary .interior .info-container .payment .pet-price { padding-right: 0; }
+.primary .summary .interior .info-container .payment .price span { font-size: 16px; line-height: 40px; margin-left: 16px; position: relative; bottom: 8px;}
+.primary .summary .interior .info-container .payment .item-redemption { margin-top: 1.5em; }
+.primary .summary .interior .info-container .region-label2 { padding-left: 10px; margin: 10px 0 30px; display: none; }
+.primary .summary .interior .info-container .region-label2 #region-list-container { width: 370px; height: 225px; background-color: #e3e2e0; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 6px; }
+.primary .summary .interior .info-container .region-label2 #region-list-container .region-disabled { color: #8D8D8D; display: block; padding: 4px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; font-weight: bold; line-height: 14px; }
+.primary .summary .interior .info-container .region-label2 #region-list-container .region-selector { color: #4A4A4A; display: block; padding: 4px 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; font-weight: bold; }
+.primary .summary .interior .info-container .region-label2 #region-list-container .region-selector:hover { background-color: #545b63; color: #FFFFFF; cursor: pointer; }
+.primary .summary .interior .info-container .region-label2 #region-list-container .region-selector.selected { background-color: #545b63; color: #FFFFFF; }
+.primary .summary .interior .info-container .region-explain { padding-top: 2px; }
+.primary .summary .interior .info-container .age-gate { position: static; margin: 25px 0 0 0; text-align: center; background: #4d606d; }
+.primary .summary .interior .info-container .age-gate .caption { margin-bottom: 0.5em; color: #fff; }
+.primary .summary .interior .info-container .age-gate .text-red { color: #fff; }
+.primary .summary .interior .info-container .agegate-arrow { position: relative; height: 6px; margin-bottom: 4px; }
+.primary .summary .interior .info-container .agegate-arrow span { position: absolute; left: 20px; width: 11px; height: 6px; margin-bottom: 10px; background: url(/Templates/FreedomCore/images/icons/sprite.png) no-repeat -147px -96px; overflow: hidden; }
+.primary .summary .region-warning-container { display: none; overflow: visible; width: 206px; padding: 8px; position: absolute; right: 13px; top: 0; z-index: 2; -moz-user-select: none; -webkit-user-select: none; user-select: none; text-align:left; color: #272727; background: #e5e3e2 url(''); background: rgba(255,255,255,.6); }
+.primary .summary .region-warning-container  h2 { color: #010002; font-size: 13px; font-weight: bold; }
+.primary .summary .region-warning-container  p { color: #524e4d; font-size: 12px; font-weight: bold; }
+.primary .summary .region-warning-container  ol { color: #524e4d; }
+
+.primary .summary .region-warning-container h3 { font-size: 18px; font-weight: bold; }
+.primary .summary .region-warning-container p { line-height: 1.5em; }
+.primary .summary .order-container { float: left; position: absolute; bottom: -382px; right: 24px; text-align: center; }
+.ratings-container { clear: both; display: block; padding-left: 20px; float: left; }
+
+/* promotion sections */
+.primary .section { float: left; overflow: visible; padding: 42px 0; }
+.primary .upgrade-option { overflow: visible; padding:0; position: absolute; right: 13px; bottom: 13px; z-index: 2; -moz-user-select: none; -webkit-user-select: none; user-select: none; }
+
+.info-container label { font-size: 13px; width: 20%; text-align: left; color: #4A4A4A; }
+.info-container .form-required { display : none; }
+
+.right-link { text-align: right; padding-top: 6px; }
+
+.hide-langs { display: none; }
+
+#extra-warning { display: none; }
+.extra-clients-container { background: none repeat scroll 0 0 rgba(255, 255, 255, 0.4); padding: 16px; width: 710px; display: none; }
+.extra-clients-container .interior { background: none repeat scroll 0 0 #BFBFBE; padding: 8px; -moz-border-radius: 3px 3px 3px 3px; }
+.extra-clients-container .interior a { -moz-border-radius: 3px 3px 3px 3px; color: #363535; display: inline-block; font-weight: bold; padding: 0 4px 1px; text-decoration: underline; line-height: 1.5em; font-size: 11px; }
+.extra-clients-container .interior a:hover,
+.extra-clients-container .interior a:focus { background: none repeat scroll 0 0 #AAAAAA; color: #202020; }
+
+select.d3-product-selection { font-size: 12px }
+
+/*blizzcon 2011 virtual ticket*/
+.ticket-complete { padding-bottom: 30px; }
+.ticket-complete h6 { line-height: 20px; font-size: 16px; font-weight: bold; }
+
+/*blizzcon 2011 DirecTV's virtual ticket Redemption Code*/
+.enter-redemption { padding-top: 40px; }
+
+#add-game .form-error label { color: #730202; }
+
+.key-claim-agegate { margin: 24px auto; }
+.key-claim-agegate #age-gate-select { margin: 0 auto; text-align: center; }
+#age-gate-failure { display: none; }
+
+.add-game .section-left .form-row label { width: auto; }
+
+.add-game .code-claim { margin: 0 auto; width: 420px; }
+
+.icon-32 { background: url(/Templates/FreedomCore/images/icons/sprite.png) repeat scroll 0 0 transparent; display: inline-block; height: 32px; width: 32px; overflow: hidden; vertical-align: middle; }
+.icon-32-label { display: inline-block; line-height: 32px; vertical-align: middle; }
+.add-game .hide-element { display: none; }
+.add-game .form-titles { float: left; margin: 0 0 2em; overflow: hidden; width: 100%; }
+.add-game .form-titles li { padding: 0 0 8px; list-style: disc outside none; }
+.add-game .form-titles li.open { background-color: #e0dfdd; overflow: auto; border-radius: 4px; -moz-border-radius: 4px; }
+.add-game .form-titles .closed { background-position: -160px -160px; }
+.add-game .form-titles .form-anchor:hover .closed,
+.add-game .form-titles .form-anchor:focus .closed,
+.add-game .form-titles .form-anchor:active .closed { background-position: -192px -160px; }
+.add-game .form-titles .open { background-position: -160px -192px; }
+.add-game .form-titles .form-anchor:hover .open,
+.add-game .form-titles .form-anchor:focus .open,
+.add-game .form-titles .form-anchor:active .open { background-position: -192px -192px; }
+.add-game .form-titles .closed-faded { background-position: -224px -160px; }
+.add-game .form-titles .faded { color: #8d8d8d; }
+.add-game .form-titles .faded:hover,
+.add-game .form-titles .faded:focus,
+.add-game .form-titles .faded:active { color: #014663; }
+.add-game .form-titles .form-name { font-size: 20px; }
+.add-game .form-titles .sub-form { padding: 10px 20px 0px 36px; font-size: 14px; }
+.add-game .form-titles .sub-form p { font-size: 14px; }
+.add-game .form-titles .sub-form p.small-subtitle { font-size: 18px; font-weight: bold; margin: 0; }
+.add-game .code-claim-information { margin-top: 40px; }
+.add-game .prepaid-card-image { float: right; margin: 0 50px 20px 100px; width: 182px; height: 193px; background: url(/Templates/FreedomCore/images/misc/card.png) no-repeat 0 0;}
+
+#add-game .label-full { width:100%; text-align:left; }
+#add-game .captcha-image-label { display: none; }
+
+.digital-purchase #region-tou { position: static; top: 0; }
+.digital-purchase .product-rating-wrapper { margin-top:20px }
+
+.age-gate a {clear:both; margin-top:10px;}

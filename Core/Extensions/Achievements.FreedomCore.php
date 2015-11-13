@@ -32,17 +32,18 @@ Class Achievements
                 $InnerIndex = 0;
                 foreach($SubCategories as $SubCategory)
                 {
-                    $LastCategories = Achievements::GetSubCategories($SubCategory['id']);
+                    $SubSubCategories = Achievements::GetSubCategories($SubCategory['id']);
                     $SubCategoryData = Achievements::GetDataForCategory($SubCategory['id']);
                     $Categories[$Index]['achievements_in_category'] = $Categories[$Index]['achievements_in_category'] + $SubCategoryData['amount'];
                     $Categories[$Index]['points_for_category'] = $Categories[$Index]['points_for_category'] + $SubCategoryData['maxscore'];
                     if(!empty($LastCategories))
                         $Categories[$Index]['subcategories'][$InnerIndex]['lastcategory'] = $LastCategories;
+                    $InnerIndex++;
                 }
             }
             $Index++;
         }
-        unset($Categories[0]); // we dont need stats.... yet....
+        //unset($Categories[0]); // we dont need stats.... yet....
         return $Categories;
     }
 
@@ -54,7 +55,7 @@ Class Achievements
             description_loc0 as description,
             category,
             points,
-            si.iconname
+            LOWER(si.iconname) as iconname
         FROM
             freedomcore_achievement fa
         LEFT JOIN freedomcore_spellicons si ON
@@ -76,7 +77,7 @@ Class Achievements
             description_loc0 as description,
             category,
             points,
-            si.iconname
+            LOWER(si.iconname) as iconname
         FROM
             freedomcore_achievement fa
         LEFT JOIN freedomcore_spellicons si ON
@@ -90,12 +91,19 @@ Class Achievements
         return $Result;
     }
 
-    private static function GetRootCategories()
+    public static function GetRootCategories()
     {
+        $Order = [92, 96, 97, 95, 168, 169, 201, 155, 81, 1];
         $Statement = Achievements::$DBConnection->prepare('SELECT id, name_loc0 as name FROM freedomcore_achievementcategory WHERE parentAchievement = "-1" ORDER BY id ASC');
         $Statement->execute();
         $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
-        return $Result;
+        $OrderedArray = [];
+        foreach($Order as $Position)
+            foreach($Result as $Category)
+                if($Position == $Category['id'])
+                    $OrderedArray[] = $Category;
+
+        return $OrderedArray;
     }
 
     public static function GetAchievementsStats()

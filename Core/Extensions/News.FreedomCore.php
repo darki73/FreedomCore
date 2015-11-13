@@ -13,6 +13,14 @@ Class News
         News::$TM = $VariablesArray[1];
     }
 
+    public static function GetSlideshowItems()
+    {
+        $Statement = News::$DBConnection->prepare('SELECT * FROM slideshow WHERE enabled = 1 ORDER BY ID DESC');
+        $Statement->execute();
+        $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+        return $Result;
+    }
+
     public static function GetAllNews()
     {
         $Statement = News::$DBConnection->prepare('SELECT * FROM news ORDER BY post_date DESC');
@@ -26,6 +34,7 @@ Class News
             $CountStatement->execute();
             $CountResult = $CountStatement->fetch(PDO::FETCH_ASSOC);
             $Result[$Index]['comments_count'] = $CountResult['count'];
+            $Result[$Index]['slugged_url']  =   Text::GenerateSlug($Article['title'], ['transliterate' => true]);
             $Index++;
         }
         return $Result;
@@ -37,10 +46,13 @@ Class News
         $Statement->bindParam(':articleid', $ArticleID);
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
-        if(String::IsNull($Result['id']))
+        if(Text::IsNull($Result['id']))
             return null;
         else
+        {
+            $Result['full_description'] = News::ParseBBCode($Result['full_description']);
             return $Result;
+        }
     }
 
     public static function GetComments($ArticleID)
@@ -131,6 +143,32 @@ Class News
         $Statement->execute();
         $Result = $Statement->fetch(PDO::FETCH_ASSOC);
         return $Result['maxcomment'];
+    }
+
+    public static function CreateArticle($Data)
+    {
+        $CommentsKey = md5(uniqid(rand(), true));
+        $Title = $Data['subject'];
+        $Body = $Data['postCommand_detail'];
+        $Short = Text::Truncate($Body, 150);
+        $Image = 'Core/News/'.$Data['imageName'];
+        $Poster = $_SESSION['username'];
+        $Date = date('Y-m-d H:i:s');
+
+        $Statement = News::$DBConnection->prepare('INSERT INTO news (title, short_description, full_description, posted_by, post_date, post_miniature, comments_key) VALUES(:title, :sd, :fd, :pb, :pd, :pm, :ck)');
+        $Statement->bindParam(':title', $Title);
+        $Statement->bindParam(':sd', $Short);
+        $Statement->bindParam(':fd', $Body);
+        $Statement->bindParam(':pb', $Poster);
+        $Statement->bindParam(':pd', $Date);
+        $Statement->bindParam(':pm', $Image);
+        $Statement->bindParam(':ck', $CommentsKey);
+        $Statement->execute();
+    }
+
+    private static function ParseBBCode($Message)
+    {
+        return str_replace('[', '<', str_replace(']', '>', $Message));
     }
 }
 

@@ -93,7 +93,7 @@ var UpgradeBox = Class.extend({
 
     setup: function() {
 
-        this.swf = Core.staticUrl + '/flash/management/ding.swf';
+        this.swf = '/flash/management/ding.swf';
 
         $.ajax({
             url: this.swf,

@@ -302,7 +302,7 @@ tr:hover .fansite-link,
 #sidebar-under-dev .trending-topics li { line-height: 130%; }
 
 /* layout */
-#wrapper { width: 1006px; margin: 0 auto; position: relative } /* use even width value so the centering is identical in IE and other browsers */
+#wrapper { width: 1006px; margin: 0 auto; position: relative; z-index: 5 } /* use even width value so the centering is identical in IE and other browsers */
 
 /* header */
 #header { position:relative; z-index:50; padding-top: 26px; }

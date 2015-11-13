@@ -1,5 +1,14 @@
 {include file="head.tpl"}
 <body class="{$Language} {$Page.bodycss}">
+    {if $ExpansionTemplate == "TBC"}
+        <div class="tbc_video_background">
+            <div class="body_bg"></div>
+            <div class="video_header">
+                <video loop="loop" src="/Templates/{$Template}/images/backgrounds/header-illidan.webm" autoplay></video>
+            </div>
+            <div class="video_footer"></div>
+        </div>
+    {/if}
     <div id="nav-client-header" class="nav-client compact">
         <div id="nav-client-bar">
             <div class="grid-container nav-header-content">
@@ -10,8 +19,21 @@
                     <li>
                         <a id="nav-client-shop" class="nav-item nav-link" href="/shop" data-analytics="global-nav" data-analytics-placement="Nav - {#Menu_Shop#}">{#Menu_Shop#}</a>
                     </li>
+                    <li>
+                        <a id="nav-client-api" class="nav-item nav-link" href="/api" data-analytics="global-nav" data-analytics-placement="Nav - API">API</a>
+                    </li>
+
+                    {if !isset($smarty.session.loggedin) || !$smarty.session.loggedin}
+
+                    {else}
+                        {if $User.access_level == 4}
+                        <li>
+                            <a id="nav-client-update" class="nav-item nav-link" href="/Update" data-analytics="global-nav" data-analytics-placement="Nav - Update">Update</a>
+                        </li>
+                        {/if}
+                    {/if}
                 </ul>
-                {if !$smarty.session.loggedin}
+                {if !isset($smarty.session.loggedin) || !$smarty.session.loggedin}
                 <ul class="nav-list nav-right" id="nav-client-account-menu">
                     <li>
                         <div id="username">
@@ -111,7 +133,7 @@
 					<div>
 						<div class="ui-typeahead-ghost">
 							<input type="text" value="" autocomplete="off" readonly="readonly" class="search-field input input-ghost" />
-							<input type="search" class="search-field input" name="q" id="search-field" maxlength="200" tabindex="40" alt="" value="" />
+							<input type="search" class="search-field input" name="q" id="search-field" maxlength="200" tabindex="40" alt="{#Search_Field#}" value="{#Search_Field#}" />
 						</div>
 						<input type="submit" class="search-button" value="" tabindex="41" />
 					</div>
@@ -153,12 +175,12 @@
 						</a>
 					</li>
 				</ul>
-				{if !$smarty.session.loggedin}
+				{if !isset($smarty.session.loggedin) || !$smarty.session.loggedin}
                     <div class="user-plate">
                         <a href="/account/login" class="card-character plate-logged-out">
                             <span class="card-portrait"></span>
                             <span class="wow-login-key"></span>
-                            <span class="login-msg"><strong>Авторизуйтесь</strong>, и перед вами будет еще больше возможностей!</span>
+                            <span class="login-msg">{#Account_Authorization_Required#}</span>
                         </a>
                     </div>
                 {else}

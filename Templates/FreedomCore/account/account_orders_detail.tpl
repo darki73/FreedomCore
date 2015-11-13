@@ -23,13 +23,28 @@
                     <tbody>
                     <tr class="item-info">
                         <td class="item">
-                            {assign 'ServiceName' 'Account_Management_Service_'|cat:strtoupper($Payment.service)}
-                            <strong data-service-id="null">{#Account_Management_Service#}: {$smarty.config.$ServiceName}</strong>
+                            {if strlen($Payment.service) == 3}
+                                {assign 'ServiceName' 'Account_Management_Service_'|cat:strtoupper($Payment.service)}
+                                <strong data-service-id="null">{#Account_Management_Service#}: {$smarty.config.$ServiceName}</strong>
+                            {else}
+                                <strong data-service-id="null">{$Payment.item_data.category_desc} {$Payment.item_data.item_name}</strong>
+                            {/if}
                         </td>
                         <td class="align-center">1</td>
                         <td class="align-right">
                             {$Payment.price|string_format:"%.2f"} USD
                         </td>
+                    </tr>
+                    <tr class="item-info">
+                        {if $Payment.digital_key != null}
+                            <td class="align-left">
+                                <strong>Key:</strong>
+                            </td>
+                            <td class="align-left">
+                                {$Payment.digital_key}
+                            </td>
+                            <td class="align-right"></td>
+                        {/if}
                     </tr>
                     </tbody>
                 </table>

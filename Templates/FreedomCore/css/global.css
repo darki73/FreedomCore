@@ -1,0 +1,505 @@
+/* В©2013 Blizzard Entertainment, Inc. All rights reserved. */
+/*! Lodestone v2.0.1 | MIT License | http://scobo.github.io/lodestone/ */
+.affix {
+    position:fixed
+}
+
+.clear {
+    clear:both;
+    display:block;
+    overflow:hidden;
+    visibility:hidden;
+    width:0;
+    height:0
+}
+
+.clearfix:before,.clearfix:after {
+    content:".";
+    font-size:0;
+    line-height:0;
+    display:block;
+    overflow:hidden;
+    visibility:hidden;
+    width:0;
+    height:0
+}
+
+.clearfix:after {
+    clear:both
+}
+
+.pull-right {
+    float:right
+}
+
+.pull-left {
+    float:left
+}
+
+.icon-spacer {
+    background-image:none!important
+}
+
+body .body-content {
+    -webkit-transition:opacity,0.4s;
+    transition:opacity .4s
+}
+
+body.preload .body-content {
+    opacity:0
+}
+
+.fade {
+    opacity:0;
+    -webkit-transition:opacity,0.2s;
+    transition:opacity .2s
+}
+
+.fade.in {
+    opacity:1
+}
+
+.collapse {
+    position:relative;
+    height:0;
+    overflow:hidden;
+    -webkit-transition:height,0.4s;
+    transition:height .4s
+}
+
+.collapse.in {
+    height:auto
+}
+
+.invisible {
+    visibility:hidden!important
+}
+
+.hide {
+    display:none!important
+}
+
+.show {
+    display:block!important
+}
+
+.modal-background-properties {
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center bottom,center top,center -100px;
+    background-image:url(/Templates/FreedomCore/images/toolkit/defaults/modals/modal-gradient.png),-webkit-linear-gradient(top,#263145 0,#1d222c 70%),-webkit-radial-gradient(50% 100px,closest-side,#263145,#1d222c);
+    background-image:url(/Templates/FreedomCore/images/toolkit/defaults/modals/modal-gradient.png),-moz-linear-gradient(top,#263145 0,#1d222c 70%),-moz-radial-gradient(50% 100px,closest-side,#263145,#1d222c);
+    background-image:url(/Templates/FreedomCore/images/toolkit/defaults/modals/modal-gradient.png),linear-gradient(top,#263145 0,#1d222c 70%),radial-gradient(50% 100px,closest-side,#263145,#1d222c);
+    background-clip:padding-box
+}
+
+.icon-24-ok {
+    background-position:-216px -120px
+}
+
+.icon-24-add-time {
+    background-position:-72px 0
+}
+
+.icon-24-plus {
+    background-position:-48px -168px
+}
+
+.icon-24-info-circle {
+    background-position:-48px -336px
+}
+
+.icon-24-external-link {
+    background-position:-216px -96px
+}
+
+.icon-24-ban-circle {
+    background-position:-24px 0
+}
+
+.icon-24-question-circle {
+    background-position:-96px 0
+}
+
+[class^='icon-32-'],[class*=' icon-32-'] {
+    background-image:url(/Templates/FreedomCore/images/toolkit/themes/bnet/icons/sprite-32-white.png);
+    width:32px;
+    height:32px
+}
+
+.icon-32-chevron-left {
+    background-position:-288px -64px
+}
+
+.icon-32-chevron-right {
+    background-position:0 -96px
+}
+
+.icon-32-remove {
+    background-position:-224px -192px
+}
+
+.icon-32-secure {
+    background-position:-256px -640px
+}
+
+.ajax-indicator {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    opacity:0;
+    -webkit-transition:opacity,0.2s;
+    transition:opacity .2s
+}
+
+.ajax-indicator.fade-in {
+    opacity:1;
+    z-index:1052
+}
+
+#mediamind {
+    position:absolute
+}
+
+.purchase-template .nav-client #nav-client-main-menu {
+    margin-left:0
+}
+
+.purchase-template .nav-client .nav-client-title {
+    margin-right:10px;
+    padding-left:0;
+    padding-right:0;
+    font-weight:300;
+    color:#fff
+}
+
+.purchase-template .nav-client .nav-client-subtitle {
+    padding-left:0;
+    margin:0 10px 0 0;
+    font-weight:300;
+    color:rgba(255,255,255,0.2)
+}
+
+.navbar .breadcrumb>li>a {
+    display:inline-block
+}
+
+@media(max-width:979px) {
+    .navbar .breadcrumb li:nth-child(n+2):last-child,.navbar .breadcrumb li:nth-last-child(2) .divider {
+        display:none
+    }
+}
+
+.navbar .progress-tracker li:first-of-type {
+    margin-left:-4px
+}
+
+.navbar:not(.header) .nav>li.region-status+li.battlenet-balance-status {
+    margin-right:10px;
+    padding-right:10px;
+    border-right:1px solid rgba(255,255,255,0.1)
+}
+
+.navbar:not(.header) .nav>li.region-status+li.battlenet-balance-status .dropdown-menu {
+    right:1px
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status,.navbar:not(.header) .nav>li.region-status {
+    margin-left:0
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status .balance-amount,.navbar:not(.header) .nav>li.region-status .balance-amount {
+    color:#75e900
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status .dropdown-toggle,.navbar:not(.header) .nav>li.region-status .dropdown-toggle {
+    padding-right:23px
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status .dropdown-toggle .icon-globe,.navbar:not(.header) .nav>li.region-status .dropdown-toggle .icon-globe {
+    margin-right:5px
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status .dropdown-toggle>.caret,.navbar:not(.header) .nav>li.region-status .dropdown-toggle>.caret {
+    right:0;
+    margin-right:0
+}
+
+@media(max-width:979px) {
+    .navbar:not(.header) .nav>li.battlenet-balance-status .dropdown-toggle .icon-globe,.navbar:not(.header) .nav>li.region-status .dropdown-toggle .icon-globe {
+        margin-right:-2px
+    }
+
+    .navbar:not(.header) .nav>li.battlenet-balance-status .dropdown-toggle .caret,.navbar:not(.header) .nav>li.region-status .dropdown-toggle .caret {
+        margin-left:0
+    }
+
+    .navbar:not(.header) .nav>li.battlenet-balance-status .dropdown-toggle .region-select-display-name,.navbar:not(.header) .nav>li.region-status .dropdown-toggle .region-select-display-name {
+        display:none
+    }
+}
+
+.navbar:not(.header) .nav>li.region-status>.dropdown-menu {
+    right:-7px
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status li a {
+    padding-left:8px
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status li.pending-balance-warning {
+    background-color:#5d3200;
+    padding:8px;
+    white-space:normal
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status li.pending-balance-warning a {
+    padding:0;
+    display:inline;
+    color:#00aeff;
+    -webkit-transition:color,0.2s;
+    transition:color .2s
+}
+
+.navbar:not(.header) .nav>li.battlenet-balance-status li.pending-balance-warning a:focus,.navbar:not(.header) .nav>li.battlenet-balance-status li.pending-balance-warning a:hover {
+    color:#fff;
+    background:transparent
+}
+
+.navbar:not(.header) .nav>li.region-status li a {
+    padding-left:8px;
+    padding-right:8px
+}
+
+#nav-client-footer .nav-ratings {
+    float:right
+}
+
+#nav-client-footer .nav-ratings .legal-rating {
+    float:right
+}
+
+.product-family-sc2 #legal #blizzard a {
+    background-position:0 -52px
+}
+
+.product-family-wow #legal #blizzard a {
+    background-position:-102px -52px
+}
+
+.product-family-d3 #legal #blizzard a {
+    background-position:-102px 0
+}
+
+[data-tooltips=tap] {
+    cursor:help
+}
+
+[data-tooltips=tap] a {
+    cursor:pointer
+}
+
+.control-label {
+    display:inline-block
+}
+
+.product-summary .product-image img {
+    width:100%;
+    height:auto
+}
+
+.product-summary p {
+    margin-bottom:0
+}
+
+.product-summary .product-name,.product-summary .mp-product-price {
+    font-size:13px;
+    line-height:20px
+}
+
+.product-summary .product-badge {
+    width:44px;
+    height:44px;
+    overflow:hidden;
+    position:absolute;
+    top:0;
+    right:0;
+    background:url(/Templates/FreedomCore/images/product-card/sprite-badges.png) no-repeat 0 0;
+    z-index:10
+}
+
+.product-summary .product-desc-label {
+    margin-bottom:0;
+    padding-top:25px
+}
+
+.product-summary .product-price-group .text-success {
+    color:#6ad401
+}
+
+.product-summary .product-features {
+    list-style:none;
+    margin-left:0
+}
+
+.product-summary .product-features li {
+    padding-left:30px;
+    margin-bottom:0;
+    font-size:13px;
+    line-height:20px;
+    position:relative
+}
+
+.product-summary .product-features li [class^="icon-"],.product-summary .product-features li [class*=" icon-"] {
+    position:absolute;
+    left:0
+}
+
+.modal.agegate {
+    width:358px;
+    margin-left:-179px;
+    overflow:visible;
+    height:216px;
+    -webkit-transition:height,0.2s;
+    transition:height .2s
+}
+
+.modal.agegate.agegate-failed {
+    height:125px
+}
+
+.modal.agegate .modal-body {
+    overflow:visible
+}
+
+.modal.agegate .modal-body .close {
+    right:7px;
+    top:-5px
+}
+
+.modal.agegate .modal-body form {
+    margin:0
+}
+
+.modal.agegate .modal-body h1 {
+    color:rgba(255,255,255,0.7);
+    font-size:15px;
+    line-height:20px;
+    margin:0 0 20px;
+    padding:0;
+    font-weight:400
+}
+
+.modal.agegate .modal-body .control-group {
+    margin-bottom:12px;
+    margin-top:-3px
+}
+
+.modal.agegate .modal-body .btn {
+    margin:0
+}
+
+.modal.agegate .modal-body .btn-primary {
+    min-width:110px
+}
+
+.modal.agegate .modal-body .notice {
+    margin:20px 0 0;
+    line-height:15px;
+    font-size:13px
+}
+
+.interceptor-agegate {
+    text-align:center
+}
+
+.interceptor-agegate .select-box,.interceptor-agegate select {
+    text-align:left
+}
+
+.interceptor-agegate .notice {
+    margin:40px 0 100px
+}
+
+.legal-info {
+    margin-top:50px;
+    padding-top:50px;
+    border-top:1px solid rgba(255,255,255,0.07);
+    color:rgba(255,255,255,0.5)
+}
+
+.legal-info .product-rating-wrapper {
+    margin-bottom:50px
+}
+
+.legal-info .supplemental {
+    font-size:13px
+}
+
+.legal-info .supplemental h6 {
+    margin-bottom:0;
+    padding-top:15px
+}
+
+.captcha-wrapper {
+    background:#fff
+}
+
+.captcha-actions .btn-primary {
+    min-width:150px
+}
+
+.captcha-actions .buttons {
+    margin-top:30px
+}
+
+.live-chat-active i[class^="icon-"],.live-chat-inactive i[class^="icon-"] {
+    vertical-align:text-bottom;
+    margin-right:6px
+}
+
+.purchase-template .live-chat-active,.purchase-template .live-chat-inactive {
+    font-size:13px
+}
+
+.app .grid-container .grid-container {
+    padding:0
+}
+
+.app .navbar-fixed {
+    height:40px;
+    top:0;
+    left:0;
+    background:rgba(255,255,255,0.05) no-repeat
+}
+
+.app .navbar-fixed .navbar {
+    background:transparent
+}
+
+@media screen and (max-width:979px) {
+    .app .navbar-fixed .navbar .breadcrumb li:nth-child(n+3),.app .navbar-fixed .navbar .breadcrumb li:nth-child(n+2) .divider {
+        display:none
+    }
+}
+
+@media screen and (max-width:979px) {
+    .app .navbar-fixed .navbar .nav .region-status .region-select-display-name {
+        display:none
+    }
+}
+
+.app .body-content {
+    padding:0;
+    position:absolute;
+    overflow-x:hidden;
+    overflow-y:auto;
+    top:40px;
+    left:0;
+    right:0;
+    bottom:0
+}
+
+.app .body-content>.grid-container {
+    padding:0 40px
+}

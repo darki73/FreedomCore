@@ -1,0 +1,26 @@
+
+/* arena team stats */
+.arenateam-stats .week { color: #FEF092; font-weight: bold; }
+.arenateam-stats .season { font-weight: normal; }
+
+/* arena team roster */
+.arenateam-roster { padding-top: 10px; }
+.arenateam-roster .character-spec { float: right; }
+.arenateam-roster .leader { margin-left: 5px; display: inline-block; width: 14px; height: 9px; background: url("/Templates/FreedomCore/images/pvp/leader.gif") no-repeat; }
+
+/* arena team shared */
+.arenateam-rating { color: #9E3403; font-family: 'Arial Black', Arial, sans-serif; font-weight:900; font-size: 12px; }
+.arenateam-gameswon { color: #00FF00; }
+.arenateam-gameslost { color: red; }
+.arenateam-gameswonlost, .arenateam-percent { color: #C09A67 !important; white-space: nowrap; }
+.arenateam-percent { padding-left: 6px; }
+
+.arrow-up,
+.arrow-down,
+.arrow-new { width: 10px; height: 11px; display: inline-block; vertical-align: middle; background: url("/Templates/FreedomCore/images/icons/arrow-up-down.gif") no-repeat; }
+.arrow-down { background-position: 0 -15px; }
+.arrow-new { background-position: 0 -30px; }
+
+.ie6 .arrow-up,
+.ie6 .arrow-down,
+.ie6 .arrow-new { vertical-align: bottom; margin: 7px 0 -7px 0; }

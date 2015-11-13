@@ -27,7 +27,7 @@
 					<h2>{#Game_Classes#}</h2>
 				</div>
 				<p class="main-header-desc">
-					В этом обновленном руководстве по классам World of Warcraft содержится описание всех способностей игровых классов и рассказы об их месте в Азероте.
+					{#Game_Classes_Desc#}
 				</p>
 				{foreach $Classes as $Class name=ClassLoop}
 					{if $smarty.foreach.ClassLoop.index % 2}
