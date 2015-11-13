@@ -1,26 +1,26 @@
 
 # Locale String for each race
-Pandaren_Head_Description = 
-Pandaren_Top_Description = 
-Pandaren_Bottom_Description = 
-Pandaren_Start_Location_Title = 
-Pandaren_Start_Location_Desc = 
-Pandaren_Capital_Title = 
-Pandaren_Capital_Desc = 
-Pandaren_Mount_Title = 
-Pandaren_Mount_Desc = 
-Pandaren_Racial_One_Title = 
-Pandaren_Racial_One_Desc = 
-Pandaren_Racial_Two_Title = 
-Pandaren_Racial_Two_Desc = 
-Pandaren_Racial_Three_Title = 
-Pandaren_Racial_Three_Desc = 
-Pandaren_Racial_Four_Title = 
-Pandaren_Racial_Four_Desc = 
-Pandaren_Racial_Five_Title = 
-Pandaren_Racial_Five_Desc = 
-Pandaren_Racial_Six_Title = 
-Pandaren_Racial_Six_Desc = 
+Pandaren_Head_Description = Avvolti dal mito e dalla leggenda, raramente visti e ancora più raramente compresi, gli enigmatici Pandaren sono rimasti a lungo un mistero per le altre razze di Azeroth. L'inizio della nobile storia dei Pandaren risale a migliaia di anni fa, molto prima dell'avvento degli imperi degli Umani e addirittura prima della separazione del mondo.
+Pandaren_Top_Description = Abitanti di una terra fertile e fantastica, i Pandaren furono schiavizzati da una mostruosa razza di antichi signori della guerra conosciuti con il nome di Mogu. Grazie alla loro tenacia, alla diplomazia e all'innata abilità nel combattimento a mani nude, i Pandaren organizzarono una vittoriosa rivoluzione che depose i Mogu e gettò le basi per un Impero dei Pandaren che prosperò per migliaia di anni
+Pandaren_Bottom_Description = Valorizzando l'onore e la buona compagnia, così come il buon cibo e, occasionalmente, una bella rissa tra amici, i Pandaren sono sempre stati contenti della loro vita isolata, che ha permesso alla loro cultura di fiorire e prosperare lontana dalle influenze del mondo esterno. Tuttavia, ogni tanto nasce un Pandaren con una grande sete di avventura che rivaleggia con quella per una buona birra, che si mette quindi in marcia per esplorare le terre che si estendono oltre le coste di Pandaria. Uno di questi famosi viaggiatori è il Mastro Birraio Chen Triplo Malto che, in cerca di ingredienti esotici per la sua birra speciale, si trovò ad avere un ruolo attivo nella creazione dell'Orda. <br> Durante gli oscuri giorni che precedettero la separazione del mondo, quando i demoni invasero Azeroth e gettarono nel terrore il regno dei mortali, l'ultimo Imperatore dei Pandaren scoprì un modo per proteggere la sua terra dall'annientamento. Il suo patto col destino avvolse il territorio in un'impenetrabile nebbia per diecimila anni, ma il prezzo da pagare fu alto e Pandaria rimase colpita da una terribile maledizione...
+Pandaren_Start_Location_Title = L'Isola Errante
+Pandaren_Start_Location_Desc = Furono gli stessi Pandaren a cercare successivamente un modo di sfuggire dalla coltre impenetrabile che avvolgeva la loro terra. Molte generazioni fa, gli esploratori Pandaren iniziarono a radunarsi sul dorso di una tartaruga gigante: Shen-Zin Su. La grande tartaruga solcò le acque degli oceani di Azeroth per secoli, e i Pandaren che vi abitavano persero infine i contatti con la loro madre terra. <br><br> Qui sull'Isola Errante, i giovani e arditi Pandaren ora si addestrano e studiano, allenandosi nel combattimento gli uni contro gli altri e apprendendo le basi delle arti marziali <br><br> Quando Shen-Zin Su si avvicinò al Maelstrom, la vita sull'Isola Errante, una volta pacifica e istruttiva, entrò in crisi. Il terreno divenne instabile e la vita stessa di Shen-Zin Su si ritrovò in pericolo: la sua traiettoria si fece irregolare e incontrollata, facendolo sprofondare in una spirale letale. <br><br> In qualità di uno dei viaggiatori Pandaren più promettenti, dovrai scoprire cosa minaccia veramente l'Isola Errante. Ma il problema che assilla la grande tartaruga ha diverse soluzioni potenziali, e gli studenti dell'Isola sono dibattuti su come affrontarlo. La tua decisione cambierà il futuro e segnerà la strada dei Pandaren in un mondo che ormai è cambiato per sempre.
+Pandaren_Capital_Title = Pandaria
+Pandaren_Capital_Desc = Nascosto nelle nebbie da diecimila anni, fin dai tempi della Grande Separazione, il regno di Pandaria è rimasto estraneo agli eventi del resto del mondo. Le lussureggianti foreste e le montagne impervie nascondono un complesso ecosistema di specie indigene e creature esotiche. Questa è la terra natale dei Pandaren, una razza mitica capace di celebrare la vita in ogni sua forma pur trovandosi sotto l'assedio di un'antica minaccia. <br><br> Il nuovo continente si rivela a un mondo sull'orlo della rovina, con l'Alleanza e l'Orda sempre più prossime a una guerra aperta che potrebbe consumare tutta Azeroth. Le nebbie di Pandaria si diraderanno per mostrare al mondo la salvezza? O la battaglia per controllare queste ricchissime nuove lande trascinerà le due fazioni nel baratro della guerra e della distruzione reciproca?
+Pandaren_Mount_Title = Testuggine Draconica
+Pandaren_Mount_Desc = Tutti Pandaren hanno a lungo cercato una cavalcatura che impersonasse i propri valori: pazienza e forza. Con una pelle naturalmente corazzata, un passo costante (indipendentemente dal peso del passeggero) e l'atteggiamento rilassato che asseconda i lunghi viaggi, la Testuggine Draconica è la cavalcatura perfetta per l'avventuriero Pandaren. Nativa dell'entroterra di Pandaria, questa cavalcatura sopraffina è dotata di ogni comodità: mappe, cuscini, sgabelli e una scorta di birra. Comoda e robusta, la Testuggine Draconica cammina con passo lento e costante, trasportando i propri passeggeri verso nuovi territori da esplorare mentre questi si godono una piacevole pennichella.
+Pandaren_Racial_One_Title = FAZIONE: NEUTRALE
+Pandaren_Racial_One_Desc = I Pandaren possono decidere di affiliarsi all'Orda o all'Alleanza dopo aver completato le proprie avventure sull'Isola Errante.
+Pandaren_Racial_Two_Title = Metabolismo efficiente
+Pandaren_Racial_Two_Desc = Il tuo amore per il cibo ti permette di raddoppiare gli effetti del bonus "Ben Nutrito".
+Pandaren_Racial_Three_Title = Specializzazione: Cucina
+Pandaren_Racial_Three_Desc = Competenza in Cucina aumentata di 15.
+Pandaren_Racial_Four_Title = Pace interiore
+Pandaren_Racial_Four_Desc = Durata del bonus all'esperienza dovuto al riposo aumentata grazie alla pace interiore.
+Pandaren_Racial_Five_Title = Adiposità
+Pandaren_Racial_Five_Desc = Danni da caduta ridotti del 50% grazie alla costituzione adiposa.
+Pandaren_Racial_Six_Title = Palmo stordente
+Pandaren_Racial_Six_Desc = Colpisce l'avversario con velocità fulminea, incapacitandolo per 4 secondi.
 
 Goblin_Head_Description = 
 Goblin_Top_Description = 

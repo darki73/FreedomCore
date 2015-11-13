@@ -1,25 +1,25 @@
-Updater_Manager = 
-Updater_Documentation = 
-Updater_Start_Update = 
-Updater_Preparation = 
-Updater_Current_Version = 
-Updater_New_Version = 
-Updater_Author =
+Updater_Manager = Updater Manager
+Updater_Documentation = Documentazione
+Updater_Start_Update = Avvia Aggiornamento
+Updater_Preparation = Preparazione
+Updater_Current_Version = Versione corrente
+Updater_New_Version = Nuova Versione
+Updater_Author = Autore
 
-Updater_Update_ID = 
-Updater_Update_Hash = 
-Updater_Update_Date = 
-Updater_Update_Title = 
-Updater_Update_SafeUpdate = 
+Updater_Update_ID = ID Aggiornamento
+Updater_Update_Hash = Hash Aggiornamento
+Updater_Update_Date = Data Aggiornamento
+Updater_Update_Title = Titolo Aggiornamento
+Updater_Update_SafeUpdate = Aggiornamento Sicuro
 
-Updater_No_Update_Required = 
-Updater_Latest_Version = 
+Updater_No_Update_Required = Nessun aggiornamento richiesto
+Updater_Latest_Version = Ultima versione
 
-Updater_SafeUpdate_Yes = 
-Updater_SafeUpdate_No = 
-Updater_Attention = 
-Updater_UnsafeUpdate = 
-Updater_Updates_Installed =
+Updater_SafeUpdate_Yes = Si
+Updater_SafeUpdate_No = No
+Updater_Attention = Attenzione
+Updater_UnsafeUpdate = Aggiornamento non sicuro
+Updater_Updates_Installed = Aggiornamenti installati
 
-Updater_Post_Install =
-Updater_Post_Install_Required =
+Updater_Post_Install = Post Install
+Updater_Post_Install_Required = Richiesto post install

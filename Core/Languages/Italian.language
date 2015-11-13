@@ -31,16 +31,16 @@ Status = Stato
 Players_Online = Giocatori Online
 Captcha_Code = Codice Captcha
 Captcha_Renew = Rinnova Captcha
-Change =
-Today =
-Tomorrow =
-Soon =
-Search_Field = Search characters, items, forums and more…
+Change = Cambia
+Today = Oggi
+Tomorrow = Domani
+Soon = Presto
+Search_Field = Cerca personaggi, oggetti, forum e altro…
 
 #PvP Pages
-PvP_Rated_Battlegrounds =
-PvP_Rating =
-PvP_View_Rang =
+PvP_Rated_Battlegrounds = Campi di Battaglia 
+PvP_Rating = Rating
+PvP_View_Rang = Guarda rango
 PvP_VS =
 
 #Game Page
@@ -227,20 +227,20 @@ Search_SearchedFor =
 Search_Not_Found_Part_One = 
 Search_Not_Found_Part_Two = 
 
-Sidebar_Debugger = 
-Comments = 
-Comments_New = 
-Comments_Loading = 
-Comments_Error_Loading = 
-Comments_Popular = 
-Comments_Latest = 
+Sidebar_Debugger = Sidebar Debugger
+Comments = Commenti
+Comments_New = Nuovi Commenti
+Comments_Loading = Caricamento commenti
+Comments_Error_Loading = Errore caricamento
+Comments_Popular = Popolare
+Comments_Latest = Ultimo
 Comments_Wait_Till_Next = 
-Comments_Not_Found = 
-Comments_Like = 
-Comments_DisLike = 
-Comments_Trolling = 
-Comments_Report = 
-Comments_Spam = 
+Comments_Not_Found = Non trovato
+Comments_Like = Mi Piace
+Comments_DisLike = Non mi piace
+Comments_Trolling = Troll
+Comments_Report = Riporta
+Comments_Spam = Spam
 
 # Administrator Localization
 Administrator_Title = <font color = "red"> Area Amministrazione </ font>
@@ -287,7 +287,7 @@ No = No
 
 
 ## Characters Profile Localization
-Profile_Character_Information = 
+Profile_Character_Information = Informazioni
 Profile_Character_Feed = 
 Profile_Character_Simple = 
 Profile_Character_Advanced = 
@@ -356,7 +356,7 @@ Character_Faction =
 Character_Status = 
 Character_Last_Update = 
 
-Character_Stat_Main =
+Character_Stat_Main = Statistiche
 Character_Stat_Strength = Forza
 Character_Stat_Agility = Agilità
 Character_Stat_Intellect  = Intelletto
@@ -383,57 +383,57 @@ Reputation_Rank_Revered = Riverito
 Reputation_Rank_Exalted = Esaltato
 
 ## Community Localization
-Community_LogIn_For_Profile = Logga
-Community_Profiles = 
+Community_LogIn_For_Profile = Consiglio: effettua il login per accedere al profilo più velocemente.
+Community_Profiles = Profili
 Community_Name = Nome
 Community_Guild = Gilda
 Community_Character = Personaggio
 Community_Search = Cerca
-Community_Ratings = 
-Community_PVPRatings = 
-Community_PVPRatings_Desc = 
-Community_RBG = 
-Community_CM = 
-Community_CM_Desc = 
-Community_Realms_Status = 
-Community_Realms_Status_Title = 
-Community_Realms_Status_Desc = 
-Community_Realms_Status_Full_Desc = 
-Community_Realms_State = 
-Community_Realms_Realm_Name = 
-Community_Realms_Type = 
-Community_Realms_Population = 
-Community_Realms_Language = 
-Community_Realms_Queue = 
-Community_Realms_Clear_Filter = 
-Community_Realms_Filter_All = 
-Community_Realms_Filter_Online = 
-Community_Realms_Filter_Offline = 
-Community_Realms_Filter_RP = 
-Community_Realms_Filter_RPPVP = 
-Community_Realms_Filter_PVE = 
-Community_Realms_Filter_PVP = 
-Community_Realms_Filter_Low = 
-Community_Realms_Filter_Medium = 
-Community_Realms_Filter_High = 
-Community_Realms_Filter_Russian = 
-Community_Realms_Filter_English = 
-Community_Realms_Filter_Spanish = 
-Community_Realms_Filter_Development = 
-Community_Realms_Filter_German = 
-Community_Realms_Show_All_Realms = 
-Community_Realms_Filter_Hide = 
-Community_Realms_Filter_Show = 
-Filter = 
+Community_Ratings = Classifiche
+Community_PVPRatings = PVP
+Community_PVPRatings_Desc = Consulta le classifiche delle arene e dei campi di battaglia classificati
+Community_RBG = Campi di Battaglia
+Community_CM = Modalità Sfida
+Community_CM_Desc = Guarda i record per ogni spedizione e reame!
+Community_Realms_Status = Stato del Reame
+Community_Realms_Status_Title = Status dei Reami
+Community_Realms_Status_Desc = Consulta la lista di tutti i reami di gioco e lo stato di ognuno di essi.
+Community_Realms_Status_Full_Desc = In questa pagina troverai la lista di tutti i reami disponibili su World of Warcraft e lo status di ciascuno di essi. Un reame può essere online oppure offline. Tutti i messaggi sulla manutenzione dei reami saranno pubblicati sul sito di assistenza e su Twitter. Ci scusiamo in anticipo se il tuo reame è offline: stai sicuro che stiamo lavorando alacremente per risolvere qualsiasi problema possa essersi verificato e riportarlo online il più velocemente possibile. 
+Community_Realms_State = Stato
+Community_Realms_Realm_Name = Nome Reame
+Community_Realms_Type = Tipo
+Community_Realms_Population = Popolazione
+Community_Realms_Language = Lingua
+Community_Realms_Queue = Attesa
+Community_Realms_Clear_Filter = Pulisci filtro
+Community_Realms_Filter_All = Tutti
+Community_Realms_Filter_Online = Online
+Community_Realms_Filter_Offline = Offline
+Community_Realms_Filter_RP = RP
+Community_Realms_Filter_RPPVP = RPPVP
+Community_Realms_Filter_PVE = PvE
+Community_Realms_Filter_PVP = PvP
+Community_Realms_Filter_Low = Bassa
+Community_Realms_Filter_Medium = Media
+Community_Realms_Filter_High = Alta
+Community_Realms_Filter_Russian = Russo
+Community_Realms_Filter_English = Inglese
+Community_Realms_Filter_Spanish = Spagnolo
+Community_Realms_Filter_Development = Sviluppo
+Community_Realms_Filter_German = Tedesco
+Community_Realms_Show_All_Realms = Tutti i reami
+Community_Realms_Filter_Hide = Nascondi filtro
+Community_Realms_Filter_Show = Mostra Filtro
+Filter = Filtro
 
 ## Guilds Localization
-Guild_Side_Horde = 
-Guild_Side_Alliance = 
-Guild_Population = 
-Guild_News = 
-Guild_Main_Text = 
-Guild_Events = 
-Guild_Roster = 
+Guild_Side_Horde = Orda
+Guild_Side_Alliance = Alleanza
+Guild_Population = Popolazione
+Guild_News = News
+Guild_Main_Text = Testo Principale
+Guild_Events = Eventi
+Guild_Roster = Roster
 
 
 ## Items Localization
