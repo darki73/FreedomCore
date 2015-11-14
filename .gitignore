@@ -78,11 +78,13 @@ crashlytics-build.properties
 /Core/Libraries/FreedomCore/*
 !/Core/Libraries/FreedomCore/*/
 !/Core/Libraries/FreedomCore/*.*
-/Cache/
-/Cache/Compile/
+
+# Cache Related Stuff
+/Cache/securitychecklist.php
+/Cache/Compile/Items/*.fnc
+/Cache/Compile/Zones/*.fnc
 /Cache/Compile/Templates/*.php
-/Cache/Compile/Templates/FreedomCore/*
-!/Cache/Compile/Templates/FreedomCore/index.html
+/Cache/Compile/Templates/FreedomCore/*.php
 /Templates/FreedomCore/images/icons/large/*.*
 /Templates/FreedomCore/images/icons/medium/*.*
 /Templates/FreedomCore/images/icons/small/*.*

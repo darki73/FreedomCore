@@ -29,7 +29,7 @@ if (!defined('FREEDOMCORE_SYSTEM_DIR'))
 
 Class FreedomCore
 {
-	const FREEDOMCORE_VERSION = 'FreedomCore-1.0.1';
+	const FREEDOMCORE_VERSION = 'FreedomCore-2.0.0';
     private $License;
 
     /**
@@ -93,11 +93,12 @@ Class FreedomCore
     private static function InitializeSystem()
     {
         Manager::LoadSystemExtension("Security");
-        Manager::LoadSystemExtension("Image");
         Manager::LoadSystemExtension("Session");
         Manager::LoadSystemExtension("Debugger");
-        Manager::LoadSystemExtension("Database");
         Manager::LoadSystemExtension("Utilities");
+        Manager::LoadSystemExtension("Cache");
+        Manager::LoadSystemExtension("Image");
+        Manager::LoadSystemExtension("Database");
         Manager::LoadSystemExtension("Page");
         Manager::LoadSystemExtension("Text");
         Manager::LoadSystemExtension("File");

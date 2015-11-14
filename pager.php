@@ -925,6 +925,7 @@ switch($_REQUEST['category'])
     break;
 
     case 'item':
+        $ItemsCache = new Cache("Items");
         if(Text::IsNull($_REQUEST['subcategory']))
         {
             $DisplayPageElements = 50;
@@ -1013,9 +1014,27 @@ switch($_REQUEST['category'])
         {
             if(Text::IsNull($_REQUEST['lastcategory']))
             {
-                $Item = Items::GetItemInfo($_REQUEST['subcategory']);
-                $ItemRelation = Items::GetItemRelatedInfo($_REQUEST['subcategory']);
-                if(!$Item)
+                $ItemsCache->prepareCache($_REQUEST['subcategory']);
+                $isFound = false;
+
+                if($ItemsCache->isCacheExists()){
+                    $isFound = true;
+                    $Cache = $ItemsCache->readCache($_REQUEST['subcategory']);
+                    $Item = $Cache['item'];
+                    $ItemRelation = $Cache['relation'];
+                } else {
+                    $Item = Items::GetItemInfo($_REQUEST['subcategory']);
+                    if(!$Item){
+                        $isFound = false;
+                    } else {
+                        $isFound = true;
+                        $ItemRelation = Items::GetItemRelatedInfo($_REQUEST['subcategory']);
+                        $ItemsCache->prepareCache($_REQUEST['subcategory'], ['item' => $Item, 'relation' => $ItemRelation]);
+                        $ItemsCache->saveCache();
+                    }
+                }
+
+                if(!$isFound)
                     echo "Not Found!";
                 else
                 {
