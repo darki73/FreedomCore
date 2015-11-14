@@ -1045,7 +1045,7 @@ switch($_REQUEST['category'])
                             $StorageDir = str_replace('/', DS, getcwd()).DS.'Uploads'.DS.'Core'.DS.'Items'.DS.'Cache'.DS.'ModelViewer'.DS;
                             $ItemName = 'item'.$Item['entry'].'.jpg';
                             if(!File::Exists($StorageDir.$ItemName))
-                                File::Download('//media.blizzard.com/wow/renders/items/item'.$Item['entry'].'.jpg', $StorageDir.$ItemName);
+                                File::Download('http://media.blizzard.com/wow/renders/items/item'.$Item['entry'].'.jpg', $StorageDir.$ItemName);
                         }
                         elseif($Item['class']['class'] == 15 && $Item['subclass']['subclass'] == 5)
                         {
@@ -1056,7 +1056,7 @@ switch($_REQUEST['category'])
                                 {
                                     $ItemName = 'creature'.$Item['spell_data'.$i]['SearchForCreature'].'.jpg';
                                     if(!File::Exists($StorageDir.$ItemName))
-                                        File::Download('//media.blizzard.com/wow/renders/npcs/rotate/creature'.$Item['spell_data'.$i]['SearchForCreature'].'.jpg', $StorageDir.$ItemName);
+                                        File::Download('http://media.blizzard.com/wow/renders/npcs/rotate/creature'.$Item['spell_data'.$i]['SearchForCreature'].'.jpg', $StorageDir.$ItemName);
                                 }
                             }
                         }
@@ -1071,16 +1071,28 @@ switch($_REQUEST['category'])
             {
                 if($_REQUEST['lastcategory'] == 'tooltip')
                 {
-                    $Item = Items::GetItemInfo($_REQUEST['subcategory']);
-                    $Smarty->assign('Item', $Item);
-                    $Smarty->display('blocks/item_tooltip');
-                }
-                elseif($_REQUEST['lastcategory'] == 'test')
-                {
-                    $Item = Items::GetItemInfo($_REQUEST['subcategory']);
-                    $Spell = Spells::SpellInfo(54870);
-                    echo "<pre>";
-                    print_r($Spell);
+                    $CacheName = $_REQUEST['subcategory'].'_tooltip';
+                    $ItemsCache->prepareCache($CacheName);
+                    $isFound = false;
+                    if($ItemsCache->isCacheExists()){
+                        $isFound = true;
+                        $Cache = $ItemsCache->readCache($CacheName);
+                        $Item = $Cache;
+                    } else {
+                        $Item = Items::GetItemInfo($_REQUEST['subcategory']);
+                        if($Item){
+                            $isFound = true;
+                            $ItemsCache->prepareCache($CacheName, $Item);
+                            $ItemsCache->saveCache();
+                        } else
+                            $isFound = false;
+                    }
+                    if($isFound){
+                        $Smarty->assign('Item', $Item);
+                        $Smarty->display('blocks/item_tooltip');
+                    } else {
+                        echo "Not Found!";
+                    }
                 }
                 elseif(strstr($_REQUEST['lastcategory'], '.frag'))
                 {
