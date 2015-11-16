@@ -28,6 +28,22 @@ Class Text
         return false;
     }
 
+    public static function Search($array, $search)
+    {
+
+        $result = array();
+
+        foreach ($array as $key => $value)
+        {
+            foreach ($search as $k => $v)
+                if (!isset($value[$k]) || $value[$k] != $v)
+                    continue 2;
+            $result[] = $key;
+        }
+
+        return $result;
+    }
+
     public static function Like($Array, $Search)
     {
         $Position = array_filter($Array, function ($item) use ($Search) {

@@ -75,9 +75,6 @@ switch($_REQUEST['category'])
                                     Manager::LoadExtension('Soap', $ClassConstructor);
                                     if(!isset($_REQUEST['accountName']))
                                     {
-                                        //Soap::AddItemToList(49623, 1);
-                                        //Soap::SendItem('Ruspowa', 'Armored Bloodwing');
-
                                         $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'servicespage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Claim_Code').' - ')));
                                         $Smarty->display('account/claim_code');
                                     }
@@ -1071,23 +1068,8 @@ switch($_REQUEST['category'])
             {
                 if($_REQUEST['lastcategory'] == 'tooltip')
                 {
-                    $CacheName = $_REQUEST['subcategory'].'_tooltip';
-                    $ItemsCache->prepareCache($CacheName);
-                    $isFound = false;
-                    if($ItemsCache->isCacheExists()){
-                        $isFound = true;
-                        $Cache = $ItemsCache->readCache($CacheName);
-                        $Item = $Cache;
-                    } else {
-                        $Item = Items::GetItemInfo($_REQUEST['subcategory']);
-                        if($Item){
-                            $isFound = true;
-                            $ItemsCache->prepareCache($CacheName, $Item);
-                            $ItemsCache->saveCache();
-                        } else
-                            $isFound = false;
-                    }
-                    if($isFound){
+                    $Item = Items::GetItemInfo($_REQUEST['subcategory']);
+                    if($Item){
                         $Smarty->assign('Item', $Item);
                         $Smarty->display('blocks/item_tooltip');
                     } else {
@@ -1250,6 +1232,10 @@ switch($_REQUEST['category'])
                             $Smarty->assign('ArenaRating', Characters::GetPVPRaiting($CharacterData['guid']));
                             $Smarty->assign('Page', Page::Info('community', array('bodycss' => 'character-pvp', 'pagetitle' => 'PvP - '.$Smarty->GetConfigVars('Menu_Community').' - ')));
                             $Smarty->display('pages/character_pvp');
+                        break;
+
+                        case 'test':
+                            Text::PrettyPrint(Characters::GetGearForCharacter(3));
                         break;
 
                         case 'advanced':

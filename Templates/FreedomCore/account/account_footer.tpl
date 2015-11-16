@@ -100,7 +100,9 @@
 
     <script type="text/javascript">
         //<![CDATA[
-        var csrftoken = "625ea365-1f2f-418d-bdab-6eff64de74bb";
+        {if isset($CSRFToken)}
+        var csrftoken = "{$CSRFToken}";
+        {/if}
         $(function() {
             Locale.dataPath = "/data/i18n.frag";
         });

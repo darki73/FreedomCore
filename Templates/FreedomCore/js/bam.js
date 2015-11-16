@@ -336,7 +336,7 @@ var ChargebackCall = {
     },
 
     getChargeback: function(regionNumber, region) {
-        var postData = { csrftoken: csrftoken, region: region };
+        var postData = { region: region };
 
         $.ajax({
             type: 'POST',
@@ -771,7 +771,7 @@ var accountBalance = {
         this.refreshBalanceElement.hide();
         this.refreshingBalanceElement.show();
 
-        var postData = { csrftoken: csrftoken };
+        var postData = { };
 
         $.ajax({
             type: 'POST',
@@ -843,7 +843,7 @@ var accountBalance = {
         if (selected) {
             accountBalance.accountBalanceCurrency = selected;
         }
-        var postData = { csrftoken: csrftoken, prefix: 'CUR', value: accountBalance.accountBalanceCurrency };
+        var postData = { prefix: 'CUR', value: accountBalance.accountBalanceCurrency };
         $.ajax({
             type: 'POST',
             timeout: 60000,

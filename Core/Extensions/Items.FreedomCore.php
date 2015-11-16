@@ -590,6 +590,54 @@ Class Items
 
         return $Sockets[$SocketColorID];
     }
+    
+    public static function SiteSlotPositionByType($Type, $Return = false)
+    {
+        $Positions = [
+            1 => ['side' => 'left', 'placement' => '1'],
+            2 => ['side' => 'left', 'placement' => '2'],
+            3 => ['side' => 'left', 'placement' => '3'],
+            16 => ['side' => 'left', 'placement' => '4'],
+            5 => ['side' => 'left', 'placement' => '5'],
+            4 => ['side' => 'left', 'placement' => '6'],
+            19 => ['side' => 'left', 'placement' => '7'],
+            9 => ['side' => 'left', 'placement' => '8'],
+
+            10 => ['side' => 'right', 'placement' => '1'],
+            6 => ['side' => 'right', 'placement' => '2'],
+            7 => ['side' => 'right', 'placement' => '3'],
+            8 => ['side' => 'right', 'placement' => '4'],
+            11 => ['side' => 'right', 'placement' => '5'],
+            111 => ['side' => 'right', 'placement' => '6'],
+            12 => ['side' => 'right', 'placement' => '7'],
+            112 => ['side' => 'right', 'placement' => '8'],
+
+            13 => ['side' => '', 'placement' => ''],
+            14 => ['side' => 'bottom', 'placement' => '2'],
+            15 => ['side' => '', 'placement' => ''],
+            17 => ['side' => 'bottom', 'placement' => '1'],
+            20 => ['side' => '', 'placement' => ''],
+            21 => ['side' => 'bottom', 'placement' => '1'],
+            22 => ['side' => 'bottom', 'placement' => '2'],
+            25 => ['side' => 'bottom', 'placement' => '3'],
+            26 => ['side' => 'bottom', 'placement' => '3'],
+            28 => ['side' => 'bottom', 'placement' => '2'],
+            117 => ['side' => 'bottom', 'placement' => '2'],
+        ];
+        if(!$Return)
+            return $Positions[$Type];
+        else
+            return $Positions;
+    }
+
+    public static function IsEquipment($SlotID)
+    {
+        $Equipment = [15, 1, 16, 2, 17, 3, 4, 19, 5, 6, 21, 7, 22, 8, 9, 10, 25, 26, 11, 12, 13, 28, 14, 111, 112, 117];
+        if(in_array($SlotID, $Equipment))
+            return true;
+        else
+            return false;
+    }
 
     public static function InventoryTypeTranslation($TypeID)
     {
@@ -626,6 +674,13 @@ Class Items
         );
 
         return $InventoryType[$TypeID];
+    }
+
+    public static function CalculateWeaponDamage($Weapon, $AP){
+        $MinimumRange = (($Weapon['min'] / $Weapon['speed']) + ($AP / 14)) * $Weapon['speed'];
+        $MaximumRange = (($Weapon['max'] / $Weapon['speed']) + ($AP / 14)) * $Weapon['speed'];
+        $WeaponDPS = (($MinimumRange + $MaximumRange) / 2) / $Weapon['speed'];
+        return ['minimum' => round($MinimumRange, 0), 'maximum' => round($MaximumRange, 0), 'dps' => round($WeaponDPS, 0), 'speed' => $Weapon['speed']];
     }
 
     private static function GetSpellData($SpellID)

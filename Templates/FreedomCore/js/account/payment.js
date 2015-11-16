@@ -800,7 +800,7 @@ var getTax = {
     },
 
     getTaxInfoByWallet: function(walletID) {
-        var postData = { csrftoken: csrftoken, w: walletID };
+        var postData = { w: walletID };
         $.ajax({
             type: 'POST',
             timeout: 60000,
@@ -846,7 +846,6 @@ var getTax = {
     getTaxInfoByAddress: function(country, state, city, postalcode) {
         if (country !== null && country !== 'null') {
             var postData = {
-                csrftoken: csrftoken,
                 co: country,
                 p: state,
                 ci: city,

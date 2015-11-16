@@ -43,7 +43,7 @@
                             {if $i == 1 || $i == 4 || $i == 6}
                                 {if $Glyphs.0.$glyphid != 0}
                                     <li>
-                                        <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span>
+                                        <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span> Glyph of {$Glyphs.0.$glyphid.Name}
                                     </li>
                                 {/if}
                             {/if}
@@ -58,7 +58,7 @@
                             {if $i == 2 || $i == 3 || $i == 5}
                                 {if $Glyphs.0.$glyphid != 0}
                                     <li>
-                                        <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span>
+                                        <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span> Glyph of {$Glyphs.0.$glyphid.Name}
                                     </li>
                                 {/if}
                             {/if}
@@ -81,9 +81,9 @@
                         {for $i = 1; $i < 7; $i++}
                             {assign 'glyphid' 'glyph'|cat:$i}
                             {if $i == 1 || $i == 4 || $i == 6}
-                                {if $Glyphs.0.$glyphid != 0}
+                                {if $Glyphs.1.$glyphid != 0}
                                     <li>
-                                        <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span>
+                                        <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span> Glyph of {$Glyphs.1.$glyphid.Name}
                                     </li>
                                 {/if}
                             {/if}
@@ -97,9 +97,9 @@
                         {for $i = 1; $i < 7; $i++}
                             {assign 'glyphid' 'glyph'|cat:$i}
                             {if $i == 2 || $i == 3 || $i == 5}
-                                {if $Glyphs.0.$glyphid != 0}
+                                {if $Glyphs.1.$glyphid != 0}
                                     <li>
-                                        <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span>
+                                        <span class="icon-frame frame-18 " style="background-image: url(&quot;/Templates/{$Template}/images/icons/small/{$Glyphs.0.$glyphid.icon}.jpg&quot;);" data-spell="{$Glyphs.0.$glyphid.SpellID}"></span> Glyph of {$Glyphs.1.$glyphid.Name}
                                     </li>
                                 {/if}
                             {/if}

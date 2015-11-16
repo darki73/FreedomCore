@@ -57,6 +57,7 @@ Class Session
 
 	public static function GenerateCSRFToken()
 	{
+		Text::PrettyPrint('');
 		$InitialString = "abcdefghijklmnopqrstuvwxyz1234567890";
 		$PartOne = substr(str_shuffle($InitialString),0,8);
 		$PartTwo = substr(str_shuffle($InitialString),0,4);

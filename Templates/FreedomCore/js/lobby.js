@@ -182,7 +182,7 @@ var Lobby = {
     },
 
     getSecurityDetails: function(div) {
-        var postData = { csrftoken: csrftoken };
+        var postData = { };
 
         $.ajax({
             type: 'POST',
@@ -236,7 +236,7 @@ var Lobby = {
     },
 
     getPaymentDetails: function(div) {
-        var postData = { csrftoken: csrftoken };
+        var postData = { };
 
         $.ajax({
             type: 'POST',
@@ -313,7 +313,7 @@ var Lobby = {
             });
         }else{
 
-            var postData = { csrftoken: csrftoken, region: region };
+            var postData = { region: region };
 
             $.ajax({
                 type: 'POST',

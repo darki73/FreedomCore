@@ -15,15 +15,6 @@
             </li>
         </ul>
     </div>
-    {$StrengthValue = $Inventory.StrengthValue + $Character.level_data.str}
-    {$AgilityValue = $Inventory.AgilityValue + $Character.level_data.agi}
-    {$IntellectValue = $Inventory.IntellectValue + $Character.level_data.inte}
-    {$StaminaValue = $Inventory.StaminaValue + $Character.level_data.sta}
-    {$SpiritValue = $Inventory.SpiritValue + $Character.level_data.spi}
-    {$ArmorValue = $Inventory.ArmorValue}
-    {$ParryValue = $Inventory.ParryValue}
-    {$DodgeValue = $Inventory.DodgeValue}
-    {$BlockValue = $Inventory.BlockValue}
     <div class="summary-stats-profs-bgs">
 
         <div class="summary-stats" id="summary-stats">
@@ -34,27 +25,27 @@
                         <ul>
                             <li data-id="strength" class="">
                                 <span class="name">{#Character_Stat_Strength#}</span>
-                                <span class="value">{$StrengthValue}</span>
+                                <span class="value">{$Inventory.StrengthValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="agility" class="">
                                 <span class="name">{#Character_Stat_Agility#}</span>
-                                <span class="value">{$AgilityValue}</span>
+                                <span class="value">{$Inventory.AgilityValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="intellect" class="">
                                 <span class="name">{#Character_Stat_Intellect#}</span>
-                                <span class="value">{$IntellectValue}</span>
+                                <span class="value">{$Inventory.IntellectValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="spirit" class="">
                                 <span class="name">{#Character_Stat_Spirit#}</span>
-                                <span class="value">{$SpiritValue}</span>
+                                <span class="value">{$Inventory.SpiritValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="stamina" class="">
                                 <span class="name">{#Character_Stat_Stamina#}</span>
-                                <span class="value">{$StaminaValue}</span>
+                                <span class="value">{$Inventory.StaminaValue}</span>
                                 {*color-q2 if we want to highlight stats for particular class [WIP]*}
                                 <span class="clear"><!-- --></span>
                             </li>
@@ -66,12 +57,16 @@
                         <h4>Атака</h4>
                         <ul>
                             <li data-id="attackdamage" class="">
-                                <span class="name">Урон</span>
-                                <span class="value">6850–7527</span>
+                                <span class="name">{#Item_Damage#}</span>
+                                <span class="value">
+                                    {if $Inventory.MainHandSpeed != 0}
+                                        {$Inventory.MainHandDamage.minimum} - {$Inventory.MainHandDamage.maximum}
+                                    {/if}
+                                </span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="attackpower" class="">
-                                <span class="name">Сила атаки</span>
+                                <span class="name">AP</span>
                                 <span class="value">{$Inventory.AttackPower}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
@@ -82,22 +77,21 @@
                                 {if $Inventory.OffHandSpeed != 0}
                                     {$HasteRatingOH = ($Inventory.OffHandSpeed/1000) / (($Inventory.HasteValue/$Character.level_data.hastepoints)/100 +1)}
                                 {/if}
-                                {if $Inventory.OffHandSpeed != 0}
+                                {if $Inventory.RangedSpeed != 0}
                                     {$HasteRatingR = ($Inventory.RangedSpeed/1000) / (($Inventory.HasteValue/$Character.level_data.hastepoints)/100 +1)}
                                 {/if}
 
-                                <span class="name">Скорость атаки</span>
+                                <span class="name">{#MSG_Summary_Stats_damage_speed#}</span>
                                 <span class="value">
-                                    {if $Inventory.MainHandSpeed != 0 && $Inventory.RangedSpeed == 0}
+                                    {if $Inventory.MainHandSpeed != 0}
                                         {$HasteRatingMH|string_format:"%.2f"}
                                     {/if}
-                                    {if $Inventory.OffHandSpeed != 0 && $Inventory.RangedSpeed == 0}
-                                        /{$HasteRatingOH|string_format:"%.2f"}
+                                    {if $Inventory.OffHandSpeed != 0}
+                                        / {$HasteRatingOH|string_format:"%.2f"}
                                     {/if}
-                                    {if $Inventory.RangedSpeed !=0}
+                                    {if $Inventory.RangedSpeed !=0 && $Inventory.MainHandSpeed <= 2000}
                                         {$HasteRatingR|string_format:"%.2f"}
                                     {/if}
-
                                 </span>
                                 <span class="clear"><!-- --></span>
                             </li>
@@ -129,22 +123,22 @@
                         <ul>
                             <li data-id="armor" class="">
                                 <span class="name">{#Item_Class_Armor#}</span>
-                                <span class="value">{$ArmorValue}</span>
+                                <span class="value">{$Inventory.ArmorValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="dodge" class="">
                                 <span class="name">{#Character_Stat_Dodge#}</span>
-                                <span class="value">{$DodgeValue}</span>
+                                <span class="value">{$Inventory.DodgeValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="parry" class="">
                                 <span class="name">{#Character_Stat_Parry#}</span>
-                                <span class="value">{$ParryValue}</span>
+                                <span class="value">{$Inventory.ParryValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                             <li data-id="block" class="">
                                 <span class="name">{#Character_Stat_Block#}</span>
-                                <span class="value">{$BlockValue}</span>
+                                <span class="value">{$Inventory.BlockValue}</span>
                                 <span class="clear"><!-- --></span>
                             </li>
                         </ul>
