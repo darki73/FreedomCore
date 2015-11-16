@@ -193,6 +193,56 @@ switch($_REQUEST['category'])
                                                                 }
                                                             }
                                                         break;
+                                                        case 'FIR':
+                                                            if(!isset($_REQUEST['servicecat'])) {
+                                                                $Service = array(
+                                                                    'name' => strtolower($_REQUEST['service']),
+                                                                    'title' => $Smarty->GetConfigVars('Account_Management_Service_' . $_REQUEST['service']),
+                                                                    'description' => $Smarty->GetConfigVars('Account_Management_Service_' . $_REQUEST['service'] . '_Description'),
+                                                                    'service' => $_REQUEST['service'],
+                                                                    'price' => Account::GetServicePrice($_REQUEST['service'])
+                                                                );
+                                                                $Smarty->assign('Service', $Service);
+                                                                $Smarty->assign('Characters', Characters::GetCharacters($User['id']));
+                                                                $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'servicespage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Service_' . $Service['service']) . ' - ')));
+                                                                $Smarty->display('account/fir');
+                                                            } else {
+                                                                Manager::LoadExtension('ItemsRestoration', [$Database, $Smarty]);
+                                                                $Service = array(
+                                                                    'name' => strtolower($_REQUEST['service']),
+                                                                    'title' => $Smarty->GetConfigVars('Account_Management_Service_'.$_REQUEST['service']),
+                                                                    'description' => $Smarty->GetConfigVars('Account_Management_Service_'.$_REQUEST['service'].'_Description'),
+                                                                    'history' => $Smarty->GetConfigVars('Account_Management_Service_'.$_REQUEST['service'].'_History'),
+                                                                    'service' => $_REQUEST['service'],
+                                                                    'price' => Account::GetServicePrice($_REQUEST['service'])
+                                                                );
+                                                                $Smarty->assign('Service', $Service);
+                                                                if($_REQUEST['servicecat'] != 'history')
+                                                                {
+                                                                    $Character = Characters::GetCharacterData($_REQUEST['character']);
+                                                                    $Smarty->assign('Character', $Character);
+                                                                }
+
+                                                                switch($_REQUEST['servicecat'])
+                                                                {
+                                                                    case 'description':
+                                                                        $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'restoration', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Service_'.$Service['service']).' - ')));
+                                                                        $Smarty->display('account/fir_description');
+                                                                    break;
+
+                                                                    case 'select-items':
+                                                                        $Items = ItemsRestoration::GetCharactersDeletedItems($Character['guid']);
+                                                                        $Smarty->assign('DItems', $Items);
+                                                                        $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'restoration', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Service_'.$Service['service']).' - ')));
+                                                                        $Smarty->display('account/fir_select');
+                                                                    break;
+
+                                                                    case 'complete':
+
+                                                                    break;
+                                                                }
+                                                            }
+                                                        break;
 
                                                         default:
                                                             header('Location: /account/management');

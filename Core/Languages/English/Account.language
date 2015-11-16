@@ -245,4 +245,16 @@ Account_Management_Claim_Code_Error_CSRF =
 Account_Management_Claim_Code_Error_GSOFF =
 Account_Management_Claim_Code_Complete =
 
+Account_Management_Service_FIR = Item Restoration
+Account_Management_Service_FIR_Description = Here you can restore sold items
+Account_Management_Service_FIR_WhatCanDo =
+Account_Management_Service_FIR_RestoreMany =
+Account_Management_Service_FIR_RestoreMany_Desc =
+Account_Management_Service_FIR_TDays =
+Account_Management_Service_FIR_TDays_Desc =
+Account_Management_Service_FIR_Instant =
+Account_Management_Service_FIR_Instant_Desc =
+Account_Management_Service_FIR_Begin =
+Account_Management_Service_FIR_Cancel =
+
 Account_Management_ =

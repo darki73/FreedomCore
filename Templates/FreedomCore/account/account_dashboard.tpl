@@ -93,6 +93,13 @@
                                             {#Account_Management_Service_PNC_Description#}
                                         </a>
                                     </li>
+                                    <li class="wow-service fir">
+                                        <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service=FIR" onclick="">
+                                            <span class="icon glow-shadow-3" style='background: url("/Templates/{$Template}/images/dashboard/wow/buttons/item_restoration.png") no-repeat left top; background-size: 31px 31px; background-color: #2d2f2c;'></span>
+                                            <strong>{#Account_Management_Service_FIR#}</strong>
+                                            {#Account_Management_Service_FIR_Description#}
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="content additional-services" id="additional-services">
