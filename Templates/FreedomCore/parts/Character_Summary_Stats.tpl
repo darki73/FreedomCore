@@ -53,7 +53,7 @@
             "dmgRangeMax": {$Inventory.RangedDamage.maximum},
             "dmgRangeDps": {$Inventory.RangedDamage.dps},
             "dmgRangeMin": {$Inventory.RangedDamage.minimum},
-            "dmgRangeSpeed": {$HasteRatingR},
+            "dmgRangeSpeed": {$Inventory.RangedDamage.speed},
             {else}
             "dmgRangeMax": -1,
             "dmgRangeDps": -1,
