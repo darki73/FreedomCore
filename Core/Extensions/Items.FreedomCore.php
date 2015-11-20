@@ -1165,51 +1165,81 @@ Class Spells
             return false;
     }
 
+    private static function replaceBrackets($String)
+    {
+        return str_replace('$$', '$', str_replace('{', '', str_replace('}', '', $String)));
+    }
+
     private static function ParseDescription($SpellData, $DescriptionString)
     {
         $DescriptionString = strtr($DescriptionString, array("\r" => '', "\n" => '<br />'));
+        $DescriptionString = self::replaceBrackets($DescriptionString);
         $Modifiers = array('+', '-', '/', '*', '^');
         $SubSpells = array();
         $ModifierWasFound = false;
+        $DurationChanged = false;
+        $UsedModifier = "";
         foreach($Modifiers as $Modifier)
         {
-            if(strstr($DescriptionString, $Modifier))
+            if(strstr(substr($DescriptionString, strpos($DescriptionString, '$')), $Modifier))
             {
                 $Explode = explode($Modifier, substr($DescriptionString, strpos($DescriptionString, '$')));
                 $SpellID = $Explode[0];
                 $UsedModifier = $Modifier;
-                @$SecondExplode = explode(';', $Explode[1]);
+                if(strstr($Explode[1], ';')){
+                    @$SecondExplode = explode(';', $Explode[1]);
+                    $ExplodedWith = ';';
+                }
+                else{
+                    @$SecondExplode = explode(' ', $Explode[1]);
+                    $ExplodedWith = ' ';
+                }
                 $Duration = $SecondExplode[0];
-                $ExplodedWith = ';';
                 $SubSpells[] = @array(str_replace('.', '', $SecondExplode[1]));
                 $ModifierWasFound = true;
             }
         }
-        if($ModifierWasFound == false)
-        {
-            preg_match_all('!\$\d+\D\d?!', $DescriptionString, $SubSpells);
-            if(empty($SubSpells[0]))
-                preg_match_all('!\$\D\d?!', $DescriptionString, $SubSpells);
-        }
+        preg_match_all('!\$\w+\D\d?!', $DescriptionString, $SubSpells);
+        if(empty($SubSpells[0]))
+            preg_match_all('!\$\D\d?!', $DescriptionString, $SubSpells);
 
         $SubSpells = call_user_func_array('array_merge', $SubSpells);
         $SubSpellsData = Spells::ParseSubSpells($SubSpells);
+        if(isset($Duration)){
+            $OldDuration = "";
+            if(strstr($Duration, '$')){
+                $DurationChanged = true;
+                $OldDuration = $Duration;
+                $Data = self::ParseSubSpells([$Duration])[0];
+                $ParseResult = Spells::ArgumentParser($SpellData, $Data['SpellID'], $Data['Argument'], $Data['ArgumentValue']).' ';
+                $Duration = $ParseResult;
+
+                $Unset = Text::Search($SubSpellsData, ['SpellID' => $Data['SpellID'], 'Argument' => $Data['Argument']])[0];
+                unset($SubSpellsData[$Unset]);
+            }
+        }
+
         foreach($SubSpellsData as $SubSpell)
         {
             if($ModifierWasFound == false)
             {
-                $ParseResult = Spells::ArgumentParser($SpellData, $SubSpell['SpellID'], $SubSpell['Argument'], $SubSpell['ArgumentValue']);
+                $ParseResult = Spells::ArgumentParser($SpellData, $SubSpell['SpellID'], $SubSpell['Argument'], $SubSpell['ArgumentValue']).' ';
                 $Replacement = '$'.$SubSpell['SpellID'].$SubSpell['Argument'].$SubSpell['ArgumentValue'];
                 $DescriptionString = str_replace($Replacement, $ParseResult, $DescriptionString);
             }
             else
             {
                 $ParseResult = Spells::ArgumentParser($SpellData, $SubSpell['SpellID'], $SubSpell['Argument'], $SubSpell['ArgumentValue'], $UsedModifier.$Duration);
-                $Replacement = '$'.$UsedModifier.$Duration.$ExplodedWith.$SecondExplode[1];
+                if($DurationChanged)
+                    if(strstr($SubSpell['SpellID'], '*') || strstr($SubSpell['Argument'], '*') || strstr($SubSpell['ArgumentValue'], '*'))
+                        $Replacement = '$'.$SubSpell['SpellID'].$SubSpell['Argument'].$SubSpell['ArgumentValue'].$OldDuration;
+                    else
+                        $Replacement = '$'.$SubSpell['SpellID'].$SubSpell['Argument'].$SubSpell['ArgumentValue'];
+                else
+                    $Replacement = '$'.$UsedModifier.$Duration.$ExplodedWith.$SecondExplode[1];
                 $DescriptionString = str_replace($Replacement, $ParseResult, $DescriptionString);
             }
         }
-
 
         return $DescriptionString;
     }
@@ -1226,13 +1256,15 @@ Class Spells
     {
         $SpellSplitter = array('r', 'z', 'c', 's', 'o', 't', 'm', 'x', 'q', 'a', 'h', 'f', 'n', 'd', 'i', 'e', 'v', 'u', 'b', 'l', 'g');
         $SubSpellsData = array();
-        foreach($SubSpells as $SubSpell)
+        foreach($SubSpells as $SubSpell){
+            $SubSpell = str_replace('.', '', str_replace(',', '', $SubSpell));
             foreach($SpellSplitter as $SplitBy)
                 if(strstr($SubSpell, $SplitBy))
                 {
                     $Explode = explode($SplitBy, $SubSpell);;
                     $SubSpellsData[] = array('SpellID' => str_replace('$', '', $Explode[0]), 'Argument' => $SplitBy, 'ArgumentValue' => $Explode[1]);
                 }
+        }
         return $SubSpellsData;
     }
 
@@ -1255,6 +1287,16 @@ Class Spells
                     $Equation = abs($SpellData['effect1BasePoints']).$MathEquation;
                     eval("\$BasePoints = $Equation;");
                     $Data = abs(floor($BasePoints)).($SpellData['effect1DieSides'] > 1 ? ' - '.abs((floor($BasePoints)+$SpellData['effect1DieSides'])) : '');
+                }
+            break;
+
+            case 'm':
+                if(is_numeric($Spell))
+                    $SpellData = Spells::GetSpellByID($Spell);
+                if($MathEquation){
+                    $Equation = abs($SpellData['effect1BasePoints']).$MathEquation;
+                    eval("\$BasePoints = $Equation;");
+                    $Data = abs($BasePoints);
                 }
             break;
 
@@ -1282,7 +1324,7 @@ Class Spells
                 if(is_numeric($Spell))
                     $SpellData = Spells::GetSpellRadiusBySpellID($Spell);
 
-                $BasePoints = Spells::GetSpellRadiusByRadiusID($SpellData['effect'.$Value.'radius']);
+                $BasePoints = Spells::GetSpellRadiusByRadiusID($SpellData['effect'.trim($Value).'radius']);
 
                 $Data = abs($BasePoints);
             break;

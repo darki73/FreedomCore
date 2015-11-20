@@ -1323,7 +1323,12 @@ switch($_REQUEST['category'])
             Page::GenerateErrorPage($Smarty, 404);
         else
         {
-            if (!Text::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
+            if (!Text::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'test')
+            {
+                Text::PrettyPrint(Spells::GetSpellByID($_REQUEST['subcategory']));
+                Text::PrettyPrint(Spells::SpellInfo($_REQUEST['subcategory']));
+            }
+            elseif (!Text::IsNull($_REQUEST['lastcategory']) && $_REQUEST['lastcategory'] == 'tooltip')
             {
                 $Smarty->assign('Spell', Spells::SpellInfo($_REQUEST['subcategory']));
                 $Smarty->display('blocks/spell_tooltip');
