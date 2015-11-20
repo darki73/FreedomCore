@@ -8,6 +8,7 @@ Class Items
     public static $TM;
 
     public static $SocketBonuses;
+    public static $GemProperties;
 
     public function __construct($VariablesArray)
     {
@@ -15,6 +16,8 @@ Class Items
         Items::$WConnection = $VariablesArray[0]::$WConnection;
         Items::$CConnection = $VariablesArray[0]::$CConnection;
         Items::$TM = $VariablesArray[1];
+        if(empty($GemProperties))
+            Items::LoadGemProperties();
         //Items::LoadSocketBonus();
     }
 
@@ -113,6 +116,9 @@ Class Items
             if($Result['socketBonus'] != 0)
                 $Result['socketBonusDescription'] = Items::SocketBonus($Result['socketBonus']);
             $Result['itemsetinfo'] = Items::GetItemSetInfo($ItemID);
+            if($Result['GemProperties'] != 0){
+                $Result['gem_bonus'] = Items::getGemBonus($Result['GemProperties']);
+            }
             return $Result;
         }
     }
@@ -748,7 +754,6 @@ Class Items
         return $BondType[$BondID];
     }
 
-
     public static function isItemEnchanted($ItemData)
     {
         $SumValue = 0;
@@ -769,6 +774,115 @@ Class Items
             if($Values[$i] > 0)
                 $Enchantments[] = $Values[$i];
         return $Enchantments;
+    }
+
+    public static function LoadGemProperties()
+    {
+        $File = getcwd().DS.'Core'.DS.'Extensions'.DS.'GemBonuses.json';
+        Items::$GemProperties = json_decode(file_get_contents($File), true);
+    }
+
+    public static function FindSimilarBonusString($BonusString)
+    {
+        $SimilarStringKey = 0;
+        $PossibleKeys = [];
+        foreach(Items::$GemProperties as $Key=>$Bonus){
+            similar_text($BonusString, $Bonus, $Percent);
+            if($Percent > 70){
+                $PossibleKeys[] = $Key;
+            }
+        }
+        if(count($PossibleKeys) == 1)
+            return $PossibleKeys[0];
+        else
+            return $PossibleKeys[0];
+    }
+
+    public static function GetValueVariable($String){
+        if(strstr($String, " and ")){
+            $Explode = explode(" and ", $String);
+            preg_match_all('!\d+!', $String, $Values);
+
+            $FirstString = self::FindSimilarBonusString($Explode[0]);
+            $SecondString = self::FindSimilarBonusString($Explode[1]);
+            $BonusValues = $Values[0];
+
+            $FSBonus = Items::$GemProperties[$FirstString];
+            $SSBonus = Items::$GemProperties[$SecondString];
+
+            if(strstr($SSBonus, $FSBonus))
+                $SSBonus = str_replace($FSBonus.' and ', '', $SSBonus);
+
+            $FSBonus = trim(str_replace('%i%', '', str_replace('+%i', '', $FSBonus)));
+            $SSBonus = trim(str_replace('%i%', '', str_replace('+%i', '', $SSBonus)));
+
+            $FinalArray = [
+                'first' => [
+                    'value'     =>  self::BonusToValue($FSBonus),
+                    'points'    =>  $BonusValues[0]
+                ],
+                'second' => [
+                    'value'     =>  self::BonusToValue($SSBonus),
+                    'points'    =>  $BonusValues[1]
+                ]
+            ];
+            return $FinalArray;
+        } else {
+            $Key = self::FindSimilarBonusString($String);
+            $BonusString = Items::$GemProperties[$Key];
+            $Formatted = trim(str_replace('%i%', '', str_replace('+%i', '', $BonusString)));
+            preg_match_all('!\d+!', $String, $Values);
+            $BonusValues = $Values[0];
+            $Value = self::BonusToValue($Formatted);
+            if($Value == "AllStats"){
+                $FinalArray = [
+                    'first' => [
+                        'value'     =>  self::BonusToValue('Agility'),
+                        'points'    =>  $BonusValues[0]
+                    ],
+                    'second' => [
+                        'value'     =>  self::BonusToValue('Strength'),
+                        'points'    =>  $BonusValues[0]
+                    ],
+                    'third' => [
+                        'value'     =>  self::BonusToValue('Intellect'),
+                        'points'    =>  $BonusValues[0]
+                    ],
+                    'forth' => [
+                        'value'     =>  self::BonusToValue('Stamina'),
+                        'points'    =>  $BonusValues[0]
+                    ],
+                    'fifth' => [
+                        'value'     =>  self::BonusToValue('Spirit'),
+                        'points'    =>  $BonusValues[0]
+                    ]
+                ];
+                return $FinalArray;
+            } else
+                return [['value' => self::BonusToValue($Formatted), 'points' => $BonusValues[0]]];
+
+        }
+    }
+
+    public static function BonusToValue($Text){
+        $Bonuses = [
+            'Strength'                  =>  'StrengthValue',
+            'Agility'                   =>  'AgilityValue',
+            'Stamina'                   =>  'StaminaValue',
+            'Intellect'                 =>  'IntellectValue',
+            'Spirit'                    =>  'SpiritValue',
+
+            'Spell Power'               =>  'SpellPowerValue',
+            'Spell Penetration'         =>  'SpellPenetrationValue',
+
+            'Critical Strike Rating'    =>  'CritValue',
+            'Increased Critical Damage' =>  'CritValue',
+            'Hit Rating'                =>  'HitValue',
+            'All Stats'                 =>  'AllStats',
+            'Armor Penetration Rating'  =>  'ArmorPenetrationValue'
+        ];
+
+        return $Bonuses[$Text];
     }
 
     public static function getEnchantmentData($EnchantmentID)
@@ -801,6 +915,17 @@ Class Items
 
             return $Result;
         }
+    }
+
+    public static function getGemBonus($GemProperty)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT ie.text_loc0 as bonus FROM freedomcore_itemenchantmet ie LEFT JOIN freedomcore_gemproperties gp ON gp.itemenchantmetID = ie.itemenchantmetID WHERE gp.gempropertiesID = :gpid');
+        $Statement->bindParam(':gpid', $GemProperty);
+        $Statement->execute();
+        if(Database::IsEmpty($Statement))
+            return false;
+        else
+            return $Statement->fetch(PDO::FETCH_ASSOC)['bonus'];
     }
 
     public static function getGemData($EnchantmentID)

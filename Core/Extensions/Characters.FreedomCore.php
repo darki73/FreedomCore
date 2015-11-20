@@ -324,8 +324,6 @@ Class Characters
 
                 $EquippedItems[$Position]['enchantments'] = $EnchantmentsData;
             }
-
-            //$EquippedItems[$Position]['enchantments'] = $ItemInstanceData[$EntryID]['enchantments'];
         }
 
         foreach($LeftIndexes as $Index)
@@ -374,6 +372,8 @@ Class Characters
         $CritValue = 0;
         $HasteValue = 0;
         $SpellPowerValue = 0;
+        $ArmorPenetrationValue = 0;
+        $SpellPenetrationValue = 0;
 
         $MainHandSpeed = 0;
         $OffHandSpeed = 0;
@@ -420,6 +420,29 @@ Class Characters
                             $BlockValue = $BlockValue + $Item['data']['stat_value'.$i];
                     }
                 }
+
+                if(isset($Item['data']['enchanted']) && $Item['data']['enchanted']){
+                    for($i = 1; $i <=3; $i++){
+                        if(isset($Item['enchantments']['socket'.$i])){
+                            $SocketData = $Item['enchantments']['socket'.$i];
+
+                            $BonusData = Items::GetValueVariable($SocketData['text_loc0']);
+                            if(count($BonusData) > 1){
+                                foreach($BonusData as $Bonus){
+                                    $Value = $Bonus['value'];
+                                    $Points = $Bonus['points'];
+                                    $$Value = $$Value + $Points;
+                                }
+                            } else {
+                                $Bonus = $BonusData[0];
+                                $Value = $Bonus['value'];
+                                $Points = $Bonus['points'];
+                                $$Value = $$Value + $Points;
+                            }
+                        }
+                    }
+                }
+
                 if($Item['site']['side'] == 'bottom' && $Item['site']['position'] == 1){
                     $MainHandSpeed = $Item['data']['delay'];
                     $MainHandDps = round(($Item['data']['dmg_min1'] + $Item['data']['dmg_max1'])/2/($Item['data']['delay']/1000), 2);
@@ -467,6 +490,9 @@ Class Characters
         $Result['CritValue'] = $CritValue;
         $Result['HasteValue'] = $HasteValue;
         $Result['SpellPowerValue'] = $SpellPowerValue;
+        $Result['ArmorPenetration'] = $ArmorPenetrationValue;
+        $Result['SpellPenetration'] = $SpellPenetrationValue;
+
 
         //Main Hand Stats
         $Result['MainHandSpeed'] = $MainHandSpeed;

@@ -1,0 +1,18 @@
+$Statement = Database::$Connection->prepare('SELECT DISTINCT * FROM freedomcore_gemproperties');
+                            $Statement->execute();
+                            $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
+                            $GemData = [];
+
+                            foreach($Result as $Gem){
+                                $Statement = Database::$Connection->prepare('SELECT * FROM freedomcore_itemenchantmet WHERE itemenchantmetID = :id');
+                                $Statement->bindParam(':id', $Gem['itemenchantmetID']);
+                                $Statement->execute();
+                                $Data = $Statement->fetch(PDO::FETCH_ASSOC);
+
+                                $GemData[] = preg_replace('/[0-9]+/', '%i', $Data['text_loc0']);
+                            }
+                            $GemData = array_unique($GemData);
+                            $GemData = array_values($GemData);
+                            //echo count($GemData);
+                            //Text::PrettyPrint($GemData);
+                            echo json_encode($GemData);

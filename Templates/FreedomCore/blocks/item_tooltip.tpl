@@ -133,6 +133,9 @@
                 </li>
             {/if}
         {/if}
+        {if isset($Item.gem_bonus)}
+            <li>{$Item.gem_bonus}</li>
+        {/if}
         {if $Item.class.class != 15 && $Item.subclass.subclass != 5}
             {if $Item.description != ''}
                 <li class="color-tooltip-yellow">
