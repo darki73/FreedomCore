@@ -1284,10 +1284,6 @@ switch($_REQUEST['category'])
                             $Smarty->display('pages/character_pvp');
                         break;
 
-                        case 'test':
-                            Text::PrettyPrint(Characters::GetGearForCharacter(3));
-                        break;
-
                         case 'advanced':
                             $Smarty->translate('Raids');
                             $Raids = array(

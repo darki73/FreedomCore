@@ -26,10 +26,12 @@
                         </a>
                         <div class="details">
                             <span class="name-shadow">{$Item.data.name}</span>
-                                <span class="name color-q{$Item.data.Quality}">
-                                    <a href="/item/{$Item.data.entry}" data-item="{$Item.data.entry}">{$Item.data.name}</a>
-                                </span>
-                            <span class="level">{$Item.data.ItemLevel}</span>
+                            <span class="name color-q{$Item.data.Quality}">
+                                <a href="/item/{$Item.data.entry}" data-item="{$Item.data.entry}">{$Item.data.name}</a>
+                            </span>
+                            {include file='parts/profile_viewer_item_enchantment_part.tpl'}
+                            <span class="level">{$Item.data.ItemLevel}
+                            {include file='parts/profile_viewer_item_sockets_part.tpl'}
                         </div>
                     </div>
                 {else}

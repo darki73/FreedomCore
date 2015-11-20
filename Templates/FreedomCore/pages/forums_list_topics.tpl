@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li class="last children" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-                    <a href="/forum/{$Forum.forum_id}" rel="np" itemprop="url">
+                    <a href="/forum/{$Forum.forum_id}/" rel="np" itemprop="url">
                         <span class="breadcrumb-text" itemprop="name">{$Forum.forum_name}</span>
                     </a>
                 </li>
@@ -55,15 +55,27 @@
                         </a>
                     </div>
                     {else}
-                    <div class="create-button-wrapper">
-                        <a class="ui-button button1" href="topic">
-                            <span class="button-left">
-                                <span class="button-right">
-                                    {#Forum_Create_Topic#}
-                                </span>
-                            </span>
-                        </a>
-                    </div>
+                        {if $Characters == 0}
+                            <div class="create-button-wrappe">
+                                <a class="ui-button button1 disabled" href="javascript:;" data-tooltip="{#Forum_Non_Characters#}">
+                                    <span class="button-left">
+                                        <span class="button-right">
+                                            {#Forum_Create_Topic#}
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        {else}
+                            <div class="create-button-wrapper">
+                                <a class="ui-button button1" href="topic">
+                                    <span class="button-left">
+                                        <span class="button-right">
+                                            {#Forum_Create_Topic#}
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        {/if}
                     {/if}
                     <div class="paging-wrapper">
 
@@ -87,15 +99,27 @@
                             </a>
                         </div>
                     {else}
-                        <div class="create-button-wrapper">
-                            <a class="ui-button button1" href="topic">
-                            <span class="button-left">
-                                <span class="button-right">
-                                    {#Forum_Create_Topic#}
+                        {if $Characters == 0}
+                            <div class="create-button-wrappe">
+                                <a class="ui-button button1 disabled" href="javascript:;" data-tooltip="{#Forum_Non_Characters#}">
+                                        <span class="button-left">
+                                            <span class="button-right">
+                                                {#Forum_Create_Topic#}
+                                            </span>
+                                        </span>
+                                </a>
+                            </div>
+                        {else}
+                            <div class="create-button-wrapper">
+                                <a class="ui-button button1" href="topic">
+                                <span class="button-left">
+                                    <span class="button-right">
+                                        {#Forum_Create_Topic#}
+                                    </span>
                                 </span>
-                            </span>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        {/if}
                     {/if}
                 </div>
             </div>

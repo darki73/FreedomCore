@@ -582,10 +582,10 @@ Class Items
     public static function SocketDescription($SocketColorID)
     {
         $Sockets = array(
-            '1' => array('subclass' => '6', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Meta'), 'type' => 'META'),
-            '2' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Red'), 'type' => 'RED'),
-            '4' => array('subclass' => '2', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Yellow'), 'type' => 'YELLOW'),
-            '8' => array('subclass' => '1', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Blue'), 'type' => 'BLUE')
+            '1' => array('subclass' => '6', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Meta'), 'type' => 'META', 'css_position' => 1),
+            '2' => array('subclass' => '0', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Red'), 'type' => 'RED', 'css_position' => 2),
+            '4' => array('subclass' => '2', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Yellow'), 'type' => 'YELLOW', 'css_position' => 4),
+            '8' => array('subclass' => '1', 'translation' => Items::$TM->GetConfigVars('Item_SubClass_Blue'), 'type' => 'BLUE', 'css_position' => 8)
         );
 
         return $Sockets[$SocketColorID];
@@ -746,6 +746,78 @@ Class Items
         );
 
         return $BondType[$BondID];
+    }
+
+
+    public static function isItemEnchanted($ItemData)
+    {
+        $SumValue = 0;
+        $Explode = explode(" ", $ItemData);
+        foreach($Explode as $Value)
+            $SumValue = $SumValue + $Value;
+        if($SumValue > 0)
+            return true;
+        else
+            return false;
+    }
+
+    public static function getEnchantments($String)
+    {
+        $Enchantments = [];
+        $Values = explode(' ', $String);
+        for($i = 0; $i < count($Values); $i++)
+            if($Values[$i] > 0)
+                $Enchantments[] = $Values[$i];
+        return $Enchantments;
+    }
+
+    public static function getEnchantmentData($EnchantmentID)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT * FROM freedomcore_itemenchantmet WHERE itemenchantmetID = :id');
+        $Statement->bindParam(':id', $EnchantmentID);
+        $Statement->execute();
+        if(Database::IsEmpty($Statement))
+            return false;
+        else {
+            $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+            $GetSpellData = Spells::GetSpellByMisc($Result['itemenchantmetID']);
+            if($GetSpellData && $GetSpellData['effect1id'] == 53){
+                $Result['enchant_id'] = $GetSpellData['effect1itemtype'];
+                $Result['name'] = $GetSpellData['spellname_loc0'];
+                if($GetSpellData['effect1itemtype'] != 0)
+                    $Result['create_tooltip'] = 1;
+                else
+                    $Result['create_tooltip'] = 0;
+                $Result['is_spell'] = 1;
+                $Result['is_socket'] = 0;
+            } else {
+                $GemData = Items::getGemData($Result['itemenchantmetID']);
+                $Result['enchant_id'] = $GemData['entry'];
+                $Result['name'] = $GemData['name'];
+                $Result['icon'] = $GemData['icon'];
+                $Result['is_spell'] = 0;
+                $Result['is_socket'] = 1;
+            }
+
+            return $Result;
+        }
+    }
+
+    public static function getGemData($EnchantmentID)
+    {
+        global $FCCore;
+        $Statement = Items::$DBConnection->prepare('SELECT gempropertiesID FROM freedomcore_gemproperties WHERE itemenchantmetID = :enchid');
+        $Statement->bindParam(':enchid', $EnchantmentID);
+        $Statement->execute();
+        $GemProperty = $Statement->fetch(PDO::FETCH_ASSOC)['gempropertiesID'];
+
+        $WorldStatement = Items::$WConnection->prepare('SELECT it.entry, it.name, LOWER(fi.iconname) as icon FROM item_template it LEFT JOIN '.$FCCore['Database']['database'].'.freedomcore_icons fi ON it.displayid = fi.id WHERE GemProperties = :enchid');
+        $WorldStatement->bindParam(':enchid', $GemProperty);
+        $WorldStatement->execute();
+        if(Database::IsEmpty($WorldStatement))
+            return false;
+        else
+            return $WorldStatement->fetch(PDO::FETCH_ASSOC);
     }
 
     private static function StatTranslation($StatID)
@@ -1219,7 +1291,7 @@ Class Spells
         return $Data;
     }
 
-    private static function GetSpellByID($SpellID)
+    public static function GetSpellByID($SpellID)
     {
         $Statement = Items::$DBConnection->prepare('SELECT fs.*, LOWER(fsi.iconname) as icon FROM freedomcore_spell fs, freedomcore_spellicons fsi WHERE fs.spellID = :spellid AND fsi.id = fs.spellicon LIMIT 1');
         $Statement->bindParam(':spellid', $SpellID);
@@ -1229,6 +1301,18 @@ Class Spells
             return $Result;
         else
             return false;
+    }
+
+    public static function GetSpellByMisc($MiscValue)
+    {
+        $Statement = Items::$DBConnection->prepare('SELECT fs.*, LOWER(fsi.iconname) as icon FROM freedomcore_spell fs, freedomcore_spellicons fsi WHERE fs.effect1MiscValue = :mvalue AND fsi.id = fs.spellicon LIMIT 1');
+        $Statement->bindParam(':mvalue', $MiscValue);
+        $Statement->execute();
+        $Result = $Statement->fetch(PDO::FETCH_ASSOC);
+        if (Database::IsEmpty($Statement))
+            return false;
+        else
+            return $Result;
     }
 
     private static function GetSpellDurationBySpellID($SpellID)

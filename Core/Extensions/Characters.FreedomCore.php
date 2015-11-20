@@ -209,6 +209,7 @@ Class Characters
         $Statement = Characters::$CharConnection->prepare('
         SELECT
             ii.itemEntry,
+            ii.enchantments,
             ci.slot
         FROM character_inventory ci
         LEFT JOIN item_instance ii ON
@@ -223,6 +224,7 @@ Class Characters
         $Statement->execute();
         $Result = $Statement->fetchAll(PDO::FETCH_ASSOC);
         $Equipment = [];
+        $ItemInstanceData = $Result;
 
         $FingerID = 11;
         $TrinketID = 12;
@@ -255,6 +257,7 @@ Class Characters
                 unset($Result[$Key]);
             }
         }
+
         $Similarities = [];
         foreach($Equipment as $Item){
             $Exploded = explode('=', $Item);
@@ -295,6 +298,34 @@ Class Characters
 
             $EquippedItems[$Position]['site'] = ['side' => $ItemSide, 'position' => $ItemPosition];
             $EquippedItems[$Position]['data'] = Items::GetItemInfo($ItemID);
+            $EntryID = Text::MASearch($ItemInstanceData, 'itemEntry', $ItemID);
+            $Enchantments = $ItemInstanceData[$EntryID]['enchantments'];
+            if(Items::isItemEnchanted($Enchantments))
+                $EquippedItems[$Position]['data']['enchanted'] = 1;
+            else
+                $EquippedItems[$Position]['data']['enchanted'] = 0;
+
+            if($EquippedItems[$Position]['data']['enchanted']){
+                $SocketsCount = 1;
+                $SpellsCount = 1;
+                $EnchantmentsList = Items::getEnchantments($Enchantments);
+                $EnchantmentsData = [];
+                foreach($EnchantmentsList as $EnchantmentID)
+                    if($EnchantmentID != $EquippedItems[$Position]['data']['socketBonus']){
+                        $Data = Items::getEnchantmentData($EnchantmentID);
+                        if($Data['is_socket']){
+                            $EnchantmentsData['socket'.$SocketsCount] = $Data;
+                            $SocketsCount++;
+                        } else {
+                            $EnchantmentsData['spell'.$SpellsCount] = $Data;
+                            $SpellsCount++;
+                        }
+                    }
+
+                $EquippedItems[$Position]['enchantments'] = $EnchantmentsData;
+            }
+
+            //$EquippedItems[$Position]['enchantments'] = $ItemInstanceData[$EntryID]['enchantments'];
         }
 
         foreach($LeftIndexes as $Index)
