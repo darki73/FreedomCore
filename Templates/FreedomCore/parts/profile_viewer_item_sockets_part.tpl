@@ -8,7 +8,7 @@
         {$SocketColor = 'socketColor_'|cat:$i}
         {$Socket = 'socket'|cat:$i}
         {if $Item.data.$SocketColor != 0}
-            {if isset($Item.data.$Socket)}
+            {if isset($Item.enchantments.$Socket)}
                 <span class="icon-socket socket-{$Item.data.$Socket.css_position}">
                         <a href="/item/{$Item.enchantments.$Socket.enchant_id}" data-item="{$Item.enchantments.$Socket.enchant_id}" class="gem">
                             <img src="/Templates/{$Template}/images/icons/small/{$Item.enchantments.$Socket.icon}.jpg" alt="{$Item.enchantments.$Socket.name}" />
