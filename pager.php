@@ -1828,6 +1828,24 @@ switch($_REQUEST['category'])
             $Smarty->assign('SidebarItems', Shop::GetSidebar());
             $Smarty->assign('Page', Page::Info('shop', array('bodycss' => 'browse-template product-family-wow', 'pagetitle' => $Smarty->GetConfigVars('Menu_Shop').' - ')));
             $Smarty->display('shop');
+        } elseif(!Text::IsNull($_REQUEST['subcategory']) && $_REQUEST['subcategory'] == 'payment') {
+            if(Text::IsNull($_REQUEST['lastcategory'])){
+
+            } else {
+                switch($_REQUEST['lastcategory']){
+                    case 'success':
+
+                    break;
+
+                    case 'failed':
+
+                    break;
+
+                    case 'canceled':
+
+                    break;
+                }
+            }
         }
         else
         {

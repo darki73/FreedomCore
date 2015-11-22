@@ -133,3 +133,9 @@ crashlytics-build.properties
 /Tools/DBCExtractor/data/6.x/DBCLocalized/*.txt
 /Tools/DBCExtractor/data/6.x/interface/icons/*.*
 !/Tools/DBCExtractor/data/6.x/interface/icons/*.php
+
+# Dev Files
+test.php
+/Core/Plugins/Paypal.FreedomCore.php
+/Core/Libraries/FreedomCore/Interfaces/PaymentInterface.FreedomCore.php
+/Core/Libraries/FreedomCore/Interfaces/SDBInterface.FreedomCore.php

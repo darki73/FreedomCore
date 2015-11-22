@@ -7,6 +7,8 @@ Class Database
     public static $CConnection;
     public static $WConnection;
 
+    private static $SelectedConnection;
+
 	public function __construct($FCCore)
 	{
         if(isset($FCCore['Database']['host']))
@@ -31,6 +33,38 @@ Class Database
                 die();
             }
 	}
+
+    public static function getSingleRow($Connection, $Query, $Parameters = null){
+        Database::SelectConnection($Connection);
+        $Statement = Database::$SelectedConnection->prepare($Query);
+        if($Parameters != null)
+            foreach($Parameters as $Parameter)
+                $Statement->bindParam($Parameter['id'], $Parameter['value']);
+        $Statement->execute();
+        return $Statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function getMultiRow($Connection, $Query, $Parameters = null){
+        Database::SelectConnection($Connection);
+        $Statement = Database::$SelectedConnection->prepare($Query);
+        if($Parameters != null)
+            foreach($Parameters as $Parameter)
+                $Statement->bindParam($Parameter['id'], $Parameter['value']);
+        $Statement->execute();
+        return $Statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    private static function SelectConnection($Connection)
+    {
+        if($Connection == 'Auth')
+            Database::$SelectedConnection = Database::$AConnection;
+        elseif($Connection == 'Characters')
+            Database::$SelectedConnection = Database::$CConnection;
+        elseif($Connection == 'World')
+            Database::$SelectedConnection = Database::$WConnection;
+        elseif($Connection == 'Site' || $Connection == 'Website')
+            Database::$SelectedConnection = Database::$Connection;
+    }
 
     public static function IsEmpty($Statement)
     {

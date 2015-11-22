@@ -37,7 +37,45 @@ Class Manager extends FreedomCore
 			echo "<strong>Unable to Load Extension: </strong>".$ExtensionName."<br />Check if this Extension actually exists";
 			die();
 		}
-	
+
+	}
+
+	/**
+	 * Load Third Party or Native Plugin
+	 * @param $PluginName
+	 */
+	public static function LoadPlugin($PluginName)
+	{
+		if(file_exists(FREEDOMCORE_PLUGINS_DIR.$PluginName.'.FreedomCore.php'))
+		{
+			require_once(FREEDOMCORE_PLUGINS_DIR.$PluginName.'.FreedomCore.php');
+
+			if(!class_exists($PluginName))
+				die('<strong>Loaded plugin: </strong>'.$PluginName.'<br /><strong>Error: </strong> Class Name does not match Plugin name');
+		}
+		else
+		{
+			echo "<strong>Unable to Load Plugin: </strong>".$PluginName."<br />Check if this Plugin actually exists";
+			die();
+		}
+
+	}
+
+	/**
+	 * Load FreedomCore System Interface
+	 * @param String $InterfaceName is a name of interface to be loaded
+	 * @return Returning status of operation
+	 */
+	public static function LoadSystemInterface($InterfaceName)
+	{
+		if(file_exists(FREEDOMCORE_INTERFACES_DIR.$InterfaceName.'.FreedomCore.php')){
+			require_once(FREEDOMCORE_INTERFACES_DIR.$InterfaceName.'.FreedomCore.php');
+
+			if(!interface_exists($InterfaceName))
+				die('<strong>Loaded Interface: </strong>'.$InterfaceName.'<br /><strong>Error: </strong> Class Name does not match Interface name');
+		} else {
+			die("<strong>Unable to Load Interface: </strong>".$InterfaceName."<br />Check if this Interface actually exists");
+		}
 	}
 
 	public static function Page($PageName, $PageTitle, $Enabled = true)
