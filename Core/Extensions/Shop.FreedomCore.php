@@ -26,7 +26,6 @@ Class Shop
         return $Sidebar;
     }
 
-
     public static function GetAllItemsForAdministrator()
     {
         $Statement = Shop::$DBConnection->prepare('SELECT si.*, p.price FROM shop_items si LEFT JOIN prices p ON si.short_code = p.short_code');
@@ -304,4 +303,6 @@ Class Shop
 
         return $key_string;
     }
+
+
 }

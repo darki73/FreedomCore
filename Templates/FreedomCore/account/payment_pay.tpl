@@ -27,6 +27,10 @@
                                     {#Community_Character#}
                                     <strong>{$Character.name}</strong>
                                 </div>
+                                {if $Service.name == 'pcb'}
+                                    <input type="hidden" name="specialization" id="specialization" value="{$specialization}" />
+                                {/if}
+
                                 {if $Service.name == 'pfc'}
                                     <div class="detail">
                                         {#Account_Management_Old_Faction#}

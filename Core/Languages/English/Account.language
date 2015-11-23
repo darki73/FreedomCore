@@ -257,4 +257,16 @@ Account_Management_Service_FIR_Instant_Desc =
 Account_Management_Service_FIR_Begin =
 Account_Management_Service_FIR_Cancel =
 
+Account_Management_Service_PCB = Character Boost
+Account_Management_Service_PCB_Description = Tired of leveling? Now you can boost your character!
+Account_Management_Service_PCB_MaxLevel = This character is already at maximum level
+Account_Management_Service_PCB_ToS_One = If your character is level 60 or higher and has a professions, their level will be raised to the maximum
+Account_Management_Service_PCB_ToS_Two = All quests and inventory items will be removed
+Account_Management_Service_PCB_ToS_Three = Please be careful when you select a character to boost. Character Boosts are irreversible. Once a boost is complete, Customer Support will not assist with altering anything relating to the boost.
+Account_Management_Service_PCB_ToS_Four = Characters whose professions are leveled up using Character Boost must learn recipes from a profession trainer in-game.
+Account_Management_Service_PCB_NewLevel = New Level
+Account_Management_Service_PCB_SelectSpec = Select Spec
+Account_Management_Service_PCB_ProfBoost = Professions
+Account_Management_Service_PCB_NewIlvl = Item Level
+
 Account_Management_ =

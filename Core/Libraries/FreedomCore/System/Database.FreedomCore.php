@@ -34,6 +34,12 @@ Class Database
             }
 	}
 
+    public static function plainSQL($Connection, $Query){
+        Database::SelectConnection($Connection);
+        $Statement = Database::$SelectedConnection->prepare($Query);
+        $Statement->execute();
+    }
+
     public static function getSingleRow($Connection, $Query, $Parameters = null){
         Database::SelectConnection($Connection);
         $Statement = Database::$SelectedConnection->prepare($Query);

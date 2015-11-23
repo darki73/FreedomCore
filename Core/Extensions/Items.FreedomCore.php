@@ -645,6 +645,38 @@ Class Items
             return false;
     }
 
+    public static function InventoryTypeToCharacterInventory($TypeID){
+        $InventoryTypes = [
+            1   =>  0, // Head
+            2   =>  1, // Neck
+            3   =>  2, // Shoulders
+            4   =>  3, // Body | Shirt
+            5   =>  4, // Chest
+            6   =>  5, // Waist
+            7   =>  6, // Legs
+            8   =>  7, // Feet
+            9   =>  8, // Wrists
+            10  =>  9, // Hands
+            31  => 10, // Finger 1
+            32  => 11, // Finger 2
+            40  => 15, // One Hand | Main Hand
+            41  => 16, // One Hand | Offhand
+            42  => 12, // Trinket 1
+            43  => 13, // Trinket 2
+            14  => 16, // Shield | Offhand
+            16  => 14, // Back
+            17  => 15, // Two Hand | Main Hand
+            20  =>  4, // Robe | Chest
+            21  => 15, // Right Hand | Main Hand
+            26  => 17, // Ranged | Guns
+            23  => 16, // Tome | Offhand
+            25  => 17, // Thrown | Ranged
+            28  => 17, // Relic | Ranged
+        ];
+        if(array_key_exists($TypeID, $InventoryTypes))
+            return $InventoryTypes[$TypeID];
+    }
+
     public static function InventoryTypeTranslation($TypeID)
     {
         $InventoryType = array(
@@ -687,6 +719,34 @@ Class Items
         $MaximumRange = (($Weapon['max'] / $Weapon['speed']) + ($AP / 14)) * $Weapon['speed'];
         $WeaponDPS = (($MinimumRange + $MaximumRange) / 2) / $Weapon['speed'];
         return ['minimum' => round($MinimumRange, 0), 'maximum' => round($MaximumRange, 0), 'dps' => round($WeaponDPS, 0), 'speed' => $Weapon['speed']];
+    }
+
+    public static function getDataForItemInstance($IDs){
+        $Query = "SELECT entry, name, MaxDurability, InventoryType FROM item_template WHERE ENTRY IN (%s)";
+        $ItemsString = "";
+
+        for($i = 0; $i < count($IDs); $i++){
+            if($i == count($IDs) - 1)
+                $ItemsString .= $IDs[$i];
+            else
+                $ItemsString .= $IDs[$i].', ';
+        }
+        $Query = sprintf($Query, $ItemsString);
+
+        return Database::getMultiRow('World', $Query);
+    }
+
+    public static function generateItemInstanceSQL($CharacterGUID, $Items){
+        $SQLArray = [];
+        $ItemsData = self::getDataForItemInstance($Items);
+        foreach($ItemsData as $Item){
+            $ItemEntry = $Item['entry'];
+            $Durability = $Item['MaxDurability'];
+            $SQLArray[] = "INSERT INTO item_instance(guid, itemEntry, owner_guid, creatorGuid, giftCreatorGuid, count, duration, charges, flags, enchantments, randomPropertyId, durability, playedTime, text) VALUES ((SELECT MAX(guid) FROM item_instance ii) +1, '$ItemEntry', '$CharacterGUID', '0', '0', '1', '0', '0 0 0 0 0', '1', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0', '0', '$Durability', '0', '')";
+        }
+        $SQLArray[] = "INSERT INTO item_instance(guid, itemEntry, owner_guid, creatorGuid, giftCreatorGuid, count, duration, charges, flags, enchantments, randomPropertyId, durability, playedTime, text) VALUES ((SELECT MAX(guid) FROM item_instance ii) +1, '6948', '$CharacterGUID', '0', '0', '1', '0', '0 0 0 0 0', '1', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0', '0', '0', '0', '')";
+
+        return $SQLArray;
     }
 
     private static function GetSpellData($SpellID)

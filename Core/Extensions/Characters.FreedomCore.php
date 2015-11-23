@@ -218,6 +218,9 @@ Class Characters
               ci.guid = :guid
             AND
               ii.itemEntry != 6948
+            AND
+              ci.bag = 0
+            AND ci.slot < 19
         ORDER BY ci.slot
         ');
         $Statement->bindParam(':guid', $CharacterGuid);
@@ -540,6 +543,97 @@ Class Characters
         return $Result;
     }
 
+    public static function generateCharacterInventorySQL($CharacterGUID, $Items){
+        $SQLArray = [];
+
+        $RingInArray = false;
+        $TrinketInArray = false;
+        $OneHandInArray = false;
+
+        $ItemsData = Items::getDataForItemInstance($Items);
+        foreach($ItemsData as $ItData){
+            $Item = $ItData['entry'];
+
+            if($ItData['InventoryType'] == 11) {
+                if(!$RingInArray){
+                    $TypeID = $ItData['InventoryType'] + 20;
+                    $RingInArray = true;
+                } else {
+                    $TypeID = $ItData['InventoryType'] + 21;
+                }
+            } elseif($ItData['InventoryType'] == 12) {
+                if(!$TrinketInArray){
+                    $TypeID = $ItData['InventoryType'] + 30;
+                    $TrinketInArray = true;
+                } else {
+                    $TypeID = $ItData['InventoryType'] + 31;
+                }
+            } elseif($ItData['InventoryType'] == 13){
+                if(!$OneHandInArray){
+                    $TypeID = $ItData['InventoryType'] + 27;
+                    $OneHandInArray = true;
+                } else {
+                    $TypeID = $ItData['InventoryType'] + 28;
+                }
+            } else {
+                $TypeID = $ItData['InventoryType'];
+            }
+
+            $ItemSlot = Items::InventoryTypeToCharacterInventory($TypeID);
+
+            $SQLArray[] = "INSERT INTO character_inventory (guid, bag, slot, item) VALUES ('$CharacterGUID', '0', '$ItemSlot', (SELECT guid FROM item_instance WHERE itemEntry = '$Item' AND owner_guid = '$CharacterGUID'))";
+        }
+        $SQLArray[] = "INSERT INTO character_inventory (guid, bag, slot, item) VALUES ('$CharacterGUID', '0', '23', (SELECT guid FROM item_instance WHERE itemEntry = '6948' AND owner_guid = '$CharacterGUID'))";
+        return $SQLArray;
+    }
+
+    public static function generateCharacterSkillsSQL($CharacterGUID, $Professions){
+        $SQLArray = [];
+
+        foreach($Professions as $Skill){
+            $SkillID = $Skill['skill'];
+            $SkillValue = $Skill['new_value'];
+            $SkillMax = $Skill['new_max'];
+
+            $SQLArray[] = "UPDATE character_skills SET value = '$SkillValue', max = '$SkillMax' WHERE guid = '$CharacterGUID' AND skill = '$SkillID'";
+        }
+
+        if(empty(Text::Search($Professions, ['skill' => 762]))){
+            $SQLArray[] = "INSERT INTO character_skills (guid, skill, value, max) VALUES ('$CharacterGUID', '762', '450', '450')";
+        }
+
+        return $SQLArray;
+    }
+
+    public static function generateCharacterSpellsSQL($CharacterGUID, $Spells){
+
+        $NewSpells = [];
+        $SQLArray = [];
+
+        foreach($Spells as $Spell){
+            $Status = Database::getSingleRow('Characters', 'SELECT * FROM character_spell WHERE guid = :guid AND spell = :spell', [['id' => ':guid', 'value' => $CharacterGUID], ['id' => ':spell', 'value' => $Spell]]);
+            if(!$Status)
+                $NewSpells[] = $Spell;
+        }
+
+        foreach($NewSpells as $Spell){
+            $SQLArray[] = "INSERT INTO character_spell (guid, spell, active, disabled) VALUES ('$CharacterGUID', '$Spell', '1', '0')";
+        }
+
+        return $SQLArray;
+    }
+
+    public static function generateCharacterLevelUP($CharacterGUID){
+        $SQLArray = [];
+
+        $SQLArray[] = "UPDATE characters SET level = '80', position_x = '5726.00', position_y = '543.352', position_z = '653.00', map = '571', orientation = '4' WHERE guid = '$CharacterGUID'";
+        $SQLArray[] = "DELETE FROM character_queststatus WHERE guid = '$CharacterGUID'";
+        $SQLArray[] = "DELETE FROM character_inventory WHERE guid = '$CharacterGUID'";
+        $SQLArray[] = "DELETE FROM item_instance WHERE owner_guid = '$CharacterGUID'";
+
+        return $SQLArray;
+    }
+
     public static function PickRandomChar($UserID)
     {
         $Characters = Characters::GetCharacters($UserID);
@@ -702,7 +796,7 @@ Class Characters
         $Result['level_data']['hastepoints'] = Characters::GetHasteRatingByLevel($Result['level']);
         $StatByClass = Characters::StatByClass($Result['class']);
         $Result['power_data'] = $StatByClass;
-        $Result['power_data']['value'] = $Result[$StatByClass['field']];
+        $Result['power_data']['value'] = @$Result[$StatByClass['field']];
         Characters::$CharacterLevel = $Result['level'];
         Characters::$CharacterClass = $Result['class'];
         Characters::$CharacterRace = $Result['race'];
@@ -1121,6 +1215,22 @@ Class Characters
             return $Professions[$ProfessionID];
         else
             return false;
+    }
+
+    public static function getCharactersProfessions($CharacterGUID)
+    {
+        $Professions = [];
+
+        $Data = Database::getMultiRow('Characters', 'SELECT * FROM character_skills WHERE guid = :guid', [['id' => ':guid', 'value' => $CharacterGUID]]);
+        foreach($Data as $Skill){
+            $Profession = self::GetProfessionData($Skill['skill']);
+            if($Profession){
+                $Skill['profession_name'] = $Profession['translation'];
+                $Professions[] = $Skill;
+            }
+        }
+
+        return $Professions;
     }
 
     public static function CheckGuild($GuildName)

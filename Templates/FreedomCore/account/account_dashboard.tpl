@@ -100,6 +100,13 @@
                                             {#Account_Management_Service_FIR_Description#}
                                         </a>
                                     </li>
+                                    <li class="wow-service wow_mag">
+                                        <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service=PCB" onclick="">
+                                            <span class="icon glow-shadow-3"></span>
+                                            <strong>{#Account_Management_Service_PCB#}</strong>
+                                            {#Account_Management_Service_PCB_Description#}
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="content additional-services" id="additional-services">

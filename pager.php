@@ -131,6 +131,7 @@ switch($_REQUEST['category'])
                                                         case 'PCT':
                                                                 echo "Not Yet Implemented!!!";
                                                             break;
+                                                        case 'PCB':
                                                         case 'PFC':
                                                         case 'PRC':
                                                         case 'PCC':
@@ -160,8 +161,10 @@ switch($_REQUEST['category'])
                                                                     'price' => Account::GetServicePrice($_REQUEST['service'])
                                                                 );
                                                                 $Smarty->assign('Service', $Service);
-                                                                if($_REQUEST['servicecat'] != 'history')
-                                                                    $Smarty->assign('Character', Characters::GetCharacterData($_REQUEST['character']));
+                                                                if($_REQUEST['servicecat'] != 'history'){
+                                                                    $CharacterData = Characters::GetCharacterData($_REQUEST['character']);
+                                                                    $Smarty->assign('Character', $CharacterData);
+                                                                }
                                                                 switch($_REQUEST['servicecat'])
                                                                 {
                                                                     case 'history':
@@ -183,6 +186,11 @@ switch($_REQUEST['category'])
                                                                         break;
 
                                                                     case 'confirm':
+                                                                        if($_REQUEST['service'] == 'PCB'){
+                                                                            Manager::LoadExtension('Classes', $ClassConstructor);
+                                                                            $Smarty->assign('BoostItems', Classes::getBoostClassData($CharacterData['class']));
+                                                                            $Smarty->assign('ProfessionsBoost', Classes::getBoostProfessions($CharacterData['guid']));
+                                                                        }
                                                                         $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'servicespage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Service_'.$Service['service']).' - ')));
                                                                         $Smarty->display('account/pcs_confirm');
                                                                         break;
@@ -320,6 +328,8 @@ switch($_REQUEST['category'])
                                     else
                                     {
                                         $AccountID = str_replace('WoW', '', $_REQUEST['accountName']);
+                                        $Account = Account::GetAccountByID($AccountID);
+                                        $Character = Characters::GetCharacterData($_REQUEST['character']);
                                         $Service = array(
                                             'name' => $_REQUEST['service'],
                                             'title' => $Smarty->GetConfigVars('Account_Management_Service_'.strtoupper($_REQUEST['service'])),
@@ -328,12 +338,15 @@ switch($_REQUEST['category'])
                                             'price' => Account::GetServicePrice($_REQUEST['service'])
                                         );
                                         $Smarty->assign('Service', $Service);
-                                        $Smarty->assign('Account', Account::GetAccountByID($AccountID));
-                                        $Smarty->assign('Character', Characters::GetCharacterData($_REQUEST['character']));
+                                        $Smarty->assign('Account', $Account);
+                                        $Smarty->assign('Character', $Character);
                                         switch($_REQUEST['datatype'])
                                         {
 
                                             case 'pay':
+                                                if($_REQUEST['service'] == 'pcb'){
+                                                    $Smarty->assign('specialization', $_REQUEST['specialization']);
+                                                }
                                                 $Smarty->assign('Request', $_REQUEST);
                                                 $Smarty->assign('Page', Page::Info('account_dashboard', array('bodycss' => 'paymentpage', 'pagetitle' => $Smarty->GetConfigVars('Account_Management_Payment_Pay').' - ')));
                                                 $Smarty->display('account/payment_pay');
@@ -357,6 +370,12 @@ switch($_REQUEST['category'])
 
                                                     case 'PRC':
                                                         $PaymentState = 128;
+                                                    break;
+
+                                                    case 'PCB':
+                                                        $PaymentState = 0;
+                                                        Manager::LoadExtension('Classes', $ClassConstructor);
+                                                        Classes::performCharacterBoost($Character);
                                                     break;
                                                 }
                                                 Account::InsertPaymentDetails($User['id'], strtolower($_REQUEST['service']), $_REQUEST['price']);

@@ -1,4 +1,3 @@
-<form method="POST" action="/account/management/payment/pay?accountName=WoW{$Account.id}&character={$Character.name}&service={$Service.name}">
     <div class="service-interior light">
         <fieldset class="ui-controls section-stacked override">
             <button class="ui-button button1" type="submit" tabindex="1">

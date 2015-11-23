@@ -54,11 +54,32 @@
                                             </div>
                                             <div class="character-description">
                                             <span class="character-name caption">
-                                                <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service={$Service.service}&amp;servicecat=tos&amp;character={$Character.name}" class="character-link">
+                                                {if $Character.online}
                                                     {$Character.name} {if $Character.guild_name != ''}- <em>{$Character.guild_name}</em>{/if}
-                                                </a>
+                                                {else}
+                                                    {if $Service.service == 'PCB'}
+                                                        {if $Character.level != 80}
+                                                            <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service={$Service.service}&amp;servicecat=tos&amp;character={$Character.name}" class="character-link">
+                                                                {$Character.name} {if $Character.guild_name != ''}- <em>{$Character.guild_name}</em>{/if}
+                                                            </a>
+                                                    {else}
+                                                        {$Character.name} {if $Character.guild_name != ''}- <em>{$Character.guild_name}</em>{/if}
+                                                        {/if}
+                                                {else}
+                                                    <a href="/account/management/services/character-services?accountName=WoW{$Account.id}&amp;service={$Service.service}&amp;servicecat=tos&amp;character={$Character.name}" class="character-link">
+                                                        {$Character.name} {if $Character.guild_name != ''}- <em>{$Character.guild_name}</em>{/if}
+                                                    </a>
+                                                    {/if}
+                                                {/if}
                                             </span>
-                                            <span class="character-class">
+                                            <span class="character-class" style="width: 400px;">
+                                            {if $Character.online}
+                                                <span style="font-weight: bold; color: red;">{#Account_Management_Service_Error_20034Title#}</span><br />
+                                            {else}
+                                                {if $Character.level == 80}
+                                                    <span style="font-weight: bold; color: red;">{#Account_Management_Service_PCB_MaxLevel#}</span><br />
+                                                {/if}
+                                            {/if}
                                             {$Character.race_name}-{$Character.class_name} {$Character.level} {#LevelShort#}
                                             </span>
                                             </div>

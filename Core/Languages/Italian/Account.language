@@ -257,4 +257,16 @@ Account_Management_Service_FIR_Instant_Desc =
 Account_Management_Service_FIR_Begin =
 Account_Management_Service_FIR_Cancel =
 
+Account_Management_Service_PCB =
+Account_Management_Service_PCB_Description =
+Account_Management_Service_PCB_MaxLevel =
+Account_Management_Service_PCB_ToS_One =
+Account_Management_Service_PCB_ToS_Two =
+Account_Management_Service_PCB_ToS_Three =
+Account_Management_Service_PCB_ToS_Four =
+Account_Management_Service_PCB_NewLevel =
+Account_Management_Service_PCB_SelectSpec =
+Account_Management_Service_PCB_ProfBoost =
+Account_Management_Service_PCB_NewIlvl =
+
 Account_Management_ =
