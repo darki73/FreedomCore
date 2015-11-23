@@ -1,0 +1,1 @@
+INSERT INTO prices (id, type, short_code, price) VALUES ('10', '1', 'pcb', '20');
