@@ -124,7 +124,7 @@ crashlytics-build.properties
 /Tools/DBCExtractor/data/5.4.8/DBCLocalized/*.txt
 /Tools/DBCExtractor/data/5.4.8/interface/icons/*.*
 !/Tools/DBCExtractor/data/5.4.8/interface/icons/*.php
-# 6.x Files
+# 6.x Files (Build 20726)
 /Tools/DBCExtractor/data/6.x/DBC/*.dbc
 /Tools/DBCExtractor/data/6.x/DBC/*.db2
 /Tools/DBCExtractor/data/6.x/DBC/*.txt
@@ -133,6 +133,21 @@ crashlytics-build.properties
 /Tools/DBCExtractor/data/6.x/DBCLocalized/*.txt
 /Tools/DBCExtractor/data/6.x/interface/icons/*.*
 !/Tools/DBCExtractor/data/6.x/interface/icons/*.php
+
+# 6.x Files (OLD)
+/Tools/DBCExtractor/data/6.x (Old)/DBC/*.dbc
+/Tools/DBCExtractor/data/6.x (Old)/DBC/*.db2
+/Tools/DBCExtractor/data/6.x (Old)/DBC/*.txt
+/Tools/DBCExtractor/data/6.x (Old)/DBCLocalized/*.dbc
+/Tools/DBCExtractor/data/6.x (Old)/DBCLocalized/*.db2
+/Tools/DBCExtractor/data/6.x (Old)/DBCLocalized/*.txt
+/Tools/DBCExtractor/data/6.x (Old)/interface/icons/*.*
+!/Tools/DBCExtractor/data/6.x (Old)/interface/icons/*.php
+
+# 6.2.3 Files
+/Tools/DBCExt/Data/6.2.3/DBC/English/*.dbc
+/Tools/DBCExt/Data/6.2.3/DBC/English/*.db2
+/Tools/DBCExt/Data/6.2.3/DBC/English/*.txt
 
 # Dev Files
 test.php
