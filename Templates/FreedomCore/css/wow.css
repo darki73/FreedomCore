@@ -392,7 +392,7 @@ tr:hover .fansite-link,
 .search-bar { position: absolute; right: 5px; top: 75px; z-index: 5;  }
 .search-bar form { float: right; width: 354px; height: 30px; }
 .search-bar div { position: relative; }
-.search-bar .input { width: 304px; padding: 8px 40px 8px 8px; background: #fff; }
+.search-bar .input { width: 352px; padding: 8px 40px 8px 8px; background: #fff; }
 .search-bar .search-field { color: #707070; border-radius: 5px; box-shadow: 0 0 10px #393744; }
 .search-bar .search-field.active,
 .search-bar .search-field:focus { color: #000; font-weight: normal; }
